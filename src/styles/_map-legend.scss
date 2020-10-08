@@ -1,0 +1,107 @@
+div.legend {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+div.legendgrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  align-items: center;
+  justify-items: left;
+  margin-top: 16px;
+}
+
+div.submissions {
+  margin-top: 32px;
+  grid-row-gap: 16px;
+  align-items: start;
+
+  h3 {
+    color: $rent-strike-color;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  p {
+    max-width: 95px;
+    margin: 0;
+  }
+
+  .aemp-logo {
+    font-family: "Harbour W00 Medium", "IBM Plex Mono", monospace;
+    color: $rent-strike-color;
+    font-size: 1.6rem;
+    font-style: normal;
+    text-transform: uppercase;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.legendlabel {
+  text-transform: uppercase;
+}
+
+.legendbox,
+%legendbox {
+  width: 95px;
+  height: 75px;
+  display: inline-block;
+  border-style: solid;
+  border-width: 1px;
+  opacity: 0.7;
+}
+
+.legendbox-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95px;
+
+  .rent-strike-icon {
+    background-image: url("/assets/mapIcons/rent-strike.svg");
+    background-size: 55px 55px;
+    height: 40px;
+    width: 40px;
+  }
+
+  circle {
+    fill: $rent-strike-color;
+    stroke: 1px solid white;
+  }
+
+  .cluster-svg-text {
+    fill: white;
+    font-weight: bold;
+  }
+}
+
+.scale1 {
+  background-color: $policy-color-bg-1;
+  border-color: $policy-color-str-2;
+}
+
+.scale2 {
+  background-color: $policy-color-bg-2;
+  border-color: $policy-color-str-2;
+}
+
+.scale3 {
+  background-color: $policy-color-bg-3;
+  border: 1px solid $policy-color-str-2;
+}
+
+.missingdata {
+  background-color: black;
+  opacity: 1;
+}
+
+.expired {
+  background-image: url("/assets/stripes-icon.png");
+  background-size: cover;
+  height: 102px;
+  border: none;
+}

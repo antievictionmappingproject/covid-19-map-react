@@ -1,0 +1,53 @@
+#search-bar-div {
+  position: absolute;
+  left: 37%;
+  top: 16px;
+  width: 35%;
+  z-index: 600;
+
+  @media (max-width: 900px) {
+    top: unset;
+    left: 10px;
+    right: 10px;
+    bottom: 0;
+    width: unset;
+  }
+}
+
+#search-bar {
+  width: 100%;
+  font-size: 1.2em;
+  display: block;
+  float: left;
+  border: 1px solid $rent-strike-color;
+  padding: 8px 6px;
+  background-clip: padding-box;
+  font-family: "IBM Plex Mono", monospace;
+  color: $link-visited;
+}
+
+.search-bar-no-data {
+  border: $rent-strike-color 4px solid !important;
+}
+
+#search-bar-autocomplete {
+  width: 100%;
+  height: 50%;
+  background-color: white;
+  margin-top: 20px;
+}
+
+#search-box-marker-content {
+  border: 1px solid black;
+  background-color: #fff;
+  font-size: 1.5em;
+  text-align: center;
+  padding: 10px;
+  transform: translate(0, 40px);
+}
+
+#search-bar:focus {
+  color: black;
+  outline: none;
+  border: 2px solid $rent-strike-color;
+}
