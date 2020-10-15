@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./styles/index.scss";
 import App from "./components/App";
 import { Provider } from "react-redux";
 import store from "./reducers";
+import "./styles/index.scss";
+import "leaflet/dist/leaflet.css"; //regular leaflet
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(

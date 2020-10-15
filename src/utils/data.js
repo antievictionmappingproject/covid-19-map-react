@@ -2,16 +2,16 @@
 import "whatwg-fetch";
 import { aempCartoAccount, bingApiKey } from "./config";
 import { mapLayersConfig } from "../map-layers";
-import { dispatch } from "./dispatch";
+// import { dispatch } from "./dispatch";
 
 const cartoSqlApiBaseUri = `https://${aempCartoAccount}.carto.com/api/v2/sql`;
 
 function handleFetchSuccess(name, data) {
-  dispatch.call(name, null, data);
+  // dispatch.call(name, null, data);
 }
 
 function handleFetchFailure(name, error) {
-  dispatch.call(name, null, error);
+  // dispatch.call(name, null, error);
 }
 
 export async function getCartoData(query, format = "geojson") {
@@ -29,15 +29,35 @@ export async function getCartoData(query, format = "geojson") {
 }
 
 export async function getData() {
-  Object.entries(mapLayersConfig).forEach(async ([key, layerConfig]) => {
-    try {
-      const data = await getCartoData(layerConfig.query);
-      handleFetchSuccess("fetch-map-data-resolve", { key, layerConfig, data });
-    } catch (error) {
-      handleFetchFailure("fetch-map-data-reject", error);
-      dispatch.call("hide-loading-indicator");
-    }
-  });
+  return Promise.all(
+    Object.entries(mapLayersConfig).map(([key, layerConfig]) => {
+      return (async function () {
+        try {
+          const data = await getCartoData(layerConfig.query);
+          // handleFetchSuccess("fetch-map-data-resolve", {
+          //   key,
+          //   layerConfig,
+          //   data,
+          // });
+          return data;
+        } catch (error) {
+          // handleFetchFailure("fetch-map-data-reject", error);
+        }
+      })();
+    })
+  );
+
+  // Object.entries(mapLayersConfig).forEach(async ([key, layerConfig]) => {
+  //   try {
+  //     const data = await getCartoData(layerConfig.query);
+  //     handleFetchSuccess("fetch-map-data-resolve", { key, layerConfig, data });
+
+  //     console.log("Inside getData", data);
+  //   } catch (error) {
+  //     handleFetchFailure("fetch-map-data-reject", error);
+
+  //   }
+  // });
 }
 export async function getSearchData(str) {
   let langStr = navigator.language ? `&culture = ${navigator.language}` : "";
@@ -47,7 +67,7 @@ export async function getSearchData(str) {
     );
     return await res.json();
   } catch (e) {
-    dispatch.call("search-fetch-data-reject", this, e);
+    // dispatch.call("search-fetch-data-reject", this, e);
   }
 }
 
@@ -58,6 +78,6 @@ export async function getAutocompleteMapLocation(val) {
     );
     return res.json();
   } catch (e) {
-    dispatch.call("search-fetch-data-reject", this, e);
+    // dispatch.call("search-fetch-data-reject", this, e);
   }
 }
