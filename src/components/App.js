@@ -18,13 +18,13 @@ function App() {
   }, []);
 
   useEffect(() => {
-    getData().then((data) => {
-      console.log("MapData", data);
-    });
+    (async () => {
+      const cartoData = await getData();
+      dispatch({ type: "data:geojson", payload: cartoData });
+    })();
 
     return () => null;
-  }, []);
-
+  }, [dispatch]);
   return i18nLoaded ? <LeafletMap /> : null;
 }
 

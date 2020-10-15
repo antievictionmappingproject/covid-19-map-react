@@ -25,6 +25,8 @@ const data = {
 };
 
 const LeafletMap = (props) => {
+  const geojson = useSelector((state) => state.data.geojson);
+
   const position = [51.505, -0.09];
   // Map component id prop may be an anti-pattern
   return (
@@ -33,7 +35,10 @@ const LeafletMap = (props) => {
         attribution="<a href='https://www.antievictionmap.com/' target='_blank'>Anti-Eviction Mapping Project</a>"
         url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
       />
-      <GeoJSON data={data} />
+
+      {geojson.map((data) => (
+        <GeoJSON data={data} />
+      ))}
     </Map>
   );
 };
