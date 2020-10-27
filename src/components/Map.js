@@ -5,7 +5,8 @@ import {
   TileLayer,
   LayersControl,
   Pane,
-  GeoJSON
+  GeoJSON,
+  ZoomControl
 } from "react-leaflet";
 import { defaultMapConfig } from "../utils/constants";
 
@@ -18,20 +19,25 @@ const LeafletMap = props => {
   ];
   // Map component id prop may be an anti-pattern
   return (
-    <Map center={position} zoom={13} id="map">
+    <Map
+      zoomControl={false}
+      center={position}
+      zoom={13}
+      id="map"
+    >
       <TileLayer
         attribution="<a href='https://www.antievictionmap.com/' target='_blank'>Anti-Eviction Mapping Project</a>"
         url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
       />
-      <LayersControl position="topright">
+      <LayersControl collapsed={false} position="topright">
         {layers.map(layer => {
           return (
             <LayersControl.Overlay
+              key={layer.key}
               name={layer.layerConfig.name}
               checked
             >
               <Pane
-                key={layer.key}
                 style={{
                   zIndex: layer.layerConfig.zIndex + 400
                 }}
@@ -43,12 +49,16 @@ const LeafletMap = props => {
                   onEachFeature={
                     layer.layerConfig.onEachFeature
                   }
+                  pointToLayer={
+                    layer.layerConfig.pointToLayer
+                  }
                 ></GeoJSON>
               </Pane>
             </LayersControl.Overlay>
           );
         })}
       </LayersControl>
+      <ZoomControl position="bottomright" />
     </Map>
   );
 };

@@ -273,9 +273,6 @@ export const mapLayersConfig = {
     query: queries.housingActionsCartoQuery,
     zIndex: 6, // markers have their very own layer pane in Leaflet so don't need a z-index value
     overlayOrder: 4,
-    props(feature) {
-      return { ...feature.properties, popupName: "Boop" };
-    },
     pointToLayer(feature, latlng) {
       return L.marker(latlng, {
         icon: rentStrikeIcon
