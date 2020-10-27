@@ -1,4 +1,8 @@
-import { combineReducers, createStore, applyMiddleware } from "redux";
+import {
+  combineReducers,
+  createStore,
+  applyMiddleware
+} from "redux";
 import logger from "redux-logger";
 
 import ui from "./ui";
@@ -9,7 +13,7 @@ export default createStore(
   combineReducers({
     ui,
     content,
-    data,
+    data
   }),
   applyMiddleware(logger)
 );
