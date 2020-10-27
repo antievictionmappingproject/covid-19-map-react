@@ -1,13 +1,13 @@
 const initialState = {
-  geojson: [],
+  layers: [],
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case "data:geojson":
+    case "data:layers":
       return {
         ...state,
-        geojson: action.payload,
+        layers: action.payload,
       };
 
     default:

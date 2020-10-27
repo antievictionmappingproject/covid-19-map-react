@@ -34,12 +34,11 @@ export async function getData() {
       return (async function () {
         try {
           const data = await getCartoData(layerConfig.query);
-          // handleFetchSuccess("fetch-map-data-resolve", {
-          //   key,
-          //   layerConfig,
-          //   data,
-          // });
-          return data;
+          return ({
+              key,
+              layerConfig,
+              data,
+            });
         } catch (error) {
           // handleFetchFailure("fetch-map-data-reject", error);
         }

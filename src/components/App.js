@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     (async () => {
       const cartoData = await getData();
-      dispatch({ type: "data:geojson", payload: cartoData });
+      dispatch({ type: "data:layers", payload: cartoData });
     })();
 
     return () => null;

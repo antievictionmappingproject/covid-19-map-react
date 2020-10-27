@@ -37,7 +37,7 @@ export const mapLayersConfig = {
     query: queries.citiesCartoQuery,
     zIndex: 1,
     overlayOrder: 0,
-    props(layer) {
+    props(feature) {
       const {
         municipality,
         state,
@@ -47,7 +47,7 @@ export const mapLayersConfig = {
         end_date_court,
         end_date_earliest,
         ...rest
-      } = layer.feature.properties;
+      } = feature.properties;
       return {
         // Build city name with state and country if supplied
         jurisdictionName: `${municipality}${state ? `, ${state}` : ""}${
@@ -83,9 +83,10 @@ export const mapLayersConfig = {
           "--city-level";
       }
       layer.on({
-        mouseover: (e) => highlightFeature(e),
-        mouseout: (e) => highlightFeature(e),
+        // mouseover: (e) => highlightFeature(e),
+        // mouseout: (e) => highlightFeature(e),
       });
+      layer.bindPopup(feature.properties.municipality)
     },
   },
   counties: {
@@ -95,7 +96,7 @@ export const mapLayersConfig = {
     query: queries.countiesCartoQuery,
     zIndex: 2,
     overlayOrder: 1,
-    props(layer) {
+    props(feature) {
       const {
         state,
         county,
@@ -104,7 +105,7 @@ export const mapLayersConfig = {
         end_date_court,
         end_date_earliest,
         ...rest
-      } = layer.feature.properties;
+      } = feature.properties;
       return {
         // Show county with state if state field is set
         jurisdictionName: `${county}${state ? `, ${state}` : ""}`,
@@ -133,9 +134,11 @@ export const mapLayersConfig = {
           policyStrengthLayerClassNames[feature.properties.range];
       }
       layer.on({
-        mouseover: (e) => highlightFeature(e),
-        mouseout: (e) => highlightFeature(e),
+        // mouseover: (e) => highlightFeature(e),
+        // mouseout: (e) => highlightFeature(e),
       });
+      const { county, state } = feature.properties
+      layer.bindPopup(`${county}${state ? `, ${state}` : ""}`)
     },
   },
   states: {
@@ -145,7 +148,7 @@ export const mapLayersConfig = {
     query: queries.statesCartoQuery,
     zIndex: 3,
     overlayOrder: 2,
-    props(layer) {
+    props(feature) {
       const {
         name,
         admin,
@@ -154,7 +157,7 @@ export const mapLayersConfig = {
         end_date_court,
         end_date_earliest,
         ...rest
-      } = layer.feature.properties;
+      } = feature.properties;
       return {
         jurisdictionName: `${name}${admin ? `, ${admin}` : ""}`,
         jurisdictionType: "State/Province",
@@ -182,9 +185,10 @@ export const mapLayersConfig = {
           policyStrengthLayerClassNames[feature.properties.range];
       }
       layer.on({
-        mouseover: (e) => highlightFeature(e),
-        mouseout: (e) => highlightFeature(e),
+        // mouseover: (e) => highlightFeature(e),
+        // mouseout: (e) => highlightFeature(e),
       });
+      layer.bindPopup(feature.properties.name)
     },
   },
   nations: {
@@ -194,8 +198,8 @@ export const mapLayersConfig = {
     query: queries.countriesCartoQuery,
     zIndex: 4,
     overlayOrder: 3,
-    props(layer) {
-      const { name_en, end_date_earliest, ...rest } = layer.feature.properties;
+    props(feature) {
+      const { name_en, end_date_earliest, ...rest } = feature.properties;
       return {
         endDateEarliest: formatDate(end_date_earliest),
         jurisdictionName: name_en,
@@ -220,9 +224,10 @@ export const mapLayersConfig = {
           policyStrengthLayerClassNames[feature.properties.range];
       }
       layer.on({
-        mouseover: (e) => highlightFeature(e),
-        mouseout: (e) => highlightFeature(e),
+        // mouseover: (e) => highlightFeature(e),
+        // mouseout: (e) => highlightFeature(e),
       });
+      layer.bindPopup(feature.properties.name_en)
     },
   },
   rentStrikes: {
@@ -232,14 +237,17 @@ export const mapLayersConfig = {
     query: queries.housingActionsCartoQuery,
     zIndex: 0, // markers have their very own layer pane in Leaflet so don't need a z-index value
     overlayOrder: 4,
-    props(layer) {
-      return layer.feature.properties;
+    props(feature) {
+      return { ...feature.properties, popupName: 'Boop' };
     },
     pointToLayer(feature, latlng) {
       return L.marker(latlng, {
         icon: rentStrikeIcon,
       });
     },
+    onEachFeature(feature, layer) {
+      layer.bindPopup(feature.properties.location)
+    }
   },
 };
 
