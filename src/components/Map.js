@@ -9,6 +9,7 @@ import {
   ZoomControl
 } from "react-leaflet";
 import { defaultMapConfig } from "../utils/constants";
+import MarkerCluster from "react-leaflet-markercluster";
 
 const LeafletMap = props => {
   const layers = useSelector(state => state.data.layers);
@@ -17,12 +18,13 @@ const LeafletMap = props => {
     defaultMapConfig.lat,
     defaultMapConfig.lng
   ];
+
   // Map component id prop may be an anti-pattern
   return (
     <Map
       zoomControl={false}
       center={position}
-      zoom={13}
+      zoom={4}
       id="map"
     >
       <TileLayer
@@ -42,17 +44,35 @@ const LeafletMap = props => {
                   zIndex: layer.layerConfig.zIndex + 400
                 }}
               >
-                <GeoJSON
-                  data={layer.data}
-                  style={layer.layerConfig.style}
-                  zIndexOffset={layer.layerConfig.zIndex}
-                  onEachFeature={
-                    layer.layerConfig.onEachFeature
-                  }
-                  pointToLayer={
-                    layer.layerConfig.pointToLayer
-                  }
-                ></GeoJSON>
+                {layer.layerConfig.name ===
+                "Housing Justice Actions" ? (
+                  // For Housing Justice Action Layer, use clusters
+                  <MarkerCluster>
+                    <GeoJSON
+                      data={layer.data}
+                      style={layer.layerConfig.style}
+                      zIndexOffset={
+                        layer.layerConfig.zIndex
+                      }
+                      pointToLayer={
+                        layer.layerConfig.pointToLayer
+                      }
+                    ></GeoJSON>
+                  </MarkerCluster>
+                ) : (
+                  // For vector layers, don't use clusters
+                  <GeoJSON
+                    data={layer.data}
+                    style={layer.layerConfig.style}
+                    zIndexOffset={layer.layerConfig.zIndex}
+                    onEachFeature={
+                      layer.layerConfig.onEachFeature
+                    }
+                    pointToLayer={
+                      layer.layerConfig.pointToLayer
+                    }
+                  ></GeoJSON>
+                )}
               </Pane>
             </LayersControl.Overlay>
           );
