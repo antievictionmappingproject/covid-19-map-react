@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 
 export default (props) => {
   const showModal = useSelector((state) => state.ui.showModal);
   const dispatch = useDispatch();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   if (!showModal) {
     return null;
   }

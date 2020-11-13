@@ -2,7 +2,6 @@
 import "whatwg-fetch";
 import { aempCartoAccount, bingApiKey } from "./config";
 import { mapLayersConfig } from "../map-layers";
-// import { dispatch } from "./dispatch";
 
 const cartoSqlApiBaseUri = `https://${aempCartoAccount}.carto.com/api/v2/sql`;
 
