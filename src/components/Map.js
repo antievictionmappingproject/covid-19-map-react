@@ -14,7 +14,7 @@ import {
 } from "../utils/constants";
 import MarkerCluster from "react-leaflet-markercluster";
 
-const LeafletMap = (props) => {
+export default (props) => {
   const layers = useSelector((state) => state.data.layers);
   const dispatch = useDispatch();
 
@@ -79,5 +79,3 @@ const LeafletMap = (props) => {
     </Map>
   );
 };
-
-export default LeafletMap;

@@ -6,7 +6,7 @@ import LeafletMap from "./Map";
 import i18n, { i18nInit } from "../utils/i18n";
 import { getData } from "../utils/data";
 
-function App() {
+export default () => {
   const i18nLoaded = useSelector((state) => state.content.i18n);
   // const showModal = useSelector((state) => state.ui.showModal);
   const dispatch = useDispatch();
@@ -38,8 +38,6 @@ function App() {
     </>
   );
 }
-
-export default App;
 
 /* <div className="App">
 <div style={{ position: "absolute", zIndex: 1000 }}>
