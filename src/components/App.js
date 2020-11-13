@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Modal from "./Modal";
 import LoadingIndicator from "./LoadingIndicator";
+import InfoWindow from './InfoWindow';
 import LeafletMap from "./Map";
 import i18n, { i18nInit } from "../utils/i18n";
 import { getData } from "../utils/data";
@@ -22,6 +23,7 @@ export default () => {
     (async () => {
       const cartoData = await getData();
       dispatch({ type: "data:layers", payload: cartoData });
+      dispatch({ type: "ui:loading-indicator:hide" });
     })();
 
     return () => null;
@@ -35,6 +37,7 @@ export default () => {
       <LeafletMap />
       {/* <Modal /> */}
       <LoadingIndicator />
+      <InfoWindow />
     </>
   );
 }

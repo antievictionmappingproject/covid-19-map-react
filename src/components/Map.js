@@ -18,13 +18,6 @@ export default (props) => {
   const layers = useSelector((state) => state.data.layers);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (layers.length === TOTAL_NUMBER_OF_MAP_LAYERS) {
-      console.log("Layers", layers);
-      dispatch({ type: "ui:loading-indicator:hide" });
-    }
-  }, [layers, dispatch]);
-
   const position = [defaultMapConfig.lat, defaultMapConfig.lng];
 
   // Map component id prop may be an anti-pattern
@@ -58,6 +51,11 @@ export default (props) => {
                       style={layer.layerConfig.style}
                       zIndexOffset={layer.layerConfig.zIndex}
                       pointToLayer={layer.layerConfig.pointToLayer}
+                      onEachFeature={(mapLayer, feature) => {
+                        feature.on('click', () => {
+                          dispatch({type: "ui:info-window:show", payload: layer.layerConfig.props(feature.feature)},)
+                        })
+                      }}
                     ></GeoJSON>
                   </MarkerCluster>
                 ) : (
@@ -66,7 +64,12 @@ export default (props) => {
                     data={layer.data}
                     style={layer.layerConfig.style}
                     zIndexOffset={layer.layerConfig.zIndex}
-                    onEachFeature={layer.layerConfig.onEachFeature}
+                    onEachFeature={(mapLayer, feature) => {
+                      feature.on('click', () => {
+                        dispatch({type: "ui:info-window:show", payload: layer.layerConfig.props(feature.feature)},)
+                      })
+                      layer.layerConfig.onEachFeature(mapLayer, feature)
+                    }}
                     pointToLayer={layer.layerConfig.pointToLayer}
                   ></GeoJSON>
                 )}
