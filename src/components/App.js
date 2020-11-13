@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Modal from "./Modal";
 import LoadingIndicator from "./LoadingIndicator";
-import InfoWindow from './InfoWindow';
+import InfoWindow from "./InfoWindow";
 import LeafletMap from "./Map";
-import i18n, { i18nInit } from "../utils/i18n";
+import { i18nInit } from "../utils/i18n";
 import { getData } from "../utils/data";
 
 export default () => {
-  const i18nLoaded = useSelector((state) => state.content.i18n);
+  const i18nLoaded = useSelector(state => state.content.i18n);
   // const showModal = useSelector((state) => state.ui.showModal);
   const dispatch = useDispatch();
 
@@ -35,12 +35,12 @@ export default () => {
   return (
     <>
       <LeafletMap />
-      {/* <Modal /> */}
+      <Modal />
       <LoadingIndicator />
       <InfoWindow />
     </>
   );
-}
+};
 
 /* <div className="App">
 <div style={{ position: "absolute", zIndex: 1000 }}>
