@@ -39,15 +39,14 @@ export default props => {
 
   return (
     <div className="aemp-infowindow">
-      <a
+      <span
         className="aemp-infowindow-close"
-        href="#close"
         onClick={() => {
           dispatch({ type: "ui:info-window:hide" });
         }}
       >
         ×
-      </a>
+      </span>
 
       <div>
         <p className="infowindow-title">
