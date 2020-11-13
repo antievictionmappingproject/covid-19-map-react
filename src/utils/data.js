@@ -18,7 +18,13 @@ export async function getCartoData(query, format = "geojson") {
   const res = await fetch(
     `${cartoSqlApiBaseUri}?q=${window.encodeURIComponent(
       query
-    )}&format=${format}`
+    )}&format=${format}`,
+    {
+      method: "GET",
+      headers: {
+        "Cache-Control": "max-age=36000"
+      }
+    }
   );
 
   if (!res || !res.ok) {
@@ -34,11 +40,11 @@ export async function getData() {
       return (async function () {
         try {
           const data = await getCartoData(layerConfig.query);
-          return ({
-              key,
-              layerConfig,
-              data,
-            });
+          return {
+            key,
+            layerConfig,
+            data
+          };
         } catch (error) {
           // handleFetchFailure("fetch-map-data-reject", error);
         }
