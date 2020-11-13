@@ -31,6 +31,7 @@ export async function getCartoData(query, format = "geojson") {
 export async function getData() {
   return Promise.all(
     Object.entries(mapLayersConfig).map(([key, layerConfig]) => {
+      debugger;
       return (async function () {
         try {
           const data = await getCartoData(layerConfig.query);

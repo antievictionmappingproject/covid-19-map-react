@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      const i18nData = await i18nInit();
+       await i18nInit();
     })();
     return () => null;
   }, []);
