@@ -22,8 +22,8 @@ export async function getCartoData(query, format = "geojson") {
     {
       method: "GET",
       headers: {
-        "Cache-Control": "max-age=36000"
-      }
+        "Cache-Control": "max-age=36000",
+      },
     }
   );
 
@@ -37,14 +37,13 @@ export async function getCartoData(query, format = "geojson") {
 export async function getData() {
   return Promise.all(
     Object.entries(mapLayersConfig).map(([key, layerConfig]) => {
-      debugger;
       return (async function () {
         try {
           const data = await getCartoData(layerConfig.query);
           return {
             key,
             layerConfig,
-            data
+            data,
           };
         } catch (error) {
           // handleFetchFailure("fetch-map-data-reject", error);

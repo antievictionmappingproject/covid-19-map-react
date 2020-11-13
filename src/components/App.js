@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     (async () => {
-       await i18nInit();
+      await i18nInit();
     })();
     return () => null;
   }, []);
@@ -25,7 +25,14 @@ function App() {
 
     return () => null;
   }, [dispatch]);
-  return i18nLoaded ? <LeafletMap /> : null;
+  if (!i18nLoaded) {
+    return null;
+  }
+
+  return (<>
+     <LeafletMap /> 
+     <Modal/>
+  </>)
 }
 
 export default App;
