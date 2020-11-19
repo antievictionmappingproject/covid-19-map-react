@@ -50,9 +50,9 @@ export const mapLayersConfig = {
       } = feature.properties;
       return {
         // Build city name with state and country if supplied
-        jurisdictionName: `${municipality}${
-          state ? `, ${state}` : ""
-        }${country ? `, ${country}` : ""}`,
+        jurisdictionName: `${municipality}${state ? `, ${state}` : ""}${
+          country ? `, ${country}` : ""
+        }`,
         jurisdictionType: "City",
         jurisdictionTypeI18n: "city",
         popupName: municipality,
@@ -65,30 +65,22 @@ export const mapLayersConfig = {
     },
     style(feature) {
       return {
-        color:
-          strokeColorScale[feature.properties.range] ||
-          colorNoData,
-        fillColor:
-          fillColorScale[feature.properties.range] ||
-          colorNoData,
+        color: strokeColorScale[feature.properties.range] || colorNoData,
+        fillColor: fillColorScale[feature.properties.range] || colorNoData,
         fillOpacity: 0.85,
         radius: pointRadius,
         weight: strokeWeightLess
       };
     },
     pointToLayer(feature, latlng) {
-      return L.circleMarker(
-        latlng,
-        mapLayersConfig.cities.style(feature)
-      );
+      return L.circleMarker(latlng, mapLayersConfig.cities.style(feature));
     },
     onEachFeature(feature, layer) {
       // class name is used for applying pattern fills to polygons
       if (feature.properties.has_expired_protections) {
         layer.options.className =
-          policyStrengthLayerClassNames[
-            feature.properties.range
-          ] + "--city-level";
+          policyStrengthLayerClassNames[feature.properties.range] +
+          "--city-level";
       }
       layer.on({
         // mouseover: (e) => highlightFeature(e),
@@ -116,9 +108,7 @@ export const mapLayersConfig = {
       } = feature.properties;
       return {
         // Show county with state if state field is set
-        jurisdictionName: `${county}${
-          state ? `, ${state}` : ""
-        }`,
+        jurisdictionName: `${county}${state ? `, ${state}` : ""}`,
         jurisdictionType: "County",
         jurisdictionTypeI18n: "county",
         popupName: `${county}${state ? `, ${state}` : ""}`,
@@ -131,12 +121,8 @@ export const mapLayersConfig = {
     },
     style(feature) {
       return {
-        color:
-          strokeColorScale[feature.properties.range] ||
-          colorNoData,
-        fillColor:
-          fillColorScale[feature.properties.range] ||
-          colorNoData,
+        color: strokeColorScale[feature.properties.range] || colorNoData,
+        fillColor: fillColorScale[feature.properties.range] || colorNoData,
         fillOpacity: fillOpacity,
         weight: strokeWeightLess
       };
@@ -145,18 +131,14 @@ export const mapLayersConfig = {
       // class name is used for applying pattern fills to polygons
       if (feature.properties.has_expired_protections) {
         layer.options.className =
-          policyStrengthLayerClassNames[
-            feature.properties.range
-          ];
+          policyStrengthLayerClassNames[feature.properties.range];
       }
       layer.on({
         // mouseover: (e) => highlightFeature(e),
         // mouseout: (e) => highlightFeature(e),
       });
       const { county, state } = feature.properties;
-      layer.bindPopup(
-        `${county}${state ? `, ${state}` : ""}`
-      );
+      layer.bindPopup(`${county}${state ? `, ${state}` : ""}`);
     }
   },
   states: {
@@ -177,9 +159,7 @@ export const mapLayersConfig = {
         ...rest
       } = feature.properties;
       return {
-        jurisdictionName: `${name}${
-          admin ? `, ${admin}` : ""
-        }`,
+        jurisdictionName: `${name}${admin ? `, ${admin}` : ""}`,
         jurisdictionType: "State/Province",
         jurisdictionTypeI18n: "state-province",
         popupName: name,
@@ -192,12 +172,8 @@ export const mapLayersConfig = {
     },
     style(feature) {
       return {
-        fillColor:
-          fillColorScale[feature.properties.range] ||
-          colorNoData,
-        color:
-          strokeColorScale[feature.properties.range] ||
-          colorNoData,
+        fillColor: fillColorScale[feature.properties.range] || colorNoData,
+        color: strokeColorScale[feature.properties.range] || colorNoData,
         fillOpacity: fillOpacity,
         weight: strokeWeightMore
       };
@@ -206,9 +182,7 @@ export const mapLayersConfig = {
       // class name is used for applying pattern fills to polygons
       if (feature.properties.has_expired_protections) {
         layer.options.className =
-          policyStrengthLayerClassNames[
-            feature.properties.range
-          ];
+          policyStrengthLayerClassNames[feature.properties.range];
       }
       layer.on({
         // mouseover: (e) => highlightFeature(e),
@@ -225,11 +199,7 @@ export const mapLayersConfig = {
     zIndex: 2,
     overlayOrder: 3,
     props(feature) {
-      const {
-        name_en,
-        end_date_earliest,
-        ...rest
-      } = feature.properties;
+      const { name_en, end_date_earliest, ...rest } = feature.properties;
       return {
         endDateEarliest: formatDate(end_date_earliest),
         jurisdictionName: name_en,
@@ -241,12 +211,8 @@ export const mapLayersConfig = {
     },
     style(feature) {
       return {
-        color:
-          strokeColorScale[feature.properties.range] ||
-          colorNoData,
-        fillColor:
-          fillColorScale[feature.properties.range] ||
-          colorNoData,
+        color: strokeColorScale[feature.properties.range] || colorNoData,
+        fillColor: fillColorScale[feature.properties.range] || colorNoData,
         fillOpacity: fillOpacity,
         weight: strokeWeightLess
       };
@@ -255,9 +221,7 @@ export const mapLayersConfig = {
       // class name is used for applying pattern fills to polygons
       if (feature.properties.has_expired_protections) {
         layer.options.className =
-          policyStrengthLayerClassNames[
-            feature.properties.range
-          ];
+          policyStrengthLayerClassNames[feature.properties.range];
       }
       layer.on({
         // mouseover: (e) => highlightFeature(e),
@@ -278,8 +242,12 @@ export const mapLayersConfig = {
         icon: rentStrikeIcon
       });
     },
-    onEachFeature(feature, layer) {
-      layer.bindPopup(feature.properties.location);
+    props(feature) {
+      return {
+        ...feature.properties,
+        actionStart: feature.properties.start,
+        action: true
+      };
     }
   }
 };
