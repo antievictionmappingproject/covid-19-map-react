@@ -4,7 +4,7 @@ import Modal from "./Modal";
 import LoadingIndicator from "./LoadingIndicator";
 import InfoWindow from "./InfoWindow";
 import LeafletMap from "./Map";
-import Sidebar from "./Sidebar";
+import Titlebox from "./Titlebox";
 import { i18nInit } from "../utils/i18n";
 import { getData } from "../utils/data";
 
@@ -36,7 +36,7 @@ export default () => {
   return (
     <>
       <LeafletMap />
-      <Sidebar />
+      <Titlebox />
       <Modal />
       <LoadingIndicator />
       <InfoWindow />
