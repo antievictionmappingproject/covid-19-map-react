@@ -33,9 +33,6 @@ export default (props) => {
             <LayersControl.Overlay
               key={layer.key}
               name={layer.layerConfig.name}
-              whenReady={() => {
-                dispatch({ type: "ui:loading-indicator:hide" });
-              }}
               checked
             >
               <Pane

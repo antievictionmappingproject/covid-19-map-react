@@ -4,6 +4,7 @@ import Modal from "./Modal";
 import LoadingIndicator from "./LoadingIndicator";
 import InfoWindow from "./InfoWindow";
 import LeafletMap from "./Map";
+import Sidebar from "./Sidebar";
 import { i18nInit } from "../utils/i18n";
 import { getData } from "../utils/data";
 
@@ -35,23 +36,10 @@ export default () => {
   return (
     <>
       <LeafletMap />
+      <Sidebar />
       <Modal />
       <LoadingIndicator />
       <InfoWindow />
     </>
   );
 };
-
-/* <div className="App">
-<div style={{ position: "absolute", zIndex: 1000 }}>
-  <button onClick={(e) => i18n.changeLanguage("en")}>ENGLISH</button>
-  <button onClick={(e) => i18n.changeLanguage("es")}>SPANISH</button>
-  <button onClick={(e) => i18n.changeLanguage("de")}>GERMAN</button>
-  <button onClick={(e) => i18n.changeLanguage("it")}>ITALIAN</button>
-  <button onClick={(e) => i18n.changeLanguage("pt-BR")}>
-    PORTUGUESE
-  </button>
-</div>
-{showModal ? <Modal /> : null}
-</div>
-) */
