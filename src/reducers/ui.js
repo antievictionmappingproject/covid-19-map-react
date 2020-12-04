@@ -1,5 +1,5 @@
 const initialState = {
-  showModal: true,
+  showModal: false,
   showLoadingIndicator: true,
   infoWindowFeatureProps: null,
   language: "en",
