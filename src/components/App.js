@@ -5,11 +5,12 @@ import LoadingIndicator from "./LoadingIndicator";
 import InfoWindow from "./InfoWindow";
 import LeafletMap from "./Map";
 import Titlebox from "./Titlebox";
+import SearchBar from "./SearchBar";
 import { i18nInit } from "../utils/i18n";
 import { getData } from "../utils/data";
 
 export default () => {
-  const i18nLoaded = useSelector(state => state.content.i18n);
+  const i18nLoaded = useSelector((state) => state.content.i18n);
   // const showModal = useSelector((state) => state.ui.showModal);
   const dispatch = useDispatch();
 
@@ -36,6 +37,7 @@ export default () => {
   return (
     <>
       <LeafletMap />
+      <SearchBar />
       <Titlebox />
       <Modal />
       <LoadingIndicator />

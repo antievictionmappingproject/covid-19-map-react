@@ -14,6 +14,30 @@ import {
 } from "../utils/constants";
 import MarkerCluster from "react-leaflet-markercluster";
 
+// fix the z order of the map layers
+// const fixZOrder = (dataLayers) => {
+//     const layers = Array.from(dataLayers.values()).sort(
+//       (a, b) => b.zIndex - a.zIndex
+//     );
+
+//     layers.forEach(({ layerGroup }) => {
+//       if (this.map.hasLayer(layerGroup)) {
+//         layerGroup.bringToFront();
+//       }
+//     });
+//   };
+
+//   // return a new Map with the correct overlay order
+//   const fixOverlayOrder = (dataLayers) => {
+//     const layers = new Map(
+//       [...dataLayers.entries()].sort(
+//         (a, b) => a[1].overlayOrder - b[1].overlayOrder
+//       )
+//     );
+
+//     return layers;
+//   };
+
 export default (props) => {
   const layers = useSelector((state) => state.data.layers);
   const dispatch = useDispatch();
@@ -49,9 +73,12 @@ export default (props) => {
                       zIndexOffset={layer.layerConfig.zIndex}
                       pointToLayer={layer.layerConfig.pointToLayer}
                       onEachFeature={(mapLayer, feature) => {
-                        feature.on('click', () => {
-                          dispatch({type: "ui:info-window:show", payload: layer.layerConfig.props(feature.feature)},)
-                        })
+                        feature.on("click", () => {
+                          dispatch({
+                            type: "ui:info-window:show",
+                            payload: layer.layerConfig.props(feature.feature),
+                          });
+                        });
                       }}
                     ></GeoJSON>
                   </MarkerCluster>
@@ -62,10 +89,13 @@ export default (props) => {
                     style={layer.layerConfig.style}
                     zIndexOffset={layer.layerConfig.zIndex}
                     onEachFeature={(mapLayer, feature) => {
-                      feature.on('click', () => {
-                        dispatch({type: "ui:info-window:show", payload: layer.layerConfig.props(feature.feature)},)
-                      })
-                      layer.layerConfig.onEachFeature(mapLayer, feature)
+                      feature.on("click", () => {
+                        dispatch({
+                          type: "ui:info-window:show",
+                          payload: layer.layerConfig.props(feature.feature),
+                        });
+                      });
+                      layer.layerConfig.onEachFeature(mapLayer, feature);
                     }}
                     pointToLayer={layer.layerConfig.pointToLayer}
                   ></GeoJSON>

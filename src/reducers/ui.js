@@ -3,6 +3,8 @@ const initialState = {
   showLoadingIndicator: true,
   infoWindowFeatureProps: null,
   language: "en",
+  searchTerm: "",
+  searchResults: null,
 };
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -20,6 +22,10 @@ export default (state = initialState, action) => {
       return { ...state, infoWindowFeatureProps: action.payload };
     case "ui:language:set":
       return { ...state, language: action.payload };
+    case "ui:search:term:set":
+      return { ...state, searchTerm: action.payload };
+    case "ui:search:results:set":
+      return { ...state, searchResults: action.payload };
     default:
       return state;
   }

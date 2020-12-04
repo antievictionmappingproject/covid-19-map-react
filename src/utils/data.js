@@ -50,18 +50,6 @@ export async function getData() {
       })();
     })
   );
-
-  // Object.entries(mapLayersConfig).forEach(async ([key, layerConfig]) => {
-  //   try {
-  //     const data = await getCartoData(layerConfig.query);
-  //     handleFetchSuccess("fetch-map-data-resolve", { key, layerConfig, data });
-
-  //     console.log("Inside getData", data);
-  //   } catch (error) {
-  //     handleFetchFailure("fetch-map-data-reject", error);
-
-  //   }
-  // });
 }
 export async function getSearchData(str) {
   let langStr = navigator.language ? `&culture = ${navigator.language}` : "";
