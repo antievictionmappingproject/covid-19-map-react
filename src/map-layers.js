@@ -83,8 +83,8 @@ export const mapLayersConfig = {
           "--city-level";
       }
       layer.on({
-        // mouseover: (e) => highlightFeature(e),
-        // mouseout: (e) => highlightFeature(e),
+        mouseover: (e) => highlightFeature(e),
+        mouseout: (e) => highlightFeature(e),
       });
       layer.bindPopup(feature.properties.municipality);
     }
@@ -134,8 +134,8 @@ export const mapLayersConfig = {
           policyStrengthLayerClassNames[feature.properties.range];
       }
       layer.on({
-        // mouseover: (e) => highlightFeature(e),
-        // mouseout: (e) => highlightFeature(e),
+        mouseover: (e) => highlightFeature(e),
+        mouseout: (e) => highlightFeature(e),
       });
       const { county, state } = feature.properties;
       layer.bindPopup(`${county}${state ? `, ${state}` : ""}`);
@@ -185,8 +185,8 @@ export const mapLayersConfig = {
           policyStrengthLayerClassNames[feature.properties.range];
       }
       layer.on({
-        // mouseover: (e) => highlightFeature(e),
-        // mouseout: (e) => highlightFeature(e),
+        mouseover: (e) => highlightFeature(e),
+        mouseout: (e) => highlightFeature(e),
       });
       layer.bindPopup(feature.properties.name);
     }
@@ -224,8 +224,8 @@ export const mapLayersConfig = {
           policyStrengthLayerClassNames[feature.properties.range];
       }
       layer.on({
-        // mouseover: (e) => highlightFeature(e),
-        // mouseout: (e) => highlightFeature(e),
+        mouseover: (e) => highlightFeature(e),
+        mouseout: (e) => highlightFeature(e),
       });
       layer.bindPopup(feature.properties.name_en);
     }

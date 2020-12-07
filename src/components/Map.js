@@ -26,6 +26,7 @@ export default (props) => {
       />
       <LayersControl collapsed={false} position="topright">
         {layers.map((layer) => {
+          console.log(layer)
           return (
             <LayersControl.Overlay
               key={layer.key}
@@ -33,9 +34,9 @@ export default (props) => {
               checked
             >
               <Pane
-                style={{
-                  zIndex: layer.layerConfig.zIndex + 400,
-                }}
+                // style={{
+                //   zIndex: layer.layerConfig.overlayOrder,
+                // }}
               >
                 {layer.layerConfig.name === "Housing Justice Actions" ? (
                   // For Housing Justice Action Layer, use clusters
@@ -43,7 +44,7 @@ export default (props) => {
                     <GeoJSON
                       data={layer.data}
                       style={layer.layerConfig.style}
-                      zIndexOffset={layer.layerConfig.zIndex}
+                      // zIndexOffset={layer.layerConfig.zIndex}
                       pointToLayer={layer.layerConfig.pointToLayer}
                       onEachFeature={(mapLayer, feature) => {
                         feature.on("click", () => {
@@ -60,7 +61,7 @@ export default (props) => {
                   <GeoJSON
                     data={layer.data}
                     style={layer.layerConfig.style}
-                    zIndexOffset={layer.layerConfig.zIndex}
+                    zIndexOffset={layer.layerConfig.overlayOrder}
                     onEachFeature={(mapLayer, feature) => {
                       feature.on("click", () => {
                         dispatch({
