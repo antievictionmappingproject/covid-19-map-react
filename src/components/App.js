@@ -10,8 +10,7 @@ import { i18nInit } from "../utils/i18n";
 import { getData } from "../utils/data";
 
 export default () => {
-  const i18nLoaded = useSelector((state) => state.content.i18n);
-  // const showModal = useSelector((state) => state.ui.showModal);
+  const i18nLoaded = useSelector(state => state.content.i18n);
   const dispatch = useDispatch();
 
   useEffect(() => {
