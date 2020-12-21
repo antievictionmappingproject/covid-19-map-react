@@ -14,8 +14,9 @@ export default props => {
       <div
         className={`summary${expanded ? "" : " collapsed"}`}
         onClick={() => setExpanded(!expanded)}
-        dangerouslySetInnerHTML={{ __html: t("titlebox.about-map") }}
-      ></div>
+      >
+        {t("titlebox.about-map")}
+      </div>
       {expanded && (
         <div className="details">
           <h1 id="aemp-title">{t("titlebox.title")}</h1>

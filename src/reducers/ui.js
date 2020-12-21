@@ -1,10 +1,10 @@
 const initialState = {
-  showModal: false,
+  showModal: true,
   showLoadingIndicator: true,
   infoWindowFeatureProps: null,
   language: "en",
   searchTerm: "",
-  searchResults: null,
+  searchResults: null
 };
 export default (state = initialState, action) => {
   switch (action.type) {
