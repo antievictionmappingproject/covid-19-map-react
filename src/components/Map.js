@@ -10,10 +10,12 @@ import {
 } from "react-leaflet";
 import { defaultMapConfig } from "../utils/constants";
 import MarkerClusterGroup from "react-leaflet-markercluster";
+import { useTranslation } from "react-i18next";
 
 function LeafletMap(props) {
   const layers = useSelector(state => state.data.layers);
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   if (!layers || !layers.length) return <></>;
 
@@ -24,7 +26,7 @@ function LeafletMap(props) {
           return (
             <LayersControl.Overlay
               key={layer.key}
-              name={layer.layerConfig.name}
+              name={t(layer.layerConfig.nameI18n)}
               checked
             >
               {layer.layerConfig.name === "Housing Justice Actions" ? (
