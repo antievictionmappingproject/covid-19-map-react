@@ -84,7 +84,13 @@ export default props => {
   const position = [defaultMapConfig.lat, defaultMapConfig.lng];
   // Map component id prop may be an anti-pattern
   return (
-    <MapContainer zoomControl={false} center={position} zoom={4} id="map">
+    <MapContainer
+      zoomControl={false}
+      center={position}
+      minZoom={3}
+      zoom={4}
+      id="map"
+    >
       <TileLayer
         attribution="<a href='https://www.antievictionmap.com/' target='_blank'>Anti-Eviction Mapping Project</a>"
         url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
