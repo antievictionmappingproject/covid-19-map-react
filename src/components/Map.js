@@ -37,11 +37,11 @@ function LeafletMap(props) {
                       data={layer.data}
                       style={layer.layerConfig.style}
                       pointToLayer={layer.layerConfig.pointToLayer}
-                      onEachFeature={(mapLayer, feature) => {
-                        feature.on("click", () => {
+                      onEachFeature={(feature, mapLayer) => {
+                        mapLayer.on("click", () => {
                           dispatch({
                             type: "ui:info-window:show",
-                            payload: layer.layerConfig.props(feature.feature)
+                            payload: layer.layerConfig.props(mapLayer.feature)
                           });
                         });
                       }}
