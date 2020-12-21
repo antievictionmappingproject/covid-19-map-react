@@ -6,25 +6,21 @@ import {
   LayersControl,
   Pane,
   GeoJSON,
-  ZoomControl,
-  useMap,
+  ZoomControl
 } from "react-leaflet";
 import { defaultMapConfig } from "../utils/constants";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 
 function LeafletMap(props) {
-  const leafletMap = useMap(); // we can use this to get access to the map object
-  const layers = useSelector((state) => state.data.layers);
+  const layers = useSelector(state => state.data.layers);
   const dispatch = useDispatch();
+
+  if (!layers || !layers.length) return <></>;
 
   return (
     <>
-      <TileLayer
-        attribution="<a href='https://www.antievictionmap.com/' target='_blank'>Anti-Eviction Mapping Project</a>"
-        url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
-      />
       <LayersControl collapsed={false} position="topright">
-        {layers.map((layer) => {
+        {layers.map(layer => {
           return (
             <LayersControl.Overlay
               key={layer.key}
@@ -32,7 +28,10 @@ function LeafletMap(props) {
               checked
             >
               {layer.layerConfig.name === "Housing Justice Actions" ? (
-                <Pane style={{ zIndex: 500 + layer.layerConfig.zIndex }}>
+                <Pane
+                  name={layer.key}
+                  style={{ zIndex: 500 + layer.layerConfig.zIndex }}
+                >
                   <MarkerClusterGroup>
                     <GeoJSON
                       data={layer.data}
@@ -42,7 +41,7 @@ function LeafletMap(props) {
                         feature.on("click", () => {
                           dispatch({
                             type: "ui:info-window:show",
-                            payload: layer.layerConfig.props(feature.feature),
+                            payload: layer.layerConfig.props(feature.feature)
                           });
                         });
                       }}
@@ -50,7 +49,10 @@ function LeafletMap(props) {
                   </MarkerClusterGroup>
                 </Pane>
               ) : (
-                <Pane>
+                <Pane
+                  name={layer.key}
+                  style={{ zIndex: 500 + layer.layerConfig.zIndex }}
+                >
                   <GeoJSON
                     data={layer.data}
                     style={layer.layerConfig.style}
@@ -58,7 +60,7 @@ function LeafletMap(props) {
                       mapLayer.on("click", () => {
                         dispatch({
                           type: "ui:info-window:show",
-                          payload: layer.layerConfig.props(mapLayer.feature),
+                          payload: layer.layerConfig.props(mapLayer.feature)
                         });
                       });
                       layer.layerConfig.onEachFeature(feature, mapLayer);
@@ -76,25 +78,16 @@ function LeafletMap(props) {
   );
 }
 
-export default (props) => {
+export default props => {
   const position = [defaultMapConfig.lat, defaultMapConfig.lng];
   // Map component id prop may be an anti-pattern
   return (
     <MapContainer zoomControl={false} center={position} zoom={4} id="map">
+      <TileLayer
+        attribution="<a href='https://www.antievictionmap.com/' target='_blank'>Anti-Eviction Mapping Project</a>"
+        url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
+      />
       <LeafletMap />
     </MapContainer>
   );
 };
-
-// fix the z order of the map layers
-
-//   // return a new Map with the correct overlay order
-//   const fixOverlayOrder = (dataLayers) => {
-//     const layers = new Map(
-//       [...dataLayers.entries()].sort(
-//         (a, b) => a[1].overlayOrder - b[1].overlayOrder
-//       )
-//     );
-
-//     return layers;
-//   };
