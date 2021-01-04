@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
@@ -6,9 +6,22 @@ export default props => {
   const showModal = useSelector(state => state.ui.showModal);
   const dispatch = useDispatch();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    const closeModalOnKeydown = e => {
+      const { keyCode } = e;
+      // If "escape" key pressed
+      if (keyCode === 27 && showModal) dispatch({ type: 'ui:modal:hide' });
+    };
+
+    window.addEventListener('keydown', closeModalOnKeydown);
+    return () => window.removeEventListener('keydown', closeModalOnKeydown);
+  }, [dispatch, showModal]);
+
   if (!showModal) {
     return null;
   }
+
   return (
     <div id="modal-container">
       <div className="modal">
