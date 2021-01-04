@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
-import { isMobile } from "../utils/constants";
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { isMobile } from '../utils/constants';
 
 export default props => {
   const [expanded, setExpanded] = useState(!isMobile());
@@ -9,37 +9,37 @@ export default props => {
   return (
     <header
       id="aemp-titlebox"
-      className={expanded ? "" : "collapsed aemp-titlebox-closed"}
+      className={expanded ? '' : 'collapsed aemp-titlebox-closed'}
     >
       <div
-        className={`summary${expanded ? "" : " collapsed"}`}
+        className={`summary${expanded ? '' : ' collapsed'}`}
         onClick={() => setExpanded(!expanded)}
       >
-        {t("titlebox.about-map")}
+        {t('titlebox.about-map')}
       </div>
       {expanded && (
         <div className="details">
-          <h1 id="aemp-title">{t("titlebox.title")}</h1>
+          <h1 id="aemp-title">{t('titlebox.title')}</h1>
           <div className="title-content-wrapper">
-            <h2>{t("titlebox.about-protections")}</h2>
-            <p>{t("titlebox.about-description")}</p>
+            <h2>{t('titlebox.about-protections')}</h2>
+            <p>{t('titlebox.about-description')}</p>
 
             <div className="legendgrid">
               {/* <!-- Few protections --> */}
               <div className="legendbox scale3"></div>
-              <p className="legendlabel">{t("policy-strength.3")}</p>
+              <p className="legendlabel">{t('policy-strength.3')}</p>
               {/* <!-- Some protections --> */}
               <div className="legendbox scale2"></div>
-              <p className="legendlabel">{t("policy-strength.2")}</p>
+              <p className="legendlabel">{t('policy-strength.2')}</p>
               {/* <!-- Most protections --> */}
               <div className="legendbox scale1"></div>
-              <p className="legendlabel">{t("policy-strength.1")}</p>
+              <p className="legendlabel">{t('policy-strength.1')}</p>
               {/* <!-- Missing Data --> */}
               <div className="legendbox missingdata"></div>
-              <p className="legendlabel">{t("policy-strength.missingData")}</p>
+              <p className="legendlabel">{t('policy-strength.missingData')}</p>
               {/* <!-- Expired --> */}
               <div className="legendbox expired"></div>
-              <p className="legendlabel">{t("policy-strength.expired")}</p>
+              <p className="legendlabel">{t('policy-strength.expired')}</p>
               {/* <!-- Icons --> */}
               <div className="legendbox-icons">
                 <div className="rent-strike-icon"></div>
@@ -51,16 +51,16 @@ export default props => {
                 </svg>
               </div>
               <p className="legendlabel">
-                {t("layer-select.housingJusticeAction")}
+                {t('layer-select.housingJusticeAction')}
               </p>
             </div>
 
             <div className="legendgrid submissions">
               {/* <!-- Submit Header --> */}
-              <h3>{t("titlebox.submit")}</h3>
+              <h3>{t('titlebox.submit')}</h3>
 
               {/* <!-- Resources Header --> */}
-              <h3>{t("titlebox.resources.title")}</h3>
+              <h3>{t('titlebox.resources.title')}</h3>
 
               {/* <!-- Submission --> */}
               <p>
@@ -68,14 +68,14 @@ export default props => {
                   href="https://airtable.com/shrMi8xtGqFIXtFyy"
                   target="_blank"
                 >
-                  {t("titlebox.legislation-form-intl")}
+                  {t('titlebox.legislation-form-intl')}
                 </a>
               </p>
 
               {/* <!-- Resource --> */}
               <p>
                 <a href="https://cancelrent.us/" target="_blank">
-                  {t("titlebox.resources.right-to-the-city")}
+                  {t('titlebox.resources.right-to-the-city')}
                 </a>
               </p>
 
@@ -85,14 +85,14 @@ export default props => {
                   href="https://airtable.com/shrI5HxbTqEFbk89Y"
                   target="_blank"
                 >
-                  {t("titlebox.housing-action-form")}
+                  {t('titlebox.housing-action-form')}
                 </a>
               </p>
 
               {/* <!-- Resource --> */}
               <p>
                 <a href="https://housingnotprofit.org/" target="_blank">
-                  {t("titlebox.resources.hashtag-cancel-rent")}
+                  {t('titlebox.resources.hashtag-cancel-rent')}
                 </a>
               </p>
 
@@ -101,7 +101,7 @@ export default props => {
 
               {/* <!-- Logo --> */}
               <a href="https://antievictionmap.com/" className="aemp-logo">
-                {t("titlebox.aemp-name")}
+                {t('titlebox.aemp-name')}
               </a>
             </div>
           </div>

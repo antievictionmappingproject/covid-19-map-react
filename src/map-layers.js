@@ -1,4 +1,4 @@
-import L, { rentStrikeIcon } from "./lib/leaflet";
+import L, { rentStrikeIcon } from './lib/leaflet';
 import {
   colorNoData,
   fillColorScale,
@@ -7,22 +7,22 @@ import {
   strokeWeightMore,
   pointRadius,
   fillOpacity,
-  policyStrengthLayerClassNames
-} from "./utils/constants";
-import * as queries from "./utils/queries";
-import { formatDate } from "./utils/datetime";
+  policyStrengthLayerClassNames,
+} from './utils/constants';
+import * as queries from './utils/queries';
+import { formatDate } from './utils/datetime';
 
 //styling helpers
 function highlightFeature(e) {
   const layer = e.target;
 
-  if (e.type === "mouseover") {
+  if (e.type === 'mouseover') {
     layer.setStyle({
-      fillOpacity: 0.4
+      fillOpacity: 0.4,
     });
-  } else if (e.type === "mouseout") {
+  } else if (e.type === 'mouseout') {
     layer.setStyle({
-      fillOpacity: fillOpacity
+      fillOpacity: fillOpacity,
     });
   } else {
     return;
@@ -31,9 +31,9 @@ function highlightFeature(e) {
 
 export const mapLayersConfig = {
   cities: {
-    name: "City Protections",
-    nameI18n: "layer-select.cities",
-    type: "point",
+    name: 'City Protections',
+    nameI18n: 'layer-select.cities',
+    type: 'point',
     query: queries.citiesCartoQuery,
     zIndex: 5,
     overlayOrder: 0,
@@ -50,17 +50,17 @@ export const mapLayersConfig = {
       } = feature.properties;
       return {
         // Build city name with state and country if supplied
-        jurisdictionName: `${municipality}${state ? `, ${state}` : ""}${
-          country ? `, ${country}` : ""
+        jurisdictionName: `${municipality}${state ? `, ${state}` : ''}${
+          country ? `, ${country}` : ''
         }`,
-        jurisdictionType: "City",
-        jurisdictionTypeI18n: "city",
+        jurisdictionType: 'City',
+        jurisdictionTypeI18n: 'city',
         popupName: municipality,
         endDateLegist: formatDate(end_date_legist),
         endDateRentRelief: formatDate(end_date_rent_relief),
         endDateCourt: formatDate(end_date_court),
         endDateEarliest: formatDate(end_date_earliest),
-        ...rest
+        ...rest,
       };
     },
     style(feature) {
@@ -69,7 +69,7 @@ export const mapLayersConfig = {
         fillColor: fillColorScale[feature.properties.range] || colorNoData,
         fillOpacity: 0.85,
         radius: pointRadius,
-        weight: strokeWeightLess
+        weight: strokeWeightLess,
       };
     },
     pointToLayer(feature, latlng) {
@@ -80,19 +80,19 @@ export const mapLayersConfig = {
       if (feature.properties.has_expired_protections) {
         layer.options.className =
           policyStrengthLayerClassNames[feature.properties.range] +
-          "--city-level";
+          '--city-level';
       }
       layer.on({
-        mouseover: (e) => highlightFeature(e),
-        mouseout: (e) => highlightFeature(e),
+        mouseover: e => highlightFeature(e),
+        mouseout: e => highlightFeature(e),
       });
       layer.bindPopup(feature.properties.municipality);
-    }
+    },
   },
   counties: {
-    name: "County Protections",
-    nameI18n: "layer-select.counties",
-    type: "polygon",
+    name: 'County Protections',
+    nameI18n: 'layer-select.counties',
+    type: 'polygon',
     query: queries.countiesCartoQuery,
     zIndex: 4,
     overlayOrder: 1,
@@ -108,15 +108,15 @@ export const mapLayersConfig = {
       } = feature.properties;
       return {
         // Show county with state if state field is set
-        jurisdictionName: `${county}${state ? `, ${state}` : ""}`,
-        jurisdictionType: "County",
-        jurisdictionTypeI18n: "county",
-        popupName: `${county}${state ? `, ${state}` : ""}`,
+        jurisdictionName: `${county}${state ? `, ${state}` : ''}`,
+        jurisdictionType: 'County',
+        jurisdictionTypeI18n: 'county',
+        popupName: `${county}${state ? `, ${state}` : ''}`,
         endDateLegist: formatDate(end_date_legist),
         endDateRentRelief: formatDate(end_date_rent_relief),
         endDateCourt: formatDate(end_date_court),
         endDateEarliest: formatDate(end_date_earliest),
-        ...rest
+        ...rest,
       };
     },
     style(feature) {
@@ -124,7 +124,7 @@ export const mapLayersConfig = {
         color: strokeColorScale[feature.properties.range] || colorNoData,
         fillColor: fillColorScale[feature.properties.range] || colorNoData,
         fillOpacity: fillOpacity,
-        weight: strokeWeightLess
+        weight: strokeWeightLess,
       };
     },
     onEachFeature(feature, layer) {
@@ -134,17 +134,17 @@ export const mapLayersConfig = {
           policyStrengthLayerClassNames[feature.properties.range];
       }
       layer.on({
-        mouseover: (e) => highlightFeature(e),
-        mouseout: (e) => highlightFeature(e),
+        mouseover: e => highlightFeature(e),
+        mouseout: e => highlightFeature(e),
       });
       const { county, state } = feature.properties;
-      layer.bindPopup(`${county}${state ? `, ${state}` : ""}`);
-    }
+      layer.bindPopup(`${county}${state ? `, ${state}` : ''}`);
+    },
   },
   states: {
-    name: "State/Province Protections",
-    nameI18n: "layer-select.states",
-    type: "polygon",
+    name: 'State/Province Protections',
+    nameI18n: 'layer-select.states',
+    type: 'polygon',
     query: queries.statesCartoQuery,
     zIndex: 3,
     overlayOrder: 2,
@@ -159,15 +159,15 @@ export const mapLayersConfig = {
         ...rest
       } = feature.properties;
       return {
-        jurisdictionName: `${name}${admin ? `, ${admin}` : ""}`,
-        jurisdictionType: "State/Province",
-        jurisdictionTypeI18n: "state-province",
+        jurisdictionName: `${name}${admin ? `, ${admin}` : ''}`,
+        jurisdictionType: 'State/Province',
+        jurisdictionTypeI18n: 'state-province',
         popupName: name,
         endDateLegist: formatDate(end_date_legist),
         endDateRentRelief: formatDate(end_date_rent_relief),
         endDateCourt: formatDate(end_date_court),
         endDateEarliest: formatDate(end_date_earliest),
-        ...rest
+        ...rest,
       };
     },
     style(feature) {
@@ -175,7 +175,7 @@ export const mapLayersConfig = {
         fillColor: fillColorScale[feature.properties.range] || colorNoData,
         color: strokeColorScale[feature.properties.range] || colorNoData,
         fillOpacity: fillOpacity,
-        weight: strokeWeightMore
+        weight: strokeWeightMore,
       };
     },
     onEachFeature(feature, layer) {
@@ -185,16 +185,16 @@ export const mapLayersConfig = {
           policyStrengthLayerClassNames[feature.properties.range];
       }
       layer.on({
-        mouseover: (e) => highlightFeature(e),
-        mouseout: (e) => highlightFeature(e),
+        mouseover: e => highlightFeature(e),
+        mouseout: e => highlightFeature(e),
       });
       layer.bindPopup(feature.properties.name);
-    }
+    },
   },
   nations: {
-    name: "National Protections",
-    nameI18n: "layer-select.nations",
-    type: "polygon",
+    name: 'National Protections',
+    nameI18n: 'layer-select.nations',
+    type: 'polygon',
     query: queries.countriesCartoQuery,
     zIndex: 2,
     overlayOrder: 3,
@@ -203,10 +203,10 @@ export const mapLayersConfig = {
       return {
         endDateEarliest: formatDate(end_date_earliest),
         jurisdictionName: name_en,
-        jurisdictionType: "Country",
-        jurisdictionTypeI18n: "nation",
+        jurisdictionType: 'Country',
+        jurisdictionTypeI18n: 'nation',
         popupName: name_en,
-        ...rest
+        ...rest,
       };
     },
     style(feature) {
@@ -214,7 +214,7 @@ export const mapLayersConfig = {
         color: strokeColorScale[feature.properties.range] || colorNoData,
         fillColor: fillColorScale[feature.properties.range] || colorNoData,
         fillOpacity: fillOpacity,
-        weight: strokeWeightLess
+        weight: strokeWeightLess,
       };
     },
     onEachFeature(feature, layer) {
@@ -224,32 +224,32 @@ export const mapLayersConfig = {
           policyStrengthLayerClassNames[feature.properties.range];
       }
       layer.on({
-        mouseover: (e) => highlightFeature(e),
-        mouseout: (e) => highlightFeature(e),
+        mouseover: e => highlightFeature(e),
+        mouseout: e => highlightFeature(e),
       });
       layer.bindPopup(feature.properties.name_en);
-    }
+    },
   },
   rentStrikes: {
-    name: "Housing Justice Actions",
-    nameI18n: "layer-select.housingJusticeAction",
-    type: "marker-cluster",
+    name: 'Housing Justice Actions',
+    nameI18n: 'layer-select.housingJusticeAction',
+    type: 'marker-cluster',
     query: queries.housingActionsCartoQuery,
     zIndex: 6, // markers have their very own layer pane in Leaflet so don't need a z-index value
     overlayOrder: 4,
     pointToLayer(feature, latlng) {
       return L.marker(latlng, {
-        icon: rentStrikeIcon
+        icon: rentStrikeIcon,
       });
     },
     props(feature) {
       return {
         ...feature.properties,
         actionStart: feature.properties.start,
-        action: true
+        action: true,
       };
-    }
-  }
+    },
+  },
 };
 
 window.mapLayersConfig = mapLayersConfig;

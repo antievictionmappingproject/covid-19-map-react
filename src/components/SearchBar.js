@@ -1,27 +1,27 @@
-import React, { useState } from "react";
-import { getSearchData } from "../utils/data";
-import { useDispatch, useSelector } from "react-redux";
-import i18next from "i18next";
+import React, { useState } from 'react';
+import { getSearchData } from '../utils/data';
+import { useDispatch, useSelector } from 'react-redux';
+import i18next from 'i18next';
 
 function SearchBar(props) {
-  const { searchTerm, searchResults } = useSelector((state) => state.ui);
+  const { searchTerm, searchResults } = useSelector(state => state.ui);
   const dispatch = useDispatch();
 
-  const onChange = (e) => {
-    dispatch({ type: "ui:search:term:set", payload: e.target.value });
+  const onChange = e => {
+    dispatch({ type: 'ui:search:term:set', payload: e.target.value });
     console.log(e.target.value);
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = e => {
     e.preventDefault();
     console.log(e.target.value);
   };
 
   return (
-    <form id="search-bar-form" onSubmit={(e) => onSubmit(e)}>
+    <form id="search-bar-form" onSubmit={e => onSubmit(e)}>
       <div id="search-bar-div">
         <input
-          onChange={(e) => onChange(e)}
+          onChange={e => onChange(e)}
           type="text"
           name="search"
           id="search-bar"

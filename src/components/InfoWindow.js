@@ -1,6 +1,6 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useTranslation } from "react-i18next";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 export default props => {
   const infoWindowFeatureProps = useSelector(
@@ -34,7 +34,7 @@ export default props => {
     location,
     strike_type,
     why,
-    resources
+    resources,
   } = infoWindowFeatureProps;
 
   return (
@@ -42,7 +42,7 @@ export default props => {
       <span
         className="aemp-infowindow-close"
         onClick={() => {
-          dispatch({ type: "ui:info-window:hide" });
+          dispatch({ type: 'ui:info-window:hide' });
         }}
       >
         ×
@@ -51,7 +51,7 @@ export default props => {
       <div>
         <p className="infowindow-title">
           <strong>
-            {t(`infowindow.${action ? "action" : "policy"}.title`)}
+            {t(`infowindow.${action ? 'action' : 'policy'}.title`)}
           </strong>
         </p>
       </div>
@@ -61,13 +61,13 @@ export default props => {
         <>
           <div>
             <p>
-              <strong>{t("infowindow.action.loc-label")}</strong> {location}
+              <strong>{t('infowindow.action.loc-label')}</strong> {location}
             </p>
           </div>
           {strike_type && (
             <div>
               <p>
-                <strong>{t("infowindow.action.strike-type-label")}</strong>{" "}
+                <strong>{t('infowindow.action.strike-type-label')}</strong>{' '}
                 {strike_type}
               </p>
             </div>
@@ -77,9 +77,9 @@ export default props => {
               <p>
                 <strong
                   dangerouslySetInnerHTML={{
-                    __html: t("infowindow.action.why-label")
+                    __html: t('infowindow.action.why-label'),
                   }}
-                ></strong>{" "}
+                ></strong>{' '}
                 {why}
               </p>
             </div>
@@ -87,7 +87,7 @@ export default props => {
           {actionStart && (
             <div>
               <p>
-                <strong>{t("infowindow.action.start-date-label")}</strong>{" "}
+                <strong>{t('infowindow.action.start-date-label')}</strong>{' '}
                 {start}
               </p>
             </div>
@@ -97,9 +97,9 @@ export default props => {
               <p>
                 <strong
                   dangerouslySetInnerHTML={{
-                    __html: t("infowindow.action.resources-label")
+                    __html: t('infowindow.action.resources-label'),
                   }}
-                ></strong>{" "}
+                ></strong>{' '}
                 {resources}
               </p>
             </div>
@@ -126,7 +126,7 @@ export default props => {
           {range && (
             <div>
               <p>
-                <strong>{t("infowindow.policy.strength-label")}</strong>
+                <strong>{t('infowindow.policy.strength-label')}</strong>
                 <span
                   className={`policy-strength-color policy-strength-color--${range}`}
                 >
@@ -139,7 +139,7 @@ export default props => {
           {endDateEarliest && (
             <div>
               <p>
-                <strong>{t("infowindow.policy.protections-end-label")}</strong>{" "}
+                <strong>{t('infowindow.policy.protections-end-label')}</strong>{' '}
                 {endDateEarliest}
               </p>
             </div>
@@ -148,7 +148,7 @@ export default props => {
           {endDateLegist && (
             <div>
               <p>
-                <strong>{t("infowindow.policy.protections-end-label")}</strong>{" "}
+                <strong>{t('infowindow.policy.protections-end-label')}</strong>{' '}
                 {endDateLegist}
               </p>
             </div>
@@ -157,7 +157,7 @@ export default props => {
           {endDateRentRelief && (
             <div>
               <p>
-                <strong>{t("infowindow.policy.rent-relief-end-label")}</strong>{" "}
+                <strong>{t('infowindow.policy.rent-relief-end-label')}</strong>{' '}
                 {endDateRentRelief}
               </p>
             </div>
@@ -167,8 +167,8 @@ export default props => {
             <div>
               <p>
                 <strong>
-                  {t("infowindow.policy.court-closure-end-label")}
-                </strong>{" "}
+                  {t('infowindow.policy.court-closure-end-label')}
+                </strong>{' '}
                 {endDateCourt}
               </p>
             </div>
@@ -177,7 +177,7 @@ export default props => {
           {eviction_status && (
             <div>
               <p>
-                <strong>{t("infowindow.policy.eviction-status-label")}</strong>{" "}
+                <strong>{t('infowindow.policy.eviction-status-label')}</strong>{' '}
                 {eviction_status}
               </p>
             </div>
@@ -186,7 +186,7 @@ export default props => {
           {policy_summary && (
             <div>
               <p>
-                <strong>{t("infowindow.policy.summary-label")}</strong>{" "}
+                <strong>{t('infowindow.policy.summary-label')}</strong>{' '}
                 {policy_summary}
               </p>
             </div>
@@ -195,7 +195,7 @@ export default props => {
           {start && (
             <div>
               <p>
-                <strong>{t("infowindow.policy.start-date-label")}</strong>{" "}
+                <strong>{t('infowindow.policy.start-date-label')}</strong>{' '}
                 {start}
               </p>
             </div>
@@ -204,7 +204,7 @@ export default props => {
           {end && (
             <div>
               <p>
-                <strong>{t("infowindow.policy.end-date-label")}</strong> {end}
+                <strong>{t('infowindow.policy.end-date-label')}</strong> {end}
               </p>
             </div>
           )}
@@ -213,7 +213,7 @@ export default props => {
             <div>
               <p className="infowindow-link">
                 <a target="_blank" href={link} rel="noopener noreferrer">
-                  {t("infowindow.policy.info-link")}
+                  {t('infowindow.policy.info-link')}
                 </a>
               </p>
             </div>
@@ -223,7 +223,7 @@ export default props => {
             <div>
               <p className="infowindow-link">
                 <a target="_blank" href={resource} rel="noopener noreferrer">
-                  {t("infowindow.policy.resource-link")}
+                  {t('infowindow.policy.resource-link')}
                 </a>
               </p>
             </div>

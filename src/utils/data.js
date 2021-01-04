@@ -1,7 +1,7 @@
 // fetch polyfill for IE
-import "whatwg-fetch";
-import { aempCartoAccount, bingApiKey } from "./config";
-import { mapLayersConfig } from "../map-layers";
+import 'whatwg-fetch';
+import { aempCartoAccount, bingApiKey } from './config';
+import { mapLayersConfig } from '../map-layers';
 
 const cartoSqlApiBaseUri = `https://${aempCartoAccount}.carto.com/api/v2/sql`;
 
@@ -13,21 +13,21 @@ function handleFetchFailure(name, error) {
   // dispatch.call(name, null, error);
 }
 
-export async function getCartoData(query, format = "geojson") {
+export async function getCartoData(query, format = 'geojson') {
   const res = await fetch(
     `${cartoSqlApiBaseUri}?q=${window.encodeURIComponent(
       query
     )}&format=${format}`,
     {
-      method: "GET",
+      method: 'GET',
       headers: {
-        "Cache-Control": "max-age=36000",
+        'Cache-Control': 'max-age=36000',
       },
     }
   );
 
   if (!res || !res.ok) {
-    throw Error("Unable to fetch Carto data");
+    throw Error('Unable to fetch Carto data');
   }
 
   return res.json();
@@ -52,7 +52,7 @@ export async function getData() {
   );
 }
 export async function getSearchData(str) {
-  let langStr = navigator.language ? `&culture = ${navigator.language}` : "";
+  let langStr = navigator.language ? `&culture = ${navigator.language}` : '';
   try {
     let res = await fetch(
       `https://dev.virtualearth.net/REST/v1/Autosuggest?query=${str}${langStr}&includeEntityTypes=place&userMapView=-90,-180,90,180&key=${bingApiKey}`

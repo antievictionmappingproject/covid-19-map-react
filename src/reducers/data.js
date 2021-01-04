@@ -4,7 +4,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case "data:layers":
+    case 'data:layers':
       return {
         ...state,
         layers: action.payload,

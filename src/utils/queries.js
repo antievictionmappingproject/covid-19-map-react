@@ -4,7 +4,7 @@ import {
   cartoCountiesTable,
   cartoStatesTable,
   cartoNationsTable,
-} from "./config";
+} from './config';
 
 /**
  * SQL queries that are passed to the CARTO SQL API
@@ -84,7 +84,7 @@ export const housingActionsCartoQuery = `
 
 export const searchResultProtectionsQuery = (adminLevel, locationName) => {
   switch (adminLevel) {
-    case "locality":
+    case 'locality':
       return `SELECT municipality AS jurisdictionname, 
         municipality, has_expired_protections, range, resource,
         policy_type, policy_summary, link, end_date_earliest, 
@@ -92,7 +92,7 @@ export const searchResultProtectionsQuery = (adminLevel, locationName) => {
         the_geom_webmercator AS the_geom FROM ${cartoSheetSyncTable} 
       WHERE admin_scale = 'City' AND municipality LIKE '${locationName}%'`;
 
-    case "adminDistrict2":
+    case 'adminDistrict2':
       return `SELECT  c.county AS jurisdictionname, 
         m.range, m.policy_type, m.policy_summary, m.link, m.resource,
         m.range, m.has_expired_protections, m.end_date_earliest, 
@@ -102,7 +102,7 @@ export const searchResultProtectionsQuery = (adminLevel, locationName) => {
       WHERE m.admin_scale = 'County' AND c.county LIKE '${locationName}%' 
       AND m.admin_scale = 'County'`;
 
-    case "adminDistrict":
+    case 'adminDistrict':
       return `SELECT state AS jurisdictionname, 
         range, policy_type, policy_summary, link, resource,
         has_expired_protections, end_date_earliest, 
@@ -110,7 +110,7 @@ export const searchResultProtectionsQuery = (adminLevel, locationName) => {
         the_geom_webmercator AS the_geom FROM ${cartoSheetSyncTable} 
       WHERE admin_scale ='State' AND state LIKE '${locationName}%'`;
 
-    case "countryRegion":
+    case 'countryRegion':
       return `SELECT country AS jurisdictionname, 
         range, policy_type, policy_summary, link, resource,
         has_expired_protections, end_date_earliest, 

@@ -1,16 +1,16 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   MapContainer,
   TileLayer,
   LayersControl,
   Pane,
   GeoJSON,
-  ZoomControl
-} from "react-leaflet";
-import { defaultMapConfig } from "../utils/constants";
-import MarkerClusterGroup from "react-leaflet-markercluster";
-import { useTranslation } from "react-i18next";
+  ZoomControl,
+} from 'react-leaflet';
+import { defaultMapConfig } from '../utils/constants';
+import MarkerClusterGroup from 'react-leaflet-markercluster';
+import { useTranslation } from 'react-i18next';
 
 function LeafletMap(props) {
   const layers = useSelector(state => state.data.layers);
@@ -29,7 +29,7 @@ function LeafletMap(props) {
               name={t(layer.layerConfig.nameI18n)}
               checked
             >
-              {layer.layerConfig.name === "Housing Justice Actions" ? (
+              {layer.layerConfig.name === 'Housing Justice Actions' ? (
                 <Pane
                   name={layer.key}
                   style={{ zIndex: 500 + layer.layerConfig.zIndex }}
@@ -40,10 +40,10 @@ function LeafletMap(props) {
                       style={layer.layerConfig.style}
                       pointToLayer={layer.layerConfig.pointToLayer}
                       onEachFeature={(feature, mapLayer) => {
-                        mapLayer.on("click", () => {
+                        mapLayer.on('click', () => {
                           dispatch({
-                            type: "ui:info-window:show",
-                            payload: layer.layerConfig.props(mapLayer.feature)
+                            type: 'ui:info-window:show',
+                            payload: layer.layerConfig.props(mapLayer.feature),
                           });
                         });
                       }}
@@ -59,10 +59,10 @@ function LeafletMap(props) {
                     data={layer.data}
                     style={layer.layerConfig.style}
                     onEachFeature={(feature, mapLayer) => {
-                      mapLayer.on("click", () => {
+                      mapLayer.on('click', () => {
                         dispatch({
-                          type: "ui:info-window:show",
-                          payload: layer.layerConfig.props(mapLayer.feature)
+                          type: 'ui:info-window:show',
+                          payload: layer.layerConfig.props(mapLayer.feature),
                         });
                       });
                       layer.layerConfig.onEachFeature(feature, mapLayer);
