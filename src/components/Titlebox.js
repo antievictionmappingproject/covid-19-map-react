@@ -67,6 +67,7 @@ export default props => {
                 <a
                   href="https://airtable.com/shrMi8xtGqFIXtFyy"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {t('titlebox.legislation-form-intl')}
                 </a>
@@ -74,7 +75,11 @@ export default props => {
 
               {/* <!-- Resource --> */}
               <p>
-                <a href="https://cancelrent.us/" target="_blank">
+                <a
+                  href="https://cancelrent.us/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {t('titlebox.resources.right-to-the-city')}
                 </a>
               </p>
@@ -84,6 +89,7 @@ export default props => {
                 <a
                   href="https://airtable.com/shrI5HxbTqEFbk89Y"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {t('titlebox.housing-action-form')}
                 </a>
@@ -91,7 +97,11 @@ export default props => {
 
               {/* <!-- Resource --> */}
               <p>
-                <a href="https://housingnotprofit.org/" target="_blank">
+                <a
+                  href="https://housingnotprofit.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {t('titlebox.resources.hashtag-cancel-rent')}
                 </a>
               </p>
