@@ -1,4 +1,4 @@
-import L, { rentStrikeIcon } from './lib/leaflet';
+import L, { rentStrikeIcon } from '../lib/leaflet';
 import {
   colorNoData,
   fillColorScale,
@@ -8,9 +8,9 @@ import {
   pointRadius,
   fillOpacity,
   policyStrengthLayerClassNames,
-} from './config/constants';
-import * as queries from './carto/queries';
-import { formatDate } from './utils/datetime';
+} from './constants';
+import * as queries from '../carto/queries';
+import { formatDate } from '../utils/datetime';
 
 //styling helpers
 function highlightFeature(e) {

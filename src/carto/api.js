@@ -1,7 +1,7 @@
 // fetch polyfill for IE
 import 'whatwg-fetch';
 import { aempCartoAccount } from './constants';
-import { mapLayersConfig } from '../map-layers';
+import { mapLayersConfig } from '../config/map-layers';
 
 const cartoSqlApiBaseUri = `https://${aempCartoAccount}.carto.com/api/v2/sql`;
 

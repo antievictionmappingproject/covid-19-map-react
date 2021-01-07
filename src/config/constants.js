@@ -1,4 +1,4 @@
-import { mapLayersConfig } from '../map-layers';
+import { mapLayersConfig } from './map-layers';
 
 // List of all languages we have translations for.
 export const languages = ['en', 'es', 'pt-BR', 'it', 'de'];
