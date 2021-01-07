@@ -4,7 +4,7 @@ import i18next from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import store from '../reducers';
 
-import { languages } from './constants';
+import { languages } from '../config/constants';
 
 // Default values for i18next config
 const i18nOptions = {

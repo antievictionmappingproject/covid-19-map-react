@@ -7,7 +7,7 @@ import LeafletMap from './Map';
 import Titlebox from './Titlebox';
 import SearchBar from './SearchBar';
 import { i18nInit } from '../utils/i18n';
-import { getData } from '../utils/data';
+import { getAllCartoLayers } from '../carto/api';
 
 export default () => {
   const i18nLoaded = useSelector(state => state.content.i18n);
@@ -22,7 +22,7 @@ export default () => {
 
   useEffect(() => {
     (async () => {
-      const cartoData = await getData();
+      const cartoData = await getAllCartoLayers();
       dispatch({ type: 'data:layers', payload: cartoData });
       dispatch({ type: 'ui:loading-indicator:hide' });
     })();

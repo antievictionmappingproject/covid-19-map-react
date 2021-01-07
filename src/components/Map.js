@@ -8,7 +8,7 @@ import {
   GeoJSON,
   ZoomControl,
 } from 'react-leaflet';
-import { defaultMapConfig } from '../utils/constants';
+import { defaultMapConfig } from '../config/constants';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { useTranslation } from 'react-i18next';
 

@@ -4,7 +4,7 @@ import {
   cartoCountiesTable,
   cartoStatesTable,
   cartoNationsTable,
-} from './config';
+} from './constants';
 
 /**
  * SQL queries that are passed to the CARTO SQL API

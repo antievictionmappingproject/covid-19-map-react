@@ -8,8 +8,8 @@ import {
   pointRadius,
   fillOpacity,
   policyStrengthLayerClassNames,
-} from './utils/constants';
-import * as queries from './utils/queries';
+} from './config/constants';
+import * as queries from './carto/queries';
 import { formatDate } from './utils/datetime';
 
 //styling helpers

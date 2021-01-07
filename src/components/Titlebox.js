@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { isMobile } from '../utils/constants';
+import { isMobile } from '../config/constants';
 
 export default props => {
   const [expanded, setExpanded] = useState(!isMobile());
