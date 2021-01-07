@@ -1,20 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getSearchData } from '../utils/data';
 import { useDispatch, useSelector } from 'react-redux';
 import i18next from 'i18next';
+import { fetch } from 'whatwg-fetch';
+
+function debounce(func, wait, immediate) {
+  let timeout;
+  return function () {
+    const context = this,
+      args = arguments;
+    const later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    const callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
+
+async function fetchBingData(searchTerm) {
+  const BING_API_KEY =
+    'Al2-1GXrd8GzwtSAID3J3LJn-flLLgNWzNtsT5nnSKW8dA2ClgaXXXMQR6WfE6wE';
+  const lang = navigator.language ? `&culture = ${navigator.language}` : '';
+  const url = `https://dev.virtualearth.net/REST/v1/Autosuggest?query=${"portland"}${lang}&includeEntityTypes=place&userMapView=-90,-180,90,180&key=${BING_API_KEY}`;
+  try {
+    const res = await fetch(url);
+    const json = await res.json();
+    return json;
+  } catch (e) {
+    throw new Error(`An error occurred fetching Bing data: ${e.message}.`);
+  }
+}
 
 function SearchBar(props) {
-  const { searchTerm, searchResults } = useSelector(state => state.ui);
+  const { searchTerm } = useSelector(state => state.ui);
   const dispatch = useDispatch();
 
-  const onChange = e => {
+  const onChange = async e => {
     dispatch({ type: 'ui:search:term:set', payload: e.target.value });
-    console.log(e.target.value);
+    const data = debounce(fetchBingData(searchTerm), 300);
+    console.log(data);
   };
 
   const onSubmit = e => {
     e.preventDefault();
-    console.log(e.target.value);
   };
 
   return (
@@ -38,98 +69,3 @@ function SearchBar(props) {
 }
 
 export default SearchBar;
-
-// export class SearchBar {
-//   searchBar = document.getElementById("search-bar");
-//   autoCompleteElement = document.getElementById("search-bar-autocomplete");
-//   icon = this.searchBar.value;
-//   defaultValue = this.icon + i18next.t("searchbar.default-value");
-
-//   constructor() {
-//     this.searchBar.value = this.defaultValue;
-//     this.searchBar.addEventListener("input", () =>
-//       this.autoComplete(this.searchBar.value)
-//     );
-//     this.searchBar.addEventListener("blur", this.removeAutocomplete);
-//     this.searchBar.addEventListener("focus", () => {
-//       this.searchBar.value = "";
-//     });
-//     this.searchBar.addEventListener("change", (e) => {
-//       if (
-//         [...document.getElementsByClassName("autocompleteElement")]
-//           .map((a) => a.value)
-//           .indexOf(this.searchBar.value) >= 0
-//       ) {
-//         let val = this.searchBar.value;
-
-//         // dispatch.call("choose-autocomplete-element", null, val);
-//       }
-//       e.stopPropagation();
-//     });
-//     // dispatch.on("search-fetch-data-reject", (err) => console.error(err));
-
-//     document
-//       .getElementById("search-bar-form")
-//       .addEventListener("submit", (e) => {
-//         let autoselectSuggestions = [
-//           ...document.getElementsByClassName("autocompleteElement"),
-//         ].map((a) => a.value);
-//         if (autoselectSuggestions.length > 0) {
-//           //   dispatch.call(
-//           //     "choose-autocomplete-element",
-//           //     null,
-//           //     autoselectSuggestions[0]
-//           //   );
-//         } else {
-//           this.noDataFound();
-//         }
-//         e.stopPropagation();
-//         e.preventDefault();
-//       });
-//   }
-
-//   noDataFound() {
-//     document.getElementById("search-bar").classList.add("search-bar-no-data");
-//   }
-
-//   removeAutocomplete = () => {
-//     setTimeout(() => {
-//       this.autoCompleteElement.innerHTML = "";
-//       this.searchBar.value = this.defaultValue;
-//       this.removeNoData();
-//     }, 400);
-//   };
-
-//   async autoComplete(str) {
-//     this.removeNoData();
-//     if (str.length > 1) {
-//       try {
-//         const res = await getSearchData(str.trim());
-//         if (res && res.resourceSets && res.resourceSets[0].resources) {
-//           const values = res.resourceSets[0].resources[0].value.filter(
-//             (value) => value.__type === "Place"
-//           );
-//           this.autoCompleteElement.innerHTML = values
-//             .map((value) =>
-//               this.autocompleteElement(value.address.formattedAddress)
-//             )
-//             .join("");
-//         }
-//       } catch (e) {
-//         dispatch.call("search-fetch-data-reject", this, e);
-//       }
-//     }
-//   }
-
-//   removeNoData = () => {
-//     if (this.searchBar.classList.contains("search-bar-no-data")) {
-//       this.searchBar.classList.remove("search-bar-no-data");
-//     }
-//   };
-
-//   autocompleteElement(location) {
-//     return `
-//         <option value="${location}" class = "autocompleteElement">
-//     `;
-//   }
-// }
