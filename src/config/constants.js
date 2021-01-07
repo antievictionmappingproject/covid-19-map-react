@@ -25,18 +25,6 @@ export const policyStrengthLayerClassNames = [
 // note: this matches the breakpoint in styles.css
 export const MOBILE_BREAKPOINT = 640;
 export const DESKTOP_BREAKPOINT = 1200;
-
-export const defaultMapConfig = {
-  lat: 39.8333333,
-  lng: -98.585522,
-  z: 3,
-  nations: true,
-  states: true,
-  cities: true,
-  counties: true,
-  rentStrikes: true,
-};
-
 export const TOTAL_NUMBER_OF_MAP_LAYERS = Object.keys(mapLayersConfig).length;
 
 export const isMobile = () =>
