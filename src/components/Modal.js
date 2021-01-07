@@ -27,13 +27,12 @@ export default props => {
       <div className="modal">
         <div>
           <h4 data-i18n="modal.title">{t('modal.title')}</h4>
-          <a
+          <span
             onClick={e => dispatch({ type: 'ui:modal:hide' })}
-            href="#close"
             className="modal-close"
           >
             ×
-          </a>
+          </span>
         </div>
         <aside>
           <p>
