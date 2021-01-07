@@ -24,7 +24,7 @@ header#aemp-titlebox {
   }
 }
 
-details > h1 {
+.details > h1 {
   margin: 1.6rem 0 1.2rem 0;
   font-family: "Harbour W00 Medium", "IBM Plex Mono", monospace;
   font-weight: bold;
@@ -39,37 +39,57 @@ details > h1 {
   }
 }
 
-details {
+.details {
   padding: 4px;
   max-width: 306px;
   margin: 0 auto;
 }
 
-details summary {
+.summary {
   font-size: 2rem;
   font-weight: bold;
   cursor: pointer;
   font-family: "IBM Plex Mono", monospace;
   color: $font-color-black;
   outline: none;
+  padding-left: 1.1em;
+  position: relative;
+
+  &::before {
+    content: '▼';
+    position: absolute;
+    left: 0em; top: 1em;
+    display: inline-block;
+    color: $rent-strike-color;
+    font-size: 0.7em;
+    transform-origin: center;
+    transform: translateY(-50%);
+    // transition: transform 0.1s ease;
+  }
+
+  &.collapsed {
+    &::before {
+      transform: translateY(-50%) rotate(-90deg);
+    }  
+  }
 
   @media (max-width: 640px) {
     font-size: 1.4rem;
   }
 }
 
-details summary::-webkit-details-marker,
-details summary::marker {
+.summary::-webkit-details-marker,
+.summary::marker {
   color: $rent-strike-color;
 }
 
-details p {
+.details p {
   font-size: 1.4rem;
   margin-top: 0.6rem;
 }
 
 @media (max-width: 640px) {
-  details p {
+  .details p {
     font-size: 1.4rem;
   }
 }

@@ -1,9 +1,9 @@
 /* ----- Layer controller ----- */
 .leaflet-control-layers {
   border: 1px solid $rent-strike-color !important;
-  border-radius: 0;
-  font-family: "IBM Plex Mono", monospace;
-  box-shadow: none;
+  border-radius: 0 !important;
+  font-family: "IBM Plex Mono", monospace !important;
+  box-shadow: none !important;
 
   //show on mobile
   @media (max-width: 640px) {

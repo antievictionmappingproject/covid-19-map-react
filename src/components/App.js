@@ -1,33 +1,46 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import Modal from "./Modal";
-import i18n, { i18nInit } from "../utils/i18n";
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import Modal from './Modal';
+import LoadingIndicator from './LoadingIndicator';
+import InfoWindow from './InfoWindow';
+import LeafletMap from './Map';
+import Titlebox from './Titlebox';
+import SearchBar from './SearchBar';
+import { i18nInit } from '../utils/i18n';
+import { getAllCartoLayers } from '../carto/api';
 
-function App() {
-  const i18nLoaded = useSelector(state => state.content.i18n)
-  const showModal = useSelector(state => state.ui.showModal)
-  const dispatch = useDispatch()
+export default () => {
+  const i18nLoaded = useSelector(state => state.content.i18n);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     (async () => {
-      const i18nData = await i18nInit()
-    })()
-    return () => null
-  }, [])
+      await i18nInit();
+    })();
+    return () => null;
+  }, []);
 
-  return ( i18nLoaded
-    ? <div className="App">
-        <div style={{position: "absolute", zIndex: 1000}}>
-          <button onClick={e => i18n.changeLanguage('en')}>ENGLISH</button>
-          <button onClick={e => i18n.changeLanguage('es')}>SPANISH</button>
-          <button onClick={e => i18n.changeLanguage('de')}>GERMAN</button>
-          <button onClick={e => i18n.changeLanguage('it')}>ITALIAN</button>
-          <button onClick={e => i18n.changeLanguage('pt-BR')}>PORTUGUESE</button>
-        </div>
-        { showModal ? <Modal /> : null }
-      </div>
-    : null
+  useEffect(() => {
+    (async () => {
+      const cartoData = await getAllCartoLayers();
+      dispatch({ type: 'data:layers', payload: cartoData });
+      dispatch({ type: 'ui:loading-indicator:hide' });
+    })();
+
+    return () => null;
+  }, [dispatch]);
+  if (!i18nLoaded) {
+    return null;
+  }
+
+  return (
+    <>
+      <LeafletMap />
+      <SearchBar />
+      <Titlebox />
+      <Modal />
+      <LoadingIndicator />
+      <InfoWindow />
+    </>
   );
-}
-
-export default App;
+};

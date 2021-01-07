@@ -1,18 +1,15 @@
-import { combineReducers, createStore, applyMiddleware } from "redux";
-import logger from "redux-logger";
+import { combineReducers, createStore, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
 
-import uiReducer from "./ui";
-import contentReducer from "./content";
-
-const initialState = {
-    showModal: false,
-    content: { translations: {} },
-};
+import ui from './ui';
+import content from './content';
+import data from './data';
 
 export default createStore(
-    combineReducers({
-        ui: uiReducer,
-        content: contentReducer,
-    }),
-    applyMiddleware(logger)
+  combineReducers({
+    ui,
+    content,
+    data,
+  }),
+  applyMiddleware(logger)
 );

@@ -56,7 +56,7 @@
   }
 }
 
-a.aemp-infowindow-close {
+.aemp-infowindow-close {
   display: inline-block;
   position: absolute;
   right: 10px;
@@ -67,7 +67,7 @@ a.aemp-infowindow-close {
   color: $rent-strike-color;
 }
 
-a.aemp-infowindow-close:hover {
+.aemp-infowindow-close:hover {
   text-decoration: none;
   color: $link-visited;
 }
