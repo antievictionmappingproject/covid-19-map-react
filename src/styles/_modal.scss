@@ -24,7 +24,7 @@ div.modal {
   overflow-y: scroll;
 }
 
-a.modal-close {
+.modal-close {
   position: absolute;
   right: -10px;
   top: -15px;
@@ -35,14 +35,15 @@ a.modal-close {
   color: $rent-strike-color;
 }
 
-a.modal-close:hover {
+.modal-close:hover {
   text-decoration: none;
   color: $link-visited;
+  cursor: pointer;
 }
 
 .modal h4 {
   margin: 0 0 1.2rem 0;
-  font-family: "Harbour W00 Medium", "IBM Plex Mono", monospace;
+  font-family: 'Harbour W00 Medium', 'IBM Plex Mono', monospace;
   font-weight: bold;
   text-transform: uppercase;
   font-size: 1.8rem;
@@ -50,7 +51,7 @@ a.modal-close:hover {
 }
 
 .modal > aside > p {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 .modal > aside > p > a,
