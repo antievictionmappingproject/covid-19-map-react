@@ -1,13 +1,13 @@
 // fetch polyfill for IE
-import 'whatwg-fetch';
+// import 'whatwg-fetch';
 
-function handleFetchSuccess(name, data) {
-  // dispatch.call(name, null, data);
-}
+// function handleFetchSuccess(name, data) {
+//   // dispatch.call(name, null, data);
+// }
 
-function handleFetchFailure(name, error) {
-  // dispatch.call(name, null, error);
-}
+// function handleFetchFailure(name, error) {
+//   // dispatch.call(name, null, error);
+// }
 
 // export async function getSearchData(str) {
 //   let langStr = navigator.language ? `&culture = ${navigator.language}` : '';
