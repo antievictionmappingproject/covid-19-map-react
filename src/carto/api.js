@@ -5,14 +5,6 @@ import { mapLayersConfig } from '../config/map-layers';
 
 const cartoSqlApiBaseUri = `https://${aempCartoAccount}.carto.com/api/v2/sql`;
 
-function handleFetchSuccess(name, data) {
-  // dispatch.call(name, null, data);
-}
-
-function handleFetchFailure(name, error) {
-  // dispatch.call(name, null, error);
-}
-
 export async function getCartoData(query, format = 'geojson') {
   const res = await fetch(
     `${cartoSqlApiBaseUri}?q=${window.encodeURIComponent(
