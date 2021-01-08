@@ -8,11 +8,12 @@ import {
   GeoJSON,
   ZoomControl,
 } from 'react-leaflet';
-import { defaultMapConfig } from '../config/constants';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { useTranslation } from 'react-i18next';
 
-function LeafletMap(props) {
+import getMapConfig from '../config/map-config';
+
+function LeafletMap({ mapConfig }) {
   const layers = useSelector(state => state.data.layers);
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -27,7 +28,7 @@ function LeafletMap(props) {
             <LayersControl.Overlay
               key={layer.key}
               name={t(layer.layerConfig.nameI18n)}
-              checked
+              checked={mapConfig[layer.key] === true}
             >
               {layer.layerConfig.name === 'Housing Justice Actions' ? (
                 <Pane
@@ -81,21 +82,22 @@ function LeafletMap(props) {
 }
 
 export default props => {
-  const position = [defaultMapConfig.lat, defaultMapConfig.lng];
+  const mapConfig = getMapConfig();
+
   // Map component id prop may be an anti-pattern
   return (
     <MapContainer
       zoomControl={false}
-      center={position}
+      center={[mapConfig.lat, mapConfig.lng]}
       minZoom={3}
-      zoom={4}
+      zoom={mapConfig.z}
       id="map"
     >
       <TileLayer
         attribution="<a href='https://www.antievictionmap.com/' target='_blank'>Anti-Eviction Mapping Project</a>"
         url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
       />
-      <LeafletMap />
+      <LeafletMap mapConfig={mapConfig} />
     </MapContainer>
   );
 };
