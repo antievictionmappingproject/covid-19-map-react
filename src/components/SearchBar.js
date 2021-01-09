@@ -1,24 +1,12 @@
-import React, { useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import debounce from 'lodash.debounce';
 import i18next from 'i18next';
 import { fetch } from 'whatwg-fetch';
 
-const BING_API_KEY =
-  'AiCodebvKHCT2XAWYPvfOIkR9f8EA0AfLBnCmL2TchluJ3kn36befi0DWGzm9fuz';
-
-// async function fetchBingData(searchTerm) {
-//   const lang = navigator.language ? `&culture = ${navigator.language}` : '';
-//   const url = `https://dev.virtualearth.net/REST/v1/Autosuggest?query=${searchTerm.trim()}${lang}&includeEntityTypes=place&userMapView=-90,-180,90,180&key=${BING_API_KEY}`;
-//   try {
-//     const res = await fetch(url);
-//     const json = await res.json();
-//     console.log(json);
-//     return json;
-//   } catch (e) {
-//     throw new Error(`An error occurred fetching Bing data: ${e.message}.`);
-//   }
-// }
+// Ask Tim for API key or make a dev/test
+/*const BING_API_KEY = <API KEY>;*/
+const BING_API_KEY =``;
 
 function useDebounce(callback, delay) {
   // Memoizing the callback because if it's an arrow function
@@ -33,40 +21,41 @@ function useDebounce(callback, delay) {
   return debouncedFn.current;
 }
 
-function useDebouncedFetch(callback, delay, term) {
-  const dispatch = useDispatch();
-  // Memoizing the callback because if it's an arrow function
-  // it would be different on each render
-  const memoizedCallback = useCallback(callback, []);
-  const debouncedFn = useRef(debounce(memoizedCallback, delay));
-
-  useEffect(() => {
-    debouncedFn.current = debounce(memoizedCallback, delay);
-  }, [memoizedCallback, debouncedFn, delay, term]);
-}
-
 function SearchBar(props) {
   const { searchTerm, searchResults } = useSelector(state => state.ui);
   const dispatch = useDispatch();
-  // const debouncedFetch = useDebounce(val => fetchBingData(val), 1000);
 
-  const onChange = val => {
-    dispatch({ type: 'ui:search:term:set', payload: val });
+  const onChange = term => {
+    dispatch({ type: 'ui:search:term:set', payload: term });
   };
 
-  async function fetchBingData(term) {
+  async function fetchBingSearch(term) {
     const lang = navigator.language ? `&culture = ${navigator.language}` : '';
     const url = `https://dev.virtualearth.net/REST/v1/Autosuggest?query=${term.trim()}${lang}&includeEntityTypes=place&userMapView=-90,-180,90,180&key=${BING_API_KEY}`;
     try {
-      const res = await fetch(url);
-      const json = await res.json();
-      dispatch({ type: 'ui:search:results:set', payload: json });
+      if (term) {
+        const res = await fetch(url);
+        const json = await res.json();
+        
+        //parse through the results to get data
+        dispatch({
+          type: 'ui:search:results:set',
+          payload: json.resourceSets[0].resources[0].value, // data we need is VERY nested
+        });
+        /* TODO: 
+        -- parse through returned json to get list list to be rendered
+        -- build carto queries OR render a popup based on lat/lon and ignore carto 
+        */
+      } else {
+        dispatch({ type: 'ui:search:results:set', payload: null });
+      }
     } catch (e) {
-      throw new Error(`An error occurred fetching Bing data: ${e.message}.`);
+      throw new Error(`An error occurred fetching Bing data.: ${e.message}. 
+      Check that you have a Bing API key.`);
     }
   }
 
-  const debouncedOnChange = useDebounce(val => fetchBingData(val), 1000);
+  const debouncedOnChange = useDebounce(val => fetchBingSearch(val), 300);
   const onSubmit = e => {
     e.preventDefault();
   };
@@ -88,7 +77,9 @@ function SearchBar(props) {
           autoComplete="off"
           placeholder="Search nation, state, city..."
         />
-        <datalist id="search-bar-autocomplete">{/*options go here*/}</datalist>
+        <datalist id="search-bar-autocomplete">
+          {/*datalist options go here*/}
+        </datalist>
       </div>
     </form>
   );
