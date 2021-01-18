@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { rentStrikeIcon } from '../lib/leaflet';
 import {
   MapContainer,
   TileLayer,
@@ -7,14 +8,26 @@ import {
   Pane,
   GeoJSON,
   ZoomControl,
+  Marker,
+  Popup,
 } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { useTranslation } from 'react-i18next';
-
 import getMapConfig from '../config/map-config';
 
+function SearchMarker({ coords, content }) {
+  if (!coords) return <></>;
+  //TODO :
+  // switch popup icon
+  return (
+    <Marker position={coords} icon={rentStrikeIcon}>
+      <Popup>{content}</Popup>
+    </Marker>
+  );
+}
+
 function LeafletMap({ mapConfig }) {
-  const layers = useSelector(state => state.data.layers);
+  const { layers, marker } = useSelector(state => state.data);
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -77,6 +90,7 @@ function LeafletMap({ mapConfig }) {
         })}
       </LayersControl>
       <ZoomControl position="bottomright" />
+      <SearchMarker coords={null} content={'This is test content.'} />
     </>
   );
 }
