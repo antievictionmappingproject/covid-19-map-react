@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { rentStrikeIcon } from '../lib/leaflet';
 import {
@@ -15,13 +15,20 @@ import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { useTranslation } from 'react-i18next';
 import getMapConfig from '../config/map-config';
 
-function SearchMarker({ coords, content }) {
+function SearchMarker({ coords, content = 'Search Location' }) {
+  const markerRef = useRef(null);
+
+  useEffect(() => {
+    markerRef.current.openPopup();
+    return () => null;
+  }, [markerRef]);
+
   if (!coords) return <></>;
   //TODO :
   // switch popup icon
   return (
-    <Marker position={coords} icon={rentStrikeIcon}>
-      <Popup>{content}</Popup>
+    <Marker position={coords} icon={rentStrikeIcon} ref={markerRef}>
+      <Popup>{content} </Popup>
     </Marker>
   );
 }
@@ -90,7 +97,9 @@ function LeafletMap({ mapConfig }) {
         })}
       </LayersControl>
       <ZoomControl position="bottomright" />
-      <SearchMarker coords={null} content={'This is test content.'} />
+      {marker && (
+        <SearchMarker coords={marker.coords} content={marker.content} />
+      )}
     </>
   );
 }

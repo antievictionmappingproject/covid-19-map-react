@@ -1,17 +1,25 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useEffect, useCallback, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import debounce from 'lodash.debounce';
-import i18next from 'i18next';
+// import i18next from 'i18next';
 import { fetch } from 'whatwg-fetch';
-import { parse } from 'query-string';
+
 
 // Ask Tim for API key or make a dev/test
 /*const BING_API_KEY = <API KEY>;*/
-const BING_API_KEY = `AiCodebvKHCT2XAWYPvfOIkR9f8EA0AfLBnCmL2TchluJ3kn36befi0DWGzm9fuz`;
+const BING_API_KEY = ``;
 
 function parseBingResults(data) {
-  return data;
-  console.log(data);
+  const parsedData = data.resourceSets[0].resources.map(resource => {
+    const { name, bbox, point } = resource;
+    return { name, bbox, point };
+  });
+
+  return parsedData;
+}
+
+function getDataIndex(arr, indexValue) {
+  return arr.indexOf(indexValue);
 }
 
 function useDebounce(callback, delay) {
@@ -33,6 +41,43 @@ function SearchBar(props) {
 
   const onChange = term => {
     dispatch({ type: 'ui:search:term:set', payload: term });
+  };
+
+  const onSubmit = e => {
+    e.preventDefault();
+  };
+
+  const onKeyUp = e => {
+    // on Enter press
+    if (e.keyCode === 13 && searchResults) {
+      // default selection
+      let { value: selection } = e.target;
+      const resultNames = searchResults.map(result => result.name);
+      let coords;
+
+      if (resultNames.includes(selection)) {
+        coords =
+          searchResults[getDataIndex(resultNames, selection)].point.coordinates;
+      } else {
+        coords = searchResults[0].point.coordinates; //first element coords
+      }
+      // dispatches from new selection
+      dispatch({
+        type: 'ui:search:term:set',
+        payload: selection,
+      });
+      dispatch({
+        type: 'data:marker',
+        payload: {
+          coords,
+          content: selection,
+        },
+      });
+      dispatch({
+        type: 'ui:search:results:set',
+        payload: null,
+      });
+    }
   };
 
   async function fetchBingSearch(term) {
@@ -64,19 +109,17 @@ function SearchBar(props) {
     }
   }
 
-  const debouncedOnChange = useDebounce(val => fetchBingSearch(val), 300);
-  const onSubmit = e => {
-    e.preventDefault();
-  };
+  const debouncedOnChange = useDebounce(val => fetchBingSearch(val), 200);
 
   return (
-    <form id="search-bar-form" onSubmit={e => onSubmit(e)}>
+    <form id="search-bar-form" onSubmit={onSubmit}>
       <div id="search-bar-div">
         <input
           onChange={async e => {
             onChange(e.target.value);
             debouncedOnChange(e.target.value);
           }}
+          onKeyUp={onKeyUp}
           type="text"
           name="search"
           id="search-bar"
@@ -87,7 +130,10 @@ function SearchBar(props) {
           placeholder="Search nation, state, city..."
         />
         <datalist id="search-bar-autocomplete">
-          {/*datalist options go here*/}
+          {searchResults &&
+            searchResults.map((result, index) => (
+              <option key={index} value={result.name} />
+            ))}
         </datalist>
       </div>
     </form>
