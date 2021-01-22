@@ -10,6 +10,7 @@ import {
   ZoomControl,
   Marker,
   Popup,
+  useMapEvents,
 } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { useTranslation } from 'react-i18next';
@@ -104,6 +105,15 @@ function LeafletMap({ mapConfig }) {
   );
 }
 
+function MapEvents() {
+  const map = useMapEvents({
+    click: () => {
+      console.log(map);
+    },
+  });
+  return null;
+}
+
 export default props => {
   const mapConfig = getMapConfig();
 
@@ -116,6 +126,7 @@ export default props => {
       zoom={mapConfig.z}
       id="map"
     >
+      <MapEvents />
       <TileLayer
         attribution="<a href='https://www.antievictionmap.com/' target='_blank'>Anti-Eviction Mapping Project</a>"
         url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
