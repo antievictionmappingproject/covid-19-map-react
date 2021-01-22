@@ -9,7 +9,11 @@
 - SASS
 - Carto DB (Backend)
 
-## Features
+## Terms
+
+- InfoWindow -
+
+## How To
 
 ### i18n
 
@@ -28,3 +32,11 @@ Then, inside of your templates, you can use this function, and pass the path to 
 ```
 <h2>{ t('modal.title`) }</h2>
 ```
+
+### Redux
+
+Redux reducers are used for handling state that needs to be shared between components.
+
+### Carto
+
+### Config
