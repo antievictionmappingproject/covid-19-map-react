@@ -4,9 +4,10 @@
 
 - React
   - Redux
-  - i18next
+  - `i18next`
   - `react-leaflet`
-- S
+- SASS
+- Carto DB (Backend)
 
 ## Features
 
@@ -25,5 +26,5 @@ const { t } = useTranslation();
 Then, inside of your templates, you can use this function, and pass the path to a translation string.
 
 ```
-<h2>{t('modal.title`)}</h2>
+<h2>{ t('modal.title`) }</h2>
 ```
