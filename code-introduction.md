@@ -2,7 +2,7 @@
 
 ## Stack
 
-- React
+- [React](https://reactjs.org/)
   - [Redux](https://redux.js.org/)
   - [`i18next`](https://react.i18next.com/)
   - [`react-leaflet`](https://react-leaflet.js.org/)
