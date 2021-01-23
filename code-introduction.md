@@ -28,11 +28,9 @@ creating a Pane and GeoJson component for each layer, and passing the configurat
 
 ### i18n
 
-Uses `i18next`. See the docs here: .
+Uses `i18next`. In the file `src/utils/i18n.js` there are the options and the function that initialise i18n. This initialisation function is run in `src/components/App.js`. The application only displays content after the i18n is loaded.
 
-In the file `src/utils/i18n.js` there are the options and the function that initialise i18n. Check here when adding a new language that it's included in the available languages. It is initialised in `src/components/App.js`. The application only displays content after the i18n is loaded.
-
-To use it, we use the hook `useTranslation` from `react-i18n`:
+To use translations in components, we use the hook [`useTranslation`](https://react.i18next.com/latest/usetranslation-hook) from `react-i18next`:
 
 ```
 const { t } = useTranslation();
