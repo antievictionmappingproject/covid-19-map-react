@@ -5,7 +5,7 @@
 
 // font defaults
 $fontSizeDefault: 1.2rem; // = 12px
-$fontStack: "Noto Sans", sans-serif;
+$fontStack: 'Noto Sans', sans-serif;
 
 // colors
 $rent-strike-color: #c92a1d;
@@ -17,3 +17,7 @@ $policy-color-str-2: #bdbdbd;
 $policy-color-str-3: #fff;
 $link-visited: #797979;
 $font-color-black: #000;
+
+:export {
+  rentStrikeColor: $rent-strike-color;
+}

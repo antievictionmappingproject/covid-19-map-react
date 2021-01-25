@@ -1,11 +1,12 @@
-import React, { useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import debounce from 'lodash.debounce';
-// import i18next from 'i18next';
+import i18next from 'i18next';
 import { fetch } from 'whatwg-fetch';
+import * as styles from '../styles/variables.scss';
 
-// Ask Tim for API key or make a dev/test
-/*const BING_API_KEY = <API KEY>;*/
+/* Bing API Key required.
+const BING_API_KEY = <API KEY>;*/
 const BING_API_KEY = `AiCodebvKHCT2XAWYPvfOIkR9f8EA0AfLBnCmL2TchluJ3kn36befi0DWGzm9fuz`;
 
 function parseBingResults(data) {
@@ -34,47 +35,99 @@ function useDebounce(callback, delay) {
   return debouncedFn.current;
 }
 
-function SearchBar(props) {
+function SearchBar() {
+  const [selectionIndex, setIndex] = useState(-1);
   const { searchTerm, searchResults } = useSelector(state => state.ui);
   const dispatch = useDispatch();
-
-  const onChange = term => {
-    dispatch({ type: 'ui:search:term:set', payload: term });
-  };
 
   const onSubmit = e => {
     // prevent sumbit in favor of Enter key press
     e.preventDefault();
   };
 
-  const onKeyUp = e => {
-    // on Enter press
-    if (e.keyCode === 13 && searchResults) {
-      // default selection
-      let coords;
-      let { value: selection } = e.target;
-      const resultNames = searchResults.map(result => result.name);
+  const onChange = e => {
+    dispatch({ type: 'ui:search:term:set', payload: e.target.value });
+  };
 
-      // determine which coords to use
-      if (resultNames.includes(selection)) {
-        coords =
-          searchResults[getDataIndex(resultNames, selection)].point.coordinates;
-      } else {
-        coords = searchResults[0].point.coordinates; //first element coords
-        selection = searchResults[0].name;
+  const onKeyUp = e => {
+    if (searchResults) {
+      // on arrow down
+      if (e.keyCode === 40) {
+        if (selectionIndex < searchResults.length - 1) {
+          setIndex(prevIndex => prevIndex + 1);
+        } else {
+          setIndex(0);
+        }
+        // on arrow up
+      } else if (e.keyCode === 38) {
+        if (selectionIndex > 0) {
+          setIndex(prevIndex => prevIndex - 1);
+        } else {
+          setIndex(searchResults.length - 1);
+        }
       }
-      dispatch({
-        type: 'data:marker',
-        payload: {
-          coords,
-          content: selection,
-        },
-      });
-      dispatch({
-        type: 'ui:search:results:set',
-        payload: null,
-      });
+
+      // on Enter press
+      else if (e.keyCode === 13) {
+        handleEnterPress();
+      }
     }
+  };
+
+  const setSearchMarker = (coords, selection) => {
+    setIndex(-1);
+    dispatch({
+      type: 'data:marker',
+      payload: {
+        coords,
+        content: selection,
+      },
+    });
+    dispatch({
+      type: 'ui:search:results:set',
+      payload: null,
+    });
+  };
+
+  const handleClick = index => {
+    const { name } = searchResults[index];
+    const coords = searchResults[index].point.coordinates;
+
+    // set the input
+    dispatch({ type: 'ui:search:term:set', payload: name });
+
+    // trigger state changes
+    setSearchMarker(coords, name);
+    setIndex(-1);
+    dispatch({
+      type: 'ui:search:results:set',
+      payload: null,
+    });
+  };
+
+  const handleEnterPress = () => {
+    let coords, content;
+    const resultNames = searchResults.map(result => result.name);
+    const name = searchResults[selectionIndex]?.name;
+
+    if (resultNames.includes(name)) {
+      coords = searchResults[getDataIndex(resultNames, name)].point.coordinates;
+      content = name;
+
+      // set the input
+      dispatch({ type: 'ui:search:term:set', payload: name });
+    } else {
+      coords = searchResults[0].point.coordinates; //first element coords
+      content = searchResults[0].name;
+    }
+
+    // trigger state changes
+    setSearchMarker(coords, content);
+    setIndex(-1);
+    dispatch({
+      type: 'ui:search:results:set',
+      payload: null,
+    });
   };
 
   async function fetchBingSearch(term) {
@@ -90,31 +143,26 @@ function SearchBar(props) {
         //parse through the results to get data
         dispatch({
           type: 'ui:search:results:set',
-          // payload: json.resourceSets[0].resources[0].value, // data we need is VERY nested
           payload: parseBingResults(json),
         });
-        /* TODO: 
-        -- parse through returned json to get list to be rendered
-        -- build carto queries OR render a popup based on lat/lon and ignore carto 
-        */
       } else {
         dispatch({ type: 'ui:search:results:set', payload: null });
       }
-    } catch (e) {
-      throw new Error(`An error occurred fetching Bing data.: ${e.message}. 
+    } catch (err) {
+      throw new Error(`An error occurred fetching Bing data.: ${err.message}. 
       Check that you have a Bing API key.`);
     }
   }
 
-  const debouncedOnChange = useDebounce(val => fetchBingSearch(val), 200);
+  const debouncedFetch = useDebounce(val => fetchBingSearch(val), 200);
 
   return (
     <form id="search-bar-form" onSubmit={onSubmit}>
       <div id="search-bar-div">
         <input
           onChange={async e => {
-            onChange(e.target.value);
-            debouncedOnChange(e.target.value);
+            onChange(e);
+            debouncedFetch(e.target.value);
           }}
           onKeyUp={onKeyUp}
           type="text"
@@ -126,12 +174,24 @@ function SearchBar(props) {
           autoComplete="off"
           placeholder="Search nation, state, city..."
         />
-        <datalist id="search-bar-autocomplete">
-          {searchResults &&
-            searchResults.map((result, index) => (
-              <option key={index} value={result.name} />
-            ))}
-        </datalist>
+        <div>
+          <ul id="search-bar-autocomplete">
+            {searchResults &&
+              searchResults.map((result, index) => (
+                <li
+                  key={index}
+                  style={
+                    selectionIndex === index
+                      ? { color: styles.rentStrikeColor }
+                      : null
+                  }
+                  onClick={() => handleClick(index)}
+                >
+                  {result.name}
+                </li>
+              ))}
+          </ul>
+        </div>
       </div>
     </form>
   );

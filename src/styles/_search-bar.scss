@@ -22,7 +22,7 @@
   border: 1px solid $rent-strike-color;
   padding: 8px 6px;
   background-clip: padding-box;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: 'IBM Plex Mono', monospace;
   color: $link-visited;
 }
 
@@ -35,6 +35,15 @@
   height: 50%;
   background-color: white;
   margin-top: 20px;
+  padding: 0;
+  li {
+    padding: 2px;
+    list-style-type: none;
+  }
+
+  li:hover {
+    color: $link-visited;
+  }
 }
 
 #search-box-marker-content {
