@@ -7,7 +7,7 @@ import * as styles from '../styles/variables.scss';
 
 /* Bing API Key required.
 const BING_API_KEY = <API KEY>;*/
-const BING_API_KEY = `AiCodebvKHCT2XAWYPvfOIkR9f8EA0AfLBnCmL2TchluJ3kn36befi0DWGzm9fuz`;
+const BING_API_KEY = `AqjKYN_6urDj_gpon9q04BKnthf65hYVpBCEaaY1x60gjkG6hPyvYPAMSzCYqclY`;
 
 function parseBingResults(data) {
   const parsedData = data.resourceSets[0].resources.map(resource => {
