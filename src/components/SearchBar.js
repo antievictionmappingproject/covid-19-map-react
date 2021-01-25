@@ -4,7 +4,6 @@ import debounce from 'lodash.debounce';
 // import i18next from 'i18next';
 import { fetch } from 'whatwg-fetch';
 
-
 // Ask Tim for API key or make a dev/test
 /*const BING_API_KEY = <API KEY>;*/
 const BING_API_KEY = `AiCodebvKHCT2XAWYPvfOIkR9f8EA0AfLBnCmL2TchluJ3kn36befi0DWGzm9fuz`;
@@ -56,11 +55,13 @@ function SearchBar(props) {
       let { value: selection } = e.target;
       const resultNames = searchResults.map(result => result.name);
 
+      // determine which coords to use
       if (resultNames.includes(selection)) {
         coords =
           searchResults[getDataIndex(resultNames, selection)].point.coordinates;
       } else {
         coords = searchResults[0].point.coordinates; //first element coords
+        selection = searchResults[0].name;
       }
       dispatch({
         type: 'data:marker',
