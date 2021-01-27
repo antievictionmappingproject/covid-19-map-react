@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 export default props => {
   const showModal = useSelector(state => state.ui.showModal);
+  const layers = useSelector(state => state.data.layers);
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -22,15 +23,20 @@ export default props => {
     return null;
   }
 
+  //check that data layers have loaded before closing modal
+  const closeModal = () => {
+    if (layers.length > 0) {
+      dispatch({ type: 'ui:modal:hide' });
+    }
+    return null;
+  };
+
   return (
     <div id="modal-container">
       <div className="modal">
         <div>
           <h4 data-i18n="modal.title">{t('modal.title')}</h4>
-          <span
-            onClick={e => dispatch({ type: 'ui:modal:hide' })}
-            className="modal-close"
-          >
+          <span onClick={closeModal} className="modal-close">
             ×
           </span>
         </div>
