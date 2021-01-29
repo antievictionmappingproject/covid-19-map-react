@@ -5,11 +5,19 @@ div.legend {
 
 div.legendgrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto;
-  align-items: center;
-  justify-items: left;
   margin-top: 16px;
+
+  &.key {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    align-items: center;
+    justify-items: left;
+  }
+  
+  p {
+    margin: 0;
+  }
+
 }
 
 div.submissions {
@@ -24,8 +32,7 @@ div.submissions {
   }
 
   p {
-    max-width: 95px;
-    margin: 0;
+    margin-bottom: 0.5rem;
   }
 
   .aemp-logo {
@@ -43,15 +50,16 @@ div.submissions {
 
 .legendlabel {
   text-transform: uppercase;
+  font-size: 1.2rem !important;
 }
 
 .legendbox,
 %legendbox {
   width: 95px;
-  height: 75px;
+  height: 40px;
   display: inline-block;
   border-style: solid;
-  border-width: 1px;
+  border-width: 1px; 
   opacity: 0.7;
 }
 
@@ -101,7 +109,9 @@ div.submissions {
 
 .expired {
   background-image: url("/assets/stripes-icon.png");
-  background-size: cover;
-  height: 102px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 70px;
   border: none;
 }
