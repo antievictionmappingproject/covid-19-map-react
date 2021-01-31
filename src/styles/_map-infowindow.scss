@@ -8,8 +8,8 @@
 .aemp-infowindow {
   position: absolute;
   right: 0;
-  bottom: 20px;
   top: 154px;
+  max-height: calc(100% - 154px - 24px);
   width: 350px;
   margin: 10px 10px 0 0;
   overflow-y: auto;
@@ -21,7 +21,7 @@
 
 @media (max-width: 900px) {
   .aemp-infowindow {
-    bottom: 40px;
+    // bottom: 40px;
   }
 }
 
