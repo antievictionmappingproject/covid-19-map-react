@@ -2,16 +2,26 @@ header#aemp-titlebox {
   position: absolute;
   top: 16px;
   left: 10px;
+  height: calc(100% - 32px);
+  overflow: auto;
   width: 320px;
   padding: 12px;
   background: #fff;
   border: 1px solid $rent-strike-color;
-  background-clip: padding-box;
   z-index: 500;
+
+  &.collapsed {
+    height: auto;
+  }
 
   @media (max-width: 640px) {
     width: unset;
     right: 10px;
+  }
+
+  @media (min-height: 800px) {
+    max-height: calc(100% - 32px);
+    height: auto;
   }
 }
 
@@ -99,9 +109,6 @@ details p:last-of-type {
 }
 
 .title-content-wrapper {
-  max-height: 50vh;
-  overflow-y: scroll;
-
   h2 {
     font-size: 1.4rem;
     text-transform: uppercase;
