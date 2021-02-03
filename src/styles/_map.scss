@@ -8,7 +8,7 @@
   right: 0;
   z-index: 0;
 
-  .leaflet-pane.leaflet-overlay-pane svg {
+  .leaflet-pane svg {
     path {
       @include use-svg-pattern("few");
       @include use-svg-pattern("few", true);
