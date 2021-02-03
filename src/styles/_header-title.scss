@@ -2,7 +2,7 @@ header#aemp-titlebox {
   position: absolute;
   top: 16px;
   left: 10px;
-  height: calc(100% - 32px);
+  height: 75vh;
   overflow: auto;
   width: 320px;
   padding: 12px;
@@ -20,7 +20,7 @@ header#aemp-titlebox {
   }
 
   @media (min-height: 800px) {
-    max-height: calc(100% - 32px);
+    max-height: 64vh;
     height: auto;
   }
 }
@@ -68,10 +68,11 @@ header#aemp-titlebox {
   &::before {
     content: '▼';
     position: absolute;
-    left: 0em; top: 1em;
+    left: 0em; 
+    top: 0.54em;
     display: inline-block;
     color: $rent-strike-color;
-    font-size: 0.7em;
+    font-size: 1em;
     transform-origin: center;
     transform: translateY(-50%);
     // transition: transform 0.1s ease;

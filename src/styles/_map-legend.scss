@@ -7,11 +7,15 @@ div.legendgrid {
   display: grid;
   margin-top: 16px;
 
-  &.key {
+  &.key, &.submissions {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
-    align-items: center;
+    // align-items: center;
     justify-items: left;
+  }
+
+  &.key {
+    align-items: center;
   }
   
   p {
@@ -33,18 +37,19 @@ div.submissions {
 
   p {
     margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
   }
+}
 
-  .aemp-logo {
-    font-family: "Harbour W00 Medium", "IBM Plex Mono", monospace;
-    color: $rent-strike-color;
-    font-size: 1.6rem;
-    font-style: normal;
-    text-transform: uppercase;
+.aemp-logo {
+  font-family: "Harbour W00 Medium", "IBM Plex Mono", monospace;
+  color: $rent-strike-color;
+  font-size: 1.6rem;
+  font-style: normal;
+  text-transform: uppercase;
 
-    &:hover {
-      text-decoration: underline;
-    }
+  &:hover {
+    text-decoration: underline;
   }
 }
 
@@ -61,6 +66,7 @@ div.submissions {
   border-style: solid;
   border-width: 1px; 
   opacity: 0.7;
+  margin: 4px 0;
 }
 
 .legendbox-icons {

@@ -58,62 +58,59 @@ export default props => {
             <div className="legendgrid submissions">
               {/* <!-- Submit Header --> */}
               <h3>{t('titlebox.submit')}</h3>
-              <div>
-                {/* <!-- Submission --> */}
-                <p>
-                  <a
-                    href="https://airtable.com/shrMi8xtGqFIXtFyy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {t('titlebox.legislation-form-intl')}
-                  </a>
-                </p>
-                {/* <!-- Submission --> */}
-                <p>
-                  <a
-                    href="https://airtable.com/shrI5HxbTqEFbk89Y"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {t('titlebox.housing-action-form')}
-                  </a>
-                </p>
 
-                {/* <!-- Submission --> */}
-                <p></p>
-              </div>
-              
               {/* <!-- Resources Header --> */}
               <h3>{t('titlebox.resources.title')}</h3>
-              <div>
-                {/* <!-- Resource --> */}
-                <p>
-                  <a
-                    href="https://cancelrent.us/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {t('titlebox.resources.right-to-the-city')}
-                  </a>
-                </p>
-                {/* <!-- Resource --> */}
-                <p>
-                  <a
-                    href="https://housingnotprofit.org/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {t('titlebox.resources.hashtag-cancel-rent')}
-                  </a>
-                </p>
-              </div>
 
-              {/* <!-- Logo --> */}
-              <a href="https://antievictionmap.com/" className="aemp-logo">
-                {t('titlebox.aemp-name')}
-              </a>
+              {/* <!-- Submission --> */}
+              <p>
+                <a
+                  href="https://airtable.com/shrMi8xtGqFIXtFyy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t('titlebox.legislation-form-intl')}
+                </a>
+              </p>
+              
+              {/* <!-- Resource --> */}
+              <p>
+                <a
+                  href="https://cancelrent.us/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t('titlebox.resources.right-to-the-city')}
+                </a>
+              </p>
+            
+              {/* <!-- Submission --> */}
+              <p>
+                <a
+                  href="https://airtable.com/shrI5HxbTqEFbk89Y"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t('titlebox.housing-action-form')}
+                </a>
+              </p>
+
+              {/* <!-- Resource --> */}
+              <p>
+                <a
+                  href="https://housingnotprofit.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t('titlebox.resources.hashtag-cancel-rent')}
+                </a>
+              </p>
             </div>
+            <br />
+            {/* <!-- Logo --> */}
+            <a href="https://antievictionmap.com/" className="aemp-logo">
+              {t('titlebox.aemp-name')}
+            </a>
           </div>
         </div>
       )}
