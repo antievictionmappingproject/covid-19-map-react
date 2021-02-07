@@ -2,7 +2,7 @@ header#aemp-titlebox {
   position: absolute;
   top: 16px;
   left: 10px;
-  height: 75vh;
+  height: 675px;
   overflow: auto;
   width: 320px;
   padding: 12px;
@@ -18,11 +18,6 @@ header#aemp-titlebox {
     width: unset;
     right: 10px;
   }
-
-  @media (min-height: 800px) {
-    max-height: 64vh;
-    height: auto;
-  }
 }
 
 .aemp-titlebox-closed {
@@ -35,7 +30,7 @@ header#aemp-titlebox {
 }
 
 .details > h1 {
-  margin: 1.6rem 0 1.2rem 0;
+  margin: 0.8rem 0 2.4rem 0;
   font-family: "Harbour W00 Medium", "IBM Plex Mono", monospace;
   font-weight: bold;
   text-transform: uppercase;
@@ -63,6 +58,7 @@ header#aemp-titlebox {
   color: $font-color-black;
   outline: none;
   padding-left: 1.1em;
+  margin: 4px 2px;
   position: relative;
 
   &::before {
@@ -80,7 +76,7 @@ header#aemp-titlebox {
 
   &.collapsed {
     &::before {
-      transform: translateY(-50%) rotate(-90deg);
+      transform: translateY(-44%) rotate(-90deg);
     }  
   }
 
