@@ -18,6 +18,10 @@ header#aemp-titlebox {
     width: unset;
     right: 10px;
   }
+
+  @media (max-width: 900px) {
+    height: calc(100% - 60px);
+  }
 }
 
 .aemp-titlebox-closed {
