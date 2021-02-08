@@ -2,7 +2,7 @@ header#aemp-titlebox {
   position: absolute;
   top: 16px;
   left: 10px;
-  height: calc(100% - 32px);
+  height: 675px;
   overflow: auto;
   width: 320px;
   padding: 12px;
@@ -19,9 +19,8 @@ header#aemp-titlebox {
     right: 10px;
   }
 
-  @media (min-height: 800px) {
-    max-height: calc(100% - 32px);
-    height: auto;
+  @media (max-width: 900px) {
+    height: calc(100% - 60px);
   }
 }
 
@@ -35,7 +34,7 @@ header#aemp-titlebox {
 }
 
 .details > h1 {
-  margin: 1.6rem 0 1.2rem 0;
+  margin: 0.8rem 0 2.4rem 0;
   font-family: "Harbour W00 Medium", "IBM Plex Mono", monospace;
   font-weight: bold;
   text-transform: uppercase;
@@ -63,15 +62,17 @@ header#aemp-titlebox {
   color: $font-color-black;
   outline: none;
   padding-left: 1.1em;
+  margin: 4px 2px;
   position: relative;
 
   &::before {
     content: '▼';
     position: absolute;
-    left: 0em; top: 1em;
+    left: 0em; 
+    top: 0.54em;
     display: inline-block;
     color: $rent-strike-color;
-    font-size: 0.7em;
+    font-size: 1em;
     transform-origin: center;
     transform: translateY(-50%);
     // transition: transform 0.1s ease;
@@ -79,7 +80,7 @@ header#aemp-titlebox {
 
   &.collapsed {
     &::before {
-      transform: translateY(-50%) rotate(-90deg);
+      transform: translateY(-44%) rotate(-90deg);
     }  
   }
 
