@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import debounce from 'lodash.debounce';
-import i18next from 'i18next';
 import { fetch } from 'whatwg-fetch';
 import * as styles from '../styles/variables.scss';
 
-/* Bing API Key required.
-const BING_API_KEY = <API KEY>;*/
 const BING_API_KEY = `AqjKYN_6urDj_gpon9q04BKnthf65hYVpBCEaaY1x60gjkG6hPyvYPAMSzCYqclY`;
 
 function parseBingResults(data) {
@@ -71,7 +68,7 @@ function SearchBar() {
   };
 
   const setSearchMarker = (coords, selection) => {
-    setIndex(-1);
+    // Find the nearest
     dispatch({
       type: 'data:marker',
       payload: {
@@ -79,6 +76,9 @@ function SearchBar() {
         content: selection,
       },
     });
+
+    // Reset search bar
+    setIndex(-1);
     dispatch({
       type: 'ui:search:results:set',
       payload: null,
@@ -92,41 +92,30 @@ function SearchBar() {
     // set the input
     dispatch({ type: 'ui:search:term:set', payload: name });
 
-    // trigger state changes
     setSearchMarker(coords, name);
-    setIndex(-1);
-    dispatch({
-      type: 'ui:search:results:set',
-      payload: null,
-    });
   };
 
   const handleEnterPress = () => {
-    let coords, content;
     const resultNames = searchResults.map(result => result.name);
     const name = searchResults[selectionIndex]?.name;
 
+    // If the typed name is in the autocomplete
     if (resultNames.includes(name)) {
-      coords = searchResults[getDataIndex(resultNames, name)].point.coordinates;
-      content = name;
-
-      // set the input
+      const coords =
+        searchResults[getDataIndex(resultNames, name)].point.coordinates;
+      setSearchMarker(coords, name);
       dispatch({ type: 'ui:search:term:set', payload: name });
+      return;
     } else {
-      coords = searchResults[0].point.coordinates; //first element coords
-      content = searchResults[0].name;
+      const coords = searchResults[0].point.coordinates; //first element coords
+      const firstResultName = searchResults[0].name;
+      setSearchMarker(coords, firstResultName);
+      return;
     }
-
-    // trigger state changes
-    setSearchMarker(coords, content);
-    setIndex(-1);
-    dispatch({
-      type: 'ui:search:results:set',
-      payload: null,
-    });
   };
 
   async function fetchBingSearch(term) {
+    // TODO: use i18n language
     const lang = navigator.language ? `&culture = ${navigator.language}` : '';
     const url = `http://dev.virtualearth.net/REST/v1/Locations?q=${encodeURIComponent(
       term.trim()
