@@ -41,11 +41,6 @@ function SearchBar() {
   const { layers, marker } = useSelector(state => state.data);
   const dispatch = useDispatch();
 
-  const onSubmit = e => {
-    // prevent sumbit in favor of Enter key press
-    e.preventDefault();
-  };
-
   const onChange = e => {
     dispatch({ type: 'ui:search:term:set', payload: e.target.value });
   };
@@ -158,7 +153,13 @@ function SearchBar() {
   const debouncedFetch = useDebounce(val => fetchBingSearch(val), 200);
 
   return (
-    <form id="search-bar-form" onSubmit={onSubmit}>
+    <form
+      id="search-bar-form"
+      onSubmit={e => {
+        // prevent sumbit in favor of Enter key press
+        e.preventDefault();
+      }}
+    >
       <div id="search-bar-div">
         <input
           onChange={async e => {

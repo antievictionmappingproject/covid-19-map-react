@@ -1,6 +1,5 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { rentStrikeIcon } from '../lib/leaflet';
 import {
   MapContainer,
   TileLayer,
@@ -8,32 +7,13 @@ import {
   Pane,
   GeoJSON,
   ZoomControl,
-  Marker,
-  Popup,
-  useMapEvents,
 } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { useTranslation } from 'react-i18next';
+
 import getMapConfig from '../config/map-config';
 import SearchBar from './SearchBar';
-
-function SearchMarker({ coords, content = 'Search Location' }) {
-  const markerRef = useRef(null);
-
-  useEffect(() => {
-    markerRef.current.openPopup();
-    return () => null;
-  }, [markerRef]);
-
-  if (!coords) return <></>;
-  //TODO :
-  // switch popup icon
-  return (
-    <Marker position={coords} icon={rentStrikeIcon} ref={markerRef}>
-      <Popup>{content} </Popup>
-    </Marker>
-  );
-}
+import SearchMarker from './SearchMarker';
 
 function LeafletMap({ mapConfig }) {
   const { layers, marker } = useSelector(state => state.data);
@@ -101,7 +81,6 @@ function LeafletMap({ mapConfig }) {
         })}
       </LayersControl>
       <ZoomControl position="bottomright" />
-      <SearchBar />
       {marker && (
         <SearchMarker coords={marker.coords} content={marker.content} />
       )}
@@ -109,16 +88,7 @@ function LeafletMap({ mapConfig }) {
   );
 }
 
-function MapEvents() {
-  const map = useMapEvents({
-    click: () => {
-      console.log(map);
-    },
-  });
-  return null;
-}
-
-export default props => {
+export default () => {
   const mapConfig = getMapConfig();
 
   // Map component id prop may be an anti-pattern
@@ -131,12 +101,13 @@ export default props => {
       zoom={mapConfig.z}
       id="map"
     >
-      <MapEvents />
+      {/* <MapEvents /> */}
       <TileLayer
         attribution="<a href='https://www.antievictionmap.com/' target='_blank'>Anti-Eviction Mapping Project</a>"
         url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
       />
       <LeafletMap mapConfig={mapConfig} />
+      <SearchBar />
     </MapContainer>
   );
 };

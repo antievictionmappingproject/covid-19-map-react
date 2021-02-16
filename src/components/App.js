@@ -5,7 +5,6 @@ import LoadingIndicator from './LoadingIndicator';
 import InfoWindow from './InfoWindow';
 import LeafletMap from './Map';
 import Titlebox from './Titlebox';
-import SearchBar from './SearchBar';
 import { i18nInit } from '../utils/i18n';
 import { Translation } from 'react-i18next';
 import { getAllCartoLayers } from '../carto/api';
