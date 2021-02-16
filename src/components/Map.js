@@ -26,8 +26,6 @@ function LeafletMap({ mapConfig }) {
     <>
       <LayersControl collapsed={false} position="topright">
         {layers.map(layer => {
-          // If layer data is not resolved, don't render
-          console.log(layer.layerConfig.zIndex);
           return (
             <LayersControl.Overlay
               key={layer.key}
