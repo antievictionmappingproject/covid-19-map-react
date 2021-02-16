@@ -4,6 +4,11 @@ const defaultMapConfig = {
   lat: 39.8333333,
   lng: -98.585522,
   z: 3,
+  bounds: [
+    [-85.05, -220], // lower left
+    [85.05, 230], // upper right
+  ],
+  // Default status of layers
   nations: true,
   states: true,
   cities: true,

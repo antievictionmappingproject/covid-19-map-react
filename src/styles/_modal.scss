@@ -15,7 +15,6 @@ div.modal {
   left: 50%;
   transform: translate(-50%, -50%);
   border: 1px solid $rent-strike-color;
-  background-clip: padding-box;
   background-color: white;
   padding: 0 1.5rem 1.5rem 1.5rem;
   width: 95%;
@@ -70,4 +69,8 @@ div.modal {
   top: 0;
   padding-top: 1.5rem;
   background-color: white;
+}
+
+.hlt-yellow {
+  background-color: $highlight-color-yellow;
 }

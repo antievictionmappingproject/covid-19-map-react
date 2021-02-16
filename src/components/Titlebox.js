@@ -24,7 +24,7 @@ export default props => {
             <h2>{t('titlebox.about-protections')}</h2>
             <p>{t('titlebox.about-description')}</p>
 
-            <div className="legendgrid">
+            <div className="legendgrid key">
               {/* <!-- Few protections --> */}
               <div className="legendbox scale3"></div>
               <p className="legendlabel">{t('policy-strength.3')}</p>
@@ -72,7 +72,7 @@ export default props => {
                   {t('titlebox.legislation-form-intl')}
                 </a>
               </p>
-
+              
               {/* <!-- Resource --> */}
               <p>
                 <a
@@ -83,7 +83,7 @@ export default props => {
                   {t('titlebox.resources.right-to-the-city')}
                 </a>
               </p>
-
+            
               {/* <!-- Submission --> */}
               <p>
                 <a
@@ -105,15 +105,12 @@ export default props => {
                   {t('titlebox.resources.hashtag-cancel-rent')}
                 </a>
               </p>
-
-              {/* <!-- Submission --> */}
-              <p></p>
-
-              {/* <!-- Logo --> */}
-              <a href="https://antievictionmap.com/" className="aemp-logo">
-                {t('titlebox.aemp-name')}
-              </a>
             </div>
+            <br />
+            {/* <!-- Logo --> */}
+            <a href="https://antievictionmap.com/" className="aemp-logo">
+              {t('titlebox.aemp-name')}
+            </a>
           </div>
         </div>
       )}

@@ -5,11 +5,23 @@ div.legend {
 
 div.legendgrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto;
-  align-items: center;
-  justify-items: left;
   margin-top: 16px;
+
+  &.key, &.submissions {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    // align-items: center;
+    justify-items: left;
+  }
+
+  &.key {
+    align-items: center;
+  }
+  
+  p {
+    margin: 0;
+  }
+
 }
 
 div.submissions {
@@ -24,35 +36,58 @@ div.submissions {
   }
 
   p {
-    max-width: 95px;
-    margin: 0;
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
   }
+}
 
-  .aemp-logo {
-    font-family: "Harbour W00 Medium", "IBM Plex Mono", monospace;
-    color: $rent-strike-color;
-    font-size: 1.6rem;
-    font-style: normal;
-    text-transform: uppercase;
+.aemp-logo {
+  font-family: "Harbour W00 Medium", "IBM Plex Mono", monospace;
+  color: $rent-strike-color;
+  font-size: 1.6rem;
+  font-style: normal;
+  text-transform: uppercase;
 
-    &:hover {
-      text-decoration: underline;
-    }
+  &:hover {
+    text-decoration: underline;
   }
 }
 
 .legendlabel {
   text-transform: uppercase;
+  font-size: 1.2rem !important;
 }
 
-.legendbox,
-%legendbox {
+.legendbox {
   width: 95px;
-  height: 75px;
+  height: 52px;
   display: inline-block;
-  border-style: solid;
-  border-width: 1px;
-  opacity: 0.7;
+  border: 1px solid black;
+  border-bottom: none;
+
+  &.scale1 {
+    background-color: $policy-color-bg-1;
+  }
+  
+  &.scale2 {
+    background-color: $policy-color-bg-2;
+  }
+  
+  &.scale3 {
+    background-color: $policy-color-bg-3;
+  }
+
+  &.missingdata {
+    background-color: black;
+    border-bottom-color: $policy-color-str-2;
+  }
+
+  &.expired {
+    background: url("/assets/stripes-icon.png") center no-repeat;
+    background-size: contain;
+    height: 70px;
+    border: none;
+  }
 }
 
 .legendbox-icons {
@@ -77,31 +112,4 @@ div.submissions {
     fill: white;
     font-weight: bold;
   }
-}
-
-.scale1 {
-  background-color: $policy-color-bg-1;
-  border-color: $policy-color-str-2;
-}
-
-.scale2 {
-  background-color: $policy-color-bg-2;
-  border-color: $policy-color-str-2;
-}
-
-.scale3 {
-  background-color: $policy-color-bg-3;
-  border: 1px solid $policy-color-str-2;
-}
-
-.missingdata {
-  background-color: black;
-  opacity: 1;
-}
-
-.expired {
-  background-image: url("/assets/stripes-icon.png");
-  background-size: cover;
-  height: 102px;
-  border: none;
 }

@@ -19,7 +19,6 @@ const keyify = (obj, prefix = '') =>
   }, []);
 
 describe('Validate translations', () => {
-  test('has the same keys in every file', () => {
     const enKeys = keyify(en);
     // Get the list of keys for each localisation file
     const translationKeys = Object.values(translations).map(translation => {
@@ -28,11 +27,11 @@ describe('Validate translations', () => {
 
     // For all translations
     translationKeys.forEach((translation, index) => {
-      // Check against the english file
-      expect(
-        enKeys.sort(),
-        `Comparing en with ${Object.keys(translations)[index]}`
-      ).toEqual(translation.sort());
-    });
+      test('"' + Object.keys(translations)[index] + '" has the same keys as "en"', () => {
+        // Check against the english file
+        expect(
+          enKeys.sort()
+        ).toEqual(translation.sort());
+      });
   });
 });

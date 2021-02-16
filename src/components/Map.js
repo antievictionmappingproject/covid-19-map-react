@@ -39,7 +39,9 @@ function LeafletMap({ mapConfig }) {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
-  if (!layers || !layers.length) return <></>;
+  // Make sure layers have resolved before rendering map
+  if (!layers || !layers.length || layers.some(layer => layer === undefined))
+    return <></>;
 
   return (
     <>
@@ -54,7 +56,7 @@ function LeafletMap({ mapConfig }) {
               {layer.layerConfig.name === 'Housing Justice Actions' ? (
                 <Pane
                   name={layer.key}
-                  style={{ zIndex: 500 + layer.layerConfig.zIndex }}
+                  style={{ zIndex: 200 + layer.layerConfig.zIndex * 2 }}
                 >
                   <MarkerClusterGroup>
                     <GeoJSON
@@ -75,7 +77,7 @@ function LeafletMap({ mapConfig }) {
               ) : (
                 <Pane
                   name={layer.key}
-                  style={{ zIndex: 500 + layer.layerConfig.zIndex }}
+                  style={{ zIndex: 200 + layer.layerConfig.zIndex * 2 }}
                 >
                   <GeoJSON
                     data={layer.data}
@@ -122,6 +124,7 @@ export default props => {
     <MapContainer
       zoomControl={false}
       center={[mapConfig.lat, mapConfig.lng]}
+      maxBounds={mapConfig.bounds}
       minZoom={3}
       zoom={mapConfig.z}
       id="map"
