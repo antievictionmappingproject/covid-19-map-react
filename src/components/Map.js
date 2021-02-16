@@ -15,6 +15,7 @@ import {
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { useTranslation } from 'react-i18next';
 import getMapConfig from '../config/map-config';
+import SearchBar from './SearchBar';
 
 function SearchMarker({ coords, content = 'Search Location' }) {
   const markerRef = useRef(null);
@@ -100,6 +101,7 @@ function LeafletMap({ mapConfig }) {
         })}
       </LayersControl>
       <ZoomControl position="bottomright" />
+      <SearchBar />
       {marker && (
         <SearchMarker coords={marker.coords} content={marker.content} />
       )}

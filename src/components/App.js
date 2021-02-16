@@ -39,12 +39,13 @@ export default () => {
       <Translation>
         {(t, { i18n }) => {
           document.title = t('page-title');
-          document.querySelector('meta[name="description"]').setAttribute("content", t('titlebox.about-description'));
+          document
+            .querySelector('meta[name="description"]')
+            .setAttribute('content', t('titlebox.about-description'));
           return null;
         }}
       </Translation>
       <LeafletMap />
-      <SearchBar />
       <Titlebox />
       <Modal />
       <LoadingIndicator />

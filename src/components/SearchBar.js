@@ -38,6 +38,7 @@ function useDebounce(callback, delay) {
 function SearchBar() {
   const [selectionIndex, setIndex] = useState(-1);
   const { searchTerm, searchResults } = useSelector(state => state.ui);
+  const { layers, marker } = useSelector(state => state.data);
   const dispatch = useDispatch();
 
   const onSubmit = e => {
