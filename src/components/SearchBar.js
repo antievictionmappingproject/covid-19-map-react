@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { getSearchData } from '../utils/data';
 import { useDispatch, useSelector } from 'react-redux';
 import i18next from 'i18next';
 
