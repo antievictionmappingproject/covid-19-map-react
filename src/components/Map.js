@@ -19,13 +19,14 @@ function LeafletMap({ mapConfig }) {
   const { t } = useTranslation();
 
   // Make sure layers have resolved before rendering map
-  if ((!layers || !layers.length) && layers.every(layer => layer)) return <></>;
+  if (!layers || !layers.length) return <></>;
 
   return (
     <>
       <LayersControl collapsed={false} position="topright">
         {layers.map(layer => {
-          return (
+          // If layer data is not resolved, don't render
+          return layer === undefined ? null : (
             <LayersControl.Overlay
               key={layer.key}
               name={t(layer.layerConfig.nameI18n)}
