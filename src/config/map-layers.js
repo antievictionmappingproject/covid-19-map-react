@@ -35,7 +35,7 @@ export const mapLayersConfig = {
     nameI18n: 'layer-select.cities',
     type: 'point',
     query: queries.citiesCartoQuery,
-    zIndex: 5,
+    zIndex: 4,
     overlayOrder: 0,
     props(feature) {
       const {
@@ -94,7 +94,7 @@ export const mapLayersConfig = {
     nameI18n: 'layer-select.counties',
     type: 'polygon',
     query: queries.countiesCartoQuery,
-    zIndex: 4,
+    zIndex: 3,
     overlayOrder: 1,
     props(feature) {
       const {
@@ -146,7 +146,7 @@ export const mapLayersConfig = {
     nameI18n: 'layer-select.states',
     type: 'polygon',
     query: queries.statesCartoQuery,
-    zIndex: 3,
+    zIndex: 2,
     overlayOrder: 2,
     props(feature) {
       const {
@@ -196,7 +196,7 @@ export const mapLayersConfig = {
     nameI18n: 'layer-select.nations',
     type: 'polygon',
     query: queries.countriesCartoQuery,
-    zIndex: 2,
+    zIndex: 1,
     overlayOrder: 3,
     props(feature) {
       const { name_en, end_date_earliest, ...rest } = feature.properties;
@@ -235,7 +235,7 @@ export const mapLayersConfig = {
     nameI18n: 'layer-select.housingJusticeAction',
     type: 'marker-cluster',
     query: queries.housingActionsCartoQuery,
-    zIndex: 6, // markers have their very own layer pane in Leaflet so don't need a z-index value
+    zIndex: 5,
     overlayOrder: 4,
     pointToLayer(feature, latlng) {
       return L.marker(latlng, {

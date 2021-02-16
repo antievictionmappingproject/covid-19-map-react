@@ -27,6 +27,7 @@ function LeafletMap({ mapConfig }) {
       <LayersControl collapsed={false} position="topright">
         {layers.map(layer => {
           // If layer data is not resolved, don't render
+          console.log(layer.layerConfig.zIndex);
           return (
             <LayersControl.Overlay
               key={layer.key}
@@ -36,7 +37,7 @@ function LeafletMap({ mapConfig }) {
               {layer.layerConfig.name === 'Housing Justice Actions' ? (
                 <Pane
                   name={layer.key}
-                  style={{ zIndex: 500 + layer.layerConfig.zIndex }}
+                  style={{ zIndex: 200 + layer.layerConfig.zIndex * 2 }}
                 >
                   <MarkerClusterGroup>
                     <GeoJSON
@@ -57,7 +58,7 @@ function LeafletMap({ mapConfig }) {
               ) : (
                 <Pane
                   name={layer.key}
-                  style={{ zIndex: 500 + layer.layerConfig.zIndex }}
+                  style={{ zIndex: 200 + layer.layerConfig.zIndex * 2 }}
                 >
                   <GeoJSON
                     data={layer.data}

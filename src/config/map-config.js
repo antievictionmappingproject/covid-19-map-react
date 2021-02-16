@@ -10,9 +10,9 @@ const defaultMapConfig = {
   ],
   // Default status of layers
   nations: true,
-  states: true,
+  states: false,
   cities: true,
-  counties: true,
+  counties: false,
   rentStrikes: true,
 };
 
