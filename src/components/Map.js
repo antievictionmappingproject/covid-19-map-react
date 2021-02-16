@@ -18,8 +18,8 @@ function LeafletMap({ mapConfig }) {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
-  if ((!layers || !layers.length) && layers.every(layer => !!layer))
-    return <></>;
+  // Make sure layers have resolved before rendering map
+  if ((!layers || !layers.length) && layers.every(layer => layer)) return <></>;
 
   return (
     <>
@@ -90,7 +90,7 @@ export default props => {
     <MapContainer
       zoomControl={false}
       center={[mapConfig.lat, mapConfig.lng]}
-      bounds={mapConfig.bounds}
+      maxBounds={mapConfig.bounds}
       minZoom={3}
       zoom={mapConfig.z}
       id="map"
