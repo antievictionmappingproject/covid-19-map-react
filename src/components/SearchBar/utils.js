@@ -29,7 +29,8 @@ export const getNearestCity = (searchPoint, citiesLayer) => {
 };
 
 export const getPolygonAroundPoint = (searchPoint, layer) => {
-  const polygonAroundPoint = layer.data.features.find(feature => {
+  // Find first polygon shape that contains the search location
+  return layer.data.features.find(feature => {
     const pointObject = point([
       searchPoint.coordinates[1],
       searchPoint.coordinates[0],
@@ -37,6 +38,4 @@ export const getPolygonAroundPoint = (searchPoint, layer) => {
 
     return booleanWithin(pointObject, feature);
   });
-
-  return polygonAroundPoint;
 };
