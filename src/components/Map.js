@@ -11,8 +11,8 @@ import {
 } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { useTranslation } from 'react-i18next';
-
 import getMapConfig from '../config/map-config';
+import SearchBar from './SearchBar';
 
 function LeafletMap({ mapConfig }) {
   const { layers, searchPopup } = useSelector(state => state.data);
@@ -80,6 +80,7 @@ function LeafletMap({ mapConfig }) {
         })}
       </LayersControl>
       <ZoomControl position="bottomright" />
+      <SearchBar />
       {/* Popup for search results */}
       {searchPopup && (
         <Popup position={searchPopup.coords}>{searchPopup.content}</Popup>

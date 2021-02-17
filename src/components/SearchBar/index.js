@@ -1,6 +1,7 @@
 // <SearchBar />
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useMap } from 'react-leaflet';
 
 import * as styles from '../../styles/variables.scss';
 
@@ -16,6 +17,7 @@ export default () => {
   // External state
   const { layers } = useSelector(state => state.data);
   const dispatch = useDispatch();
+  const map = useMap();
 
   // Gets the search results if user stops typing
   const debouncedSearch = useDebounce(async searchTerm => {
@@ -31,26 +33,31 @@ export default () => {
 
     let selectedFeature;
     let selectedFeatureProps;
+    let zoomLevel;
 
     const nearestCity = getNearestCity(point, citiesLayer);
     if (nearestCity) {
       selectedFeature = nearestCity;
       selectedFeatureProps = citiesLayer.layerConfig.props(nearestCity);
+      zoomLevel = 10;
     } else {
       const county = getPolygonAroundPoint(point, countiesLayer);
       if (county) {
         selectedFeature = county;
         selectedFeatureProps = countiesLayer.layerConfig.props(county);
+        zoomLevel = 9;
       } else {
         const state = getPolygonAroundPoint(point, statesLayer);
         if (state) {
           selectedFeature = state;
           selectedFeatureProps = statesLayer.layerConfig.props(state);
+          zoomLevel = 6;
         } else {
           const nation = getPolygonAroundPoint(point, nationsLayer);
           if (nation) {
             selectedFeature = nation;
             selectedFeatureProps = nationsLayer.layerConfig.props(nation);
+            zoomLevel = 5;
           }
         }
       }
@@ -79,6 +86,9 @@ export default () => {
           selectedFeature && isPoint ? selectedFeatureProps.popupName : name,
       },
     });
+
+    // Pan and Zoom
+    map.setView(popupCoords, zoomLevel);
 
     // Set search bar
     setSearchTerm(

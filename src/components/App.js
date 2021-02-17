@@ -10,7 +10,6 @@ import LoadingIndicator from './LoadingIndicator';
 import InfoWindow from './InfoWindow';
 import LeafletMap from './Map';
 import Titlebox from './Titlebox';
-import SearchBar from './SearchBar';
 
 export default () => {
   const i18nLoaded = useSelector(state => state.content.i18n);
@@ -52,7 +51,6 @@ export default () => {
       <Modal />
       <LoadingIndicator />
       <InfoWindow />
-      <SearchBar />
     </>
   );
 };
