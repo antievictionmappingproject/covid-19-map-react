@@ -1,6 +1,6 @@
 // <SearchBar />
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import * as styles from '../../styles/variables.scss';
 
@@ -57,25 +57,19 @@ export default () => {
 
   const onKeyUp = e => {
     if (searchResults) {
+      // on Enter press
+      if (e.keyCode === 13) {
+        handleEnterPress();
+      }
       // on arrow down
-      if (e.keyCode === 40) {
-        if (selectionIndex < searchResults.length - 1) {
+      else if (e.keyCode === 40) {
+        if (selectionIndex < searchResults.length - 1)
           setIndex(prevIndex => prevIndex + 1);
-        } else {
-          setIndex(0);
-        }
+        else setIndex(0);
         // on arrow up
       } else if (e.keyCode === 38) {
-        if (selectionIndex > 0) {
-          setIndex(prevIndex => prevIndex - 1);
-        } else {
-          setIndex(searchResults.length - 1);
-        }
-      }
-
-      // on Enter press
-      else if (e.keyCode === 13) {
-        handleEnterPress();
+        if (selectionIndex > 0) setIndex(prevIndex => prevIndex - 1);
+        else setIndex(searchResults.length - 1);
       }
     }
   };
