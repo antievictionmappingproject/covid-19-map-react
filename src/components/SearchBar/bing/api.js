@@ -10,7 +10,7 @@ export const fetchBingSearch = async searchTerm => {
   // Get i18n language
   const lang = navigator.language ? `&culture = ${navigator.language}` : '';
   // Build URL
-  const url = `http://dev.virtualearth.net/REST/v1/Locations?q=${encodeURIComponent(
+  const url = `https://dev.virtualearth.net/REST/v1/Locations?q=${encodeURIComponent(
     searchTerm.trim()
   )}${lang}&key=${BING_API_KEY}`;
 
