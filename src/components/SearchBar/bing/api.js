@@ -1,6 +1,11 @@
 import { fetch } from 'whatwg-fetch';
 import { BING_API_KEY } from './constants';
 
+/**
+ *
+ * @param {string} searchTerm
+ * @return {{name: string, point: Point}[] | null} searchResults
+ */
 export const fetchBingSearch = async searchTerm => {
   // Get i18n language
   const lang = navigator.language ? `&culture = ${navigator.language}` : '';

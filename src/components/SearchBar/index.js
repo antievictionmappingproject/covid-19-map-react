@@ -13,17 +13,21 @@ export default () => {
   const [searchResults, setSearchResults] = useState([]);
   const [searchTerm, setSearchTerm] = useState([]);
   // External state
-  const { layers, marker } = useSelector(state => state.data);
+  // const { layers, marker } = useSelector(state => state.data);
   const dispatch = useDispatch();
 
-  console.log(searchResults);
+  // Gets the search results if user stops typing
+  const debouncedSearch = useDebounce(async searchTerm => {
+    const searchResults = await fetchBingSearch(searchTerm);
+    setSearchResults(searchResults);
+  }, 200);
 
-  const setSearchMarker = (coords, selection) => {
+  const handleItemSelected = ({ name, point }) => {
     dispatch({
       type: 'data:marker',
       payload: {
-        coords,
-        content: selection,
+        coords: point.coordinates,
+        content: name,
       },
     });
 
@@ -33,33 +37,22 @@ export default () => {
   };
 
   const handleClickListItem = index => {
-    const { name } = searchResults[index];
-    const coords = searchResults[index].point.coordinates;
-    setSearchTerm(name);
-    setSearchMarker(coords, name);
+    const selectedItem = searchResults[index];
+    setSearchTerm(selectedItem.name);
+    handleItemSelected(selectedItem);
   };
 
   const handleEnterPress = () => {
-    // List of results names
-    const resultNames = searchResults.map(result => result.name);
-    // Name of selected search result
-    const name = searchResults[selectionIndex]?.name;
-
-    // If the typed name is in the autocomplete
-    if (resultNames.includes(name)) {
-      // Get selected result coordinates
-      const coords = searchResults[resultNames.indexOf(name)].point.coordinates;
-      // Set the marker location
-      setSearchMarker(coords, name);
-      // Set the search term in the search bar
-      setSearchTerm(name);
-      return;
+    if (searchResults.length > 0) {
+      // If user has selected an item with arrow keys
+      const selectedItem =
+        selectionIndex > -1
+          ? // Use selected item
+            searchResults[selectionIndex]
+          : // Otherwise use first
+            searchResults[0];
+      handleItemSelected(selectedItem);
     }
-    // If it's not in the list
-    const coords = searchResults[0].point.coordinates;
-    const firstResultName = searchResults[0].name;
-    setSearchMarker(coords, firstResultName);
-    return;
   };
 
   const onKeyUp = e => {
@@ -86,11 +79,6 @@ export default () => {
       }
     }
   };
-
-  const debouncedSearch = useDebounce(async searchTerm => {
-    const searchResults = await fetchBingSearch(searchTerm);
-    setSearchResults(searchResults);
-  }, 200);
 
   return (
     <form
