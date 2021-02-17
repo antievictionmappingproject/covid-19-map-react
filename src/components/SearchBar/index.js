@@ -1,11 +1,13 @@
 // <SearchBar />
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import distance from '@turf/distance';
 
 import * as styles from '../../styles/variables.scss';
 
 import useDebounce from './hooks/useDebounce';
 import { fetchBingSearch } from './bing/api';
+import { getNearestCity, getPolygonAroundPoint } from './utils';
 
 export default () => {
   // Internal state
@@ -13,7 +15,7 @@ export default () => {
   const [searchResults, setSearchResults] = useState([]);
   const [searchTerm, setSearchTerm] = useState([]);
   // External state
-  // const { layers, marker } = useSelector(state => state.data);
+  const { layers } = useSelector(state => state.data);
   const dispatch = useDispatch();
 
   // Gets the search results if user stops typing
@@ -23,8 +25,15 @@ export default () => {
   }, 600);
 
   const handleItemSelected = ({ name, point }) => {
-    // Check if item near to a city
-
+    const nearestCity = getNearestCity(point, layers);
+    // If nearest city
+    if (nearestCity) {
+      console.log(nearestCity);
+      dispatch({
+        type: 'ui:info-window:show',
+        payload: nearestCity,
+      });
+    }
     // Check if item in polygons
 
     // Set Popup
