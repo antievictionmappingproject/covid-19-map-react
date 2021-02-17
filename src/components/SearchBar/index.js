@@ -1,7 +1,6 @@
 // <SearchBar />
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import distance from '@turf/distance';
 
 import * as styles from '../../styles/variables.scss';
 
@@ -25,25 +24,29 @@ export default () => {
   }, 600);
 
   const handleItemSelected = ({ name, point }) => {
-    const nearestCity = getNearestCity(point, layers);
+    const citiesLayer = layers.find(({ key }) => key === 'cities');
+    const nearestCity = getNearestCity(point, citiesLayer);
+
     // If nearest city
     if (nearestCity) {
-      console.log(nearestCity);
+      const nearestCityProps = citiesLayer.layerConfig.props(nearestCity);
+      // Set Infowindow
       dispatch({
         type: 'ui:info-window:show',
-        payload: nearestCity,
+        payload: nearestCityProps,
       });
+      // Set Popup
+      dispatch({
+        type: 'data:searchPopup',
+        payload: {
+          coords: nearestCity.geometry.coordinates.reverse(),
+          content: nearestCityProps.popupName,
+        },
+      });
+      setSearchTerm(nearestCityProps.popupName);
     }
-    // Check if item in polygons
 
-    // Set Popup
-    dispatch({
-      type: 'data:searchPopup',
-      payload: {
-        coords: point.coordinates,
-        content: name,
-      },
-    });
+    // Check if item in polygons
 
     // Reset search bar
     setIndex(-1);

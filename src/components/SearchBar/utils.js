@@ -1,9 +1,7 @@
 import distance from '@turf/distance';
 import { point } from '@turf/helpers';
 
-export const getNearestCity = (searchPoint, layers) => {
-  const citiesLayer = layers.find(({ key }) => key === 'cities');
-
+export const getNearestCity = (searchPoint, citiesLayer) => {
   const nearestCity = citiesLayer.data.features.reduce((acc, city) => {
     // Reverse points to use same order as features
     const pointObject = point([
@@ -26,7 +24,7 @@ export const getNearestCity = (searchPoint, layers) => {
     return acc;
   }, null);
 
-  return nearestCity?.city && citiesLayer.layerConfig.props(nearestCity.city);
+  return nearestCity?.city;
 };
 
 export const getPolygonAroundPoint = (point, layers) => {};
