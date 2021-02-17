@@ -56,6 +56,8 @@ export default () => {
       }
     }
 
+    const isPoint = selectedFeature?.geometry?.type === 'Point';
+
     // Set Infowindow
     dispatch({
       type: 'ui:info-window:show',
@@ -64,7 +66,7 @@ export default () => {
     // Set Popup
     const popupCoords =
       // If selected feature is city
-      selectedFeature?.geometry?.type === 'Point'
+      isPoint
         ? // Use city coords for popup
           selectedFeature.geometry.coordinates.reverse()
         : // Otherwise use search result
@@ -73,12 +75,15 @@ export default () => {
       type: 'data:searchPopup',
       payload: {
         coords: popupCoords,
-        content: selectedFeature ? selectedFeatureProps.popupName : name,
+        content:
+          selectedFeature && isPoint ? selectedFeatureProps.popupName : name,
       },
     });
 
     // Set search bar
-    setSearchTerm(selectedFeature ? selectedFeatureProps.popupName : name);
+    setSearchTerm(
+      selectedFeature && isPoint ? selectedFeatureProps.popupName : name
+    );
     setIndex(-1);
     setSearchResults([]);
   };
