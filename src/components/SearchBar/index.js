@@ -20,11 +20,15 @@ export default () => {
   const debouncedSearch = useDebounce(async searchTerm => {
     const searchResults = await fetchBingSearch(searchTerm);
     setSearchResults(searchResults);
-  }, 200);
+  }, 600);
 
   const handleItemSelected = ({ name, point }) => {
+    // Check if item near to a city
+
+    // Check if item in polygons
+
     dispatch({
-      type: 'data:marker',
+      type: 'data:searchPopup',
       payload: {
         coords: point.coordinates,
         content: name,
@@ -87,7 +91,7 @@ export default () => {
             // Set the search term
             setSearchTerm(e.target.value);
             // Fetch results
-            debouncedSearch(e.target.value);
+            await debouncedSearch(e.target.value);
           }}
           onKeyUp={onKeyUp}
           type="text"

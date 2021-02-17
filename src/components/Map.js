@@ -7,15 +7,15 @@ import {
   Pane,
   GeoJSON,
   ZoomControl,
+  Popup,
 } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { useTranslation } from 'react-i18next';
 
 import getMapConfig from '../config/map-config';
-import SearchMarker from './SearchMarker';
 
 function LeafletMap({ mapConfig }) {
-  const { layers, marker } = useSelector(state => state.data);
+  const { layers, searchPopup } = useSelector(state => state.data);
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -80,8 +80,9 @@ function LeafletMap({ mapConfig }) {
         })}
       </LayersControl>
       <ZoomControl position="bottomright" />
-      {marker && (
-        <SearchMarker coords={marker.coords} content={marker.content} />
+      {/* Popup for search results */}
+      {searchPopup && (
+        <Popup position={searchPopup.coords}>{searchPopup.content}</Popup>
       )}
     </>
   );
