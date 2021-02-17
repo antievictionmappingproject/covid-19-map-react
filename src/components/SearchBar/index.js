@@ -31,31 +31,26 @@ export default () => {
     const statesLayer = layers.find(({ key }) => key === 'states');
     const nationsLayer = layers.find(({ key }) => key === 'nations');
 
-    let selectedFeature;
     let selectedFeatureProps;
     let zoomLevel;
 
     const nearestCity = getNearestCity(point, citiesLayer);
     if (nearestCity) {
-      selectedFeature = nearestCity;
       selectedFeatureProps = citiesLayer.layerConfig.props(nearestCity);
       zoomLevel = 10;
     } else {
       const county = getPolygonAroundPoint(point, countiesLayer);
       if (county) {
-        selectedFeature = county;
         selectedFeatureProps = countiesLayer.layerConfig.props(county);
         zoomLevel = 9;
       } else {
         const state = getPolygonAroundPoint(point, statesLayer);
         if (state) {
-          selectedFeature = state;
           selectedFeatureProps = statesLayer.layerConfig.props(state);
           zoomLevel = 6;
         } else {
           const nation = getPolygonAroundPoint(point, nationsLayer);
           if (nation) {
-            selectedFeature = nation;
             selectedFeatureProps = nationsLayer.layerConfig.props(nation);
             zoomLevel = 5;
           }
