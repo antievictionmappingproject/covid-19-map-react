@@ -25,30 +25,60 @@ export default () => {
 
   const handleItemSelected = ({ name, point }) => {
     const citiesLayer = layers.find(({ key }) => key === 'cities');
-    const nearestCity = getNearestCity(point, citiesLayer);
+    const countiesLayer = layers.find(({ key }) => key === 'counties');
+    const statesLayer = layers.find(({ key }) => key === 'states');
+    const nationsLayer = layers.find(({ key }) => key === 'nations');
 
-    // If nearest city
+    let selectedFeature;
+    let selectedFeatureProps;
+
+    const nearestCity = getNearestCity(point, citiesLayer);
     if (nearestCity) {
-      const nearestCityProps = citiesLayer.layerConfig.props(nearestCity);
-      // Set Infowindow
-      dispatch({
-        type: 'ui:info-window:show',
-        payload: nearestCityProps,
-      });
-      // Set Popup
-      dispatch({
-        type: 'data:searchPopup',
-        payload: {
-          coords: nearestCity.geometry.coordinates.reverse(),
-          content: nearestCityProps.popupName,
-        },
-      });
-      setSearchTerm(nearestCityProps.popupName);
+      selectedFeature = nearestCity;
+      selectedFeatureProps = citiesLayer.layerConfig.props(nearestCity);
+    } else {
+      const county = getPolygonAroundPoint(point, countiesLayer);
+      if (county) {
+        selectedFeature = county;
+        selectedFeatureProps = countiesLayer.layerConfig.props(county);
+      } else {
+        const state = getPolygonAroundPoint(point, statesLayer);
+        if (state) {
+          selectedFeature = state;
+          selectedFeatureProps = statesLayer.layerConfig.props(state);
+        } else {
+          const nation = getPolygonAroundPoint(point, nationsLayer);
+          if (nation) {
+            selectedFeature = nation;
+            selectedFeatureProps = nationsLayer.layerConfig.props(nation);
+          }
+        }
+      }
     }
 
-    // Check if item in polygons
+    // Set Infowindow
+    dispatch({
+      type: 'ui:info-window:show',
+      payload: selectedFeatureProps,
+    });
+    // Set Popup
+    const popupCoords =
+      // If selected feature is city
+      selectedFeature?.geometry?.type === 'Point'
+        ? // Use city coords for popup
+          selectedFeature.geometry.coordinates.reverse()
+        : // Otherwise use search result
+          point.coordinates;
+    dispatch({
+      type: 'data:searchPopup',
+      payload: {
+        coords: popupCoords,
+        content: selectedFeature ? selectedFeatureProps.popupName : name,
+      },
+    });
 
-    // Reset search bar
+    // Set search bar
+    setSearchTerm(selectedFeature ? selectedFeatureProps.popupName : name);
     setIndex(-1);
     setSearchResults([]);
   };

@@ -1,5 +1,6 @@
 import distance from '@turf/distance';
 import { point } from '@turf/helpers';
+import booleanWithin from '@turf/boolean-within';
 
 export const getNearestCity = (searchPoint, citiesLayer) => {
   const nearestCity = citiesLayer.data.features.reduce((acc, city) => {
@@ -27,4 +28,15 @@ export const getNearestCity = (searchPoint, citiesLayer) => {
   return nearestCity?.city;
 };
 
-export const getPolygonAroundPoint = (point, layers) => {};
+export const getPolygonAroundPoint = (searchPoint, layer) => {
+  const polygonAroundPoint = layer.data.features.find(feature => {
+    const pointObject = point([
+      searchPoint.coordinates[1],
+      searchPoint.coordinates[0],
+    ]);
+
+    return booleanWithin(pointObject, feature);
+  });
+
+  return polygonAroundPoint;
+};
