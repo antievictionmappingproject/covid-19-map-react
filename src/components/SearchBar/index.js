@@ -63,37 +63,24 @@ export default () => {
       }
     }
 
-    const isPoint = selectedFeature?.geometry?.type === 'Point';
-
     // Set Infowindow
     dispatch({
       type: 'ui:info-window:show',
       payload: selectedFeatureProps,
     });
-    // Set Popup
-    const popupCoords =
-      // If selected feature is city
-      isPoint
-        ? // Use city coords for popup
-          selectedFeature.geometry.coordinates.reverse()
-        : // Otherwise use search result
-          point.coordinates;
+
     dispatch({
       type: 'data:searchPopup',
       payload: {
-        coords: popupCoords,
-        content:
-          selectedFeature && isPoint ? selectedFeatureProps.popupName : name,
+        coords: point.coordinates,
+        content: name,
       },
     });
 
     // Pan and Zoom
-    map.setView(popupCoords, zoomLevel);
+    map.setView(point.coordinates, zoomLevel);
 
     // Set search bar
-    setSearchTerm(
-      selectedFeature && isPoint ? selectedFeatureProps.popupName : name
-    );
     setIndex(-1);
     setSearchResults([]);
   };
