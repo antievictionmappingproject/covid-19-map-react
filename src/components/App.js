@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
+import { i18nInit } from '../utils/i18n';
+import { Translation } from 'react-i18next';
+import { getAllCartoLayers } from '../carto/api';
+
 import Modal from './Modal';
 import LoadingIndicator from './LoadingIndicator';
 import InfoWindow from './InfoWindow';
 import LeafletMap from './Map';
 import Titlebox from './Titlebox';
-import { i18nInit } from '../utils/i18n';
-import { Translation } from 'react-i18next';
-import { getAllCartoLayers } from '../carto/api';
+import SearchBar from './SearchBar';
 
 export default () => {
   const i18nLoaded = useSelector(state => state.content.i18n);
@@ -49,6 +52,7 @@ export default () => {
       <Modal />
       <LoadingIndicator />
       <InfoWindow />
+      <SearchBar />
     </>
   );
 };

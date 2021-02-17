@@ -12,7 +12,6 @@ import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { useTranslation } from 'react-i18next';
 
 import getMapConfig from '../config/map-config';
-import SearchBar from './SearchBar';
 import SearchMarker from './SearchMarker';
 
 function LeafletMap({ mapConfig }) {
@@ -107,7 +106,6 @@ export default () => {
         url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
       />
       <LeafletMap mapConfig={mapConfig} />
-      <SearchBar />
     </MapContainer>
   );
 };
