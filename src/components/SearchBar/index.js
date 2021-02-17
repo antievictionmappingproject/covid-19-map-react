@@ -27,6 +27,7 @@ export default () => {
 
     // Check if item in polygons
 
+    // Set Popup
     dispatch({
       type: 'data:searchPopup',
       payload: {
@@ -40,21 +41,16 @@ export default () => {
     setSearchResults([]);
   };
 
-  const handleClickListItem = index => {
-    const selectedItem = searchResults[index];
-    setSearchTerm(selectedItem.name);
-    handleItemSelected(selectedItem);
-  };
-
   const handleEnterPress = () => {
     if (searchResults.length > 0) {
       // If user has selected an item with arrow keys
       const selectedItem =
         selectionIndex > -1
-          ? // Use selected item
+          ? // Use selected
             searchResults[selectionIndex]
-          : // Otherwise use first
+          : // Otherwise use first result
             searchResults[0];
+      setSearchTerm(selectedItem.name);
       handleItemSelected(selectedItem);
     }
   };
@@ -67,11 +63,13 @@ export default () => {
       }
       // on arrow down
       else if (e.keyCode === 40) {
+        // Move cursor
         if (selectionIndex < searchResults.length - 1)
           setIndex(prevIndex => prevIndex + 1);
         else setIndex(0);
         // on arrow up
       } else if (e.keyCode === 38) {
+        // Move cursor
         if (selectionIndex > 0) setIndex(prevIndex => prevIndex - 1);
         else setIndex(searchResults.length - 1);
       }
@@ -115,7 +113,11 @@ export default () => {
                       ? { color: styles.rentStrikeColor }
                       : null
                   }
-                  onClick={() => handleClickListItem(index)}
+                  onClick={() => {
+                    const selectedItem = searchResults[index];
+                    setSearchTerm(selectedItem.name);
+                    handleItemSelected(selectedItem);
+                  }}
                 >
                   {result.name}
                 </li>
