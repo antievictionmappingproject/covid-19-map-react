@@ -1,1 +1,0 @@
-export const BING_API_KEY = `AqjKYN_6urDj_gpon9q04BKnthf65hYVpBCEaaY1x60gjkG6hPyvYPAMSzCYqclY`;

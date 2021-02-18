@@ -1,7 +1,7 @@
 import { fetch } from 'whatwg-fetch';
-import { BING_API_KEY } from './constants';
 
 const BASE_URL = 'https://dev.virtualearth.net/REST/v1/Locations';
+const BING_API_KEY = `AqjKYN_6urDj_gpon9q04BKnthf65hYVpBCEaaY1x60gjkG6hPyvYPAMSzCYqclY`;
 
 /**
  *
