@@ -1,18 +1,19 @@
 import { fetch } from 'whatwg-fetch';
 import { BING_API_KEY } from './constants';
 
+const BASE_URL = 'https://dev.virtualearth.net/REST/v1/Locations';
+
 /**
  *
  * @param {string} searchTerm
  * @return {{name: string, point: Point}[] | null} searchResults
+ *
+ * Returns an object with the name, and a geojson point feature.
  */
-export const fetchBingSearch = async searchTerm => {
-  // Get i18n language
-  const lang = navigator.language ? `&culture = ${navigator.language}` : '';
+export const fetchBingSearch = async (searchTerm, locale) => {
+  const encodedSearchTerm = encodeURIComponent(searchTerm.trim());
   // Build URL
-  const url = `https://dev.virtualearth.net/REST/v1/Locations?q=${encodeURIComponent(
-    searchTerm.trim()
-  )}${lang}&key=${BING_API_KEY}`;
+  const url = `${BASE_URL}?q=${encodedSearchTerm}&key=${BING_API_KEY}`;
 
   try {
     // If there's a search term passed in

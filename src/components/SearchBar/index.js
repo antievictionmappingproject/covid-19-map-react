@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMap } from 'react-leaflet';
+import { useTranslation } from 'react-i18next';
 
 import * as styles from '../../styles/variables.scss';
 
@@ -18,6 +19,7 @@ export default () => {
   const { layers } = useSelector(state => state.data);
   const dispatch = useDispatch();
   const map = useMap();
+  const { t } = useTranslation();
 
   // Gets the search results if user stops typing
   const debouncedSearch = useDebounce(async searchTerm => {
@@ -138,7 +140,7 @@ export default () => {
           value={searchTerm}
           list="search-bar-autocomplete"
           autoComplete="off"
-          placeholder="Search nation, state, city..."
+          placeholder={`🔍 ${t('searchbar.default-value')}`}
         />
         <div>
           <ul id="search-bar-autocomplete">
