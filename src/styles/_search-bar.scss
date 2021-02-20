@@ -36,13 +36,20 @@
   background-color: white;
   margin-top: 20px;
   padding: 0;
+
   li {
     padding: 2px;
     list-style-type: none;
+    font-size: 1.1em;
   }
 
   li:hover {
-    color: $link-visited;
+    background-color: #f2f2f2;
+  }
+
+  li:active {
+    color: white;
+    background-color: darkblue;
   }
 }
 

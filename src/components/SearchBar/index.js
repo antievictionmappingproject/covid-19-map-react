@@ -28,7 +28,6 @@ export default () => {
   }, 600);
 
   const handleItemSelected = ({ name, point }) => {
-    console.log(layers);
     const citiesLayer = layers.find(({ key }) => key === 'cities');
     const countiesLayer = layers.find(({ key }) => key === 'counties');
     const statesLayer = layers.find(({ key }) => key === 'states');
