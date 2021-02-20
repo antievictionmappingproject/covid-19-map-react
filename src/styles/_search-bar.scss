@@ -45,7 +45,8 @@
   }
 
   li:hover {
-    background-color: #f2f2f2;
+    background-color: #c92a1d !important;
+    color: white;
   }
 }
 
@@ -56,10 +57,4 @@
   text-align: center;
   padding: 10px;
   transform: translate(0, 40px);
-}
-
-#search-bar:focus {
-  color: black;
-  outline: none;
-  border: 2px solid $rent-strike-color;
 }

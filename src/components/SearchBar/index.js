@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useMap } from 'react-leaflet';
 import { useTranslation } from 'react-i18next';
 
-import * as styles from '../../styles/variables.scss';
-
 import useDebounce from './hooks/useDebounce';
 import { fetchBingSearch } from './bing/api';
 import { getNearestCity, getPolygonAroundPoint } from './utils';
@@ -152,8 +150,7 @@ export default () => {
                   style={
                     selectionIndex === index
                       ? {
-                          backgroundColor: styles.rentStrikeColor,
-                          color: 'white',
+                          backgroundColor: '#e8e8e8',
                         }
                       : null
                   }
