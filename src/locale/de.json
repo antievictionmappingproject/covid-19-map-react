@@ -52,17 +52,15 @@
       "end-date-label": "Ende:",
       "eviction-status-label": "Räumungsstatus:",
       "summary-label": "Zusammenfassung der Maßnahme:",
-      "link": "Für weitere Informationen klicke hier.",
+      "info-link": "Siehe mehr Informationen",
       "resource-link": "Für weitere Materialien klicke hier."
     },
     "action": {
       "title": "Aktionen für das Recht auf Wohnen",
       "loc-label": "Ort:",
-      "status-label": "Findet aktuell statt:",
       "why-label": "Auslöser der Aktion:",
       "strike-type-label": "Aktionsform:",
       "start-date-label": "Beginn:",
-      "end-date-label": "Ende:",
       "resources-label": "Informationen und Unterstützung:"
     }
   },

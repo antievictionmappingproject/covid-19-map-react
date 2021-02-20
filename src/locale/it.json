@@ -18,7 +18,6 @@
     "aemp-name": "The Anti-Eviction Mapping Project",
     "about-protections": "Protezioni legali attive",
     "about-description": "Aree dove sono state approvate (o saranno approvate) leggi e normative in difesa dell’abitare durante la pandemia.",
-    "legislation-form-usa": "",
     "legislation-form-intl": "",
     "housing-action-title": "Iniziative in difesa dell'abitare",
     "housing-action-description": "Dove stanno accadendo o sono accadute <strong class='color-rent-strike'>iniziative in difesa dell'abitare</strong>.",
@@ -29,10 +28,6 @@
       "right-to-the-city": "",
       "european-action-coalition": "",
       "hashtag-cancel-rent": ""
-    },
-    "accreditation": {
-      "title": "Crediti",
-      "link": "Clicca qui per conoscere il gruppo che sta lavorando a questo progetto."
     }
   },
   "searchbar": {
