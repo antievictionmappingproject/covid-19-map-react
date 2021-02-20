@@ -22,7 +22,7 @@ After installing Node.js and cloning the repo, navigate to the root of the proje
 
 ### Development commands
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), which provides the following commands. See `package.json` for all commands.
 
 #### `npm run start`
 
