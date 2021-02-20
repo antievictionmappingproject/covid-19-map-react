@@ -1,8 +1,8 @@
 import queryString from 'query-string';
 
 const defaultMapConfig = {
-  lat: 39.8333333,
-  lng: -98.585522,
+  lat: 45.356488,
+  lng: 12.771901,
   z: 3,
   bounds: [
     [-85.05, -220], // lower left
