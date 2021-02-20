@@ -151,7 +151,10 @@ export default () => {
                   key={index}
                   style={
                     selectionIndex === index
-                      ? { color: styles.rentStrikeColor }
+                      ? {
+                          backgroundColor: styles.rentStrikeColor,
+                          color: 'white',
+                        }
                       : null
                   }
                   onClick={() => {
