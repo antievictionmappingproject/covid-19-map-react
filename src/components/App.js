@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
+import { i18nInit } from '../utils/i18n';
+import { Translation } from 'react-i18next';
+import { getAllCartoLayers } from '../carto/api';
+
 import Modal from './Modal';
 import LoadingIndicator from './LoadingIndicator';
 import InfoWindow from './InfoWindow';
 import LeafletMap from './Map';
 import Titlebox from './Titlebox';
-import SearchBar from './SearchBar';
-import { i18nInit } from '../utils/i18n';
-import { Translation } from 'react-i18next';
-import { getAllCartoLayers } from '../carto/api';
 
 export default () => {
   const i18nLoaded = useSelector(state => state.content.i18n);
@@ -39,12 +40,13 @@ export default () => {
       <Translation>
         {(t, { i18n }) => {
           document.title = t('page-title');
-          document.querySelector('meta[name="description"]').setAttribute("content", t('titlebox.about-description'));
+          document
+            .querySelector('meta[name="description"]')
+            .setAttribute('content', t('titlebox.about-description'));
           return null;
         }}
       </Translation>
       <LeafletMap />
-      <SearchBar />
       <Titlebox />
       <Modal />
       <LoadingIndicator />

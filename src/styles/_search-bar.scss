@@ -22,7 +22,7 @@
   border: 1px solid $rent-strike-color;
   padding: 8px 6px;
   background-clip: padding-box;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: 'IBM Plex Mono', monospace;
   color: $link-visited;
 }
 
@@ -35,6 +35,19 @@
   height: 50%;
   background-color: white;
   margin-top: 20px;
+  padding: 0;
+  cursor: pointer;
+
+  li {
+    padding: 2px;
+    list-style-type: none;
+    font-size: 1.1em;
+  }
+
+  li:hover {
+    background-color: #c92a1d !important;
+    color: white;
+  }
 }
 
 #search-box-marker-content {
@@ -44,10 +57,4 @@
   text-align: center;
   padding: 10px;
   transform: translate(0, 40px);
-}
-
-#search-bar:focus {
-  color: black;
-  outline: none;
-  border: 2px solid $rent-strike-color;
 }

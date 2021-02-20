@@ -1,5 +1,6 @@
 const initialState = {
   layers: [],
+  searchPopup: null,
 };
 
 export default (state = initialState, action) => {
@@ -9,7 +10,11 @@ export default (state = initialState, action) => {
         ...state,
         layers: action.payload,
       };
-
+    case 'data:searchPopup':
+      return {
+        ...state,
+        searchPopup: action.payload,
+      };
     default:
       return state;
   }
