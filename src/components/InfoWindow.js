@@ -151,6 +151,9 @@ export default props => {
                 <strong>{t('infowindow.policy.protections-end-label')}</strong>{' '}
                 {endDateLegist}
               </p>
+              <p><strong>{t('')}</strong>{' '}
+                {"If your local city or country protections have expired you may still be protected under state or national legislation."}
+               </p>
             </div>
           )}
 
@@ -162,7 +165,7 @@ export default props => {
               </p>
             </div>
           )}
-
+          
           {endDateCourt && (
             <div>
               <p>
