@@ -27,7 +27,8 @@ export default props => {
     start,
     end,
     link,
-    resource,
+    resource, 
+    info, 
     // Action props
     action,
     actionStart,
@@ -151,12 +152,9 @@ export default props => {
                 <strong>{t('infowindow.policy.protections-end-label')}</strong>{' '}
                 {endDateLegist}
               </p>
-              <p><strong>{t('')}</strong>{' '}
-                {"If your local city or country protections have expired you may still be protected under state or national legislation."}
-               </p>
-            </div>
+           </div>
           )}
-
+          
           {endDateRentRelief && (
             <div>
               <p>
@@ -191,6 +189,10 @@ export default props => {
               <p>
                 <strong>{t('infowindow.policy.summary-label')}</strong>{' '}
                 {policy_summary}
+              </p>
+              <p></p>
+              <p> 
+                <strong>{t('infowindow.policy.summary-extendinfo')}</strong>{' '}
               </p>
             </div>
           )}
