@@ -28,7 +28,6 @@ export default props => {
     end,
     link,
     resource, 
-    info, 
     // Action props
     action,
     actionStart,
