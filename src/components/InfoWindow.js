@@ -189,7 +189,6 @@ export default props => {
                 <strong>{t('infowindow.policy.summary-label')}</strong>{' '}
                 {policy_summary}
               </p>
-              <p></p>
               <p> 
                 <strong>{t('infowindow.policy.summary-extendinfo')}</strong>{' '}
               </p>
