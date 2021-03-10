@@ -148,7 +148,7 @@ export default props => {
           {endDateLegist && (
             <div>
               <p>
-                <strong>{t('infowindow.policy.protections-end-label')}</strong>{' '}
+                <strong>{t('infowindow.policy.legislative-end-label')}</strong>{' '}
                 {endDateLegist}
               </p>
             </div>
