@@ -1,7 +1,8 @@
 import { mapLayersConfig } from './map-layers';
 
 // List of all languages we have translations for.
-export const languages = ['en', 'es', 'pt-BR', 'it', 'de'];
+export const languages = ['en', 'es', 'pt-BR', 'it', 'de', 'sr', 'el', 'ro',
+                          'hu', 'cs'];
 
 // color values come from this ColorBrewer:
 export const colorNoData = '#939393';
