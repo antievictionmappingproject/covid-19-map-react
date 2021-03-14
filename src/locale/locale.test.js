@@ -3,9 +3,14 @@ const ptBR = require('./pt-BR.json');
 const es = require('./es.json');
 const it = require('./it.json');
 const de = require('./de.json');
+const sr = require('./sr.json');
+const el = require('./el.json');
+const ro = require('./ro.json');
+const hu = require('./hu.json');
+const cs = require('./cs.json');
 
 // Add non-English translations here, to test against the English file
-const translations = { es, ptBR, it, de };
+const translations = { es, ptBR, it, de, sr, el, ro, hu, cs };
 
 const keyify = (obj, prefix = '') =>
   Object.keys(obj).reduce((res, el) => {
