@@ -1,0 +1,81 @@
+{
+  "page-title": "Mapa globalnih zakonskih mera zaštite u oblasti stanovanja usled pandemije COVID-19 i akcija za stambenu pravdu",
+  "modal": {
+    "title": "Mapa globalnih zakonskih mera zaštite u oblasti stanovanja usled pandemije COVID-19 i akcija za stambenu pravdu",
+    "warning": "Svesni smo da se deložacije dešavaju uprkos merama zaštite usled pandemije, kao i da su mnoge od ovih mera prestale da važe. Molimo vas da popunite ovaj upitnik u okviru mape, kako biste je dopunili informacijama o deložacijama u vašem okruženju. Takođe možete koristiti ovu mapu kako biste pronašli one koji mogu pružiti pravnu pomoć ili pomoć u organizovanju zajednice u vašoj blizini. Ukoliko ste i sami žrtva deložacije ili kršenja prava stanara, možete takođe popuniti naš <a href='https://airtable.com/shrHbY2q4ZmFtkB9d' target='_blank rel='noreferrer noopener'>upitnik ovde</a>.",
+    "content": {
+      "paragraph-1": "Ova mapa predstavlja odgovor na aktuelnu situaciju i ima za cilj da predstavi informacije u vezi sa globalnim zakonskim merama zaštite u oblasti stanovanja usled pandemije COVID-19, kao i akcijama za stambenu pravdu. Realizovana je kroz Anti-deložacijski projekat mapiranja (Anti-Eviction Mapping Project), kolektiv koji se bavi vizuelizacijom podataka, analizom podataka, kao i svedočenjima, pretežno na teritoriji San Franciska, Los Anđelesa i Njujorka, uz podršku drugih saradnika širom sveta.",
+      "paragraph-2": "Anti-deložacijski projekat mapiranja sakuplja podatke o deložacijama i anti-deložacijskim borbama, koristeći slobodne i tehnologije otvorenog koda u cilju podrške društvenim pokretima, lokalnim inicijativama i istraživačkim grupama koji se bore za stambenu pravdu. Podaci su sakupljeni kroz crowd-source metodu i stoga nisu ni sveobuhvatni ni najprecizniji. Za više informacija o načinu prikupljanja podataka, deljenju podataka i privatnosti pogledajte <a href='https://antievictionmap.com/data-use-agreement' target='_blank rel='noreferrer noopener'>here</a>.",
+      "paragraph-3": "Kako bi saznali više o metodologiji za procenu mera zaštite u SAD, pogledajte ovde. Kako biste pristupili tabeli sa konkretnim podacima, pogledajte <a href='#' target='_blank' rel='noreferrer noopener'>ovde</a>",
+      "paragraph-4": "Anti-deložacijski projekat mapiranja prepoznaje da mapiramo starosedelačke zemlje koje su otete, kolonizovane, podeljene i preimenovane. Naš cilj je da odamo poštovanje svima koji su prvobitno upravljali zemljom, koristeći starosedelačke nazive kad god nam to dozvoljavaju usluge trećih lica od kojih zavisimo.",
+      "paragraph-5": "Dok Anti-deložacijski projekat mapiranja kontinualno sarađuje sa velikim brojem udruženja i mreža stanara, razvoj ove mape je rezultat saradnje sa <a href='https://mappingaction.org/' target='_blank rel='noreferrer noopener'>Mapping Action Collective</a>, <a href='http://www.tenantstogether.org/' target='_blank rel='noreferrer noopener'>Tenants Together</a>, the <a href='http://sfadc.org/landingpage/covid-19/' target='_blank rel='noreferrer noopener'>San Francisco Anti-Displacement Coalition</a>,  <a href='https://ebho.org/' target='_blank rel='noreferrer noopener'>East Bay Housing Organizations</a>, <a href='http://communityjusticeproject.com/' target='_blank rel='noreferrer noopener'>Community Justice Project</a>, <a href='https://www.law.columbia.edu/faculty/emily-benfer' target='_blank rel='noreferrer noopener'>Dr. Emily Benfer</a> and <a href='https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vTH8dUIbfnt3X52TrY3dEHQCAm60e5nqo0Rn1rNCf15dPGeXxM9QN9UdxUfEjxwvfTKzbCbZxJMdR7X/pubhtml?gid=1277129435&single=true&urp=gmail_link' target='_blank rel='noreferrer noopener'>her law students</a>, and <a href='https://bayarearentstrike.org/' target='_blank rel='noreferrer noopener'>Bay Area Rent Strike (BARS)</a> organizers, kao i podrške u međunarodnom istraživanju naših prijatelja iz <a href='https://notanatlas.org/about/' target='_blank rel='noreferrer noopener'>kollektiv orangotango</a> and the <a href='https://housingnotprofit.org/' target='_blank rel='noreferrer noopener'>European Action Coalition for the Right to Housing</a>. Zahvalni smo na savetima koje smo dobili od <a href='https://righttothecity.org/' target='_blank rel='noreferrer noopener'>Right To The City Alliance</a>, <a href='https://www.policylink.org/' target='_blank rel='noreferrer noopener'>Policy Link</a>, <a href='https://www.pdx.edu/profile/lisa-bates' target='_blank rel='noreferrer noopener'>Dr. Lisa Bates</a>, kao i <a href='http://www.publicjustice.org/en/john-pollock-attorney/' target='_blank rel='noreferrer noopener'>John Pollock</a> iz Public Justice, Greg Townley iz <a href='https://www.psuf.org/homelessness-research-action-collaborative' target='_blank rel='noreferrer noopener'>Homelessness Research Action Collaborative</a>, and Leeor Schwitzer from <a href='https://www.pdxtu.org/' target='_blank rel='noreferrer noopener'>Portland Tenants United</a>.",
+      "paragraph-6": "Mapa i podaci: Azad Amir Ghassemi, Brett Halperin, Chris Henrick, Ciera Dudley, Elana Eden, Erin McElroy, Isnardo Gandarilla, Jim Stewart, Luis Felipe R. Murillo, Paul (Kollectiv Orangotango), Sachi Arakawa, Tim Hitchins, Wynn Newberry, i Samantha Hanae Noh. Prevod: Angie, Daniel Mitchen, İrem Yılmaz, Luis Felipe, Manny, Manon Vergerio, Paul (Kollectiv Orangotango), Jihed Brirmi, Julieta Arancio, Maggie Erving, Ana Vilenica i Xiaomei."
+    }
+  },
+  "titlebox": {
+    "title": "Globalne zakonske mere zaštite u oblasti stanovanja usled pandemije COVID-19 i akcije za stambenu pravdu",
+    "about-map": "Mapa",
+    "aemp-name": "Anti-deložacijski projekat mapiranja",
+    "about-protections": "Zakonske mere zaštite u oblasti stanovanja",
+    "about-description": "Gde su zvanično usvojene mere zaštite u oblasti stanovanja usled COVID-19 krize (ili stanari zagovaraju njihovo uvođenje).",
+    "legislation-form-intl": "Mere zaštite u oblasti stanovanja za lokacije izvan Sjedinjenih Američkih Država.",
+    "housing-action-title": "Akcija za stambenu pravdu",
+    "housing-action-description": "Gde se <strong class='color-rent-strike'>akcije za stambenu pravdu<\/strong> sprovode ili su se već sprovele.",
+    "housing-action-form": "Akcije za stambenu pravdu širom sveta.",
+    "submit": "Unesi podatke",
+    "resources": {
+      "title": "Resursi",
+      "right-to-the-city": "Zahtevi Alijanse za pravo na grad (Right To The City Alliance) i pokreta Dom za sve (Homes For All).",
+      "european-action-coalition": "Resursi i zahtevi Evropske koalicije za pravo na stan (European Action Coalition for the Right to Housing).",
+      "hashtag-cancel-rent": "Resursi povezani sa štrajkom rente - #CancelRent."
+    }
+  },
+  "searchbar": {
+    "default-value": "Pretraga lokacije",
+    "not-found": "Ne postoje registrovane mere zaštite na ovoj lokaciji"
+  },
+  "infowindow": {
+    "policy": {
+      "title": "Mere zaštite u oblasti stanovanja",
+      "jurisdictionType": {
+        "city": "Grad",
+        "county": "Županija",
+        "state-province": "Region",
+        "nation": "Država"
+      },
+      "strength-label": "Značaj zakonske mere:",
+      "protections-end-label": "Završetak trajanja mere zaštite:",
+      "legislative-end-label": "Završetak trajanja zakonske mere zaštite:",
+      "rent-relief-end-label": "Završetak trajanja mere povezane sa rentom:",
+      "court-closure-end-label": "Završetak sudskog zatvaranja:",
+      "start-date-label": "Delotvornost:",
+      "end-date-label": "Završetak:",
+      "eviction-status-label": "Status deložacije:",
+      "summary-label": "Sažetak mere zaštite:",
+      "info-link": "Više informacija.",
+      "resource-link": "Povezani resursi."
+    },
+    "action": {
+      "title": "Akcija za stambenu pravdu",
+      "loc-label": "Lokacija:",
+      "why-label": "Zbog čega?",
+      "strike-type-label": "Tip akcije:",
+      "start-date-label": "Početak:",
+      "resources-label": "Resursi:"
+    }
+  },
+  "layer-select": {
+    "cities": "Mere zaštite na nivou grada",
+    "counties": "Mere zaštite na nivou županije",
+    "states": "Mere zašitet na nivou regiona",
+    "nations": "Mere zaštite na nivou cele države",
+    "housingJusticeAction": "Akcije za stambenu pravdu"
+  },
+  "policy-strength": {
+    "1": "Svega nekoliko mera zaštite",
+    "2": "Nekoliko mera zaštite",
+    "3": "Brojne mere zaštite",
+    "expired": "Pruge označavaju mere zaštite koje su prestale da važe",
+    "missingData": "Nedostaju podaci"
+  }
+}

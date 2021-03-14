@@ -1,0 +1,81 @@
+{
+  "page-title": "COVID-19 Globális lakhatásvédelmi jogszabályok és lakhatási igazságosság akciótérkép",
+  "modal": {
+    "title": "COVID-19 Globális lakhatásvédelmi jogszabályok és lakhatási igazságosság akciótérkép",
+    "warning": "Tudjuk, hogy kilakoltatások történnek a bérlővédelmi programok ellenére is, illetve több védelmi szabályozás már nincs érvényben. Kérjük, töltse ki a kérdőívünket a térképen, hogy a lakhelyén végbemenő kilakoltatásokról információt szerezhessünk. A térkép jogi segítségszerzésre, illetve helyi közösségi szerveződések megtalálására is használható. Ha kilakoltatásnak van kitéve vagy főbérlői zaklatást tapasztal, kitöltheti az alábbi kérdőívet: <a href='https://airtable.com/shrHbY2q4ZmFtkB9d' target='_blank rel='noreferrer noopener'>survey here</a>.",
+    "content": {
+      "paragraph-1": "Ez a térkép egy vészhelyzet elhárítási terv, amely a jelenlegi COVID-19 globális lakhatási jogszabályozásokat és lakhatási igazságossági mozgalmakat mutatja be. Az Anti-Eviction Mapping Project (Kilakoltatás Ellenes Térképezési Projekt)  része, mely egy adatmegjelenítéssel, adatelemzéssel és történetmeséléssel foglalkozó, főként San Fransisco, Los Angeles és New York területén működő, világszintű együttműködési hálózattal rendelkező kollektíva.",
+      "paragraph-2": "Az Anti-Eviction Mapping Project ingyenes és nyílt forráskódú technológiák segítségével gyűjt adatokat a lakhatási igazságosságért küzdő társadalmi mozgalmak, közösségi szerveződések és kutatócsoportok támogatása céljából. Az adatok nem kimerítő jellegű közösségi ötletbörze eredményei. Több információ az adatgyűjtéssel és az adatvédelemmel kapcsolatban itt található <a href='https://antievictionmap.com/data-use-agreement' target='_blank rel='noreferrer noopener'>here</a>.",
+      "paragraph-3": "Több információ az USA-beli lakhatásvédelmi értekelési módszereinkről itt található. Az adatokat tartalmazó táblázatért lásd: <a href='#' target='_blank' rel='noreferrer noopener'>here</a>",
+      "paragraph-4": "Az Anti-Eviction Mapping Project elismeri, hogy ellopott, gyarmatosított, felosztott és átnevezett őslakos területeket térképez fel. A gyarmatosító nemzetállamot azért ábrázoljuk, mert a lakóvédelmi jogszabályok ezen határok között léteznek. Célunk, hogy tiszteletünket fejezzük ki a föld eredeti birtokosai irányába az őslakos nevek használata révén, amikor ezeket a módosításokat az általunk használt harmadik fél szolgáltató korlátozásai megengedik.",
+      "paragraph-5": "Bár az Anti-Eviction Mapping Project közeli kapcsolatot ápol számos bérlőszervezettel és hálózattal, ennek a térképnek a létrejötte különösen a következő szervezetekkel és személyekkel való együttműködésnek köszönhető: <a href='https://mappingaction.org/' target='_blank rel='noreferrer noopener'>Mapping Action Collective</a>, <a href='http://www.tenantstogether.org/' target='_blank rel='noreferrer noopener'>Tenants Together</a>, <a href='http://sfadc.org/landingpage/covid-19/' target='_blank rel='noreferrer noopener'>San Francisco Anti-Displacement Coalition</a>,  <a href='https://ebho.org/' target='_blank rel='noreferrer noopener'>East Bay Housing Organizations</a>, <a href='http://communityjusticeproject.com/' target='_blank rel='noreferrer noopener'>Community Justice Project</a>, <a href='https://www.law.columbia.edu/faculty/emily-benfer' target='_blank rel='noreferrer noopener'>Dr. Emily Benfer</a> és <a href='https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vTH8dUIbfnt3X52TrY3dEHQCAm60e5nqo0Rn1rNCf15dPGeXxM9QN9UdxUfEjxwvfTKzbCbZxJMdR7X/pubhtml?gid=1277129435&single=true&urp=gmail_link' target='_blank rel='noreferrer noopener'>jogi hallgatói</a>, és a <a href='https://bayarearentstrike.org/' target='_blank rel='noreferrer noopener'>Bay Area Rent Strike (BARS)</a>. Továbbá a nemzetközi kutatásban segítséget nyújtottak barátaink a  <a href='https://notanatlas.org/about/' target='_blank rel='noreferrer noopener'>kollektiv orangotango</a> és a <a href='https://housingnotprofit.org/' target='_blank rel='noreferrer noopener'>European Action Coalition for the Right to Housing</a> szervezeteknél. Köszönjük a tanácsadást <a href='https://righttothecity.org/' target='_blank rel='noreferrer noopener'>Right To The City Alliance</a>, <a href='https://www.policylink.org/' target='_blank rel='noreferrer noopener'>Policy Link</a>, <a href='https://www.pdx.edu/profile/lisa-bates' target='_blank rel='noreferrer noopener'>Dr. Lisa Bates</a>, és <a href='http://www.publicjustice.org/en/john-pollock-attorney/' target='_blank rel='noreferrer noopener'>John Pollocknak</a> a Public Justice-tól, Greg Townley-nak a <a href='https://www.psuf.org/homelessness-research-action-collaborative' target='_blank rel='noreferrer noopener'>Homelessness Research Action Collaborative-tól</a>, illetve Leeor Schwitzernek a <a href='https://www.pdxtu.org/' target='_blank rel='noreferrer noopener'>Portland Tenants Unitedtól</a>.",
+      "paragraph-6": "Térkép és adatok: Azad Amir Ghassemi, Brett Halperin, Chris Henrick, Ciera Dudley, Elana Eden, Erin McElroy, Isnardo Gandarilla, Jim Stewart, Luis Felipe R. Murillo, Paul (Kollectiv Orangotango), Sachi Arakawa, Tim Hitchins, Wynn Newberry, és Samantha Hanae Noh. A fordításokhoz hozzájárultak: Angie, Daniel Mitchen, İrem Yılmaz, Luis Felipe, Manny, Manon Vergerio, Paul (Kollectiv Orangotango), Jihed Brirmi, Julieta Arancio, Maggie Erving,Xiaomei és Péter."
+    }
+  },
+  "titlebox": {
+    "title": "COVID-19 Globális lakhatásvédelmi jogszabályok és lakhatási igazságosság akciótérkép",
+    "about-map": "Jelmagyarázat",
+    "aemp-name": "Anti-Eviction Mapping Project",
+    "about-protections": "Lakhatásvédelmi jogszabályok",
+    "about-description": "Ahol a COVID-19 krízis ideje alatt a hatóságok elfogadtak lakhatásvédelmi jogszabályokat (vagy a lakók ezek elfogadtatásáért küzdenek).",
+    "legislation-form-intl": "Lakhatásvédelmi jogszabályozás az Egyedült Államokon kívüli területeken.",
+    "housing-action-title": "Lakhatási igazságossági akció ",
+    "housing-action-description": "Ahol <strong class='color-rent-strike'>lakhatási igazságossági mozgalom</strong> alakult ki vagy alakulóban van.",
+    "housing-action-form": "Lakhatási igazságossági mozgalmak világszerte ",
+    "submit": "Adatok beküldése",
+    "resources": {
+      "title": "Források",
+      "right-to-the-city": "Követelmények a Right To The City Alliance és a Homes For All csoportoktól.",
+      "european-action-coalition": "Források és  követelmények az European Action Coalition for the Right to Housing szervezettől.",
+      "hashtag-cancel-rent": "Bérleti sztrájk források, #CancelRent."
+    }
+  },
+  "searchbar": {
+    "default-value": "Helyszín keresése",
+    "not-found": "Erről a helyszínről nincs adatunk bérlővédelmi szabályozásról"
+  },
+  "infowindow": {
+    "policy": {
+      "title": "Lakhatásvédelmi jogszabályozás",
+      "jurisdictionType": {
+        "city": "Város",
+        "county": "Megye",
+        "state-province": "Állam/Tartomány",
+        "nation": "Ország"
+      },
+      "strength-label": "A szabályozás mértéke:",
+      "protections-end-label": "Védelem határideje:",
+      "legislative-end-label": "Jogszabályozási védelem határideje:",
+      "rent-relief-end-label": "Bérleti díj enyhítések határideje",
+      "court-closure-end-label": "Bírósági ügy lezárásának határideje:",
+      "start-date-label": "Érvényben:",
+      "end-date-label": "Véget ér:",
+      "eviction-status-label": "Kilakoltatás állapota:",
+      "summary-label": "A szabályozás tartalma:",
+      "info-link": "További információ.",
+      "resource-link": "Források."
+    },
+    "action": {
+      "title": "Lakhatási Igazságossági Akció",
+      "loc-label": "Helyszín:",
+      "why-label": "Miért?",
+      "strike-type-label": "Akció típusa:",
+      "start-date-label": "Kezdet:",
+      "resources-label": "Források:"
+    }
+  },
+  "layer-select": {
+    "cities": "Városi szintű védelmi szabályozás",
+    "counties": "Megyei szintű védelmi szabályozás",
+    "states": "Állami/ tartományi szintű védelmi szabályozás",
+    "nations": "Országos szintű védelmi szabályozás",
+    "housingJusticeAction": "Lakhatási Igazságossági Mozgalmak"
+  },
+  "policy-strength": {
+    "1": "Kevés bérlővédelmi szabályozás",
+    "2": "Néhány bérlővédelmi szabályozás",
+    "3": "Sok bérlővédelmi szabályozás",
+    "expired": "A csíkok már nem érvényes védelmi szabályozásokat mutatnak",
+    "missingData": "Hiányzó adat"
+  }
+}
