@@ -1,0 +1,81 @@
+{
+"page-title": "COVID-19 Νομοθεσία για την προστασία του δικαιωματος στη στέγη, και Χάρτης δράσεων για το δικαίωμα στη στέγη σε παγκόσμιο επίπεδο",
+  "modal": {
+    "title": "COVID-19 Νομοθεσία για την προστασία του δικαιωματος στη στέγη, και Χάρτης δράσεων για το δικαίωμα στη στέγη σε παγκόσμιο επίπεδο",
+    "warning": "Γνωρίζουμε ότι οι εξώσεις συνεχίζουν παρά τα όποια μέτρα προστασίας, και ότι πολλά μέτρα έχουν ήδη λήξει. Παρακαλούμε συμπληρώστε την έρευνά μας στο χάρτη για να προσθέσετε πληροφορίες σχετικά με τις εξώσεις στο  μέρος που ζείτε.Μπορείτε επίσεις να χρησιμοποιήσετε το χάρτη για να βρείτε νομική υποστήριξη και οργανωμένες κοινότητες στην περιοχή σας. Αν έχετε υποστεί έξωση η παρενόχληση από ιδιοκτήτη μπορείτε επίσεις να συμπληρώσετε εδώ <a href='https://airtable.com/shrHbY2q4ZmFtkB9d' target='_blank rel='noreferrer noopener'>survey here</a>.",
+    "content": {
+      "paragraph-1": "Αυτός ο  χάρτης είναι ένα έργο άμεσης αντίδρασης για την παρουσίαση της νομοθεσίας για την προστασία της κατοίκησης εντός της πανδημίας και των δράσεων για το δικαώμα στη στέγη.Ξεκινάει από ένα έργο για την χαρτογράφηση των δράσεων ενάντια στις εξώσεις, την οπτικοποίησ των δεδομένων, την ανάλυσή τους και την αφήγηση συλλογικών δράσεων, ξεκινώντας από τις πόλεις του Λος Αντζελες, του Σαν Φραντζίσκο και της Νέας Υόρκης , αλλά και περιλαμβάνοντας συνεργασίες από όλο τον κόσμο",
+      "paragraph-2": "Anti-Eviction Mapping Project συγκεντρώνει δεδομένα χρησιμοποιώντας δωρεάν και ανοιχτές πηγές τεχνολογίας για την υποστήριξη κοινωνικών κινημάτων, κοινοτικών οργανώσεων και ερευνητικών ομάδων που εργάζονται για το δικαίωμα στη στέγη. Τα δεδομένα προέρχονται από το πεδίο και με κανένα τρόπο δεν τα θεωρούμε τέλεια ή εξαντλητικά",
+      "paragraph-3": "Για να μάθετε περισσότερα σχετικά με τη μεθοδολογία αξιολόγησης της προστασίας κατοικίας στις ΗΠΑ, δείτε εδώ. Για να δείτε έναν πίνακα των ίδιων των δεδομένων, δείτε<a href='#' target='_blank' rel='noreferrer noopener'>here</a>",
+      "paragraph-4": "Το Έργο της χαρτογράφησης των δράσεων κατά των εξώσεων αναγνωρίζει ότι χαρτογραφούμε αυτόχθονες περιοχές που έχουν λεηλατηθεί, αποικιστεί, διαιρεθεί και μετονομαστεί. Το αποικιακό και εθνικό πλαίσιο απεικονίζονται επειδή υπάρχει νομοθεσία προστασίας των ενοικιαστών εντός αυτών των συνόρων. Στόχος μας είναι να σεβαστούμε τους αρχικούς κατοίκους της γης χρησιμοποιώντας ονομασίες αυτόχθονων όποτε οι περιορισμοί  από κάποια  υπηρεσία  που σχετίζεται μας επιτρέπει να εφαρμόσουμε αυτήν την τροποποίηση.",
+      "paragraph-5": "Το πρόγραμμα βασίστηκε στη στενή συνεργασία με πολυάριθμες συλλογικότητες και δίκτυα  ενοικιαστων αλλά η ανάπτυξη αυτού του χάρτη βασίστηκε κυρίως στη συνεργασία με τις παρακάτω συλλογικότητες <a href='https://mappingaction.org/' target='_blank rel='noreferrer noopener'>Mapping Action Collective</a>, <a href='http://www.tenantstogether.org/' target='_blank rel='noreferrer noopener'>Tenants Together</a>, the <a href='http://sfadc.org/landingpage/covid-19/' target='_blank rel='noreferrer noopener'>San Francisco Anti-Displacement Coalition</a>,  <a href='https://ebho.org/' target='_blank rel='noreferrer noopener'>East Bay Housing Organizations</a>, <a href='http://communityjusticeproject.com/' target='_blank rel='noreferrer noopener'>Community Justice Project</a>, <a href='https://www.law.columbia.edu/faculty/emily-benfer' target='_blank rel='noreferrer noopener'>Dr. Emily Benfer</a> and <a href='https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vTH8dUIbfnt3X52TrY3dEHQCAm60e5nqo0Rn1rNCf15dPGeXxM9QN9UdxUfEjxwvfTKzbCbZxJMdR7X/pubhtml?gid=1277129435&single=true&urp=gmail_link' target='_blank rel='noreferrer noopener'>her law students</a>, and <a href='https://bayarearentstrike.org/' target='_blank rel='noreferrer noopener'>Bay Area Rent Strike (BARS)</a>  καθώς και στη βοήθεια ερευνητών και φίλων σε διεθνές επίπεδο  <a href='https://notanatlas.org/about/' target='_blank rel='noreferrer noopener'>kollektiv orangotango</a> and the <a href='https://housingnotprofit.org/' target='_blank rel='noreferrer noopener'>European Action Coalition for the Right to Housing</a>. Είμαστε ευγνώμονες για την συνεργασία με τους <a href='https://righttothecity.org/' target='_blank rel='noreferrer noopener'>Right To The City Alliance</a>, <a href='https://www.policylink.org/' target='_blank rel='noreferrer noopener'>Policy Link</a>, <a href='https://www.pdx.edu/profile/lisa-bates' target='_blank rel='noreferrer noopener'>Dr. Lisa Bates</a>, and <a href='http://www.publicjustice.org/en/john-pollock-attorney/' target='_blank rel='noreferrer noopener'>John Pollock</a> from Public Justice, Greg Townley from the <a href='https://www.psuf.org/homelessness-research-action-collaborative' target='_blank rel='noreferrer noopener'>Homelessness Research Action Collaborative</a>, and Leeor Schwitzer from <a href='https://www.pdxtu.org/' target='_blank rel='noreferrer noopener'>Portland Tenants United</a>.",
+      "paragraph-6": "Mapa και δεδομένα από: Azad Amir Ghassemi, Brett Halperin, Chris Henrick, Ciera Dudley, Elana Eden, Erin McElroy, Isnardo Gandarilla, Jim Stewart, Luis Felipe R. Murillo, Paul (Kollectiv Orangotango), Sachi Arakawa, Tim Hitchins, Wynn Newberry, Samantha Hanae Noh. Μεταφράστηκε από: Angie, Daniel Mitchen, İrem Yılmaz, Luis Felipe, Manny, Manon Vergerio, Paul (Kollectiv Orangotango), Jihed Brirmi, Julieta Arancio, Maggie Erving, Ana Vilenica, Xiaomei."
+    }
+  },
+  "titlebox": {
+    "title": "COVID-19 Νομοθεσία για την προστασία του δικαιωματος στη στέγη, και Χάρτης δράσεων για το δικαίωμα στη στέγη σε παγκόσμιο επίπεδο",
+    "about-map": "κλειδια για το χάρτη",
+    "aemp-name": "Εργο Χαρτογράφησης των δράσεων κατά των εξώσεων",
+    "about-protections": "Νομοθεσία για την προστασία της στέγης",
+    "about-description": "Όπου οι υπηρεσίες έχουν περάσει (ή οι ενοικιαστές εργάζονται για να περάσουν) νομοθεσία για την προστασία της στέγασης κατά τη διάρκεια της κρίσης COVID-19.",
+    "legislation-form-intl": "Νομοθεσία για τη στέγη εκτός ΗΠΑ",
+    "housing-action-title": "Δράσεις για το δικαίωμα στη στέγη",
+    "housing-action-description": "οπου συμβαίνουν ή έχουν συμβεί δράσεις ταξικών αγώνων , στάσης πληρωμών ενοικίου",
+    "housing-action-form": "Δράσεις για το δικαίωμα στη στέγη παγκόσμια",
+    "submit": "Υποβολή δεδομένων",
+    "resources": {
+      "title": "Πηγες",
+      "right-to-the-city": "Διεκδικήσεις από Right to The City Alliance και Homes For All.",
+      "european-action-coalition": "Πηγές και διεκδικήσεις από την   European Action Coalition for the Right to Housing.",
+      "hashtag-cancel-rent": "Πηγές από το Rent strike for #CancelRent."
+    }
+  },
+  "searchbar": {
+    "default-value": "Τοποθεσία έρευνας",
+    "not-found": "Data not found."
+  },
+  "infowindow": {
+    "policy": {
+      "title": "Νομοθεσία προστασίας στέγης",
+      "jurisdictionType": {
+        "city": "Πόλη",
+        "county": "Χώρα",
+        "state-province": "περιφέρεια",
+        "nation": "Κράτος"
+    },
+    "strength-label": "Ισχύς πολιτικων",
+    "protections-end-label": "Ημερομηνία λήξης προστασίας:",
+    "legislative-end-label": "ημερομηνία λήξης νομοθεσίας για την προστασία",
+    "rent-relief-end-label": "Λήξη μέτρων ανακούφισης ενοικιαστω",
+    "court-closure-end-label": "Ημερομηνία λήξης αναστολής δικαστηρίων",
+    "start-date-label": "Αποτελεσματικότητα:",
+    "end-date-label": "Τέλος:",
+    "eviction-status-label": "Κατάσταση εξόδου:",
+    "summary-label": "Πείληψη πολιτικής:",
+    "info-link": "Δες περισσότερες πληροφορίες.",
+    "resource-link": "Δες σχετικές πηγες."
+    },
+    "action": {
+      "title": "Δράσεις για το δικαιωσμα στη στέγη",
+      "loc-label": "Τοποθεσία:",
+      "why-label": "Γιατί",
+      "strike-type-label": "Τύπος δράσης:",
+      "start-date-label": "Εκκίνηση",
+      "resources-label": "Πηγες"
+    }
+  },
+  "layer-select": {
+    "cities": "Προστασία σε επίπεδο Δήμου",
+    "counties": "Προστασία σε επίπεδο χώρας",
+    "states": "Προστασία σε επίπεδο περιφέρειας",
+    "nations": "Προστασία σε επίπεδο χώρας",
+    "housingJusticeAction": "Δράσεις για το δικαιωσμα στη στέγη"
+  },
+  "policy-strength": {
+    "1": "Προστασία λίγων ενοικιαστων",
+    "2": "Προστασία αρκετών ενοικιαστων",
+    "3": "Προστασία πολλών ενοικιαστων",
+    "expired": "Οι γραμμές δείχνουν προστατευτικά μέτρα που έλειξαν",
+    "missingData": "Δεδομένα που λείπουν"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "page-title": "Harta globală privind Organizarea pentru Dreptate Locativă și Legislația pentru Locuire în timpul pandemiei COVID-19",
+  "modal": {
+    "title": "Harta globală privind Organizarea pentru Dreptate Locativă și Legislația pentru Locuire în timpul pandemiei COVID-19",
+    "warning": "În jurul lumii, multe evacuări au deja loc în ciuda unor restricții, în același timp în care multe restricții în privința evacuărilor au expirat. Te rugăm să completezi formularele de mai jos pentru a adăuga informații despre evacuări care au loc în zona unde locuiești sau despre care ai informații precise. Poți de asemenea folosi harta pentru a găsi sprijin activist și legal local. Dacă treci printr-o evacuare sau ai probleme cu proprietarul, poți completa și acest formular: <a href='https://airtable.com/shrHbY2q4ZmFtkB9d' target='_blank rel='noreferrer noopener'>survey here</a>.",
+    "content": {
+      "paragraph-1": "Această hartă este un proiect de răspuns urgent pentru a prezenta atât legislația pe locuire din întreaga lume cât și informații cu privire la organizarea solidară pentru locuire. Harta este creată de Anti-Eviction Mapping Project - AEMP (Proiectul de Cartografiere Împotriva Evacuărilor), un colectiv dedicat luptei pentru dreptate locativă prin vizualizare și analiză de date, colectare de povestiri și cartografiere solidară și este activ în San Francisco, Los Angeles, New York și colaborează internațional.",
+      "paragraph-2": "AEMP strânge date folosind tehnologii libere și open-source pentru a sprijini mișcări sociale, organizații comunitare și grupuri de cercetare dedicate dreptății locative. Toate datele de aici sunt crowd-sourced și nu sunt nici perfecte și nici exhaustive. Pentru mai multe informații despre colectarea, distribuirea și confidențialitatea datelor, vedeți <a href='https://antievictionmap.com/data-use-agreement' target='_blank rel='noreferrer noopener'>here</a>.",
+      "paragraph-3": "Pentru a afla mai multe despre metodologia noastră privind legislația ce sprijină locuirea accesibilă din SUA, vezi aici. Pentru a vizualiza un tabel cu informațiile propriu-zise, vezi <a href='#' target='_blank' rel='noreferrer noopener'>here</a>",
+      "paragraph-4": "AEMP recunoaște că prin prezenta hartă cartografiem pământuri indigene care au fost furate, colonizate, divizate și redenumite. Granițe și denumiri coloniale și ale statelor-națiune sunt arătate aici pentru că legislația ce sprijină locuirea accesibilă există în cadrul acestora. Țelul nostru este să omagiem păstrătorii originari ai acestor tărâmuri oricând software și date pe care le folosim de la terțe părți ne vor permite implementarea unei asemenea modificări.",
+      "paragraph-5": "În timp ce AEMP menține relații strânse cu numeroase organizații pentru drepturile chiriașilor și pentru dreptate locativă, dezvoltarea acestei hărți s-a sprijinit în special pe colaborările cu <a href='https://mappingaction.org/' target='_blank rel='noreferrer noopener'>Mapping Action Collective</a>, <a href='http://www.tenantstogether.org/' target='_blank rel='noreferrer noopener'>Tenants Together</a>, the <a href='http://sfadc.org/landingpage/covid-19/' target='_blank rel='noreferrer noopener'>San Francisco Anti-Displacement Coalition</a>,  <a href='https://ebho.org/' target='_blank rel='noreferrer noopener'>East Bay Housing Organizations</a>, <a href='http://communityjusticeproject.com/' target='_blank rel='noreferrer noopener'>Community Justice Project</a>, <a href='https://www.law.columbia.edu/faculty/emily-benfer' target='_blank rel='noreferrer noopener'>Dr. Emily Benfer</a> and <a href='https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vTH8dUIbfnt3X52TrY3dEHQCAm60e5nqo0Rn1rNCf15dPGeXxM9QN9UdxUfEjxwvfTKzbCbZxJMdR7X/pubhtml?gid=1277129435&single=true&urp=gmail_link' target='_blank rel='noreferrer noopener'>her law students</a>, and <a href='https://bayarearentstrike.org/' target='_blank rel='noreferrer noopener'>Bay Area Rent Strike (BARS)</a> organizers. De asemenea am beneficiat de colaborarea pe plan internațional cu <a href='https://notanatlas.org/about/' target='_blank rel='noreferrer noopener'>kollektiv orangotango</a> și <a href='https://housingnotprofit.org/' target='_blank rel='noreferrer noopener'>European Action Coalition for the Right to Housing</a>. Avem, de asemenea, recunoștință pentru consultările cu <a href='https://righttothecity.org/' target='_blank rel='noreferrer noopener'>Right To The City Alliance</a>, <a href='https://www.policylink.org/' target='_blank rel='noreferrer noopener'>Policy Link</a>, <a href='https://www.pdx.edu/profile/lisa-bates' target='_blank rel='noreferrer noopener'>Dr. Lisa Bates</a>, și <a href='http://www.publicjustice.org/en/john-pollock-attorney/' target='_blank rel='noreferrer noopener'>John Pollock</a> from Public Justice, Greg Townley de la <a href='https://www.psuf.org/homelessness-research-action-collaborative' target='_blank rel='noreferrer noopener'>Homelessness Research Action Collaborative</a>, și Leeor Schwitzer de la <a href='https://www.pdxtu.org/' target='_blank rel='noreferrer noopener'>Portland Tenants United</a>.",
+      "paragraph-6": "Hartă și date de: Azad Amir Ghassemi, Brett Halperin, Chris Henrick, Ciera Dudley, Elana Eden, Erin McElroy, Isnardo Gandarilla, Jim Stewart, Luis Felipe R. Murillo, Paul (Kollectiv Orangotango), Sachi Arakawa, Tim Hitchins, Wynn Newberry, și Samantha Hanae Noh. Sprijin traducere: Angie, Daniel Mitchen, İrem Yılmaz, Luis Felipe, Manny, Manon Vergerio, Paul (Kollectiv Orangotango), Jihed Brirmi, Julieta Arancio, Maggie Erving, Xiaomei și Adina."
+    }
+  },
+  "titlebox": {
+    "title": "Harta globală privind Organizarea pentru Dreptate Locativă și Legislația pentru Locuire în timpul pandemiei COVID-19",
+    "about-map": "MAP KEY",
+    "aemp-name": "The Anti-Eviction Mapping Project",
+    "about-protections": "Legislația sprjinind locuirea accesibilă",
+    "about-description": "Unde autoritățile au trecut (sau sunt în proces de a trece) legislație ce sprjină locuirea accesibilă în timpul crizei COVID-19.",
+    "legislation-form-intl": "Legislația sprjinind locuirea accesibilă în afara Statelor Unite",
+    "housing-action-title": "Acțiuni și Organizare pentru Dreptate Locativă",
+    "housing-action-description": "Unde <strong class='color-rent-strike'>acțiuni pentru dreptate locativă</strong> au loc sau au avut loc.",
+    "housing-action-form": "Acțiuni și Organizare pentru dreptate locativă în jurul lumii.",
+    "submit": "Completează cu informații",
+    "resources": {
+      "title": "Resurse",
+      "right-to-the-city": "Revendicările de la Right To The City Alliance and Homes For All(Alianța Dreptului la Oraș și Case pentru Toți).",
+      "european-action-coalition": "Resurse și revendicări de la European Action Coalition for the Right to Housing (Coaliția Europeană de Acțiune pentru Dreptul la Oraș și la Locuire).",
+      "hashtag-cancel-rent": "Resurse privind grevele și organizarea chiriașilor #CancelRent."
+    }
+  },
+  "searchbar": {
+    "default-value": "Caută un loc",
+    "not-found": "Nici o legislație în sprijinul locuirii accesibile pentru acest loc"
+  },
+  "infowindow": {
+    "policy": {
+      "title": "Legislația sprjinind locuirea accesibilă",
+      "jurisdictionType": {
+        "city": "Oraș",
+        "county": "Județ",
+        "state-province": "Stat/Provincie",
+        "nation": "Țară"
+      },
+      "strength-label": "Capacitatea actului legislativ",
+      "protections-end-label": "Data la care se încheie protecția:",
+      "legislative-end-label": "Data la care se încheie actul legislativ:",
+      "rent-relief-end-label": "Data la care se încheie protecția pentru micșorarea, amânarea sau anularea chiriei:",
+      "court-closure-end-label": "Data la care se încheie pauza pentru tribunale:",
+      "start-date-label": "Începe:",
+      "end-date-label": "Se încheie:",
+      "eviction-status-label": "Starea evacuării:",
+      "summary-label": "Rezumatul reglementării:",
+      "info-link": "Mai multe informații.",
+      "resource-link": "Vezi o resursă asociată."
+    },
+    "action": {
+      "title": "Acțiuni și Organizare pentru Dreptate Locativă",
+      "loc-label": "Locul:",
+      "why-label": "De ce?",
+      "strike-type-label": "Tipul acțiunii:",
+      "start-date-label": "Începe:",
+      "resources-label": "Resurse:"
+    }
+  },
+  "layer-select": {
+    "cities": "Protecții la nivel de oraș",
+    "counties": "Protecții la nivel de județ",
+    "states": "Protecții la nivel de stat/ provincie",
+    "nations": "Protecții la nivel național",
+    "housingJusticeAction": "Acțiuni și Organizare pentru Dreptate Locativă"
+  },
+  "policy-strength": {
+    "1": "Puține protecții pentru chiriași",
+    "2": "Ceva protecții pentru chiriași",
+    "3": "Multe protecții pentru chiriași",
+    "expired": "Dungile indică protecții expirate",
+    "missingData": "Nu avem informații"
+  }
+}

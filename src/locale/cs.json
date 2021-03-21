@@ -1,0 +1,81 @@
+{
+  "page-title":"Legislativa ochraňující bydlení a Mapa akcí za spravedlnost v bydlení v době pandemie COVID-19 ",
+  "modal": {
+    "title": "Legislativa ochraňující bydlení a Mapa akcí za spravedlnost v bydlení v době pandemie COVID-19",
+    "warning": "Víme, že vystěhování neskončilo ani v době současných ochranných opatření a také, že mnoho těchto opatření už vypršelo. Prosíme, vyplňte náš průzkum na mapě a přispějte informacemi o vystěhováních v místě, kde žijete. Můžete také použít mapu také pro to, abyste zjistili, kdo ve Vašem okolí poskytuje právní pomoc nebo pomáhá s komunitním organizováním kolem bydlení. Pokud máte zkušenost s vystěhováním nebo šikanou ze strany pronajímatele, můžete vyplnit náš <a href='https://airtable.com/shrHbY2q4ZmFtkB9d' target='_blank rel='noreferrer noopener'>výzkum zde</a>.",
+    "content": {
+      "paragraph-1": "Tato mapa byla vytvořena k zobrazení informací o legislativě ochraňující bydlení a spravedlnosti v oblasti bydlení v reakci na pandemii COVID-19. Je dílem mezinárodního projektu s názvem Anti-eviction Mapping project, který kombinuje datovou vizualizaci, analýzu a vyprávění příběhů. Kolektiv tvořící tento projekt má primárně své členy v San Franciscu, Los Angeles a New Yorku, ale také spolupracovníky po celém světě.",
+      "paragraph-2": "Anti-Eviction Mapping Project sbírá data s využitím veřejně dostupných technologií, aby podpořil různá sociální hnutí, komunitní organizování nebo výzkumné skupiny, které usilují o spravedlnost v oblasti bydlení. Při sběru dat pro naši práci spoléháme na sběr 'zespoda', data nejsou tedy perfektní ani kompletní pro více informací ohledně našeho souboru dat navštivte <a href='https://antievictionmap.com/data-use-agreement' target='_blank rel='noreferrer noopener'>here</a>.",
+      "paragraph-3": "Pokud se chcete dozvědět víc o naší metodologii ochrany bydlení v USA, podívejte se zde. Pokud se chcete podívat na tabulku s daty, můžete <a href='#' target='_blank' rel='noreferrer noopener'>zde</a>",
+      "paragraph-4": "Anti-Eviction Mapping Project si uvědomuje, že mapujeme území původních obyvatel, které bylo ukradeno, kolonizováno, rozděleno a přejmenováno. Zobrazujeme na naší mapě koloniální a národní státy, protože se k nim a k jejich hranicím vztahují různé legislativy. Naším cílem je vyjádřit respekt původním obyvatelům a jejich území tím, že používáme původní názvy tam, kde je to možné a kde nám to limity služeb třetích stran, na kterých závisíme, dovolí modifikovat.",
+      "paragraph-5": "I když Anti-Eviction Mapping Project udržuje blízké vztahy s množstvím organizací a sítí nájemníků, při vývoji této mapy spoléhal na spolupráci zejména s <a href='https://mappingaction.org/' target='_blank rel='noreferrer noopener'>Mapping Action Collective</a>, <a href='http://www.tenantstogether.org/' target='_blank rel='noreferrer noopener'>Tenants Together</a>, the <a href='http://sfadc.org/landingpage/covid-19/' target='_blank rel='noreferrer noopener'>San Francisco Anti-Displacement Coalition</a>,  <a href='https://ebho.org/' target='_blank rel='noreferrer noopener'>East Bay Housing Organizations</a>, <a href='http://communityjusticeproject.com/' target='_blank rel='noreferrer noopener'>Community Justice Project</a>, <a href='https://www.law.columbia.edu/faculty/emily-benfer' target='_blank rel='noreferrer noopener'>Dr. Emily Benfer</a> and <a href='https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vTH8dUIbfnt3X52TrY3dEHQCAm60e5nqo0Rn1rNCf15dPGeXxM9QN9UdxUfEjxwvfTKzbCbZxJMdR7X/pubhtml?gid=1277129435&single=true&urp=gmail_link' target='_blank rel='noreferrer noopener'>a její studenty práva</a>, and <a href='https://bayarearentstrike.org/' target='_blank rel='noreferrer noopener'>Bay Area Rent Strike (BARS)</a> orgaizátory, ale také pomoc s mezinároním výzkumem od našich přátel z <a href='https://notanatlas.org/about/' target='_blank rel='noreferrer noopener'>kollektiv orangotango</a> a the <a href='https://housingnotprofit.org/' target='_blank rel='noreferrer noopener'>European Action Coalition for the Right to Housing</a>. Jsme vděčni za konzultace od <a href='https://righttothecity.org/' target='_blank rel='noreferrer noopener'>Right To The City Alliance</a>, <a href='https://www.policylink.org/' target='_blank rel='noreferrer noopener'>Policy Link</a>, <a href='https://www.pdx.edu/profile/lisa-bates' target='_blank rel='noreferrer noopener'>Dr. Lisa Bates</a>, a <a href='http://www.publicjustice.org/en/john-pollock-attorney/' target='_blank rel='noreferrer noopener'>John Pollock</a> z Public Justice, Greg Townley z <a href='https://www.psuf.org/homelessness-research-action-collaborative' target='_blank rel='noreferrer noopener'>Homelessness Research Action Collaborative</a>, and Leeor Schwitzer z <a href='https://www.pdxtu.org/' target='_blank rel='noreferrer noopener'>Portland Tenants United</a>.",
+      "paragraph-6": "Mapu a data dali dohromady: Azad Amir Ghassemi, Brett Halperin, Chris Henrick, Ciera Dudley, Elana Eden, Erin McElroy, Isnardo Gandarilla, Jim Stewart, Luis Felipe R. Murillo, Paul (Kollectiv Orangotango), Sachi Arakawa, Tim Hitchins, Wynn Newberry, and Samantha Hanae Noh. Pomoc s překladem zajistili: Angie, Daniel Mitchen, İrem Yılmaz, Luis Felipe, Manny, Manon Vergerio, Paul (Kollectiv Orangotango), Jihed Brirmi, Julieta Arancio, Maggie Erving, Xiaomei and Hana Halamova."
+    }
+  },
+  "titlebox": {
+    "title": "Legislativa ochraňující bydlení & Akce za spravedlnost v bydlení",
+    "about-map": "KLÍČ K MAPĚ",
+    "aemp-name": "Anti-Eviction Mapping Project",
+    "about-protections": "Legislativa ochraňující bydlení",
+    "about-description": "Kde příšlušné orgány přijaly (nebo nájemníci pracují na tom, aby byly přijaty) zákony na ochranu bydlení v době krize způsobené pandemií COVID-19",
+    "legislation-form-intl": "Legislativa ochraňující bydlení mimo USA.",
+    "housing-action-title": "Akce za spravedlnost v bydlení",
+    "housing-action-description": "Kde <strong class='color-rent-strike'>housing justice actions</strong> se objevují nebo objevily.",
+    "housing-action-form": "Akce za spravedlnost v bydlení na celém světě.",
+    "submit": "Potvrďte údaje",
+    "resources": {
+      "title": "Zdroje",
+      "right-to-the-city": "Požadavky od organizací Right To The City Alliance a Homes For All.",
+      "european-action-coalition": "Zdroje a požadavky od Evropské akční koalice pro právo na město a na bydlení.",
+      "hashtag-cancel-rent": "Rent Strike zdroje pro #CancelRent."
+    }
+  },
+  "searchbar": {
+    "default-value": "Hledej místo",
+    "not-found": "Pro tuto lokalitu není uvedena ochrana nájemníků"
+  },
+  "infowindow": {
+    "policy": {
+      "title": "Legislativa ochraňující bydlení",
+      "jurisdictionType": {
+        "city": "město",
+        "county": "okres",
+        "state-province": "kraj",
+        "nation": "stát"
+      },
+      "strength-label": "Síla legislativního opatření:",
+      "protections-end-label": "Ukončení ochrany nájemníků:",
+      "legislative-end-label": "Ukončení legislativního opatření:",
+      "rent-relief-end-label": "Ukončení úlevy z nájmu nebo odložení nájmu:",
+      "court-closure-end-label": "Ukončení odkladu soudních řízení:",
+      "start-date-label": "Začátek:",
+      "end-date-label": "Konec:",
+      "eviction-status-label": "Stav vystěhování:",
+      "summary-label": "Shrnutí politiky:",
+      "info-link": "Podívejte se na víc informací.",
+      "resource-link": "Podívejte se na doplňující zdroje."
+    },
+    "action": {
+      "title": "Akce za spravedlnost v bydlení",
+      "loc-label": "Lokalita:",
+      "why-label": "Proč?",
+      "strike-type-label": "Typ akce:",
+      "start-date-label": "Začátek:",
+      "resources-label": "Zdroje:"
+    }
+  },
+  "layer-select": {
+    "cities": "Městské ochranné opatření",
+    "counties": "Okresní ochranné opatření",
+    "states": "Krajské ochranné opatření",
+    "nations": "Státní ochranné opatření",
+    "housingJusticeAction": "Akce za spravedlnost v bydlení"
+  },
+  "policy-strength": {
+    "1": "Málo ochranných opatření pro nájemníky",
+    "2": "Nějaké ochranné opatření pro nájemníky",
+    "3": "Hodně ochranných opatření pro nájemníky",
+    "expired": "Pruhy zobrazují ochranné opatření, které už vypršely",
+    "missingData": "Chybějící údaje"
+  }
+}
