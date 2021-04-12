@@ -99,6 +99,7 @@ export default () => {
       center={[mapConfig.lat, mapConfig.lng]}
       maxBounds={mapConfig.bounds}
       minZoom={3}
+      tap={false} // https://github.com/domoritz/leaflet-locatecontrol/issues/280
       zoom={mapConfig.z}
       id="map"
     >
