@@ -15,7 +15,8 @@ export const citiesCartoQuery = `
 SELECT
   municipality, state, country, range, has_expired_protections,
   policy_type, policy_summary, link, resource, the_geom,
-  end_date_earliest, end_date_legist, end_date_rent_relief, end_date_court
+  end_date_earliest, end_date_legist, end_date_rent_relief, end_date_court,
+  eviction_status
 FROM ${cartoSheetSyncTable}
 WHERE the_geom is not null and admin_scale = 'City'
 ORDER BY range`;
@@ -25,8 +26,9 @@ SELECT
   c.the_geom, c.county, c.state, m.range,
   m.policy_type, m.policy_summary, m.link, m.resource,
   m.range, m.has_expired_protections,
-  m.end_date_earliest, m.end_date_legist, 
-  m.end_date_rent_relief, m.end_date_court
+  m.end_date_earliest, m.end_date_legist,
+  m.end_date_rent_relief, m.end_date_court,
+  m.eviction_status
 FROM ${cartoCountiesTable} c
 JOIN ${cartoSheetSyncTable} m
 ON ST_Intersects(c.the_geom, m.the_geom)
@@ -41,7 +43,8 @@ SELECT
   m.range, m.iso, m .policy_type, m.policy_summary,
   m.link, m.resource, m.has_expired_protections,
   m.end_date_earliest, m.end_date_legist, 
-  m.end_date_rent_relief, m.end_date_court
+  m.end_date_rent_relief, m.end_date_court,
+  m.eviction_status
 FROM ${cartoStatesTable} s
 INNER JOIN ${cartoSheetSyncTable} m
   ON s.name = m.state
