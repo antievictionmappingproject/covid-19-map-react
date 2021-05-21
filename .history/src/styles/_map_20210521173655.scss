@@ -6,7 +6,7 @@
     bottom: 0;
     right: 0;
     z-index: 0;
-    background-color: $map-bg-color;
+    background-color: hotpink;
     .leaflet-pane svg {
         path {
             @include use-svg-pattern("few");

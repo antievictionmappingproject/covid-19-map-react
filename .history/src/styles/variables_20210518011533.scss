@@ -5,10 +5,9 @@
 
 // font defaults
 $fontSizeDefault: 1.2rem; // = 12px
-$fontStack: 'Noto Sans',
-sans-serif;
+$fontStack: 'Noto Sans', sans-serif;
+
 // colors
-$map-bg-color: #262626;
 $rent-strike-color: #c92a1d;
 $policy-color-bg-1: #5e5e5e;
 $policy-color-bg-2: #bdbdbd;
@@ -19,6 +18,7 @@ $policy-color-str-3: #fff;
 $link-visited: #797979;
 $font-color-black: #000;
 $highlight-color-yellow: #feff54;
+
 :export {
-    rentStrikeColor: $rent-strike-color;
+  rentStrikeColor: $rent-strike-color;
 }
