@@ -95,10 +95,10 @@ export default () => {
   // Map component id prop may be an anti-pattern
   return (
     <MapContainer
-      zoomControl={true}
+      zoomControl={false}
       center={[mapConfig.lat, mapConfig.lng]}
       maxBounds={mapConfig.bounds}
-      minZoom={1}
+      minZoom={3}
       tap={false} // https://github.com/domoritz/leaflet-locatecontrol/issues/280
       zoom={mapConfig.z}
       id="map"

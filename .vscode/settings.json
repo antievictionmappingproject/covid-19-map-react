@@ -1,0 +1,14 @@
+{
+    "eslint.probe": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "html",
+        "vue",
+        "markdown",
+        "jsx"
+    ],
+    "prettier.jsxBracketSameLine": true,
+    "prettier.enable": false
+}

@@ -72,7 +72,7 @@ div.submissions {
         border-bottom-color: $policy-color-str-2;
     }
     &.expired {
-        background: url("/assets/stripes-icon.png") center no-repeat;
+        // background: url("../../public/assets/stripes-icon.png") center no-repeat;
         background-size: contain;
         height: 70px;
         border: none;
@@ -85,7 +85,7 @@ div.submissions {
     align-items: center;
     width: 95px;
     .rent-strike-icon {
-        background-image: url("/assets/mapIcons/rent-strike.svg");
+        // background-image: url("../../public/assets/mapIcons/rent-strike.svg");
         background-size: 55px 55px;
         height: 40px;
         width: 40px;
