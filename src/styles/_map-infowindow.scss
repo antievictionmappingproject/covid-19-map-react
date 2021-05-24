@@ -105,3 +105,9 @@
 .infowindow-link:visited > a {
   color: $link-visited;
 }
+
+.infowindow-timestamp {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: $caption-color;
+}

@@ -28,6 +28,7 @@ export default props => {
     end,
     link,
     resource,
+    reviewed_date,
     // Action props
     action,
     actionStart,
@@ -226,6 +227,13 @@ export default props => {
                   {t('infowindow.policy.resource-link')}
                 </a>
               </p>
+            </
+            div>
+          )}
+          
+          {reviewed_date && (
+            <div>
+              <p className="infowindow-timestamp">Last Updated {reviewed_date}</p>
             </div>
           )}
         </>
