@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const NavLink = (props) => {
   return(
@@ -27,6 +28,8 @@ const SubNav = (props) => {
 const NavDesktop = () => {
   return(
     <div id="NavDesktop">
+      <Link to="/maps/covid-19">Covid-19 Map</Link>
+      <Link to="/maps/oral-histories">Oral Histories</Link>
       <NavLink href="http://google">
         About
       </NavLink>

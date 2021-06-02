@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Switch, Route } from 'react-router-dom'
 import {
   MapContainer,
   TileLayer,
@@ -33,82 +34,92 @@ function LeafletMap({ mapConfig }) {
 
   return (
     <>
-      <LayersControl collapsed={false} position="topright">
-        {layers.map(layer => {
-          return (
-            <LayersControl.Overlay
-              key={layer.key}
-              name={t(layer.layerConfig.nameI18n)}
-              checked={mapConfig[layer.key] === true}
-            >
-              {layer.layerConfig.name === 'Housing Justice Actions' ? (
-                <Pane
-                  name={layer.key}
-                  style={{ zIndex: 200 + layer.layerConfig.zIndex * 2 }}
+      <Switch>
+        <Route path="/maps/oral-histories">
+          {interviews.map((interview) => {
+            return (
+              <Marker
+                key={interview.id}
+                position={[
+                  interview.fields["Latitude"],
+                  interview.fields["Longitude"],
+                ]}
+                icon={HouseIcon}
+                eventHandlers={{
+                  click: (e) => {
+                    dispatch({
+                      type: "ui:interview:selected",
+                      payload: interview,
+                    });
+                  },
+                }}
+              ></Marker>
+            );
+          })}
+        </Route>
+        <Route path="/maps/covid-19">
+          <LayersControl collapsed={false} position="topright">
+            {layers.map(layer => {
+              return (
+                <LayersControl.Overlay
+                  key={layer.key}
+                  name={t(layer.layerConfig.nameI18n)}
+                  checked={mapConfig[layer.key] === true}
                 >
-                  <MarkerClusterGroup>
-                    <GeoJSON
-                      data={layer.data}
-                      style={layer.layerConfig.style}
-                      pointToLayer={layer.layerConfig.pointToLayer}
-                      onEachFeature={(feature, mapLayer) => {
-                        mapLayer.on('click', () => {
-                          dispatch({
-                            type: 'ui:info-window:show',
-                            payload: layer.layerConfig.props(mapLayer.feature),
+                  {layer.layerConfig.name === 'Housing Justice Actions' ? (
+                    <Pane
+                      name={layer.key}
+                      style={{ zIndex: 200 + layer.layerConfig.zIndex * 2 }}
+                    >
+                      <MarkerClusterGroup>
+                        <GeoJSON
+                          data={layer.data}
+                          style={layer.layerConfig.style}
+                          pointToLayer={layer.layerConfig.pointToLayer}
+                          onEachFeature={(feature, mapLayer) => {
+                            mapLayer.on('click', () => {
+                              dispatch({
+                                type: 'ui:info-window:show',
+                                payload: layer.layerConfig.props(mapLayer.feature),
+                              });
+                            });
+                          }}
+                        ></GeoJSON>
+                      </MarkerClusterGroup>
+                    </Pane>
+                  ) : (
+                    <Pane
+                      name={layer.key}
+                      style={{ zIndex: 200 + layer.layerConfig.zIndex * 2 }}
+                    >
+                      <GeoJSON
+                        data={layer.data}
+                        style={layer.layerConfig.style}
+                        onEachFeature={(feature, mapLayer) => {
+                          mapLayer.on('click', () => {
+                            dispatch({
+                              type: 'ui:info-window:show',
+                              payload: layer.layerConfig.props(mapLayer.feature),
+                            });
                           });
-                        });
-                      }}
-                    ></GeoJSON>
-                  </MarkerClusterGroup>
-                </Pane>
-              ) : (
-                <Pane
-                  name={layer.key}
-                  style={{ zIndex: 200 + layer.layerConfig.zIndex * 2 }}
-                >
-                  <GeoJSON
-                    data={layer.data}
-                    style={layer.layerConfig.style}
-                    onEachFeature={(feature, mapLayer) => {
-                      mapLayer.on('click', () => {
-                        dispatch({
-                          type: 'ui:info-window:show',
-                          payload: layer.layerConfig.props(mapLayer.feature),
-                        });
-                      });
-                      layer.layerConfig.onEachFeature(feature, mapLayer);
-                    }}
-                    pointToLayer={layer.layerConfig.pointToLayer}
-                  ></GeoJSON>
-                </Pane>
-              )}
-            </LayersControl.Overlay>
-          );
-        })}
-      </LayersControl>
-      {interviews.map((interview) => {
-				return (
-					<Marker
-						key={interview.id}
-						position={[
-							interview.fields["Latitude"],
-							interview.fields["Longitude"],
-						]}
-						icon={HouseIcon}
-						eventHandlers={{
-							click: (e) => {
-								dispatch({
-									type: "ui:interview:selected",
-									payload: interview,
-								});
-							},
-						}}
-					></Marker>
-				);
-			})}
+                          layer.layerConfig.onEachFeature(feature, mapLayer);
+                        }}
+                        pointToLayer={layer.layerConfig.pointToLayer}
+                      ></GeoJSON>
+                    </Pane>
+                  )}
+                </LayersControl.Overlay>
+              );
+            })}
+          </LayersControl>
+        </Route>
+      </Switch>
       <ZoomControl position="bottomright" />
-      <SearchBar />
+      <Switch>
+        <Route path="/covid-19">
+          <SearchBar />
+        </Route>
+      </Switch>
       {/* Popup for search results */}
       {searchPopup && (
         <Popup position={searchPopup.coords}>{searchPopup.content}</Popup>
