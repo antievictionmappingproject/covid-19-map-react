@@ -10,10 +10,13 @@ import LoadingIndicator from './LoadingIndicator';
 import InfoWindow from './InfoWindow';
 import LeafletMap from './Map';
 import Titlebox from './Titlebox';
+import InfoWindowOralHistory from './InfoWindowOralHistory';
+import Navigation from "./Navigation";
 
 export default () => {
   const i18nLoaded = useSelector(state => state.content.i18n);
   const dispatch = useDispatch();
+  const interviewSelected = useSelector((state) => state.ui.interviewSelected);
 
   useEffect(() => {
     (async () => {
@@ -51,6 +54,8 @@ export default () => {
       <Modal />
       <LoadingIndicator />
       <InfoWindow />
+      {interviewSelected && <InfoWindowOralHistory />}
+      <Navigation />
     </>
   );
 };

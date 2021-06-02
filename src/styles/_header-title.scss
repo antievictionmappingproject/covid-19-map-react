@@ -1,6 +1,6 @@
 header#aemp-titlebox {
   position: absolute;
-  top: 16px;
+  top: calc(16px + #{$layout-nav-desktop-height});
   left: 10px;
   height: 675px;
   overflow: auto;

@@ -1,5 +1,6 @@
 const initialState = {
   layers: [],
+  interviews: [],
   searchPopup: null,
 };
 
@@ -10,6 +11,11 @@ export default (state = initialState, action) => {
         ...state,
         layers: action.payload,
       };
+    case "data:interviews":
+      return {
+        ...state,
+        interviews: action.payload,
+      };
     case 'data:searchPopup':
       return {
         ...state,
@@ -19,3 +25,10 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+export async function fetchAirtableData(dispatch, getState) {
+	const response = await fetch(`/.netlify/functions/airtable`);
+	const data = await response.json();
+	const records = data.records;
+	dispatch({ type: "data:interviews", payload: records });
+}

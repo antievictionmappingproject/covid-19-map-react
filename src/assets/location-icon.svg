@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="50" viewBox="0 0 45 50">
+    <defs>
+        <filter id="bf50tmvmca" width="163.2%" height="157.1%" x="-31.6%" y="-28.6%" filterUnits="objectBoundingBox">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+            <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g filter="url(#bf50tmvmca)" transform="translate(-138 -522) translate(141.63 524)">
+                <path fill="#DE3826" d="M4.982 6.58c.8-.875 1.99-1.564 3.57-2.067 1.166-.371 2.802-1.484 4.531-1.76 4.217-.672 9.284-1.329 15.31 1.304.193.085.376.305.612.456.64.41 1.973 1.54 3.996 3.394.682 5.782.776 9.918.283 12.408-.493 2.49-1.92 5.489-4.279 8.997-1.962 1.92-3.325 3.297-4.09 4.133-2.846 3.11-4.387 5.031-6.044 5.031-1.674 0-3.788-2.31-6.582-5.48-.726-.823-2.184-2.257-4.373-4.302-1.431-1.5-2.627-4.292-3.59-8.38-.962-4.086-.743-8.664.656-13.734z"/>
+                <g>
+                    <g>
+                        <path fill="#FFF" d="M16.363 12.779L20.453 12.779 20.453 16.912 16.363 16.912z" transform="translate(.37)"/>
+                        <path fill="#000" fill-rule="nonzero" d="M16.363 41.712h4.09v-4.134h-4.09v4.134zm-4.091-4.134h4.09v-4.133h-4.09v4.133zm-4.09-4.133h4.09v-4.133h-4.09v4.133zM4.09 29.312h4.09v-4.133h-4.09v4.133zm0-4.133h4.09v-4.133h-4.09v4.133zM0 21.046h4.09v-4.134H0v4.134zm0-4.134h4.09V12.78H0v4.133zm0-4.133h4.09V8.646H0v4.133zm4.09-4.133h4.091V4.513h-4.09v4.133zm16.363 28.932h4.09v-4.133h-4.09v4.133zm4.09-4.133h4.092v-4.133h-4.091v4.133zM8.182 4.513h4.091V.38h-4.09v4.133zm4.091 0h4.09V.38h-4.09v4.133zm4.09 0h4.091V.38h-4.09v4.133zm12.273 24.799h4.09v-4.133h-4.09v4.133zm0-4.133h4.09v-4.133h-4.09v4.133zm4.09-4.133h4.09v-4.134h-4.09v4.134zm0-4.134h4.09V12.78h-4.09v4.133zm0-4.133h4.09V8.646h-4.09v4.133zm-4.09-4.133h4.09V4.513h-4.09v4.133zm-4.091-4.133h4.09V.38h-4.09v4.133zm-4.09 0h4.09V.38h-4.09v4.133zm-8.182 12.4h4.09v-4.134h-4.09v4.133zm4.09 4.133h4.091v-4.134h-4.09v4.134zm4.091-4.134h4.09V12.78h-4.09v4.133zm-4.09-4.133h4.09V8.646h-4.09v4.133z" transform="translate(.37)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

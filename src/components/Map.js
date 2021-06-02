@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   MapContainer,
@@ -7,17 +7,25 @@ import {
   Pane,
   GeoJSON,
   ZoomControl,
+  Marker,
   Popup,
 } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { useTranslation } from 'react-i18next';
 import getMapConfig from '../config/map-config';
+import { fetchAirtableData } from "../reducers/data";
 import SearchBar from './SearchBar';
+import HouseIcon from "./HouseIcon";
 
 function LeafletMap({ mapConfig }) {
   const { layers, searchPopup } = useSelector(state => state.data);
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const interviews = useSelector((state) => state.data.interviews);
+
+  useEffect(() => {
+    dispatch(fetchAirtableData);
+  }, [])
 
   // Make sure layers have resolved before rendering map
   if (!layers || !layers.length || layers.some(layer => layer === undefined))
@@ -79,6 +87,26 @@ function LeafletMap({ mapConfig }) {
           );
         })}
       </LayersControl>
+      {interviews.map((interview) => {
+				return (
+					<Marker
+						key={interview.id}
+						position={[
+							interview.fields["Latitude"],
+							interview.fields["Longitude"],
+						]}
+						icon={HouseIcon}
+						eventHandlers={{
+							click: (e) => {
+								dispatch({
+									type: "ui:interview:selected",
+									payload: interview,
+								});
+							},
+						}}
+					></Marker>
+				);
+			})}
       <ZoomControl position="bottomright" />
       <SearchBar />
       {/* Popup for search results */}
