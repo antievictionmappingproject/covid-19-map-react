@@ -1,4 +1,4 @@
-import L, { rentStrikeIcon } from '../lib/leaflet';
+import L from '../../lib/leaflet';
 import {
   colorNoData,
   fillColorScale,
@@ -8,9 +8,13 @@ import {
   pointRadius,
   fillOpacity,
   policyStrengthLayerClassNames,
-} from './constants';
-import * as queries from '../carto/queries';
-import { formatDate } from '../utils/datetime';
+} from '../constants';
+import { formatDate } from '../../utils/datetime';
+import {
+  cartoSheetSyncTable,
+  cartoCountiesTable,
+  cartoStatesTable,
+} from '../../carto/constants';
 
 //styling helpers
 function highlightFeature(e) {
@@ -34,7 +38,11 @@ export const mapLayersConfig = {
     name: 'City Protections',
     nameI18n: 'layer-select.cities',
     type: 'point',
-    query: queries.citiesCartoQuery,
+    query: `SELECT
+      municipality, state, country, range, the_geom, eviction_status
+    FROM ${cartoSheetSyncTable}
+    WHERE the_geom is not null and admin_scale = 'City' and eviction_status is not null and eviction_status <> ''
+    ORDER BY range`,
     zIndex: 4,
     overlayOrder: 0,
     props(feature) {
@@ -93,7 +101,17 @@ export const mapLayersConfig = {
     name: 'County Protections',
     nameI18n: 'layer-select.counties',
     type: 'polygon',
-    query: queries.countiesCartoQuery,
+    query: `
+    SELECT
+      c.the_geom, c.county, c.state, m.eviction_status
+    FROM ${cartoCountiesTable} c
+    JOIN ${cartoSheetSyncTable} m
+    ON ST_Intersects(c.the_geom, m.the_geom)
+    WHERE m.the_geom IS NOT NULL
+      AND m.admin_scale = 'County'
+      OR m.admin_scale = 'City and County'
+      AND m.eviction_status is not null AND m.eviction_status <> ''
+    ORDER BY m.range`,
     zIndex: 3,
     overlayOrder: 1,
     props(feature) {
@@ -145,7 +163,17 @@ export const mapLayersConfig = {
     name: 'State/Province Protections',
     nameI18n: 'layer-select.states',
     type: 'polygon',
-    query: queries.statesCartoQuery,
+    query: `
+    SELECT
+      s.the_geom, s.name, s.admin, s.sr_adm0_a3,
+      m.eviction_status
+    FROM ${cartoStatesTable} s
+    INNER JOIN ${cartoSheetSyncTable} m
+      ON s.name = m.state
+      AND s.sr_adm0_a3 = m.iso
+      AND m.admin_scale = 'State'
+    WHERE m.eviction_status is not null and m.eviction_status <> ''
+    ORDER BY m.range`,
     zIndex: 2,
     overlayOrder: 2,
     props(feature) {
@@ -189,65 +217,6 @@ export const mapLayersConfig = {
         mouseout: e => highlightFeature(e),
       });
       layer.bindPopup(feature.properties.name);
-    },
-  },
-  nations: {
-    name: 'National Protections',
-    nameI18n: 'layer-select.nations',
-    type: 'polygon',
-    query: queries.countriesCartoQuery,
-    zIndex: 1,
-    overlayOrder: 3,
-    props(feature) {
-      const { name_en, end_date_earliest, ...rest } = feature.properties;
-      return {
-        endDateEarliest: formatDate(end_date_earliest),
-        jurisdictionName: name_en,
-        jurisdictionType: 'Country',
-        jurisdictionTypeI18n: 'nation',
-        popupName: name_en,
-        ...rest,
-      };
-    },
-    style(feature) {
-      return {
-        color: strokeColorScale[feature.properties.range] || colorNoData,
-        fillColor: fillColorScale[feature.properties.range] || colorNoData,
-        fillOpacity: fillOpacity,
-        weight: strokeWeightLess,
-      };
-    },
-    onEachFeature(feature, layer) {
-      // class name is used for applying pattern fills to polygons
-      if (feature.properties.has_expired_protections) {
-        layer.options.className =
-          policyStrengthLayerClassNames[feature.properties.range];
-      }
-      layer.on({
-        mouseover: e => highlightFeature(e),
-        mouseout: e => highlightFeature(e),
-      });
-      layer.bindPopup(feature.properties.name_en);
-    },
-  },
-  rentStrikes: {
-    name: 'Housing Justice Actions',
-    nameI18n: 'layer-select.housingJusticeAction',
-    type: 'marker-cluster',
-    query: queries.housingActionsCartoQuery,
-    zIndex: 5,
-    overlayOrder: 4,
-    pointToLayer(feature, latlng) {
-      return L.marker(latlng, {
-        icon: rentStrikeIcon,
-      });
-    },
-    props(feature) {
-      return {
-        ...feature.properties,
-        actionStart: feature.properties.start,
-        action: true,
-      };
     },
   },
 };

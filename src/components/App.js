@@ -9,23 +9,24 @@ import { getAllCartoLayers } from '../carto/api';
 import Modal from './Modal';
 import LoadingIndicator from './LoadingIndicator';
 import InfoWindow from './InfoWindow';
-import MapCovid19 from './MapCovid19';
-import MapOralHistories from './MapOralHistories';
+import MapTenantProtections from './MapTenantProtections';
+import MapEvictionStories from './MapEvictionStories';
 import Titlebox from './Titlebox';
 import InfoWindowOralHistory from './InfoWindowOralHistory';
-import Navigation from "./Navigation";
+import Navigation from './Navigation';
 import { MapConsumer } from 'react-leaflet';
+import { tenantProtectionsLayers, evictionStoriesLayers } from '../config/map';
 
 export default () => {
   const i18nLoaded = useSelector(state => state.content.i18n);
   const dispatch = useDispatch();
-  const interviewSelected = useSelector((state) => state.ui.interviewSelected);
-  const history = useHistory()
-  const location = useLocation()
+  const interviewSelected = useSelector(state => state.ui.interviewSelected);
+  const history = useHistory();
+  const location = useLocation();
 
   useEffect(() => {
     if (location.pathname === '/') {
-      history.push('/maps/oral-histories')
+      history.push('/eviction-stories');
     }
 
     (async () => {
@@ -36,8 +37,20 @@ export default () => {
 
   useEffect(() => {
     (async () => {
-      const cartoData = await getAllCartoLayers();
-      dispatch({ type: 'data:layers', payload: cartoData });
+      const tenantProtectionsCartoData = await getAllCartoLayers(
+        tenantProtectionsLayers
+      );
+      dispatch({
+        type: 'data:tenant-protections:layers',
+        payload: tenantProtectionsCartoData,
+      });
+      const evictionStoriesCartoData = await getAllCartoLayers(
+        evictionStoriesLayers
+      );
+      dispatch({
+        type: 'data:eviction-stories:layers',
+        payload: evictionStoriesCartoData,
+      });
       dispatch({ type: 'ui:loading-indicator:hide' });
     })();
 
@@ -59,11 +72,12 @@ export default () => {
         }}
       </Translation>
       <Switch>
-        <Route path="/maps/oral-histories">
-          <MapOralHistories />
+        <Route path="/eviction-stories">
+          <MapEvictionStories />
+          <InfoWindow />
         </Route>
-        <Route path="/maps/covid-19">
-          <MapCovid19 />
+        <Route path="/tenant-protections">
+          <MapTenantProtections />
           <Titlebox />
           <Modal />
           <InfoWindow />

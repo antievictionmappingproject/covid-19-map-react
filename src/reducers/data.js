@@ -6,12 +6,17 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'data:layers':
+    case 'data:tenant-protections:layers':
       return {
         ...state,
-        layers: action.payload,
+        tenantProtectionsLayers: action.payload,
       };
-    case "data:interviews":
+    case 'data:eviction-stories:layers':
+      return {
+        ...state,
+        evictionStoriesLayers: action.payload,
+      };
+    case 'data:interviews':
       return {
         ...state,
         interviews: action.payload,
@@ -27,8 +32,8 @@ export default (state = initialState, action) => {
 };
 
 export async function fetchAirtableData(dispatch, getState) {
-	const response = await fetch(`/.netlify/functions/airtable`);
-	const data = await response.json();
-	const records = data.records;
-	dispatch({ type: "data:interviews", payload: records });
+  const response = await fetch(`/.netlify/functions/airtable`);
+  const data = await response.json();
+  const records = data.records;
+  dispatch({ type: 'data:interviews', payload: records });
 }
