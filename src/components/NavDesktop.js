@@ -25,11 +25,28 @@ const SubNav = (props) => {
   )
 }
 
+/*
+* Plan:
+*   - get rid of nav-mobile
+*   - put below in new element navbar-menu
+*   - set navbar to flex so it's either
+*     6 x 1, 3 x 2 or 2 x 3 depending
+*     on the width
+*   - add element below navbar-header
+*   - in navbar-header have div width 100%
+*     with header title
+*   - below that div flex as 2x1 or 1x2
+*     depending on the width
+*   - I guess get rid of nav-desktop too
+*     and put all this in navigation
+* */
+
+
 const NavDesktop = () => {
   return(
     <div id="NavDesktop">
-      <Link to="/maps/covid-19">Covid-19 Map</Link>
-      <Link to="/maps/oral-histories">Oral Histories</Link>
+      {/*<Link to="/maps/covid-19">Covid-19 Map</Link>*/}
+      {/*<Link to="/maps/oral-histories">Oral Histories</Link>*/}
       <NavLink href="http://google">
         About
       </NavLink>

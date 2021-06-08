@@ -1,13 +1,7 @@
-#NavDesktop {
-  position: fixed;
-  top: 0; left: 0;
+#navigation{
   width: 100%;
-  height: $layout-nav-desktop-height;
-  background: white;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-
+  height: 266px;
+  background-color: var(--black-text);
   a {
     color: $rent-strike-color;
     font-style: normal;
@@ -16,6 +10,18 @@
       color: $font-color-black;
     }
   }
+}
+
+#NavMenu {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  //height: $layout-nav-desktop-height;
+  background: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap:wrap;
 
   > * {
     position: relative;
@@ -39,6 +45,48 @@
     }
   }
 }
+
+#navHeader {
+  position: relative;
+  top: 30px;
+  width: 100%;
+  #mainHeader{
+   width: 100%;
+   border: solid 2px #ff0000;
+   text-align: center;
+   padding: 10px 0 10px;
+   margin: 0px;
+   font-family: Harbour;
+   font-size: 40px;
+   font-weight: bold;
+   font-stretch: normal;
+   font-style: normal;
+   line-height: normal;
+   letter-spacing: normal;
+   color: #ff0000;
+ }
+  #mapLinks{
+    display: flex;
+    width: 100%;
+    > * {
+      width: 50%;
+      text-align: center;
+      margin: 0px;
+      padding: 10px 0 10px 0;
+      border: solid 2px #ff0000;
+      font-family: IBMPlexMono;
+      font-size: 18px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #ff0000;
+
+    }
+  }
+}
+
 
 .sub-nav {
   position: relative;
