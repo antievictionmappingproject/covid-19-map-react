@@ -12,7 +12,7 @@ import InfoWindow from './InfoWindow';
 import MapTenantProtections from './MapTenantProtections';
 import MapEvictionStories from './MapEvictionStories';
 import Titlebox from './Titlebox';
-import InfoWindowOralHistory from './InfoWindowOralHistory';
+import EvictionStoriesInfoWindow from './EvictionStoriesInfoWindow';
 import Navigation from './Navigation';
 import { MapConsumer } from 'react-leaflet';
 import { tenantProtectionsLayers, evictionStoriesLayers } from '../config/map';
@@ -36,24 +36,6 @@ export default () => {
   }, []);
 
   useEffect(() => {
-    (async () => {
-      // const tenantProtectionsCartoData = await getAllCartoLayers(
-      //   tenantProtectionsLayers
-      // );
-      // dispatch({
-      //   type: 'data:tenant-protections:layers',
-      //   payload: tenantProtectionsCartoData,
-      // });
-      // const evictionStoriesCartoData = await getAllCartoLayers(
-      //   evictionStoriesLayers
-      // );
-      // dispatch({
-      //   type: 'data:eviction-stories:layers',
-      //   payload: evictionStoriesCartoData,
-      // });
-      // dispatch({ type: 'ui:loading-indicator:hide' });
-    })();
-
     return () => null;
   }, [dispatch]);
   if (!i18nLoaded) {
@@ -84,7 +66,7 @@ export default () => {
         </Route>
       </Switch>
       <LoadingIndicator />
-      {interviewSelected && <InfoWindowOralHistory />}
+      {interviewSelected && <EvictionStoriesInfoWindow />}
       <Navigation />
     </>
   );

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Switch, Route, useLocation } from 'react-router-dom';
+import { Switch, Route, useHistory, useLocation } from 'react-router-dom';
 import {
   MapContainer,
   TileLayer,
@@ -17,7 +17,6 @@ import { evictionStoriesConfig as getMapConfig } from '../config/map';
 import { fetchAirtableData } from '../reducers/data';
 import SearchBar from './SearchBar';
 import HouseIcon from './HouseIcon';
-import { map } from 'leaflet';
 import { getAllCartoLayers } from '../carto/api';
 import { evictionStoriesLayers } from '../config/map';
 
@@ -32,6 +31,7 @@ function LeafletMap({ mapConfig }) {
   const { t } = useTranslation();
   const { evictionStoriesInterviews: interviews } = useSelector(state => state.data);
   const location = useLocation()
+  const history = useHistory()
 
   useEffect(() => {
     if (!loaded) { dispatch({ type: 'ui:loading-indicator:show' }); }
@@ -46,7 +46,24 @@ function LeafletMap({ mapConfig }) {
       dispatch({ type: 'ui:loading-indicator:hide' });
     })()
     dispatch(fetchAirtableData);
+
+    return () => {
+      dispatch({ type: 'ui:eviction-stories-interview:selected', payload: null });
+    }
   }, []);
+
+  useEffect(() => {
+    if (!interviews.length) { return; }
+    const params = new URLSearchParams(location.search);
+    const id = params.get('id');
+    if (id) {
+      const interview = interviews.find(intv => intv.id === id);
+      dispatch({
+        type: 'ui:eviction-stories-interview:selected',
+        payload: interview,
+      });
+    }
+  }, [interviews, location])
 
   // Make sure layers have resolved before rendering map
   if (!layers || !layers.length || layers.some(layer => layer === undefined))
@@ -75,7 +92,7 @@ function LeafletMap({ mapConfig }) {
                       onEachFeature={(feature, mapLayer) => {
                         mapLayer.on('click', () => {
                           dispatch({
-                            type: 'ui:interview:selected',
+                            type: 'ui:eviction-stories-interview:selected',
                             payload: null,
                           });
                           dispatch({
@@ -98,7 +115,7 @@ function LeafletMap({ mapConfig }) {
                     onEachFeature={(feature, mapLayer) => {
                       mapLayer.on('click', () => {
                         dispatch({
-                          type: 'ui:interview:selected',
+                          type: 'ui:eviction-stories-interview:selected',
                           payload: null,
                         });
                         dispatch({
@@ -127,11 +144,12 @@ function LeafletMap({ mapConfig }) {
             icon={HouseIcon}
             eventHandlers={{
               click: e => {
+                history.push(`/eviction-stories?id=${interview.id}`)
                 dispatch({
                   type: 'ui:info-window:hide',
                 });
                 dispatch({
-                  type: 'ui:interview:selected',
+                  type: 'ui:eviction-stories-interview:selected',
                   payload: interview,
                 });
               },

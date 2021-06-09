@@ -2,8 +2,9 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown';
-import AudioPlayer from '../components/AudioPlayer';
+import AudioPlayer from './AudioPlayer';
 
 const BlogImage = props => {
   return <img {...props} style={{ maxWidth: '100%' }} />;
@@ -41,12 +42,14 @@ const Embed = props => {
 export default props => {
   const interviewSelected = useSelector(state => state.ui.interviewSelected);
   const dispatch = useDispatch();
+  const history = useHistory();
   return (
     <div className="aemp-infowindow">
       <span
         className="aemp-infowindow-close"
         onClick={() => {
-          dispatch({ type: 'ui:interview:selected', payload: null });
+          history.push('/eviction-stories')
+          dispatch({ type: 'ui:eviction-stories-interview:selected', payload: null });
         }}
       >
         ×

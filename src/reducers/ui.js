@@ -20,7 +20,7 @@ export default (state = initialState, action) => {
       return { ...state, infoWindowFeatureProps: null };
     case 'ui:info-window:show':
       return { ...state, infoWindowFeatureProps: action.payload };
-    case 'ui:interview:selected':
+    case 'ui:eviction-stories-interview:selected':
       return { ...state, interviewSelected: action.payload };
     default:
       return state;
