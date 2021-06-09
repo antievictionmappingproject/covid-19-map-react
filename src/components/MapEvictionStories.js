@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
 import {
   MapContainer,
   TileLayer,
@@ -18,16 +18,33 @@ import { fetchAirtableData } from '../reducers/data';
 import SearchBar from './SearchBar';
 import HouseIcon from './HouseIcon';
 import { map } from 'leaflet';
+import { getAllCartoLayers } from '../carto/api';
+import { evictionStoriesLayers } from '../config/map';
 
 function LeafletMap({ mapConfig }) {
-  const { evictionStoriesLayers: layers, searchPopup } = useSelector(
+  const {
+    evictionStoriesLayers: layers,
+    evictionStoriesLoaded: loaded,
+    searchPopup } = useSelector(
     state => state.data
   );
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const interviews = useSelector(state => state.data.interviews);
+  const { evictionStoriesInterviews: interviews } = useSelector(state => state.data);
+  const location = useLocation()
 
   useEffect(() => {
+    if (!loaded) { dispatch({ type: 'ui:loading-indicator:show' }); }
+    (async () => {
+      const evictionStoriesCartoData = await getAllCartoLayers(
+        evictionStoriesLayers
+      );
+      dispatch({
+        type: 'data:eviction-stories:layers',
+        payload: evictionStoriesCartoData,
+      });
+      dispatch({ type: 'ui:loading-indicator:hide' });
+    })()
     dispatch(fetchAirtableData);
   }, []);
 

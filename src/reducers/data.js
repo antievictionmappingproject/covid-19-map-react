@@ -1,7 +1,11 @@
 const initialState = {
-  layers: [],
-  interviews: [],
   searchPopup: null,
+  tenantProtectionsLayers: null,
+  tenantProtectionsLoaded: false,
+  evictionStoriesLayers: null,
+  evictionStoriesLoaded: false,
+  evictionStoriesInterviews: [],
+  tenantProtectionsLoaded: false,
 };
 
 export default (state = initialState, action) => {
@@ -10,16 +14,19 @@ export default (state = initialState, action) => {
       return {
         ...state,
         tenantProtectionsLayers: action.payload,
+        tenantProtectionsLoaded: true,
       };
     case 'data:eviction-stories:layers':
       return {
         ...state,
         evictionStoriesLayers: action.payload,
+        evictionStoriesLoaded: !!state.evictionStoriesInterviews,
       };
-    case 'data:interviews':
+    case 'data:eviction-stories:interviews':
       return {
         ...state,
-        interviews: action.payload,
+        evictionStoriesInterviews: action.payload,
+        evictionStoriesLoaded: !!state.evictionStoriesLayers,
       };
     case 'data:searchPopup':
       return {
@@ -35,5 +42,5 @@ export async function fetchAirtableData(dispatch, getState) {
   const response = await fetch(`/.netlify/functions/airtable`);
   const data = await response.json();
   const records = data.records;
-  dispatch({ type: 'data:interviews', payload: records });
+  dispatch({ type: 'data:eviction-stories:interviews', payload: records });
 }

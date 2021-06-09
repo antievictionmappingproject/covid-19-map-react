@@ -14,20 +14,37 @@ import {
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { useTranslation } from 'react-i18next';
 import { tenantProtectionsConfig as getMapConfig } from '../config/map';
-import { fetchAirtableData } from '../reducers/data';
+// import { fetchAirtableData } from '../reducers/data';
 import SearchBar from './SearchBar';
 import HouseIcon from './HouseIcon';
+import { getAllCartoLayers } from '../carto/api';
+import { tenantProtectionsLayers } from '../config/map';
 
 function LeafletMap({ mapConfig }) {
-  const { tenantProtectionsLayers: layers, searchPopup } = useSelector(
+  const {
+    tenantProtectionsLayers: layers,
+    tenantProtectionsLoaded: loaded,
+    searchPopup,
+  } = useSelector(
     state => state.data
   );
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const interviews = useSelector(state => state.data.interviews);
+  // const interviews = useSelector(state => state.data.interviews);
 
   useEffect(() => {
-    dispatch(fetchAirtableData);
+    // dispatch(fetchAirtableData);
+    if (!loaded) { dispatch({ type: 'ui:loading-indicator:show' }); }
+    (async () => {
+      const tenantProtectionsCartoData = await getAllCartoLayers(
+        tenantProtectionsLayers
+      );
+      dispatch({
+        type: 'data:tenant-protections:layers',
+        payload: tenantProtectionsCartoData,
+      });
+      dispatch({ type: 'ui:loading-indicator:hide' });
+    })()
   }, []);
 
   // Make sure layers have resolved before rendering map

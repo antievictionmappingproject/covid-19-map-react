@@ -37,21 +37,21 @@ export default () => {
 
   useEffect(() => {
     (async () => {
-      const tenantProtectionsCartoData = await getAllCartoLayers(
-        tenantProtectionsLayers
-      );
-      dispatch({
-        type: 'data:tenant-protections:layers',
-        payload: tenantProtectionsCartoData,
-      });
-      const evictionStoriesCartoData = await getAllCartoLayers(
-        evictionStoriesLayers
-      );
-      dispatch({
-        type: 'data:eviction-stories:layers',
-        payload: evictionStoriesCartoData,
-      });
-      dispatch({ type: 'ui:loading-indicator:hide' });
+      // const tenantProtectionsCartoData = await getAllCartoLayers(
+      //   tenantProtectionsLayers
+      // );
+      // dispatch({
+      //   type: 'data:tenant-protections:layers',
+      //   payload: tenantProtectionsCartoData,
+      // });
+      // const evictionStoriesCartoData = await getAllCartoLayers(
+      //   evictionStoriesLayers
+      // );
+      // dispatch({
+      //   type: 'data:eviction-stories:layers',
+      //   payload: evictionStoriesCartoData,
+      // });
+      // dispatch({ type: 'ui:loading-indicator:hide' });
     })();
 
     return () => null;
