@@ -24,17 +24,20 @@ function LeafletMap({ mapConfig }) {
   const {
     evictionStoriesLayers: layers,
     evictionStoriesLoaded: loaded,
-    searchPopup } = useSelector(
-    state => state.data
-  );
+    searchPopup,
+  } = useSelector(state => state.data);
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const { evictionStoriesInterviews: interviews } = useSelector(state => state.data);
-  const location = useLocation()
-  const history = useHistory()
+  const { evictionStoriesInterviews: interviews } = useSelector(
+    state => state.data
+  );
+  const location = useLocation();
+  const history = useHistory();
 
   useEffect(() => {
-    if (!loaded) { dispatch({ type: 'ui:loading-indicator:show' }); }
+    if (!loaded) {
+      dispatch({ type: 'ui:loading-indicator:show' });
+    }
     (async () => {
       const evictionStoriesCartoData = await getAllCartoLayers(
         evictionStoriesLayers
@@ -44,16 +47,21 @@ function LeafletMap({ mapConfig }) {
         payload: evictionStoriesCartoData,
       });
       dispatch({ type: 'ui:loading-indicator:hide' });
-    })()
+    })();
     dispatch(fetchAirtableData);
 
     return () => {
-      dispatch({ type: 'ui:eviction-stories-interview:selected', payload: null });
-    }
+      dispatch({
+        type: 'ui:eviction-stories-interview:selected',
+        payload: null,
+      });
+    };
   }, []);
 
   useEffect(() => {
-    if (!interviews.length) { return; }
+    if (!interviews.length) {
+      return;
+    }
     const params = new URLSearchParams(location.search);
     const id = params.get('id');
     if (id) {
@@ -63,7 +71,7 @@ function LeafletMap({ mapConfig }) {
         payload: interview,
       });
     }
-  }, [interviews, location])
+  }, [interviews, location]);
 
   // Make sure layers have resolved before rendering map
   if (!layers || !layers.length || layers.some(layer => layer === undefined))
@@ -144,7 +152,7 @@ function LeafletMap({ mapConfig }) {
             icon={HouseIcon}
             eventHandlers={{
               click: e => {
-                history.push(`/eviction-stories?id=${interview.id}`)
+                history.push(`/eviction-stories?id=${interview.id}`);
                 dispatch({
                   type: 'ui:info-window:hide',
                 });
@@ -188,7 +196,7 @@ export default () => {
       {/* <MapEvents /> */}
       <TileLayer
         attribution="<a href='https://www.antievictionmap.com/' target='_blank'>Anti-Eviction Mapping Project</a>"
-        url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
+        url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.png"
       />
       <LeafletMap mapConfig={mapConfig} />
     </MapContainer>
