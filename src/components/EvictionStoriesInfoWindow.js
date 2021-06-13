@@ -76,7 +76,6 @@ export default props => {
 
         {interviewSelected.fields['Clip Summary'] && (
           <div>
-            <h1>Summary:</h1>
             <p>{interviewSelected.fields['Clip Summary']}</p>
           </div>
         )}

@@ -1,5 +1,23 @@
 .audioPlayer {
   margin-top: 4em;
+
+  .controls {
+    display: flex;
+  }
+
+  .share.button {
+    display: inline-block;
+    height: 100%;
+    padding: 1em 2em;
+    border: 1px solid black;
+    margin-left: 1em;
+    border-radius: 5px;
+
+    img {
+      height: 2em;
+      width: auto;
+    }
+  }
 }
 
 .visualizer {
@@ -8,6 +26,7 @@
 
 .audioControls {
   display: grid;
+  flex-grow: 1;
   grid-template-columns: 1fr 1fr 1fr;
   span {
     width: 100%;
@@ -16,9 +35,11 @@
     padding: 1em;
     &:first-of-type {
       border-radius: 5px 0 0 5px;
+      border-right: none;
     }
     &:last-of-type {
       border-radius: 0 5px 5px 0;
+      border-left: none;
     }
     img {
       margin: 0 auto;

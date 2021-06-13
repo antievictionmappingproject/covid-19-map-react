@@ -1,17 +1,19 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useEffect, useState, useRef } from "react";
+import { useLocation } from "react-router-dom"
 import Visualizer from "../components/Visualizer";
 
 import BackButtonIcon from "../assets/back-button.svg";
 import PauseButtonIcon from "../assets/pause.svg";
 import PlayButtonIcon from "../assets/play.svg";
 import ForwardButtonIcon from "../assets/forward-button.svg";
+import ShareButtonIcon from "../assets/share.svg";
 
 import "../styles/_audio-player.scss";
 
 const BackButton = (props) => {
 	return (
-		<span onClick={props.action}>
+		<span className="back button" onClick={props.action}>
 			<img src={BackButtonIcon} alt="back 10 seconds"></img>
 		</span>
 	);
@@ -19,7 +21,7 @@ const BackButton = (props) => {
 
 const PauseButton = (props) => {
 	return (
-		<span onClick={props.action}>
+		<span className="pause button" onClick={props.action}>
 			<img
 				src={props.audioPaused ? PlayButtonIcon : PauseButtonIcon}
 				alt="back 10 seconds"
@@ -30,8 +32,16 @@ const PauseButton = (props) => {
 
 const ForwardButton = (props) => {
 	return (
-		<span onClick={props.action}>
+		<span className="forward button" onClick={props.action}>
 			<img src={ForwardButtonIcon} alt="back 10 seconds"></img>
+		</span>
+	);
+};
+
+const ShareButton = (props) => {
+	return (
+		<span className="share button" onClick={props.action}>
+			<img src={ShareButtonIcon} alt="Share"></img>
 		</span>
 	);
 };
@@ -39,8 +49,11 @@ const ForwardButton = (props) => {
 export default (props) => {
 	const audioRef = useRef();
 	const volRef = useRef();
+	const shareLinkRef = useRef();
 	const [analyzer, setAnalyzer] = useState(null);
 	const [audioPaused, setAudioPaused] = useState(true);
+	const [showShareBox, setShowShareBox] = useState(false);
+	const location = useLocation()
 
 	useEffect(() => {
 		const audioContext = plugAudio();
@@ -95,16 +108,43 @@ export default (props) => {
 		);
 	}
 
+	function selectShareText() {
+    const node = shareLinkRef.current;
+
+    if (document.body.createTextRange) {
+			const range = document.body.createTextRange();
+			range.moveToElementText(node);
+			range.select();
+    } else if (window.getSelection) {
+			const selection = window.getSelection();
+			const range = document.createRange();
+			range.selectNodeContents(node);
+			selection.removeAllRanges();
+			selection.addRange(range);
+    } else {
+			console.warn("Could not select text in node: Unsupported browser.");
+    }
+}
+
 	return (
 		<div className="audioPlayer">
 			{analyzer && <Visualizer analyzer={analyzer} audioPaused={audioPaused} />}
-			<div className="audioControls">
-				<BackButton action={rewind} />
-				<PauseButton
-					audioPaused={audioPaused}
-					action={audioPaused ? play : pause}
-				/>
-				<ForwardButton action={forward} />
+			<div className="controls">
+				<div className="audioControls">
+					<BackButton action={rewind} />
+					<PauseButton
+						audioPaused={audioPaused}
+						action={audioPaused ? play : pause}
+					/>
+					<ForwardButton action={forward} />
+				</div>
+				<ShareButton action={() => {
+					if (!showShareBox) { selectShareText() }
+					setShowShareBox(current => !current)
+				}} />
+			</div>
+			<div ref={shareLinkRef} className="share-box" style={{display: showShareBox ? 'block' : 'none'}}>
+				{ window.location.origin + location.pathname + location.search }
 			</div>
 			<audio
 				ref={audioRef}

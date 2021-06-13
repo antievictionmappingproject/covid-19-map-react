@@ -1,8 +1,5 @@
 import L from '../../lib/leaflet';
 import {
-  colorNoData,
-  fillColorScale,
-  strokeColorScale,
   strokeWeightLess,
   strokeWeightMore,
   pointRadius,
@@ -16,13 +13,21 @@ import {
   cartoStatesTable,
 } from '../../carto/constants';
 
+const colorNoData = '#939393';
+const fillColorCity = '#ed9289';
+const fillColorCounty = '#f2b0aa';
+const fillColorState = '#f6c6c1';
+const strokeColorCity = '#ffffff';
+const strokeColorCounty = '#ffffff';
+const strokeColorState = '#ffffff';
+
 //styling helpers
 function highlightFeature(e) {
   const layer = e.target;
 
   if (e.type === 'mouseover') {
     layer.setStyle({
-      fillOpacity: 0.4,
+    fillOpacity: 0.7,
     });
   } else if (e.type === 'mouseout') {
     layer.setStyle({
@@ -73,8 +78,8 @@ export const mapLayersConfig = {
     },
     style(feature) {
       return {
-        color: strokeColorScale[feature.properties.range] || colorNoData,
-        fillColor: fillColorScale[feature.properties.range] || colorNoData,
+        color: strokeColorCity,
+        fillColor: fillColorCity,
         fillOpacity: 0.85,
         radius: pointRadius,
         weight: strokeWeightLess,
@@ -139,8 +144,8 @@ export const mapLayersConfig = {
     },
     style(feature) {
       return {
-        color: strokeColorScale[feature.properties.range] || colorNoData,
-        fillColor: fillColorScale[feature.properties.range] || colorNoData,
+        color: strokeColorCounty || colorNoData,
+        fillColor: fillColorCounty || colorNoData,
         fillOpacity: fillOpacity,
         weight: strokeWeightLess,
       };
@@ -200,8 +205,8 @@ export const mapLayersConfig = {
     },
     style(feature) {
       return {
-        fillColor: fillColorScale[feature.properties.range] || colorNoData,
-        color: strokeColorScale[feature.properties.range] || colorNoData,
+        color: strokeColorState,
+        fillColor: fillColorState,
         fillOpacity: fillOpacity,
         weight: strokeWeightMore,
       };
