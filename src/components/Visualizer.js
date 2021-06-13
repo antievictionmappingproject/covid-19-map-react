@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useRef, useEffect } from 'react';
 import p5 from 'p5';
+import "../styles/_visualizer.scss";
 const DUR_EXPAND = 1000;
 
 class Radial {

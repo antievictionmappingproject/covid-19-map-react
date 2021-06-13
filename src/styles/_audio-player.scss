@@ -1,7 +1,8 @@
 .audioPlayer {
-  margin-top: 4em;
+  margin-top: 1em;
 
   .controls {
+    margin-top: 1em;
     display: flex;
   }
 
@@ -16,6 +17,35 @@
     img {
       height: 2em;
       width: auto;
+    }
+  }
+
+  .share-box {
+    font-size: 1em;
+    padding: 1em;
+    text-align: center;
+  }
+
+  .rangeslider-horizontal {
+    border-radius: 0.2em;
+    background: white;
+    box-shadow: none;
+    border: 1px solid black;
+  }
+
+  .rangeslider__fill {
+    background: black;
+    border-radius: 0.2em;
+  }
+  .rangeslider__handle {
+    width: 2em;
+    height: 2em;
+    border-radius: 0.2em;
+    border: none;
+    box-shadow: none;
+    background: black;
+    &:after {
+      display: none;
     }
   }
 }

@@ -1,13 +1,18 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom"
+import Slider from 'react-rangeslider'
 import Visualizer from "../components/Visualizer";
+
+// To include the default styles
+import 'react-rangeslider/lib/index.css'
 
 import BackButtonIcon from "../assets/back-button.svg";
 import PauseButtonIcon from "../assets/pause.svg";
 import PlayButtonIcon from "../assets/play.svg";
 import ForwardButtonIcon from "../assets/forward-button.svg";
 import ShareButtonIcon from "../assets/share.svg";
+
 
 import "../styles/_audio-player.scss";
 
@@ -48,11 +53,13 @@ const ShareButton = (props) => {
 
 export default (props) => {
 	const audioRef = useRef();
+	const gainRef = useRef();
 	const volRef = useRef();
 	const shareLinkRef = useRef();
 	const [analyzer, setAnalyzer] = useState(null);
 	const [audioPaused, setAudioPaused] = useState(true);
 	const [showShareBox, setShowShareBox] = useState(false);
+	const [gain, setGain] = useState(1)
 	const location = useLocation()
 
 	useEffect(() => {
@@ -61,6 +68,12 @@ export default (props) => {
 			audioContext.close();
 		};
 	}, []);
+
+	useEffect(() => {
+		if (gainRef.current) {
+			gainRef.current.gain.value = gain;
+		}
+	}, [gain])
 
 	function plugAudio() {
 		const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -72,14 +85,15 @@ export default (props) => {
 		const track = audioContext.createMediaElementSource(audioRef.current);
 		const gainNode = audioContext.createGain();
 		track.connect(gainNode).connect(analyzer).connect(audioContext.destination);
+		gainRef.current = gainNode;
 
-		volRef.current.addEventListener(
-			"input",
-			function () {
-				gainNode.gain.value = this.value;
-			},
-			false
-		);
+		// volRef.current.addEventListener(
+		// 	"input",
+		// 	function () {
+		// 		gainNode.gain.value = this.value;
+		// 	},
+		// 	false
+		// );
 		setAnalyzer(analyzer);
 		return audioContext;
 	}
@@ -124,7 +138,11 @@ export default (props) => {
     } else {
 			console.warn("Could not select text in node: Unsupported browser.");
     }
-}
+	}
+
+	function onGainChange(val) {
+		setGain(val)
+	}
 
 	return (
 		<div className="audioPlayer">
@@ -152,15 +170,15 @@ export default (props) => {
 				controls={false}
 				crossOrigin="anonymous"
 			></audio>
-			<input
-				ref={volRef}
-				type="range"
-				id="volume"
-				min="0"
-				max="5"
-				defaultValue="1"
-				step="0.01"
-			></input>
+			<Slider
+				min={0}
+				max={10}
+				step={0.1}
+				value={gain}
+				tooltip={false}
+				orientation='horizontal'
+				onChange={onGainChange}
+			/>
 		</div>
 	);
 };
