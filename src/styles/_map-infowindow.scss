@@ -105,3 +105,19 @@
 .infowindow-link:visited > a {
   color: $link-visited;
 }
+
+.aemp-infowindow .pull-quote {
+  font-weight: 400;
+  font-style: italic;
+  font-family: 'IBM Plex Mono', monospace;
+  &:before, &:after {
+    color: #ff2600;
+    // font-size: 1.5em;
+  }
+  &:before {
+    content: "“";
+  }
+  &:after {
+    content: "”";
+  }
+}
