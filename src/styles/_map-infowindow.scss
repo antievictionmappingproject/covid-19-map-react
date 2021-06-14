@@ -112,12 +112,18 @@
   font-family: 'IBM Plex Mono', monospace;
   &:before, &:after {
     color: #ff2600;
-    // font-size: 1.5em;
+    font-size: 4em;
+    line-height: 0.25em;
+    transform: translateY(0.4em);
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
   }
   &:before {
     content: "“";
+    margin-right: 0.25em;
   }
   &:after {
-    content: "”";
+    // content: "”";
+    // margin-left: 0.5em;
   }
 }
