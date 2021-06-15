@@ -57,9 +57,9 @@ export default props => {
       <div>
         {interviewSelected.fields['Name of Final Media Output File'] && (
           <div>
-            <h2>
+            <div class="eviction-story-title">
               {interviewSelected.fields['Name of Final Media Output File']}
-            </h2>
+            </div>
           </div>
         )}
         {interviewSelected.fields['Audio file'] && (

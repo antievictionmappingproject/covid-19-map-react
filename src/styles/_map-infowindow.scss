@@ -136,10 +136,13 @@
   }
 }
 
-h2 {
+.eviction-story-title {
   font-family: "IBM Plex Mono", monospace;
+  font-weight: 700 !important;
   font-size: 1.8rem;
   color: $rent-strike-color;
+  margin-top: 8%;
+  margin-right: 8%;
 }
 
 .links{
