@@ -106,10 +106,17 @@
   color: $link-visited;
 }
 
-.aemp-infowindow .pull-quote {
-  // font-weight: 400;
+.pull-quote-container{
+  background-color: whitesmoke;
+  margin-top: 2em;
+  padding-bottom:0.01em;
+  padding-top:1em;
+}
+
+.pull-quote-container .pull-quote {
   font-style: italic;
   font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
   color: $font-color-black;
   font-size: 1em;
   line-height: 1.5em;
@@ -131,7 +138,7 @@
     content: "”";
     margin-bottom: 0.5em;
     margin-left: 95%;
-    margin-top: -0.35em;
+    margin-top: -0.30em;
     font-size: 6em;
   }
 }
@@ -183,5 +190,10 @@
   padding-left: 1em;
   padding-right: 1em;
   line-height: 1.7em;
+}
 
+p{
+  text-align: justify;
+  letter-spacing: 0.25px;
+  line-height: 1.6em;
 }
