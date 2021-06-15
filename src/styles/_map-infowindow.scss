@@ -107,23 +107,78 @@
 }
 
 .aemp-infowindow .pull-quote {
-  font-weight: 400;
+  // font-weight: 400;
   font-style: italic;
   font-family: 'IBM Plex Mono', monospace;
+  color: $font-color-black;
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-left: 15%;
+  padding-right: 10%;
   &:before, &:after {
     color: #ff2600;
-    font-size: 4em;
-    line-height: 0.25em;
     transform: translateY(0.4em);
-    display: inline-block;
+    display: block;
     font-family: Arial, Helvetica, sans-serif;
   }
   &:before {
     content: "“";
-    margin-right: 0.25em;
+    font-size: 6em;
+    margin-left: -20%;
+    margin-top: -0.1em;
   }
   &:after {
-    // content: "”";
-    // margin-left: 0.5em;
+    content: "”";
+    margin-bottom: 0.5em;
+    margin-left: 95%;
+    margin-top: -0.35em;
+    font-size: 6em;
   }
+}
+
+h2 {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.8rem;
+  color: $rent-strike-color;
+}
+
+.links{
+  margin-top: 1em;
+}
+
+.links a{
+  color: $rent-strike-color;
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+  border-bottom: 1px solid;
+  line-height: 3em;
+  transition: 0.5s;
+}
+
+.links a:hover{
+  color: #ff2600;
+  border-bottom: 5px solid;
+  transition: 0.5s;
+}
+
+.links a:visited{
+  color: $link-visited;
+  transition: 1.5s;
+}
+
+.last-update{
+  line-height: 3em;
+  color: $link-visited;
+}
+
+.eviction-status{
+  background-color: whitesmoke;
+  font-family: "IBM Plex Mono", monospace;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  line-height: 1.7em;
+
 }

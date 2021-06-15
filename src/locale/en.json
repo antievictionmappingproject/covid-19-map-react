@@ -36,7 +36,7 @@
   },
   "infowindow": {
     "policy": {
-      "title": "Housing Protection Legislation",
+      "title": "Eviction Status",
       "jurisdictionType": {
         "city": "City",
         "county": "County",
@@ -65,9 +65,9 @@
     }
   },
   "layer-select": {
-    "cities": "City Protections",
-    "counties": "County Protections",
-    "states": "State/Province Protections",
+    "cities": "City Evictions",
+    "counties": "County Evictions",
+    "states": "State/Province Evictions",
     "nations": "National Protections",
     "housingJusticeAction": "Housing Justice Actions"
   },

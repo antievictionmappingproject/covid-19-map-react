@@ -122,19 +122,8 @@ export default props => {
             </div>
           )}
 
-          {/* Policy Strength */}
-          {range && (
-            <div>
-              <p>
-                <strong>{t('infowindow.policy.strength-label')}</strong>
-                <span
-                  className={`policy-strength-color policy-strength-color--${range}`}
-                >
-                  {t(`policy-strength.${range}`)}
-                </span>
-              </p>
-            </div>
-          )}
+        {/* Policy Strength Removed*/}
+
 
           {endDateEarliest && (
             <div>
@@ -174,10 +163,13 @@ export default props => {
             </div>
           )}
 
+          {/* Eviction Status Label Removed*/}
+          {/*<strong>{t('infowindow.policy.eviction-status-label')}</strong>{' '}*/}
+
           {eviction_status && (
-            <div>
+            <div class = "eviction-status">
               <p>
-                <strong>{t('infowindow.policy.eviction-status-label')}</strong>{' '}
+
                 {eviction_status}
               </p>
             </div>
@@ -230,6 +222,20 @@ export default props => {
           )}
         </>
       )}
+
+      {/*TO DO: FIX LINK*/}
+      <div class = "links">
+      <div><a target="_blank" href ="{link}">Get Latest Info from Local Organization</a></div>
+
+      {/*TO DO: FIX LINK*/}
+      <div><a target="_blank" href ="{resource}">View More Eviction Info</a></div>
+      </div>
+
+      {/*TO DO: FIX DATE*/}
+      <div class = "last-update">Last updated: April 20, 2021</div>
+
+
     </div>
+
   );
 };
