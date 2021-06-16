@@ -143,6 +143,7 @@ function LeafletMap({ mapConfig }) {
       </LayersControl>
       {interviews.map(interview => {
         return (
+          // <div class="pulse-animation">
           <Marker
             key={interview.id}
             position={[
@@ -163,6 +164,7 @@ function LeafletMap({ mapConfig }) {
               },
             }}
           ></Marker>
+          // </div>
         );
       })}
       <ZoomControl position="bottomright" />
