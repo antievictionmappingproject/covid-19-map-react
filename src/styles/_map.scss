@@ -39,23 +39,8 @@
   }
 }
 
-.preserve-icon-location{
-// background-color: red;
-height: 100%;
-}
 
 @keyframes pulsing {
-    // 0% { transform: scale(1); }
-    // 30% { transform: scale(1); }
-    // 40% { transform: scale(1.08); }
-    // 50% { transform: scale(1); }
-    // 60% { transform: scale(1); }
-    // 70% { transform: scale(1.05); }
-    // 80% { transform: scale(1); }
-    // 100% { transform: scale(1); }
-
-
-
     0% {
     width: 50px;
     height: 52px;
@@ -75,14 +60,7 @@ height: 100%;
   }
 }
 
-@keyframes fade {
-  from { opacity: 0.5; }
-}
-
 .pulse-animation {
-  // border: 10px solid yellow;
-  // background-color: hotpink;
   border-radius: 50%;
-  // height: 1px;
   animation: pulsing 2s infinite;
 }

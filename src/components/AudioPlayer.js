@@ -146,7 +146,9 @@ export default (props) => {
 
 	return (
 		<div className="audioPlayer">
+			{/*old code*/}
 			{/*analyzer && <Visualizer analyzer={analyzer} audioPaused={audioPaused} />*/}
+			{/*new line w autoplay below*/}
 			{analyzer && <Visualizer analyzer={analyzer} />}
 			<div className="controls">
 				<div className="audioControls">

@@ -10,9 +10,7 @@ const HouseIcon = new Icon({
 	shadowUrl: null,
 	shadowSize: [0, 0],
 	shadowAnchor: null,
-	// className: 'preserve-icon-location',
 	className: 'pulse-animation',
-	// html: '<div class="pulse-animation"></div>',
 });
 
 export default HouseIcon;
