@@ -57,7 +57,7 @@ export default (props) => {
 	const volRef = useRef();
 	const shareLinkRef = useRef();
 	const [analyzer, setAnalyzer] = useState(null);
-	const [audioPaused, setAudioPaused] = useState(true);
+	const [audioPaused, setAudioPaused] = useState(false);
 	const [showShareBox, setShowShareBox] = useState(false);
 	const [gain, setGain] = useState(1)
 	const location = useLocation()
@@ -146,7 +146,8 @@ export default (props) => {
 
 	return (
 		<div className="audioPlayer">
-			{analyzer && <Visualizer analyzer={analyzer} audioPaused={audioPaused} />}
+			{/*analyzer && <Visualizer analyzer={analyzer} audioPaused={audioPaused} />*/}
+			{analyzer && <Visualizer analyzer={analyzer} />}
 			<div className="controls">
 				<div className="audioControls">
 					<BackButton action={rewind} />
@@ -169,6 +170,7 @@ export default (props) => {
 				{...props}
 				controls={false}
 				crossOrigin="anonymous"
+				autoplay="true"
 			></audio>
 			<Slider
 				min={0}

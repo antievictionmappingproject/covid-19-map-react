@@ -73,12 +73,17 @@ export default props => {
             </h2>
           </div>
         )}
-        {interviewSelected.fields['Pull Quote'] && (
-          <div class = "pull-quote-container">
-            <h2 className="pull-quote">
-              {interviewSelected.fields['Pull Quote'].trim()}
-            </h2>
-          </div>
+
+        {interviewSelected.fields['Pull Quote - abbreviated'] && (
+            <div className = "pull-quote-container">
+              <div className="pull-quote">{interviewSelected.fields['Pull Quote - abbreviated'].trim()}</div>
+            </div>
+
+
+
+
+
+
         )}
         {interviewSelected.fields['Clip Summary'] && (
           <div>
