@@ -19,7 +19,10 @@ import "../styles/_audio-player.scss";
 const BackButton = (props) => {
 	return (
 		<span className="back button" onClick={props.action}>
-			<img src={BackButtonIcon} alt="back 10 seconds"></img>
+			<img src={BackButtonIcon} alt="Back 10 seconds"></img>
+			<div className = "button-text">
+				<p>10 s.</p>
+			</div>
 		</span>
 	);
 };
@@ -29,8 +32,13 @@ const PauseButton = (props) => {
 		<span className="pause button" onClick={props.action}>
 			<img
 				src={props.audioPaused ? PlayButtonIcon : PauseButtonIcon}
-				alt="back 10 seconds"
+				alt="Pause/Play"
 			></img>
+			<div className = "button-text">
+	  	 {/*TO DO: CONDITIONALLY RENDER PLAY/PAUSE TEXT HERE*/}
+			 {/*<p>{/*props.buttonState}</p>*/}
+				<p>pause</p>
+			</div>
 		</span>
 	);
 };
@@ -38,7 +46,10 @@ const PauseButton = (props) => {
 const ForwardButton = (props) => {
 	return (
 		<span className="forward button" onClick={props.action}>
-			<img src={ForwardButtonIcon} alt="back 10 seconds"></img>
+			<img src={ForwardButtonIcon} alt="Forward 10 seconds"></img>
+			<div className = "button-text">
+				<p>10 s.</p>
+			</div>
 		</span>
 	);
 };
@@ -47,6 +58,9 @@ const ShareButton = (props) => {
 	return (
 		<span className="share button" onClick={props.action}>
 			<img src={ShareButtonIcon} alt="Share"></img>
+			<div className = "button-text">
+				<p>share</p>
+			</div>
 		</span>
 	);
 };
@@ -61,6 +75,18 @@ export default (props) => {
 	const [showShareBox, setShowShareBox] = useState(false);
 	const [gain, setGain] = useState(1)
 	const location = useLocation()
+	// const buttonState = getButtonState();
+
+	// function getButtonState() {
+	// 	let buttonState = "pause"
+	// 	if this.audioPaused === 'false'{
+	// 		buttonState = "pause";
+	// 	}
+	// 	else {
+	// 		buttonState = "play"
+	// 	}
+	// 	return buttonState;
+	// }
 
 	useEffect(() => {
 		const audioContext = plugAudio();
@@ -174,15 +200,24 @@ export default (props) => {
 				crossOrigin="anonymous"
 				autoplay="true"
 			></audio>
-			<Slider
-				min={0}
-				max={10}
-				step={0.1}
-				value={gain}
-				tooltip={false}
-				orientation='horizontal'
-				onChange={onGainChange}
-			/>
+
+			<div className = "slider-container">
+				<div className = "slider-text">
+				<p>Amplify</p>
+			</div>
+			<div className="slider">
+				<Slider
+					min={0}
+					max={10}
+					step={0.1}
+					value={gain}
+					tooltip={false}
+					orientation='horizontal'
+					onChange={onGainChange}
+				/>
+			</div>
+		</div>
+
 		</div>
 	);
 };

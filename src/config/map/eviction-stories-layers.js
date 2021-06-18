@@ -13,13 +13,25 @@ import {
   cartoStatesTable,
 } from '../../carto/constants';
 
+// const colorNoData = '#939393';
+// const fillColorCity = '#ed9289';
+// const fillColorCounty = '#f2b0aa';
+// const fillColorState = '#f6c6c1';
+// const strokeColorCity = '#ffffff';
+// const strokeColorCounty = '#ffffff';
+// const strokeColorState = '#ffffff';
+
+// #FCBBA1
+// cities & counties = #FC9272 ?
+
 const colorNoData = '#939393';
-const fillColorCity = '#ed9289';
-const fillColorCounty = '#f2b0aa';
-const fillColorState = '#f6c6c1';
+const fillColorCity = '#bf2d2d';
+const fillColorCounty = '#ce3131';
+const fillColorState = '#d24141';
 const strokeColorCity = '#ffffff';
 const strokeColorCounty = '#ffffff';
 const strokeColorState = '#ffffff';
+
 
 //styling helpers
 function highlightFeature(e) {
