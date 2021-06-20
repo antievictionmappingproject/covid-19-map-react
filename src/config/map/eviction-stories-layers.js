@@ -56,7 +56,7 @@ export const mapLayersConfig = {
     nameI18n: 'layer-select.cities',
     type: 'point',
     query: `SELECT
-      municipality, state, country, range, the_geom, eviction_status
+      municipality, state, country, range, the_geom, eviction_status, link, resource
     FROM ${cartoSheetSyncTable}
     WHERE the_geom is not null and admin_scale = 'City' and eviction_status is not null and eviction_status <> ''
     ORDER BY range`,
@@ -67,10 +67,6 @@ export const mapLayersConfig = {
         municipality,
         state,
         country,
-        end_date_legist,
-        end_date_rent_relief,
-        end_date_court,
-        end_date_earliest,
         ...rest
       } = feature.properties;
       return {
@@ -81,10 +77,6 @@ export const mapLayersConfig = {
         jurisdictionType: 'City',
         jurisdictionTypeI18n: 'city',
         popupName: municipality,
-        endDateLegist: formatDate(end_date_legist),
-        endDateRentRelief: formatDate(end_date_rent_relief),
-        endDateCourt: formatDate(end_date_court),
-        endDateEarliest: formatDate(end_date_earliest),
         ...rest,
       };
     },
@@ -120,7 +112,7 @@ export const mapLayersConfig = {
     type: 'polygon',
     query: `
     SELECT
-      c.the_geom, c.county, c.state, m.eviction_status
+      c.the_geom, c.county, c.state, m.eviction_status, m.link, m.resource
     FROM ${cartoCountiesTable} c
     JOIN ${cartoSheetSyncTable} m
     ON ST_Intersects(c.the_geom, m.the_geom)
@@ -135,10 +127,6 @@ export const mapLayersConfig = {
       const {
         state,
         county,
-        end_date_legist,
-        end_date_rent_relief,
-        end_date_court,
-        end_date_earliest,
         ...rest
       } = feature.properties;
       return {
@@ -147,10 +135,6 @@ export const mapLayersConfig = {
         jurisdictionType: 'County',
         jurisdictionTypeI18n: 'county',
         popupName: `${county}${state ? `, ${state}` : ''}`,
-        endDateLegist: formatDate(end_date_legist),
-        endDateRentRelief: formatDate(end_date_rent_relief),
-        endDateCourt: formatDate(end_date_court),
-        endDateEarliest: formatDate(end_date_earliest),
         ...rest,
       };
     },
@@ -183,7 +167,7 @@ export const mapLayersConfig = {
     query: `
     SELECT
       s.the_geom, s.name, s.admin, s.sr_adm0_a3,
-      m.eviction_status
+      m.eviction_status, m.link, m.resource
     FROM ${cartoStatesTable} s
     INNER JOIN ${cartoSheetSyncTable} m
       ON s.name = m.state
@@ -197,10 +181,6 @@ export const mapLayersConfig = {
       const {
         name,
         admin,
-        end_date_legist,
-        end_date_rent_relief,
-        end_date_court,
-        end_date_earliest,
         ...rest
       } = feature.properties;
       return {
@@ -208,10 +188,6 @@ export const mapLayersConfig = {
         jurisdictionType: 'State/Province',
         jurisdictionTypeI18n: 'state-province',
         popupName: name,
-        endDateLegist: formatDate(end_date_legist),
-        endDateRentRelief: formatDate(end_date_rent_relief),
-        endDateCourt: formatDate(end_date_court),
-        endDateEarliest: formatDate(end_date_earliest),
         ...rest,
       };
     },

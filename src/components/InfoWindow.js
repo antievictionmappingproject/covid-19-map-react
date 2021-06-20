@@ -37,6 +37,10 @@ export default props => {
     resources,
   } = infoWindowFeatureProps;
 
+  console.log(`link is`, link)
+  console.log(`resource is`, resource)
+  console.log(`infoWindowFeatureProps is`, infoWindowFeatureProps)
+
   return (
     <div className="aemp-infowindow">
       <span
@@ -202,36 +206,27 @@ export default props => {
           )}
 
           {link && (
-            <div>
-              <p className="infowindow-link">
+            <div class = "links">
                 <a target="_blank" href={link} rel="noopener noreferrer">
                   {t('infowindow.policy.info-link')}
                 </a>
-              </p>
             </div>
           )}
 
           {resource && (
-            <div>
-              <p className="infowindow-link">
+            <div class = "links">
                 <a target="_blank" href={resource} rel="noopener noreferrer">
                   {t('infowindow.policy.resource-link')}
                 </a>
-              </p>
             </div>
           )}
         </>
       )}
 
-      {/*TO DO: FIX LINK*/}
-      <div class = "links">
-      <div><a target="_blank" href ="{link}">Get Latest Info from Local Organization</a></div>
 
-      {/*TO DO: FIX LINK*/}
-      <div><a target="_blank" href ="{resource}">View More Eviction Info</a></div>
-      </div>
 
       {/*TO DO: FIX DATE*/}
+      {/*TO DO: CHECK CARTO FOR DATE??*/}
       <div class = "last-update">Last updated: April 20, 2021</div>
 
 

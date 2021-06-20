@@ -35,9 +35,7 @@ const PauseButton = (props) => {
 				alt="Pause/Play"
 			></img>
 			<div className = "button-text">
-	  	 {/*TO DO: CONDITIONALLY RENDER PLAY/PAUSE TEXT HERE*/}
-			 {/*<p>{/*props.buttonState}</p>*/}
-				<p>pause</p>
+				<p>{props.audioPaused ? 'play' : 'pause'}</p>
 			</div>
 		</span>
 	);
@@ -75,18 +73,6 @@ export default (props) => {
 	const [showShareBox, setShowShareBox] = useState(false);
 	const [gain, setGain] = useState(1)
 	const location = useLocation()
-	// const buttonState = getButtonState();
-
-	// function getButtonState() {
-	// 	let buttonState = "pause"
-	// 	if this.audioPaused === 'false'{
-	// 		buttonState = "pause";
-	// 	}
-	// 	else {
-	// 		buttonState = "play"
-	// 	}
-	// 	return buttonState;
-	// }
 
 	useEffect(() => {
 		const audioContext = plugAudio();
