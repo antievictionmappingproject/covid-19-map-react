@@ -20,6 +20,14 @@
   }
 }
 
+@media screen and (max-width:875px){
+  #map {top: 160px}
+}
+
+@media screen and (max-width:700px){
+  #map {top: 105px}
+}
+
 #map-pattern-fills {
   // the svg used for the map's pattern fills should be hidden in the UI
   position: absolute;

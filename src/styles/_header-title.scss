@@ -68,7 +68,7 @@ header#aemp-titlebox {
   &::before {
     content: '▼';
     position: absolute;
-    left: 0em; 
+    left: 0em;
     top: 0.54em;
     display: inline-block;
     color: $rent-strike-color;
@@ -81,7 +81,7 @@ header#aemp-titlebox {
   &.collapsed {
     &::before {
       transform: translateY(-44%) rotate(-90deg);
-    }  
+    }
   }
 
   @media (max-width: 640px) {

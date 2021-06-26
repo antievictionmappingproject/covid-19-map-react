@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import HamburgerMenu from './HamburgerMenu';
 
 const NavHeader = () => {
   return (
     <div id="navHeader">
+      <HamburgerMenu />
       <div id="mainHeader">
         THE ANTI-EVICTION MAPPING PROJECT
       </div>

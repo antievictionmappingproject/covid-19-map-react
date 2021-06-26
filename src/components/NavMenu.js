@@ -1,27 +1,31 @@
 import React, { useState } from 'react'
+import Hamburger from '../assets/aemp_hamburger.svg'
 
-const NavMenu = () => {
+
+const NavMenu = (props) => {
+  const [show,setShow]=useState(false);
+  let menuStyle = {
+    border: props.show?'2px solid #c92a1d':'0'
+  }
+  let itemStyle = {
+    display: !props.hamburger?'auto': props.show?'block':'none',
+  };
   return(
-    <div id="NavMenu">
-      {/*<Link to="/maps/covid-19">Covid-19 Map</Link>*/}
-      {/*<Link to="/maps/oral-histories">Oral Histories</Link>*/}
-      <a href="http://google">
+    <div id={props.hamburger?"HamburgerMenu":"NavMenu"} style={menuStyle}>
+      <a href="http://google" style={itemStyle}>
         About
       </a>
-      <a href="http://google.com">
-        Protection Legislation
+      <a href="http://google.com" style={itemStyle}>
+        Covid-19 Maps
       </a>
-      <a href="http://google.com">
-        Tenant Stories
-      </a>
-      <a href="http://google.com">
-        Share Your Story
-      </a>
-      <a href = "http//google.com">
-        Add Info To Map
-      </a>
-      <a href="http://google.com">
+      <a href="http://google.com" style={itemStyle}>
         Resources
+      </a>
+      <a href="http://google.com" style={itemStyle}>
+        Tenant-Generated Stories
+      </a>
+      <a href = "http//google.com" style={itemStyle}>
+        + Add Info To Map
       </a>
     </div>
   )
