@@ -1,13 +1,9 @@
-#NavDesktop {
-  position: fixed;
-  top: 0; left: 0;
+#navigation {
   width: 100%;
-  height: $layout-nav-desktop-height;
-  background: white;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-
+  height: 266px;
+  background-color: var(--black-text);
+  background-color: white;
+  min-width: 527px;
   a {
     color: $rent-strike-color;
     font-style: normal;
@@ -16,6 +12,33 @@
       color: $font-color-black;
     }
   }
+}
+
+#HamburgerWrapper {
+  display: none;
+  text-align: right;
+}
+#hamburgerImage {
+  width:20px;
+  height: 20px;
+  margin: 5px 10px 0 0;
+  display: inline-block;
+}
+
+
+#NavMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  //height: $layout-nav-desktop-height;
+  background: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: nowrap;
+  font-size: 14px;
+  font-family: 'IBM Plex Mono', monospace;
 
   > * {
     position: relative;
@@ -23,31 +46,105 @@
     text-align: center;
     padding: 0.5em 1em;
     box-sizing: border-box;
-    &:after {
-      content: '';
-      height: calc(100% - 1em);
-      position: absolute;
-      left: 100%;
-      transform: translateX(-50%);
-      background: $rent-strike-color;
-      width: 2px;
+  }
+}
+
+#navHeader {
+  position: relative;
+  top: 30px;
+  width: 100%;
+}
+
+
+
+#mainHeader{
+   width: 100%;
+   border: solid 2px #ff0000;
+   text-align: center;
+   padding: 10px 0 10px;
+   margin: 0px;
+   font-family: 'Harbour W00 Medium', 'IBM Plex Mono', monospace;
+   font-size: 60px;
+   font-weight: bold;
+   font-stretch: normal;
+   font-style: normal;
+   line-height: normal;
+   letter-spacing: normal;
+   color: #ff0000;
+   background-color: white;
+ }
+#mapLinks {
+    display: flex;
+    width: 100%;
+    > * {
+      width: 50%;
+      text-align: center;
+      margin: 0px;
+      padding: 10px 0 10px 0;
+      border: solid 2px #ff0000;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 18px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #ff0000;
+      background-color: white;
+      letter-spacing: 0.2px;
     }
-    &:last-child {
-      &:after {
-        display: none;
-      }
+}
+
+@media screen and (max-width: 875px){
+  #mainHeader{
+    font-size: 30px;
+  }
+  #mapLinks{
+    > * {font-size:16px;}
+  }
+}
+
+
+
+@media screen and (max-width: 700px){
+  #mainHeader{
+    font-size: 20px;
+  }
+  #mapLinks{
+    > * {font-size:12px;}
+  }
+  #navHamburger {display: block}
+  #NavMenu{
+    display: none;
+  }
+  #navHeader {top:0px;}
+  #HamburgerMenu{
+    display: block;
+    text-align: right;
+    background-color: #fff;
+    > * {
+      margin: 10px;
     }
+  }
+  #HamburgerWrapper {
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 10px;
   }
 }
 
 .sub-nav {
   position: relative;
   cursor: pointer;
+
   .list {
     position: absolute;
-    top: 100%; left: 0;
+    top: 100%;
+    left: 0;
     background: white;
   }
+
   a {
     display: block;
   }

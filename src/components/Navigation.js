@@ -1,13 +1,13 @@
 import React from 'react'
-import NavDesktop from './NavDesktop'
-import NavMobile from './NavMobile'
+import NavMenu from './NavMenu'
+import NavHeader from './NavHeader';
 
 const Navigation = () => {
   return(
-    <>
-      <NavDesktop />
-      <NavMobile />
-    </>
+    <div id  = "navigation">
+      <NavMenu hamburger = {false}/>
+      <NavHeader/>
+    </div>
   )
 }
 

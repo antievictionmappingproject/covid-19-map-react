@@ -33,6 +33,7 @@ const strokeColorCounty = '#ffffff';
 const strokeColorState = '#ffffff';
 
 
+
 //styling helpers
 function highlightFeature(e) {
   const layer = e.target;
@@ -91,6 +92,7 @@ export const mapLayersConfig = {
     },
     pointToLayer(feature, latlng) {
       return L.circleMarker(latlng, mapLayersConfig.cities.style(feature));
+
     },
     onEachFeature(feature, layer) {
       // class name is used for applying pattern fills to polygons
@@ -110,6 +112,7 @@ export const mapLayersConfig = {
     name: 'County Protections',
     nameI18n: 'layer-select.counties',
     type: 'polygon',
+    // type: 'imageOverlay',
     query: `
     SELECT
       c.the_geom, c.county, c.state, m.eviction_status, m.link, m.resource
@@ -158,6 +161,10 @@ export const mapLayersConfig = {
       });
       const { county, state } = feature.properties;
       layer.bindPopup(`${county}${state ? `, ${state}` : ''}`);
+
+
+
+
     },
   },
   states: {

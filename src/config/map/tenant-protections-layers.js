@@ -12,6 +12,7 @@ import {
 import * as queries from '../../carto/queries';
 import { formatDate } from '../../utils/datetime';
 
+
 //styling helpers
 function highlightFeature(e) {
   const layer = e.target;

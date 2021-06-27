@@ -1,6 +1,6 @@
 div.legend {
   width: 100%;
-  margin-bottom: 24px;
+  margin-bottom: 50px;
 }
 
 div.legendgrid {
@@ -17,7 +17,7 @@ div.legendgrid {
   &.key {
     align-items: center;
   }
-  
+
   p {
     margin: 0;
   }
@@ -68,11 +68,11 @@ div.submissions {
   &.scale1 {
     background-color: $policy-color-bg-1;
   }
-  
+
   &.scale2 {
     background-color: $policy-color-bg-2;
   }
-  
+
   &.scale3 {
     background-color: $policy-color-bg-3;
   }
