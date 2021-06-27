@@ -25,6 +25,7 @@
     "react-leaflet": "^3.0.2",
     "react-leaflet-markercluster": "^3.0.0-rc1",
     "react-markdown": "^6.0.2",
+    "react-rangeslider": "^2.2.0",
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
