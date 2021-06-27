@@ -1,8 +1,8 @@
 header#aemp-titlebox {
   position: absolute;
-  top: calc(16px + #{$layout-nav-desktop-height});
+  top: calc(180px + 3.5rem);
   left: 10px;
-  height: 675px;
+  bottom: 20px;
   overflow: auto;
   width: 320px;
   padding: 12px;
@@ -11,7 +11,7 @@ header#aemp-titlebox {
   z-index: 500;
 
   &.collapsed {
-    height: auto;
+    bottom: auto;
   }
 
   @media (max-width: 640px) {
