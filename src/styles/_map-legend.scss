@@ -7,11 +7,16 @@ div.legendgrid {
   display: grid;
   margin-top: 16px;
 
-  &.key, &.submissions {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
+  &.key,
+  &.submissions {
+    grid-template-columns: min-content auto;
+    grid-template-rows: min;
     // align-items: center;
     justify-items: left;
+  }
+
+  :nth-child(even) {
+    padding-left: 1.5em;
   }
 
   &.key {
@@ -21,7 +26,6 @@ div.legendgrid {
   p {
     margin: 0;
   }
-
 }
 
 div.submissions {
@@ -42,7 +46,7 @@ div.submissions {
 }
 
 .aemp-logo {
-  font-family: "Harbour W00 Medium", "IBM Plex Mono", monospace;
+  font-family: 'Harbour W00 Medium', 'IBM Plex Mono', monospace;
   color: $rent-strike-color;
   font-size: 1.6rem;
   font-style: normal;
@@ -83,7 +87,7 @@ div.submissions {
   }
 
   &.expired {
-    background: url("/assets/stripes-icon.png") center no-repeat;
+    background: url('/assets/stripes-icon.png') center no-repeat;
     background-size: contain;
     height: 70px;
     border: none;
@@ -97,7 +101,7 @@ div.submissions {
   width: 95px;
 
   .rent-strike-icon {
-    background-image: url("/assets/mapIcons/rent-strike.svg");
+    background-image: url('/assets/mapIcons/rent-strike.svg');
     background-size: 55px 55px;
     height: 40px;
     width: 40px;
@@ -111,5 +115,9 @@ div.submissions {
   .cluster-svg-text {
     fill: white;
     font-weight: bold;
+  }
+
+  :nth-child(even) {
+    padding-left: 0 !important;
   }
 }
