@@ -33,6 +33,7 @@ export default props => {
           >
             ×
           </span>
+          <hr />
         </div>
         <span>
           <p>
