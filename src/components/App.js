@@ -16,6 +16,8 @@ import EvictionStoriesInfoWindow from './EvictionStoriesInfoWindow';
 import Navigation from './Navigation';
 import { MapConsumer } from 'react-leaflet';
 import { tenantProtectionsLayers, evictionStoriesLayers } from '../config/map';
+import About from './About';
+import Resources from './Resources';
 
 export default () => {
   const i18nLoaded = useSelector(state => state.content.i18n);
@@ -57,11 +59,15 @@ export default () => {
         <Route path="/eviction-stories">
           <MapEvictionStories />
           <InfoWindow />
+          <About />
+          <Resources />
         </Route>
         <Route path="/tenant-protections">
           <MapTenantProtections />
           <Titlebox />
           <Modal />
+          <About />
+          <Resources />
           <InfoWindow />
         </Route>
       </Switch>
