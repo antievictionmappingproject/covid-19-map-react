@@ -4,16 +4,19 @@
   background-color: var(--black-text);
   background-color: white;
   min-width: 527px;
+}
   a {
     color: $rent-strike-color;
     font-style: normal;
     text-transform: uppercase;
-    &:hover {
-      color: $font-color-black;
-    }
   }
-}
-
+    a:hover {
+      text-decoration: none;
+      color: $font-color-black; 
+      transition: 2s; 
+    } 
+   
+    
 #HamburgerWrapper {
   display: none;
   text-align: right;
