@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import AudioPlayer from './AudioPlayer';
 
@@ -48,8 +48,11 @@ export default props => {
       <span
         className="aemp-infowindow-close"
         onClick={() => {
-          history.push('/eviction-stories')
-          dispatch({ type: 'ui:eviction-stories-interview:selected', payload: null });
+          history.push('/eviction-stories');
+          dispatch({
+            type: 'ui:eviction-stories-interview:selected',
+            payload: null,
+          });
         }}
       >
         ×
@@ -75,9 +78,11 @@ export default props => {
         )}
 
         {interviewSelected.fields['Pull Quote - abbreviated'] && (
-            <div className = "pull-quote-container">
-              <div className="pull-quote">{interviewSelected.fields['Pull Quote - abbreviated'].trim()}</div>
+          <div className="pull-quote-container">
+            <div className="pull-quote">
+              {interviewSelected.fields['Pull Quote - abbreviated'].trim()}
             </div>
+          </div>
         )}
 
         {interviewSelected.fields['Clip Summary'] && (

@@ -1,5 +1,7 @@
 const initialState = {
   showModal: true,
+  showResources: false,
+  showAbout: false,
   showLoadingIndicator: true,
   infoWindowFeatureProps: null,
   language: 'en',
@@ -12,6 +14,14 @@ export default (state = initialState, action) => {
       return { ...state, showModal: true };
     case 'ui:modal:hide':
       return { ...state, showModal: false };
+    case 'ui:resources:show':
+      return { ...state, showResources: true };
+    case 'ui:resources:hide':
+      return { ...state, showResources: false };
+    case 'ui:about:show':
+      return { ...state, showAbout: true };
+    case 'ui:about:hide':
+      return { ...state, showAbout: false };
     case 'ui:loading-indicator:show':
       return { ...state, showLoadingIndicator: true };
     case 'ui:loading-indicator:hide':

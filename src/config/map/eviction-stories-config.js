@@ -1,12 +1,12 @@
 import queryString from 'query-string';
 
 const defaultMapConfig = {
-  lat: 36,
-  lng: -120,
-  z: 6,
+  lat: 40,
+  lng: -97,
+  z: 4,
   bounds: [
-    [-85.05, -220], // lower left
-    [85.05, 230], // upper right
+    [0, -160], // lower left
+    [80, 0], // upper right
   ],
   states: true,
   cities: true,

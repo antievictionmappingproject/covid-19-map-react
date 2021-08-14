@@ -47,5 +47,8 @@
     ">0.2%",
     "not dead",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "netlify-cli": "^4.3.0"
+  }
 }

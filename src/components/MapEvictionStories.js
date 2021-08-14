@@ -21,7 +21,6 @@ import { getAllCartoLayers } from '../carto/api';
 import { evictionStoriesLayers } from '../config/map';
 
 function LeafletMap({ mapConfig }) {
-
   const {
     evictionStoriesLayers: layers,
     evictionStoriesLoaded: loaded,
@@ -118,7 +117,6 @@ function LeafletMap({ mapConfig }) {
                   name={layer.key}
                   style={{ zIndex: 200 + layer.layerConfig.zIndex * 2 }}
                 >
-
                   <GeoJSON
                     data={layer.data}
                     style={layer.layerConfig.style}
