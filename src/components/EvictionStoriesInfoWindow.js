@@ -62,8 +62,8 @@ export default props => {
             </div>
           </div>
         )}
-        {interviewSelected.fields['Audio file'] && (
-          <BlogAudio src={interviewSelected.fields['Audio file'][0].url} />
+        {interviewSelected.fields['Clip Audio file'] && (
+          <BlogAudio src={interviewSelected.fields['Clip Audio file'][0].url} />
         )}
         {interviewSelected.fields['Name of Interviewee or Anonymous'] && (
           <div>
@@ -78,20 +78,15 @@ export default props => {
             <div className = "pull-quote-container">
               <div className="pull-quote">{interviewSelected.fields['Pull Quote - abbreviated'].trim()}</div>
             </div>
-
-
-
-
-
-
         )}
+
         {interviewSelected.fields['Clip Summary'] && (
           <div>
             <p>{interviewSelected.fields['Clip Summary']}</p>
           </div>
         )}
 
-        <ReactMarkdown escapeHtml={false} renderers={{ html: Embed }}>
+        <ReactMarkdown renderers={{ html: Embed }}>
           {interviewSelected.fields.DEV_content}
         </ReactMarkdown>
       </div>
