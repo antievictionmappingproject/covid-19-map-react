@@ -9,7 +9,7 @@ const NavHeader = () => {
     <div id="navHeader">
       {/*<HamburgerMenu />*/}
       <div id="mainHeader">
-        THE ANTI-EVICTION MAPPING PROJECT
+        THE ANTI-EVICTION MAPPING PROJECT | COVID-19
       </div>
       <div id="mapLinks">
         <div id="housingProtectionLink" className={`link-cnr ${path === '/tenant-protections' ? 'active' : ''}`}>
