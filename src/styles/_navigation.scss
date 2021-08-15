@@ -72,11 +72,19 @@
    letter-spacing: normal;
    color: #ff0000;
    background-color: white;
-
-  //  .link-cnr {
-
-  //  }
  }
+
+ #mainHeader a {
+    color: #ff0000;
+    text-decoration: none;
+    transition: 0.5s;
+  }
+
+ #mainHeader a:hover{
+    color: $rent-strike-color;
+    text-decoration: none;
+    transition: 0.5s;
+  }
 
 #mapLinks {
     display: flex;
