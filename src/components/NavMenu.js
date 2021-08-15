@@ -23,7 +23,7 @@ const NavMenu = props => {
       >
         About
       </a>
-      <a href="https://trusting-brown-d0bdea.netlify.app/" style={itemStyle}>
+      <a href="https://covid19.antievictionmap.com/" style={itemStyle}>
         Covid-19 Maps
       </a>
       <a

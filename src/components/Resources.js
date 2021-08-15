@@ -37,34 +37,44 @@ export default props => {
           <hr />
         </div>
         <span>
+
+          <h2>How to Look Up Your Landlord / <i>Cómo Investigar Tu Propietario</i></h2>
           <p>
-            I'm baby glossier vegan waistcoat chartreuse selvage gastropub tacos
-            pour-over craft beer tilde kitsch kogi irony. Trust fund mustache
-            four dollar toast prism succulents, flannel art party glossier
-            skateboard viral. Lomo synth live-edge ethical, palo santo readymade
-            godard post-ironic occupy intelligentsia thundercats lo-fi
-            dreamcatcher viral. Jianbing wolf bespoke DIY gentrify drinking
-            vinegar chillwave. Small batch pickled slow-carb migas butcher
-            farm-to-table hexagon activated charcoal af. Tumeric fashion axe
-            pinterest butcher activated charcoal squid disrupt selfies etsy.
-            Swag tacos etsy, YOLO keytar pug street art thundercats normcore
-            cornhole snackwave subway tile.
+          As we have found, many of the speculators responsible for evictions and displacement are hiding behind LLCs (limited liability companies), LPs (limited partnerships), and other large investment companies and real estate investment trusts (REITS). This makes it difficult for tenants to learn who their landlords actually are and organize accordingly.
           </p>
+
           <p>
-            Selfies direct trade put a bird on it live-edge meh, wayfarers
-            polaroid marfa photo booth. Church-key shaman poke readymade fanny
-            pack hella fixie tousled organic. Poke chillwave 90's farm-to-table
-            succulents tilde banjo cornhole chia shabby chic. Street art
-            glossier man bun tofu plaid keytar DIY hammock. Shaman gochujang
-            four dollar toast iceland neutra normcore ugh lomo beard letterpress
-            lo-fi locavore. Adaptogen master cleanse blue bottle 3 wolf moon
-            meggings organic jianbing austin chambray pok pok echo park umami
-            shabby chic.
+          We have several tools available for looking up landlord and speculator information. We have been using these to look up all LLCs responsible for evictions.  If you want to look up information about your landlord/speculator, here are some resources:
           </p>
+
+          <li>
+          <a href="https://docs.google.com/document/u/2/d/1xVFpK5wmigDoooClbSCe98fyWaQcKKZZ/edit">
+          Guide on looking up property information for Los Angeles and California: How to Research Your Landlord
+          </a>
+          </li>
+
+          <li>
+          <a href ="http://www.tenantstogether.org/how-research-your-wall-street-landlord-participatory-action-research-guide">
+          How to Look Up Your Wall Street Landlord, by Tenants Together
+          </a>
+          </li>
+
+          <li>
+          <a href="https://logicmag.io/commons/evictor-structures-erin-mcelroy-and-azad-amir-ghassemi-on-fighting/">
+          Evictor Structures
+          </a>
+          </li>
+
           <p>
-            Retro cornhole lo-fi tumblr 3 wolf moon trust fund farm-to-table
-            vegan glossier single-origin coffee actually cray. Chicharrones
-            portland yr, adaptogen paleo selvage meditation whatever vice.
+          <i>
+          Como hemos establecido, muchos de los especuladores responsables de los desalojos bajo Ellis Act, se esconden bajo la anonimidad de Sociedades de Responsabilidad Limitada (LLC) y otras empresas de inversión de gran tamaño y operaciones complicadas y confusas. De hecho este anonimato les brinda impunidad a los individuos responsables del desalojamiento de los inquilinos de San Francisco. También lo hace muy complejo y difícil para los inquilinos desplazados hacer que los dueños de las propiedades asuman la responsabilidad del desalojamiento.
+          </i>
+          </p>
+
+          <p>
+          <i>
+          Hay varias herramientas disponibles para la búsqueda de información sobre los propietarios y/o los especuladores : Aquí les presentamos aquellas que hemos estado utilizando para buscar todas las sociedades de responsabilidad limitada (LLC) implicadas en los desalojos Ellis Act. Pronto publicaremos los resultados de nuestra investigación. Sin embargo, si desea buscar información sobre el dueño de su alojamiento o el especulador interesado, puede intentar con la susodicha lista.
+          </i>
           </p>
         </span>
       </div>
