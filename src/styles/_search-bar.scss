@@ -1,12 +1,12 @@
 #search-bar-div {
   position: absolute;
-  left: 32%;
-  top: 30%;
+  left: 35.5%;
+  top: 27%;
   width: 35%;
   z-index: 600;
 
   @media (max-width: 900px) {
-    top: unset;
+    top: 20%;
     left: 10px;
     right: 10px;
     bottom: 0;
