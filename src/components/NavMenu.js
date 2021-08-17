@@ -37,10 +37,10 @@ const NavMenu = props => {
         href="https://hope.xyz/tenantexperienceoralhistoryproject"
         style={itemStyle}
       >
-        Tenant-Generated Stories
+        Other Tenant-Generated Stories
       </a>
       <a href="https://airtable.com/shruRfsCnlnbIZTpb" style={itemStyle}>
-        + Add Info To Map
+        + Add Your Data to Our Maps
       </a>
     </div>
   );
