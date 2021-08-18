@@ -37,6 +37,10 @@ export default props => {
     resources,
   } = infoWindowFeatureProps;
 
+  console.log(`link is`, link)
+  console.log(`resource is`, resource)
+  console.log(`infoWindowFeatureProps is`, infoWindowFeatureProps)
+
   return (
     <div className="aemp-infowindow">
       <span
@@ -122,19 +126,8 @@ export default props => {
             </div>
           )}
 
-          {/* Policy Strength */}
-          {range && (
-            <div>
-              <p>
-                <strong>{t('infowindow.policy.strength-label')}</strong>
-                <span
-                  className={`policy-strength-color policy-strength-color--${range}`}
-                >
-                  {t(`policy-strength.${range}`)}
-                </span>
-              </p>
-            </div>
-          )}
+        {/* Policy Strength Removed*/}
+
 
           {endDateEarliest && (
             <div>
@@ -174,10 +167,13 @@ export default props => {
             </div>
           )}
 
+          {/* Eviction Status Label Removed*/}
+          {/*<strong>{t('infowindow.policy.eviction-status-label')}</strong>{' '}*/}
+
           {eviction_status && (
-            <div>
+            <div class = "eviction-status">
               <p>
-                <strong>{t('infowindow.policy.eviction-status-label')}</strong>{' '}
+
                 {eviction_status}
               </p>
             </div>
@@ -210,26 +206,31 @@ export default props => {
           )}
 
           {link && (
-            <div>
-              <p className="infowindow-link">
+            <div class = "links">
                 <a target="_blank" href={link} rel="noopener noreferrer">
                   {t('infowindow.policy.info-link')}
                 </a>
-              </p>
             </div>
           )}
 
           {resource && (
-            <div>
-              <p className="infowindow-link">
+            <div class = "links">
                 <a target="_blank" href={resource} rel="noopener noreferrer">
                   {t('infowindow.policy.resource-link')}
                 </a>
-              </p>
             </div>
           )}
         </>
       )}
+
+
+
+      {/*TO DO: FIX DATE*/}
+      {/*TO DO: CHECK CARTO FOR DATE??*/}
+      <div class = "last-update">Last updated: April 20, 2021</div>
+
+
     </div>
+
   );
 };

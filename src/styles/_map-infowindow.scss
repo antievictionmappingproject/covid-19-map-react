@@ -7,9 +7,9 @@
 
 .aemp-infowindow {
   position: absolute;
-  right: 0;
-  top: 154px;
-  max-height: calc(100% - 154px - 24px);
+  right: 10%;
+  top: 215px;
+  max-height: calc(100% - 215px - 35px);
   width: 350px;
   margin: 10px 10px 0 0;
   overflow-y: auto;
@@ -104,4 +104,96 @@
 
 .infowindow-link:visited > a {
   color: $link-visited;
+}
+
+.pull-quote-container{
+  background-color: whitesmoke;
+  margin-top: 2em;
+  padding-bottom:0.01em;
+  padding-top:1em;
+}
+
+.pull-quote-container .pull-quote {
+  font-style: italic;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  color: $font-color-black;
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-left: 15%;
+  padding-right: 10%;
+  &:before, &:after {
+    color: #ff2600;
+    transform: translateY(0.4em);
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  &:before {
+    content: "“";
+    font-size: 6em;
+    margin-left: -20%;
+    margin-top: -0.1em;
+  }
+  &:after {
+    content: "”";
+    margin-bottom: 0.5em;
+    margin-left: 95%;
+    margin-top: -0.30em;
+    font-size: 6em;
+  }
+}
+
+.eviction-story-title {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 700 !important;
+  font-size: 1.8rem;
+  color: $rent-strike-color;
+  margin-top: 8%;
+  margin-right: 8%;
+}
+
+.links{
+  margin-top: 1em;
+}
+
+.links a{
+  color: $rent-strike-color;
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+  border-bottom: 1px solid;
+  line-height: 3em;
+  transition: 0.5s;
+}
+
+.links a:hover{
+  color: #ff2600;
+  border-bottom: 5px solid;
+  transition: 0.5s;
+}
+
+.links a:visited{
+  color: $link-visited;
+  transition: 1.5s;
+}
+
+.last-update{
+  line-height: 3em;
+  color: $link-visited;
+}
+
+.eviction-status{
+  background-color: whitesmoke;
+  font-family: "IBM Plex Mono", monospace;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  line-height: 1.7em;
+}
+
+p{
+  text-align: justify;
+  letter-spacing: 0.25px;
+  line-height: 1.4em;
 }

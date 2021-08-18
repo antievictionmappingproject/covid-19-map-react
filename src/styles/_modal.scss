@@ -71,6 +71,28 @@ div.modal {
   background-color: white;
 }
 
+.modal a {
+  color: $rent-strike-color;
+  border-bottom: 0px solid;
+}
+
+
+
+.modal a:hover {
+  color: #ff0000;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+
+
+
+
 .hlt-yellow {
   background-color: $highlight-color-yellow;
+}
+
+hr {
+  color: red;
+  background-color: white;
 }

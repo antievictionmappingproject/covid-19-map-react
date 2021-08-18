@@ -1,0 +1,168 @@
+#navigation {
+  width: 100%;
+  height: 266px;
+  background-color: var(--black-text);
+  background-color: white;
+  min-width: 527px;
+  a {
+    color: $rent-strike-color;
+    font-style: normal;
+    text-transform: uppercase;
+    &:hover {
+      color: $font-color-black;
+    }
+  }
+}
+
+#HamburgerWrapper {
+  display: none;
+  text-align: right;
+}
+#hamburgerImage {
+  width:20px;
+  height: 20px;
+  margin: 5px 10px 0 0;
+  display: inline-block;
+}
+
+
+#NavMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  //height: $layout-nav-desktop-height;
+  background: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: nowrap;
+  font-size: 14px;
+  font-family: 'IBM Plex Mono', monospace;
+
+  > * {
+    position: relative;
+    flex-grow: 1;
+    text-align: center;
+    padding: 0.5em 1em;
+    box-sizing: border-box;
+  }
+}
+
+#navHeader {
+  position: relative;
+  top: 30px;
+  width: 100%;
+}
+
+
+
+#mainHeader{
+   width: 100%;
+   border: solid 2px #ff0000;
+   text-align: center;
+   padding: 0.2em 0 0.2em;
+   margin: 0px;
+   font-family: 'Harbour W00 Medium', 'IBM Plex Mono', monospace;
+   font-size: 3.75rem;
+   font-weight: bold;
+   font-stretch: normal;
+   font-style: normal;
+   line-height: normal;
+   letter-spacing: normal;
+   color: #ff0000;
+   background-color: white;
+ }
+
+ #mainHeader a {
+    color: #ff0000;
+    text-decoration: none;
+    transition: 0.5s;
+  }
+
+ #mainHeader a:hover{
+    color: $rent-strike-color;
+    text-decoration: none;
+    transition: 0.5s;
+  }
+
+#mapLinks {
+    display: flex;
+    width: 100%;
+    > * {
+      width: 50%;
+      text-align: center;
+      margin: 0px;
+      padding: 10px 0 10px 0;
+      border: solid 2px #ff0000;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 18px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #ff0000;
+      background-color: white;
+      letter-spacing: 0.2px;
+
+      &.active {
+        border-bottom: 8px solid currentColor;
+      }
+    }
+}
+
+@media screen and (max-width: 875px){
+  #mainHeader{
+    font-size: 30px;
+  }
+  #mapLinks{
+    > * {font-size:16px;}
+  }
+}
+
+
+
+@media screen and (max-width: 700px){
+  #mainHeader{
+    font-size: 18px;
+  }
+  #mapLinks{
+    > * {font-size:12px;}
+  }
+  #navHamburger {display: block}
+  #NavMenu{
+    display: none;
+  }
+  #navHeader {top:0px;}
+  #HamburgerMenu{
+    display: block;
+    text-align: right;
+    background-color: #fff;
+    > * {
+      margin: 10px;
+    }
+  }
+  #HamburgerWrapper {
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 10px;
+  }
+}
+
+.sub-nav {
+  position: relative;
+  cursor: pointer;
+
+  .list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+  }
+
+  a {
+    display: block;
+  }
+}

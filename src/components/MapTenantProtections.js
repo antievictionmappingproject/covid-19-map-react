@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Switch, Route } from 'react-router-dom';
 import {
   MapContainer,
   TileLayer,
@@ -7,17 +8,40 @@ import {
   Pane,
   GeoJSON,
   ZoomControl,
+  Marker,
   Popup,
 } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { useTranslation } from 'react-i18next';
-import getMapConfig from '../config/map-config';
+import { tenantProtectionsConfig as getMapConfig } from '../config/map';
 import SearchBar from './SearchBar';
+import { getAllCartoLayers } from '../carto/api';
+import { tenantProtectionsLayers } from '../config/map';
 
 function LeafletMap({ mapConfig }) {
-  const { layers, searchPopup } = useSelector(state => state.data);
+  const {
+    tenantProtectionsLayers: layers,
+    tenantProtectionsLoaded: loaded,
+    searchPopup,
+  } = useSelector(
+    state => state.data
+  );
   const dispatch = useDispatch();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    if (!loaded) { dispatch({ type: 'ui:loading-indicator:show' }); }
+    (async () => {
+      const tenantProtectionsCartoData = await getAllCartoLayers(
+        tenantProtectionsLayers
+      );
+      dispatch({
+        type: 'data:tenant-protections:layers',
+        payload: tenantProtectionsCartoData,
+      });
+      dispatch({ type: 'ui:loading-indicator:hide' });
+    })()
+  }, []);
 
   // Make sure layers have resolved before rendering map
   if (!layers || !layers.length || layers.some(layer => layer === undefined))
@@ -98,7 +122,7 @@ export default () => {
       zoomControl={false}
       center={[mapConfig.lat, mapConfig.lng]}
       maxBounds={mapConfig.bounds}
-      minZoom={3}
+      minZoom={2}
       tap={false} // https://github.com/domoritz/leaflet-locatecontrol/issues/280
       zoom={mapConfig.z}
       id="map"
