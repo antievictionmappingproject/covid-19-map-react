@@ -165,10 +165,6 @@ export const mapLayersConfig = {
       });
       const { county, state } = feature.properties;
       layer.bindPopup(`${county}${state ? `, ${state}` : ''}`);
-
-
-
-
     },
   },
   states: {
