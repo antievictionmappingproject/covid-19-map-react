@@ -47,7 +47,6 @@ export const mapLayersConfig = {
         end_date_rent_relief,
         end_date_court,
         end_date_earliest,
-				reviewed_date,
         ...rest
       } = feature.properties;
       return {
@@ -62,7 +61,6 @@ export const mapLayersConfig = {
         endDateRentRelief: formatDate(end_date_rent_relief),
         endDateCourt: formatDate(end_date_court),
         endDateEarliest: formatDate(end_date_earliest),
-        reviewed_date: formatDate(reviewed_date),
         ...rest,
       };
     },
@@ -107,7 +105,6 @@ export const mapLayersConfig = {
         end_date_rent_relief,
         end_date_court,
         end_date_earliest,
-				reviewed_date,
         ...rest
       } = feature.properties;
       return {
@@ -120,7 +117,6 @@ export const mapLayersConfig = {
         endDateRentRelief: formatDate(end_date_rent_relief),
         endDateCourt: formatDate(end_date_court),
         endDateEarliest: formatDate(end_date_earliest),
-        reviewed_date: formatDate(reviewed_date),
         ...rest,
       };
     },
@@ -161,7 +157,6 @@ export const mapLayersConfig = {
         end_date_rent_relief,
         end_date_court,
         end_date_earliest,
-				reviewed_date,
         ...rest
       } = feature.properties;
       return {
@@ -173,7 +168,6 @@ export const mapLayersConfig = {
         endDateRentRelief: formatDate(end_date_rent_relief),
         endDateCourt: formatDate(end_date_court),
         endDateEarliest: formatDate(end_date_earliest),
-        reviewed_date: formatDate(reviewed_date),
         ...rest,
       };
     },
@@ -209,7 +203,7 @@ export const mapLayersConfig = {
       const { name_en, end_date_earliest, ...rest } = feature.properties;
       return {
         endDateEarliest: formatDate(end_date_earliest),
-				jurisdictionName: name_en,
+        jurisdictionName: name_en,
         jurisdictionType: 'Country',
         jurisdictionTypeI18n: 'nation',
         popupName: name_en,
