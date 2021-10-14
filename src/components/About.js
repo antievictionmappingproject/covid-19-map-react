@@ -82,17 +82,20 @@ export default props => {
             Map and data by: Azad Amir Ghassemi, Ben Benjamin, Bora Erden, Brett
             Halperin, Chris Henrick, Chris Sinco, Erin McElroy, Isnardo
             Gandarilla, Jim Stewart, Lisa Jakubczyk, Luis Felipe R. Murillo,
-            River H, Sachi Arakawa, Tim Hitchins, and Samantha Hanae Noh.
-            Translation support: Angie, Daniel Mitchen, İrem Yılmaz, Luis
-            Felipe, Manny, Manon Vergerio, Paul (Kollectiv Orangotango), Jihed
-            Brirmi, Julieta Arancio, Maggie Erving, and Xiaomei.
+            River H, Sachi Arakawa, Samantha Hanae Noh, Tim Hitchins, and Tina
+            Zarbaliev.
+          </p>
+          <p>
+            Translation support: Angie, Daniel Mitchen, İrem Yılmaz, Jihed
+            Brirmi, Julieta Arancio, Luis Felipe, Manny, Manon Vergerio, Maggie
+            Erving, Paul (Kollectiv Orangotango), and Xiaomei.
           </p>
           <p>
             Tenant oral history interviews conducted and edited by: Alexandra
             Lacey, Maria Velazquez, Luis Trujillo, Maya Sisneros, Rebecca
             Gourevitch, Susana Orozco, Cindy Reyes, Alicia Morales Perez,
             Isabella Tilly, Dr. Deland Chan and her Sustainable Cities Students
-            (Fall 2020 students)
+            (Fall 2020 students.)
           </p>
         </span>
       </div>
