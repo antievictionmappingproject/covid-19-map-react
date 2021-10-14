@@ -2,17 +2,46 @@
 .leaflet-control-layers {
   border: 1px solid $rent-strike-color !important;
   border-radius: 0 !important;
-  font-family: "IBM Plex Mono", monospace !important;
+  font-family: 'IBM Plex Mono', monospace !important;
   box-shadow: none !important;
-
+  position: absolute !important;
+  overflow: auto;
+  transform: translateY(-35px); // to account for leaflet #map being 35px down
+  top: 200px !important;
+  margin: 0px !important;
+  right: 10px;
+  width: 25vw;
+  // height: auto;
   //show on mobile
   @media (max-width: 640px) {
     display: block !important;
+    width: calc(max(30vw, 120px)) !important;
   }
 }
 
+html
+  body
+  div#root
+  div#map_eviction_stories.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom
+  div.leaflet-control-container
+  div.leaflet-top.leaflet-left
+  div.leaflet-control-layers.leaflet-control-layers-expanded.leaflet-control {
+  left: 10px !important;
+  width: calc(min(230px, 45vw)) !important;
+}
+
+.leaflet-control-layers-list {
+  height: inherit !important;
+}
+
 .leaflet-top {
-  margin-top: 170px !important;
+  margin-top: 0px;
+}
+
+@media screen and (max-width: 860px) {
+  .leaflet-control-layers {
+    top: calc(60px + 20vw) !important;
+  }
 }
 
 .leaflet-left {
@@ -20,9 +49,7 @@
   margin-left: unset !important;
 }
 
-
-
-input[type="checkbox"] {
+input[type='checkbox'] {
   display: none;
 }
 
@@ -31,15 +58,15 @@ label {
 }
 
 /* ----- text color ----- */
-input[type="checkbox"] + span {
+input[type='checkbox'] + span {
   color: black;
   line-height: 25px;
 }
 
 /* ----- unchecked ----- */
-input[type="checkbox"] + span::before {
+input[type='checkbox'] + span::before {
   border: 1px solid black;
-  content: "\00a0";
+  content: '\00a0';
   display: inline-block;
   font: 16px sans-serif;
   height: 14px;
@@ -50,15 +77,15 @@ input[type="checkbox"] + span::before {
 }
 
 /* ----- checked ----- */
-input[type="checkbox"]:checked + span::before {
+input[type='checkbox']:checked + span::before {
   border: 1px solid black;
   background: $policy-color-str-3;
   color: $rent-strike-color;
-  content: "\2715";
+  content: '\2715';
   text-align: center;
   line-height: 14px;
 }
 
-input[type="checkbox"]:checked + span::after {
+input[type='checkbox']:checked + span::after {
   font-weight: bold;
 }
