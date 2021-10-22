@@ -38,7 +38,8 @@
   flex-wrap: nowrap;
   font-size: 14px;
   font-family: 'IBM Plex Mono', monospace;
-
+  border: 2px solid #ff0000;
+  z-index: 999;
   > * {
     position: relative;
     flex-grow: 1;
@@ -168,4 +169,57 @@
   a {
     display: block;
   }
+}
+
+// styling for dropdown in navbar
+/* Dropdown Button */
+.dropbtn {
+  color: #c92a1d;
+  text-transform: uppercase;
+  border: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  background-color: white;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  border-bottom: 1px solid rgb(85, 85, 85);
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+  border-bottom: 1px solid #ff0000;
+  transition: 0.25s;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: white;
 }
