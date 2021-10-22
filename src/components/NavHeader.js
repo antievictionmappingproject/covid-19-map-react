@@ -15,6 +15,15 @@ const NavHeader = () => {
       </div>
       <div id="mapLinks">
         <div
+          id="oralHxtoriesLink"
+          className={`link-cnr ${path === '/eviction-stories' ? 'active' : ''}`}
+        >
+          <Link to="/eviction-stories">
+            COVID-19 ORAL HXSTORIES OF TENANT <br />
+            RESISTANCE & EVICTION INFORMATION
+          </Link>
+        </div>
+        <div
           id="housingProtectionLink"
           className={`link-cnr ${
             path === '/tenant-protections' ? 'active' : ''
@@ -25,15 +34,6 @@ const NavHeader = () => {
             COVID-19 GLOBAL HOUSING PROTECTION
             <br />
             LEGISLATION & HOUSING JUSTICE ACTION
-          </Link>
-        </div>
-        <div
-          id="oralHxtoriesLink"
-          className={`link-cnr ${path === '/eviction-stories' ? 'active' : ''}`}
-        >
-          <Link to="/eviction-stories">
-            COVID-19 ORAL HXSTORIES OF TENANT <br />
-            RESISTANCE & EVICTION INFORMATION
           </Link>
         </div>
       </div>
