@@ -85,7 +85,7 @@ function LeafletMap({ mapConfig }) {
             <LayersControl.Overlay
               key={layer.key}
               name={t(layer.layerConfig.nameI18n)}
-              checked={mapConfig[layer.key] === true}
+              checked={layer.key === 'states' ? mapConfig[layer.key] === true : false}
             >
               {layer.layerConfig.name === 'Housing Justice Actions' ? (
                 <Pane
