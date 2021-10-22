@@ -7,14 +7,14 @@ const NavMenu = props => {
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
 
-  let menuStyle = {
-    border: props.show ? '2px solid #c92a1d' : '0',
-  };
+  // let menuStyle = {
+  //   border: props.show ? '2px solid #c92a1d' : '0',
+  // };
   let itemStyle = {
     display: !props.hamburger ? 'auto' : props.show ? 'block' : 'none',
   };
   return (
-    <div id={props.hamburger ? 'HamburgerMenu' : 'NavMenu'} style={menuStyle}>
+    <div id={props.hamburger ? 'HamburgerMenu' : 'NavMenu'}>
       {/*<div>*/}
       <a
         onClick={() => {
@@ -39,9 +39,24 @@ const NavMenu = props => {
       >
         Other Tenant-Generated Stories
       </a>
-      <a href="https://airtable.com/shruRfsCnlnbIZTpb" style={itemStyle}>
+      {/* <a href="https://airtable.com/shruRfsCnlnbIZTpb" style={itemStyle}>
         + Add Your Data to Our Maps
-      </a>
+      </a> */}
+      <div class="dropdown">
+        <button class="dropbtn">+ Add Your Data to Our Maps</button>
+        <div class="dropdown-content">
+          <a href="https://airtable.com/shruRfsCnlnbIZTpb">
+            Housing Experiences Form <br /> (English)
+          </a>
+          <a href="https://airtable.com/shrR2leBN0J9fWs5B">
+            Encuesta de Experiencias de Inquilinos (Español)
+          </a>
+          <a href="https://airtable.com/shrRqqyDtUYdaQwt5">
+            Legislation Information Update Form/Formulario de Actualización de
+            Información sobre Legislación (English/Español)
+          </a>
+        </div>
+      </div>
     </div>
   );
 };

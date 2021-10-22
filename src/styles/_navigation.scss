@@ -19,12 +19,11 @@
   text-align: right;
 }
 #hamburgerImage {
-  width:20px;
+  width: 20px;
   height: 20px;
   margin: 5px 10px 0 0;
   display: inline-block;
 }
-
 
 #NavMenu {
   position: fixed;
@@ -39,7 +38,8 @@
   flex-wrap: nowrap;
   font-size: 14px;
   font-family: 'IBM Plex Mono', monospace;
-
+  border: 2px solid #ff0000;
+  z-index: 999;
   > * {
     position: relative;
     flex-grow: 1;
@@ -55,87 +55,91 @@
   width: 100%;
 }
 
+#mainHeader {
+  width: 100%;
+  border: solid 2px #ff0000;
+  text-align: center;
+  padding: 0.2em 0 0.2em;
+  margin: 0px;
+  font-family: 'Harbour W00 Medium', 'IBM Plex Mono', monospace;
+  font-size: 3.75rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ff0000;
+  background-color: white;
+}
 
+#mainHeader a {
+  color: #ff0000;
+  text-decoration: none;
+  transition: 0.5s;
+}
 
-#mainHeader{
-   width: 100%;
-   border: solid 2px #ff0000;
-   text-align: center;
-   padding: 0.2em 0 0.2em;
-   margin: 0px;
-   font-family: 'Harbour W00 Medium', 'IBM Plex Mono', monospace;
-   font-size: 3.75rem;
-   font-weight: bold;
-   font-stretch: normal;
-   font-style: normal;
-   line-height: normal;
-   letter-spacing: normal;
-   color: #ff0000;
-   background-color: white;
- }
-
- #mainHeader a {
-    color: #ff0000;
-    text-decoration: none;
-    transition: 0.5s;
-  }
-
- #mainHeader a:hover{
-    color: $rent-strike-color;
-    text-decoration: none;
-    transition: 0.5s;
-  }
+#mainHeader a:hover {
+  color: $rent-strike-color;
+  text-decoration: none;
+  transition: 0.5s;
+}
 
 #mapLinks {
-    display: flex;
-    width: 100%;
-    > * {
-      width: 50%;
-      text-align: center;
-      margin: 0px;
-      padding: 10px 0 10px 0;
-      border: solid 2px #ff0000;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 18px;
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      color: #ff0000;
-      background-color: white;
-      letter-spacing: 0.2px;
+  display: flex;
+  width: 100%;
+  > * {
+    width: 50%;
+    text-align: center;
+    margin: 0px;
+    padding: 10px 0 10px 0;
+    border: solid 2px #ff0000;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ff0000;
+    background-color: white;
+    letter-spacing: 0.2px;
 
-      &.active {
-        border-bottom: 8px solid currentColor;
-      }
+    &.active {
+      border-bottom: 8px solid currentColor;
     }
+  }
 }
 
-@media screen and (max-width: 875px){
-  #mainHeader{
+@media screen and (max-width: 875px) {
+  #mainHeader {
     font-size: 30px;
   }
-  #mapLinks{
-    > * {font-size:16px;}
+  #mapLinks {
+    > * {
+      font-size: 16px;
+    }
   }
 }
 
-
-
-@media screen and (max-width: 700px){
-  #mainHeader{
+@media screen and (max-width: 700px) {
+  #mainHeader {
     font-size: 18px;
   }
-  #mapLinks{
-    > * {font-size:12px;}
+  #mapLinks {
+    > * {
+      font-size: 12px;
+    }
   }
-  #navHamburger {display: block}
-  #NavMenu{
+  #navHamburger {
+    display: block;
+  }
+  #NavMenu {
     display: none;
   }
-  #navHeader {top:0px;}
-  #HamburgerMenu{
+  #navHeader {
+    top: 0px;
+  }
+  #HamburgerMenu {
     display: block;
     text-align: right;
     background-color: #fff;
@@ -165,4 +169,57 @@
   a {
     display: block;
   }
+}
+
+// styling for dropdown in navbar
+/* Dropdown Button */
+.dropbtn {
+  color: #c92a1d;
+  text-transform: uppercase;
+  border: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  background-color: white;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  border-bottom: 1px solid rgb(85, 85, 85);
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+  border-bottom: 1px solid #ff0000;
+  transition: 0.25s;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: white;
 }
