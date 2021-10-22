@@ -1,5 +1,6 @@
-@import "~leaflet/dist/leaflet.css";
+@import '~leaflet/dist/leaflet.css';
 
+#map_eviction_stories,
 #map {
   position: absolute;
   top: $layout-nav-desktop-height;
@@ -10,12 +11,12 @@
 
   .leaflet-pane svg {
     path {
-      @include use-svg-pattern("few");
-      @include use-svg-pattern("few", true);
-      @include use-svg-pattern("some");
-      @include use-svg-pattern("some", true);
-      @include use-svg-pattern("many");
-      @include use-svg-pattern("many", true);
+      @include use-svg-pattern('few');
+      @include use-svg-pattern('few', true);
+      @include use-svg-pattern('some');
+      @include use-svg-pattern('some', true);
+      @include use-svg-pattern('many');
+      @include use-svg-pattern('many', true);
     }
   }
 }
@@ -39,9 +40,8 @@
   }
 }
 
-
 @keyframes pulsing {
-    0% {
+  0% {
     width: 50px;
     height: 52px;
     box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
@@ -50,7 +50,7 @@
   70% {
     width: 50px;
     height: 50px;
-     box-shadow: 0 0 0 15px rgba(255, 82, 82, 0);
+    box-shadow: 0 0 0 15px rgba(255, 82, 82, 0);
   }
 
   100% {
