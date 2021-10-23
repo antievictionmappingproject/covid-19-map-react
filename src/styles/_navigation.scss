@@ -43,7 +43,7 @@
   width: 4vw;
   height: 4vw;
   // margin-right: 100%;
-  margin-top: 35%;
+  // margin-top: 35%;
   display: inline-block;
 }
 
@@ -111,11 +111,11 @@
   position: relative;
   // top: 24px;
   width: 100%;
+  border: solid 2px #ff0000;
 }
 
 #mainHeader {
   width: 100vw;
-  border: solid 2px #ff0000;
   text-align: center;
   padding: 0.2em 0 0.2em;
   margin: 0px;
@@ -158,7 +158,7 @@
     font-family: 'IBM Plex Mono', monospace;
     display: inline-block;
     font-size: 18px;
-    line-height: 1.2em;
+    // line-height: 1.2em;
     color: #ff0000;
     background-color: white;
     letter-spacing: 0.2px;
@@ -275,33 +275,59 @@
 }
 
 @media screen and (max-width: 890px) {
+#navHeader {
+  background-color: pink !important;
+}
+
   #mainHeader {
-    font-size: 3vw;
+    font-size: 2.8vw;
     padding-left: 1%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: space-between;
-    width: 100vw;
-    // outline: 4px solid red;
-    // margin-top: 4px;
-    // margin-bottom: 2px;
+    border: none;
+    text-align: left;
+    width: 90vw;
   }
 
   #mapLinks {
-    height: 11vh;
+    height: 100%;
     display: flex;
-  }
+    > * {
+      border-bottom: 4px solid #ff0000;
+      border-left: 2px solid #ff0000;
+      border-right: 2px solid #ff0000;
+      font-family: 'IBM Plex Mono', monospace;
+      display: inline-block;
+      color: #ff0000;
+      background-color: white;
+      letter-spacing: 0.2px;
+      transition: 0.5s;
+
+      &.active {
+        border-left: 2px solid #ff0000;
+        border-bottom: 10px solid #ff0000;
+        border-right: 4px solid #ff0000;
+        transition: 0.5s;
+      }
+
+      &.active:hover {
+        transition: 0.5s;
+      }
+
+      &:hover {
+        border-bottom: 10px solid red;
+        text-decoration: none !important;
+        transition: 0.5s !important;
+      }
+    }
+    }
 
   #mapLinks a{
       font-size: 2.1vw;
       font-family: 'IBM Plex Mono', monospace;
-      line-height: 2vh !important;
+      line-height: 150% !important;
       display: block;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-top: 1vh;
   }
 
   #navHamburger {
@@ -319,12 +345,22 @@
     posititon: sticky;
   }
 
+.ham-nav-container{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  border: 2px solid red;
+  border-bottom: 4px solid red;
+  background-color: white;
+}
+
   #HamburgerWrapper {
     display: inline-block;
-    // font-size: 2vw;
-    position: fixed;
-    // top: 2%;
-    right: 2%;
+    max-width: 10vw;
+    margin-right: 1%;
+    margin-top: 1%;
     border: none !important;
     z-index:699;
     cursor: pointer !important;
@@ -348,6 +384,7 @@
 
 
   #HamburgerMenu a {
+    font-size: 2.5vw;
     border-bottom: 4px solid #ff0000;
     border-left: 0px solid #ff0000;
     border-right: 0px solid #ff0000;
@@ -374,29 +411,29 @@
   }
 
   #HamburgerMenu .aemplink:hover {
-    border-left: 50px solid #ff0000;
+    border-left: 2.5em solid #ff0000;
   }
 
   #HamburgerMenu .mapslink:hover {
-    border-left: 100px solid #ff0000;
+    border-left: 5em solid #ff0000;
   }
 
   #HamburgerMenu .aboutlink:hover{
-    border-left: 150px solid #ff0000;
+    border-left: 7.5em solid #ff0000;
   }
 
   #HamburgerMenu .resourceslink:hover{
-    border-left: 200px solid #ff0000;
+    border-left: 9em solid #ff0000;
   }
 
   #HamburgerMenu .storieslink:hover{
-    border-left: 250px solid #ff0000;
+    border-left: 11.5em solid #ff0000;
   }
 
   .dropbtn {
     color: #c92a1d;
     text-transform: uppercase;
-    font-size: 2vw;
+    font-size: 2.5vw;
     font-family: 'IBM Plex Mono', monospace;
     text-align: right;
     border-left: 4px solid red;
@@ -417,7 +454,7 @@
 
 
   .dropbtn:hover {
-    border-left: 300px solid #ff0000 !important;
+    border-left: 13em solid #ff0000 !important;
     background-color: #f1f1f1 !important;
     position: relative;
     top: 0;
@@ -468,7 +505,7 @@
   }
 
   .dropdown:hover  >  .dropbtn{
-    border-left: 300px solid #ff0000;
+    border-left: 13em solid #ff0000;
     background-color: #f1f1f1 !important;
     border-bottom: 4px solid #ff0000;
     color: black;

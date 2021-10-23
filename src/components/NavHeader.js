@@ -8,15 +8,17 @@ const NavHeader = () => {
   return (
     <div id="navHeader">
 
-<HamburgerMenu />
+    <div class="ham-nav-container">
 
       <div id="mainHeader">
         <a href="https://covid19.antievictionmap.com/">
           THE ANTI-EVICTION MAPPING PROJECT | COVID-19
         </a>
-
       </div>
 
+      <HamburgerMenu />
+
+      </div>
 
       <div id="mapLinks">
         <div
