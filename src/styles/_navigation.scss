@@ -1,3 +1,16 @@
+@keyframes growDown {
+0% {
+  transform: scaleY(0);
+}
+// 80% {
+//   transform: scaleY(1.1);
+// }
+100% {
+  transform: scaleY(1);
+}
+}
+
+
 #navigation {
   width: 100%;
   height: 266px;
@@ -8,8 +21,11 @@
     color: $rent-strike-color;
     font-style: normal;
     text-transform: uppercase;
+    transition: 0.5s;
     &:hover {
       color: $font-color-black;
+      text-decoration: none;
+      transition: 0.5s;
     }
   }
 }
@@ -18,40 +34,83 @@
   display: none;
   text-align: right;
 }
-#hamburgerImage {
-  width: 20px;
-  height: 20px;
-  margin: 5px 10px 0 0;
-  display: inline-block;
+
+#HamburgerMenu {
+  display: none;
 }
 
+#hamburgerImage {
+  width: 4vw;
+  height: 4vw;
+  margin-right: 2vw;
+  margin-top: 2vw;
+  display: inline-block;
+  fill: red;
+}
+
+
+
 #NavMenu {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
-  //height: $layout-nav-desktop-height;
-  background: white;
+  height: 20px;
+  margin: 2px;
+  outline: 2px solid red;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: space-around;
+
+  align-self: center;
   flex-wrap: nowrap;
   font-size: 14px;
   font-family: 'IBM Plex Mono', monospace;
-  border: 2px solid #ff0000;
-  z-index: 999;
-  > * {
-    position: relative;
-    flex-grow: 1;
-    text-align: center;
-    padding: 0.5em 1em;
-    box-sizing: border-box;
-  }
+  background-color: red;
+  z-index: 1;
+}
+
+#NavMenu .section1 {
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 1.5;
+  text-align: center;
+  border-right: 2px solid white;
+
+}
+
+#NavMenu .section2 {
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 1.5;
+  text-align: center;
+  border-right: 2px solid white;
+}
+
+#NavMenu .section3 {
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 0.5;
+  text-align: center;
+}
+
+#NavMenu a {
+      padding: 2px;
+      transition: 0.25s;
+      color: white;
+      cursor: pointer !important;
+}
+
+#NavMenu a:hover {
+    cursor: pointer !important;
+    text-decoration: none;
+    transition: 0.25s;
+    color: white;
+    background-color: $rent-strike-color;
 }
 
 #navHeader {
   position: relative;
-  top: 30px;
+  // top: 24px;
   width: 100%;
 }
 
@@ -66,10 +125,10 @@
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  line-height: normal;
   letter-spacing: normal;
   color: #ff0000;
   background-color: white;
+  border-bottom: 5px solid #ff0000;
 }
 
 #mainHeader a {
@@ -80,34 +139,129 @@
 
 #mainHeader a:hover {
   color: $rent-strike-color;
-  text-decoration: none;
+  text-decoration: none !important;
   transition: 0.5s;
 }
 
 #mapLinks {
   display: flex;
   width: 100vw;
+  background-color: white;
+  transition: 0.5s;
   > * {
     width: 50%;
     text-align: center;
     margin: 0px;
     padding: 10px 0 10px 0;
-    border: solid 2px #ff0000;
+    border-bottom: 8px solid #ff0000;
+    border-left: 6px solid #ff0000;
+    border-right: 2px solid #ff0000;
     font-family: 'IBM Plex Mono', monospace;
+    display: inline-block;
     font-size: 18px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
+    line-height: 1.2em;
     color: #ff0000;
     background-color: white;
     letter-spacing: 0.2px;
+    transition: 0.5s;
 
     &.active {
-      border-bottom: 8px solid currentColor;
+      border-left: 2px solid #ff0000;
+      border-bottom: 20px solid #ff0000;
+      border-right: 4px solid #ff0000;
+      transition: 0.5s;
+    }
+
+    &.active:hover {
+      transition: 0.5s;
+    }
+
+    &:hover {
+      border-bottom: 20px solid red;
+      text-decoration: none !important;
+      transition: 0.5s !important;
     }
   }
+}
+
+#mapLinks:hover {
+  transition: 0.5s;
+  text-decoration: none;
+}
+
+// styling for dropdown in navbar
+/* Dropdown Button */
+.dropbtn {
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  background-color: red;
+  z-index: 99999;
+}
+
+/* The container  needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer !important;
+}
+
+.dropbtn:hover {
+  background-color: #c92a1d;
+  transition: 0.25s;
+  cursor: pointer !important;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #c92a1d;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  perspective: 1000px;
+  animation: growDown 400ms ease-in-out forwards;
+  transform-origin: top center;
+  cursor: pointer !important;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: #c92a1d !important;
+  background-color: white;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  border-bottom: 1px solid #c92a1d;
+  cursor: pointer !important;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  color: white !important;
+  border-bottom: 1px solid #ff0000;
+  border-bottom: 1px solid #ff0000;
+  transition: 0.25s;
+  cursor: pointer !important;
+}
+
+.dropdown:hover  >  .dropbtn{
+  background-color: #c92a1d !important;
+  color: white;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: white;
 }
 
 @media screen and (max-width: 1100px) {
@@ -121,43 +275,201 @@
   }
 }
 
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 890px) {
   #mainHeader {
-    font-size: 3vw;
+    font-size: 3.3vw;
+    padding-left: 1%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: space-between;
+    width: 100vw;
+    outline: 4px solid red;
+    margin-top: 4px;
+    margin-bottom: 2px;
   }
-  #mapLinks {
-    > * {
-      font-size: calc(0.05em + 2vw);
-    }
+
+  #mapLinks a{
+      font-size: 2.1vw;
+      line-height: 0.1vw;
+      font-family: 'IBM Plex Mono', monospace;
   }
+
   #navHamburger {
     display: block;
+    border: none !important;
   }
+
   #NavMenu {
     display: none;
   }
+
   #navHeader {
-    top: 0px;
-  }
-  #HamburgerMenu {
     display: block;
-    text-align: right;
-    background-color: #fff;
-    > * {
-      margin: 10px;
-    }
+    top: 0;
+    posititon: sticky;
   }
+
   #HamburgerWrapper {
     display: block;
-    position: absolute;
-    right: 0px;
-    top: 10px;
+    font-size: 2vw;
+    position: fixed;
+    top: 0;
+    right: 0;
+    border: none !important;
+    z-index:9999999;
+    cursor: pointer !important;
   }
-}
+
+  #HamburgerMenu {
+    text-align: right;
+    font-family: 'IBM Plex Mono', monospace;
+    color: #c92a1d;
+    background-color: white;
+    border: 4px solid #ff0000;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    right: 0;
+    perspective: 1000px;
+    animation: growDown 400ms ease-in-out forwards;
+    transform-origin: top center;
+    cursor: pointer !important;
+  }
+
+
+  #HamburgerMenu a {
+    border-bottom: 4px solid #ff0000;
+    border-left: 0px solid #ff0000;
+    border-right: 0px solid #ff0000;
+    padding-bottom: 3%;
+    padding-top: 3%;
+    padding-left: 2%;
+    padding-right: 2%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-decoration: none;
+    transition: 0.25s;
+    text-align: right;
+    cursor: pointer !important;
+  }
+
+  #HamburgerMenu a:hover {
+    background-color: #f1f1f1;
+    border-bottom: 4px solid #ff0000;
+    transition: 0.25s;
+    text-decoration: none;
+    border-right: 0px solid #ff0000;
+    cursor: pointer !important;
+  }
+
+  #HamburgerMenu .aemplink:hover {
+    border-left: 50px solid #ff0000;
+  }
+
+  #HamburgerMenu .mapslink:hover {
+    border-left: 100px solid #ff0000;
+  }
+
+  #HamburgerMenu .aboutlink:hover{
+    border-left: 150px solid #ff0000;
+  }
+
+  #HamburgerMenu .resourceslink:hover{
+    border-left: 200px solid #ff0000;
+  }
+
+  #HamburgerMenu .storieslink:hover{
+    border-left: 250px solid #ff0000;
+  }
+
+  .dropbtn {
+    color: #c92a1d;
+    text-transform: uppercase;
+    font-size: 2vw;
+    font-family: 'IBM Plex Mono', monospace;
+    text-align: right;
+    border-left: 4px solid red;
+    border-right: 4px solid red;
+    border-bottom: 4px solid red;
+    width: 100vw;
+    position: relative;
+    top: 0;
+    right: 0;
+    padding-bottom: 3%;
+    padding-top: 3%;
+    padding-left: 2%;
+    padding-right: 2%;
+    background-color: white;
+    transition: 0.25s;
+
+  }
+
+
+  .dropbtn:hover {
+    border-left: 300px solid #ff0000 !important;
+    background-color: #f1f1f1 !important;
+    position: relative;
+    top: 0;
+    right: 0;
+    cursor: pointer !important;
+  }
+
+
+  .dropdown {
+    position: relative;
+    top: 0;
+    left: -4px;
+    display: block;
+    text-align: right;
+    width: 100vw !important;
+    cursor: pointer !important;
+  }
+
+
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    background-color: #f1f1f1 !important;
+    text-align: right;
+    border-right: 8px solid red;
+    border-bottom: 4px solid red !important;
+    perspective: 1000px;
+    animation: growDown 500ms ease-in-out forwards;
+    transform-origin: top center;
+  }
+
+  .dropdown-content a{
+    width: 100vw !important;
+    color: $rent-strike-color !important;
+    border-left: 4px solid red !important;
+    border-right: 4px solid red !important;
+    border-bottom: 1px solid red !important;
+    padding-bottom: 3% !important;
+    padding-top: 3% !important;
+    padding-left: 2% !important;
+    padding-right: 2% !important;
+  }
+
+  .dropdown-content a:hover {
+    background-color: red!important;
+    color: white !important;
+
+  }
+
+  .dropdown:hover  >  .dropbtn{
+    border-left: 300px solid #ff0000;
+    background-color: #f1f1f1 !important;
+    border-bottom: 4px solid #ff0000;
+    color: black;
+  }
+
 
 .sub-nav {
   position: relative;
   cursor: pointer;
+}
 
   .list {
     position: absolute;
@@ -166,60 +478,12 @@
     background: white;
   }
 
-  a {
+  .list a {
     display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    color: #c92a1d;
+    border-bottom: 1px solid grey;
+    background-color: #f1f1f1;
+
   }
-}
-
-// styling for dropdown in navbar
-/* Dropdown Button */
-.dropbtn {
-  color: #c92a1d;
-  text-transform: uppercase;
-  border: none;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 14px;
-  background-color: white;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-  border-bottom: 1px solid rgb(85, 85, 85);
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {
-  background-color: #ddd;
-  border-bottom: 1px solid #ff0000;
-  transition: 0.25s;
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-  background-color: white;
 }

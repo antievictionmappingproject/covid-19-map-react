@@ -5,8 +5,9 @@ import NavHeader from './NavHeader';
 const Navigation = () => {
   return(
     <div id  = "navigation">
+      {/* <NavHeader/> */}
       <NavMenu hamburger = {false}/>
-      <NavHeader/>
+          <NavHeader/>
     </div>
   )
 }
