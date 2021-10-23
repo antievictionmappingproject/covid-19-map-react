@@ -21,6 +21,11 @@ $highlight-color-yellow: #feff54;
 
 $layout-nav-desktop-height: 3.5rem;
 
+
+$borderLeftWidth: 30px;
+// $newBorderWidth: 60px;
+// $newBorderWidth: calc(#{$borderLeftWidth} + 30px);
+
 :export {
   rentStrikeColor: $rent-strike-color;
 }
