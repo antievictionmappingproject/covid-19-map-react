@@ -42,10 +42,9 @@
 #hamburgerImage {
   width: 4vw;
   height: 4vw;
-  margin-right: 2vw;
-  margin-top: 2vw;
+  // margin-right: 100%;
+  margin-top: 35%;
   display: inline-block;
-  fill: red;
 }
 
 
@@ -198,7 +197,7 @@
   font-family: 'IBM Plex Mono', monospace;
   font-size: 14px;
   background-color: red;
-  z-index: 99999;
+  z-index: 699;
 }
 
 /* The container  needed to position the dropdown content */
@@ -277,22 +276,32 @@
 
 @media screen and (max-width: 890px) {
   #mainHeader {
-    font-size: 3.3vw;
+    font-size: 3vw;
     padding-left: 1%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-content: space-between;
     width: 100vw;
-    outline: 4px solid red;
-    margin-top: 4px;
-    margin-bottom: 2px;
+    // outline: 4px solid red;
+    // margin-top: 4px;
+    // margin-bottom: 2px;
+  }
+
+  #mapLinks {
+    height: 11vh;
+    display: flex;
   }
 
   #mapLinks a{
       font-size: 2.1vw;
-      line-height: 0.1vw;
       font-family: 'IBM Plex Mono', monospace;
+      line-height: 2vh !important;
+      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 1vh;
   }
 
   #navHamburger {
@@ -311,13 +320,13 @@
   }
 
   #HamburgerWrapper {
-    display: block;
-    font-size: 2vw;
+    display: inline-block;
+    // font-size: 2vw;
     position: fixed;
-    top: 0;
-    right: 0;
+    // top: 2%;
+    right: 2%;
     border: none !important;
-    z-index:9999999;
+    z-index:699;
     cursor: pointer !important;
   }
 
