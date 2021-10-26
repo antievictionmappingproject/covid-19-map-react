@@ -13,9 +13,12 @@
   width: 25vw;
   // height: auto;
   //show on mobile
+
+
+
   @media (max-width: 640px) {
     display: block !important;
-    width: calc(max(30vw, 120px)) !important;
+    width: calc(max(30vw, 180px)) !important;
   }
 }
 
@@ -28,6 +31,11 @@ html
   div.leaflet-control-layers.leaflet-control-layers-expanded.leaflet-control {
   left: 10px !important;
   width: calc(min(230px, 45vw)) !important;
+  @media (max-width: 640px) {
+    display: block !important;
+    width: calc(max(30vw, 180px)) !important;
+    transform: translateY(-65px);
+  }
 }
 
 .leaflet-control-layers-list {
@@ -38,9 +46,19 @@ html
   margin-top: 0px;
 }
 
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 1000px) {
   .leaflet-control-layers {
     top: calc(60px + 20vw) !important;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .leaflet-control-layers {
+    top: calc(60px + 30vw) !important;
+  }
+  label {
+    font-size: 1.2vh !important;
+    text-transform: uppercase;
   }
 }
 

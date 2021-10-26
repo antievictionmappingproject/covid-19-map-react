@@ -40,8 +40,8 @@
 }
 
 #hamburgerImage {
-  width: 4vw;
-  height: 4vw;
+  width: 5vw;
+  height: 5vw;
   // margin-right: 100%;
   // margin-top: 35%;
   display: inline-block;
@@ -59,7 +59,6 @@
   outline: 2px solid red;
   display: flex;
   justify-content: space-around;
-
   align-self: center;
   flex-wrap: nowrap;
   font-size: 14px;
@@ -152,6 +151,8 @@
     text-align: center;
     margin: 0px;
     padding: 10px 0 10px 0;
+    // padding-left: 6%;
+    // padding-right: 6%;
     border-bottom: 8px solid #ff0000;
     border-left: 6px solid #ff0000;
     border-right: 2px solid #ff0000;
@@ -180,8 +181,10 @@
       text-decoration: none !important;
       transition: 0.5s !important;
     }
+
   }
 }
+
 
 #mapLinks:hover {
   transition: 0.5s;
@@ -267,20 +270,20 @@
   #mainHeader {
     font-size: 30px;
   }
-  #mapLinks {
-    > * {
-      font-size: 16px;
+
+  #mapLinks a{
+      font-size: 1.8vw !important;
     }
   }
-}
+
 
 @media screen and (max-width: 890px) {
-#navHeader {
-  background-color: pink !important;
-}
+  #navHeader {
+    border: none;
+  }
 
   #mainHeader {
-    font-size: 2.8vw;
+    font-size: 3.15vw;
     padding-left: 1%;
     border: none;
     text-align: left;
@@ -293,13 +296,15 @@
     > * {
       border-bottom: 4px solid #ff0000;
       border-left: 2px solid #ff0000;
-      border-right: 2px solid #ff0000;
+      border-right: 4px solid #ff0000;
       font-family: 'IBM Plex Mono', monospace;
       display: inline-block;
       color: #ff0000;
       background-color: white;
       letter-spacing: 0.2px;
       transition: 0.5s;
+      padding-left: 2%;
+      padding-right: 2%;
 
       &.active {
         border-left: 2px solid #ff0000;
@@ -321,13 +326,19 @@
     }
 
   #mapLinks a{
-      font-size: 2.1vw;
+      font-size: 2.7vw;
+      letter-spacing: 0.5px;
       font-family: 'IBM Plex Mono', monospace;
       line-height: 150% !important;
       display: block;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 0.5%;
+  }
+
+  br {
+    display: none;
   }
 
   #navHamburger {
@@ -351,8 +362,10 @@
   align-items: center;
   justify-content: space-between;
   width: 100vw;
-  border: 2px solid red;
+  border-top: 3px solid red;
   border-bottom: 4px solid red;
+  border-left: 2px solid red;
+  border-right: 4px solid red;
   background-color: white;
 }
 
@@ -530,6 +543,26 @@
     color: #c92a1d;
     border-bottom: 1px solid grey;
     background-color: #f1f1f1;
-
   }
+
+
+
+  @media screen and (max-width: 400px) {
+
+    #mainHeader {
+      font-size: 3.15vw;
+    }
+
+    #mapLinks a{
+        font-size: 2.6vw !important;
+        text-align: justify;
+        text-align-last: center;
+        text-justify: inter-character;
+        letter-spacing: 0.75px;
+        letter-spacing-last: 1px;
+        padding-left: 1%;
+        padding-right: 1%;
+      }
+    }
+
 }

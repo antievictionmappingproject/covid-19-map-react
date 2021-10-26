@@ -7,7 +7,8 @@ const HamburgerMenu = () => {
   return(
 
     <div id="HamburgerWrapper"
-         onMouseEnter={()=>setShow(true)}
+         // onMouseEnter={()=>setShow(true)}
+         onClick={()=>setShow(true)}
          onMouseLeave={()=>setShow(false)}
     >
 

@@ -59,6 +59,9 @@ export default props => {
           <p
             dangerouslySetInnerHTML={{ __html: t('modal.content.paragraph-6') }}
           ></p>
+          <p
+            dangerouslySetInnerHTML={{ __html: t('modal.content.paragraph-7') }}
+          ></p>
         </aside>
       </div>
     </div>
