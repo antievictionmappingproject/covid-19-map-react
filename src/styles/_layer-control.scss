@@ -13,6 +13,9 @@
   width: 25vw;
   // height: auto;
   //show on mobile
+
+
+
   @media (max-width: 640px) {
     display: block !important;
     width: calc(max(30vw, 180px)) !important;
@@ -43,9 +46,15 @@ html
   margin-top: 0px;
 }
 
+@media screen and (max-width: 1000px) {
+  .leaflet-control-layers {
+    top: calc(60px + 20vw) !important;
+  }
+}
+
 @media screen and (max-width: 860px) {
   .leaflet-control-layers {
-    top: calc(60px + 25vw) !important;
+    top: calc(60px + 30vw) !important;
   }
   label {
     font-size: 1.5vh !important;
