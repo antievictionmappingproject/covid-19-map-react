@@ -8,6 +8,7 @@ const HamburgerMenu = () => {
 
     <div id="HamburgerWrapper"
          onMouseEnter={()=>setShow(true)}
+         onClick={()=>setShow(true)}
          onMouseLeave={()=>setShow(false)}
     >
 

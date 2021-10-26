@@ -15,7 +15,7 @@
   //show on mobile
   @media (max-width: 640px) {
     display: block !important;
-    width: calc(max(30vw, 120px)) !important;
+    width: calc(max(30vw, 180px)) !important;
   }
 }
 
@@ -28,6 +28,11 @@ html
   div.leaflet-control-layers.leaflet-control-layers-expanded.leaflet-control {
   left: 10px !important;
   width: calc(min(230px, 45vw)) !important;
+  @media (max-width: 640px) {
+    display: block !important;
+    width: calc(max(30vw, 180px)) !important;
+    transform: translateY(-65px);
+  }
 }
 
 .leaflet-control-layers-list {
@@ -40,7 +45,11 @@ html
 
 @media screen and (max-width: 860px) {
   .leaflet-control-layers {
-    top: calc(60px + 20vw) !important;
+    top: calc(60px + 25vw) !important;
+  }
+  label {
+    font-size: 1.5vh !important;
+    text-transform: uppercase;
   }
 }
 
