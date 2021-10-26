@@ -548,6 +548,11 @@
 
 
   @media screen and (max-width: 400px) {
+
+    #mainHeader {
+      font-size: 3.15vw;
+    }
+
     #mapLinks a{
         font-size: 2.6vw !important;
         text-align: justify;
