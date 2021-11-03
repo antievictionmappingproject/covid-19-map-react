@@ -49,14 +49,14 @@ const NavMenu = props => {
           dispatch({ type: 'ui:resources:show' });
         }}
       >
-        Other Tenant Resources
+        More Tenant Resources
       </a>
 
       <a
         href="https://hope.xyz/tenantexperienceoralhistoryproject"
         style={itemStyle} class="storieslink"
       >
-        Other Tenant-Generated Stories
+        More Tenant-Generated Stories
       </a>
 </div>
 
