@@ -6,7 +6,7 @@
   z-index: 600;
 
   @media (max-width: 1000px) {
-    top: calc(-25px + 20vw) !important;
+    top: calc(-25px + 50vw) !important;
     left: 10px;
     right: 10px;
     bottom: 0;
@@ -14,7 +14,7 @@
   }
 
   @media (max-width: 860px) {
-    top: calc(-25px + 30vw) !important;
+    top: calc(-25px + 50vw) !important;
     left: 10px;
     right: 10px;
     bottom: 0;

@@ -15,7 +15,7 @@ header#aemp-titlebox {
   }
 
   @media (max-width: 860px) {
-    top: calc(60px + 30vw) !important;
+    top: calc(60px + 15vw) !important;
   }
 
   @media (max-width: 640px) {
@@ -29,7 +29,7 @@ header#aemp-titlebox {
 }
 
 .aemp-titlebox-closed {
-  width: 30vw !important;
+  width: 35vw !important;
   padding: 5px !important;
 }
 

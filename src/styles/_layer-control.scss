@@ -14,12 +14,47 @@
   // height: auto;
   //show on mobile
 
+  &.collapsed {
+    height: 48px;
+  }
 
 
   @media (max-width: 640px) {
     display: block !important;
     width: calc(max(30vw, 180px)) !important;
   }
+// }
+
+
+// .summary {
+//   font-size: 1.8rem;
+//   font-weight: bold;
+//   cursor: pointer;
+//   font-family: 'IBM Plex Mono', monospace;
+//   color: $font-color-black;
+//   outline: none;
+//   padding-left: 1.1em;
+//   margin: 4px 2px;
+//   position: relative;
+
+&::before {
+  content: '▼';
+  position: absolute;
+  left: 0em;
+  top: 0.54em;
+  display: inline-block;
+  color: $rent-strike-color;
+  font-size: 1em;
+  transform-origin: center;
+  transform: translateY(-50%);
+  // transition: transform 0.1s ease;
+}
+
+&.collapsed {
+  &::before {
+    transform: translateY(-44%) rotate(-90deg);
+  }
+}
 }
 
 html
@@ -48,13 +83,13 @@ html
 
 @media screen and (max-width: 1000px) {
   .leaflet-control-layers {
-    top: calc(60px + 20vw) !important;
+    top: calc(60px + 15vw) !important;
   }
 }
 
 @media screen and (max-width: 860px) {
   .leaflet-control-layers {
-    top: calc(60px + 30vw) !important;
+    top: calc(60px + 15vw) !important;
   }
   label {
     font-size: 1.2vh !important;
