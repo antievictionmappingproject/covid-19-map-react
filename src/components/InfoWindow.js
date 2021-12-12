@@ -28,6 +28,7 @@ export default props => {
     end,
     link,
     resource,
+    reviewed_date,
     // Action props
     action,
     actionStart,
@@ -37,9 +38,10 @@ export default props => {
     resources,
   } = infoWindowFeatureProps;
 
-  console.log(`link is`, link)
-  console.log(`resource is`, resource)
-  console.log(`infoWindowFeatureProps is`, infoWindowFeatureProps)
+  console.log(`link is`, link);
+  console.log(`reviewed data is`, reviewed_date);
+  console.log(`resource is`, resource);
+  console.log(`infoWindowFeatureProps is`, infoWindowFeatureProps);
 
   return (
     <div className="aemp-infowindow">
@@ -126,8 +128,7 @@ export default props => {
             </div>
           )}
 
-        {/* Policy Strength Removed*/}
-
+          {/* Policy Strength Removed*/}
 
           {endDateEarliest && (
             <div>
@@ -171,11 +172,8 @@ export default props => {
           {/*<strong>{t('infowindow.policy.eviction-status-label')}</strong>{' '}*/}
 
           {eviction_status && (
-            <div class = "eviction-status">
-              <p>
-
-                {eviction_status}
-              </p>
+            <div class="eviction-status">
+              <p>{eviction_status}</p>
             </div>
           )}
 
@@ -206,31 +204,30 @@ export default props => {
           )}
 
           {link && (
-            <div class = "links">
-                <a target="_blank" href={link} rel="noopener noreferrer">
-                  {t('infowindow.policy.info-link')}
-                </a>
+            <div class="links">
+              <a target="_blank" href={link} rel="noopener noreferrer">
+                {t('infowindow.policy.info-link')}
+              </a>
             </div>
           )}
 
           {resource && (
-            <div class = "links">
-                <a target="_blank" href={resource} rel="noopener noreferrer">
-                  {t('infowindow.policy.resource-link')}
-                </a>
+            <div class="links">
+              <a target="_blank" href={resource} rel="noopener noreferrer">
+                {t('infowindow.policy.resource-link')}
+              </a>
+            </div>
+          )}
+
+          {reviewed_date && (
+            <div class="last-update">
+              <p className="infowindow-timestamp">
+                Last updated: {reviewed_date}
+              </p>
             </div>
           )}
         </>
       )}
-
-
-
-      {/*TO DO: FIX DATE*/}
-      {/*TO DO: CHECK CARTO FOR DATE??*/}
-      <div class = "last-update">Last updated: April 20, 2021</div>
-
-
     </div>
-
   );
 };

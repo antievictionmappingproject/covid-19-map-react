@@ -12,7 +12,6 @@ import {
 import * as queries from '../../carto/queries';
 import { formatDate } from '../../utils/datetime';
 
-
 //styling helpers
 function highlightFeature(e) {
   const layer = e.target;
@@ -47,6 +46,7 @@ export const mapLayersConfig = {
         end_date_rent_relief,
         end_date_court,
         end_date_earliest,
+        reviewed_date,
         ...rest
       } = feature.properties;
       return {
@@ -61,6 +61,7 @@ export const mapLayersConfig = {
         endDateRentRelief: formatDate(end_date_rent_relief),
         endDateCourt: formatDate(end_date_court),
         endDateEarliest: formatDate(end_date_earliest),
+        reviewed_date: formatDate(reviewed_date),
         ...rest,
       };
     },
@@ -105,6 +106,7 @@ export const mapLayersConfig = {
         end_date_rent_relief,
         end_date_court,
         end_date_earliest,
+        reviewed_date,
         ...rest
       } = feature.properties;
       return {
@@ -117,6 +119,7 @@ export const mapLayersConfig = {
         endDateRentRelief: formatDate(end_date_rent_relief),
         endDateCourt: formatDate(end_date_court),
         endDateEarliest: formatDate(end_date_earliest),
+        reviewed_date: formatDate(reviewed_date),
         ...rest,
       };
     },
@@ -157,6 +160,7 @@ export const mapLayersConfig = {
         end_date_rent_relief,
         end_date_court,
         end_date_earliest,
+        reviewed_date,
         ...rest
       } = feature.properties;
       return {
@@ -168,6 +172,7 @@ export const mapLayersConfig = {
         endDateRentRelief: formatDate(end_date_rent_relief),
         endDateCourt: formatDate(end_date_court),
         endDateEarliest: formatDate(end_date_earliest),
+        reviewed_date: formatDate(reviewed_date),
         ...rest,
       };
     },
