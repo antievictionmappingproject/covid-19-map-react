@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import {
@@ -17,20 +17,23 @@ import { tenantProtectionsConfig as getMapConfig } from '../config/map';
 import SearchBar from './SearchBar';
 import { getAllCartoLayers } from '../carto/api';
 import { tenantProtectionsLayers } from '../config/map';
+import { isMobile } from '../config/constants';
 
 function LeafletMap({ mapConfig }) {
   const {
     tenantProtectionsLayers: layers,
     tenantProtectionsLoaded: loaded,
     searchPopup,
-  } = useSelector(
-    state => state.data
-  );
+  } = useSelector(state => state.data);
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
+  const [expanded, setExpanded] = useState(!isMobile());
+
   useEffect(() => {
-    if (!loaded) { dispatch({ type: 'ui:loading-indicator:show' }); }
+    if (!loaded) {
+      dispatch({ type: 'ui:loading-indicator:show' });
+    }
     (async () => {
       const tenantProtectionsCartoData = await getAllCartoLayers(
         tenantProtectionsLayers
@@ -40,8 +43,8 @@ function LeafletMap({ mapConfig }) {
         payload: tenantProtectionsCartoData,
       });
       dispatch({ type: 'ui:loading-indicator:hide' });
-    })()
-  }, []);
+    })();
+  }, [dispatch, loaded]);
 
   // Make sure layers have resolved before rendering map
   if (!layers || !layers.length || layers.some(layer => layer === undefined))
@@ -49,7 +52,84 @@ function LeafletMap({ mapConfig }) {
 
   return (
     <>
-      <LayersControl collapsed={false} position="topright">
+      <header
+        id="aemp-titlebox-controls"
+        className={expanded ? '' : 'collapsed aemp-titlebox-controls-closed'}
+      >
+        <div
+          className={`summary${expanded ? '' : ' collapsed'}`}
+          onClick={() => setExpanded(!expanded)}
+        >
+          <div>LAYER CONTROL</div>
+          {expanded && (
+            <div className={`${expanded ? 'visible' : 'hidden'}`}>
+              {' '}
+              <LayersControl collapsed={false}>
+                {layers.map(layer => {
+                  return (
+                    <LayersControl.Overlay
+                      key={layer.key}
+                      name={t(layer.layerConfig.nameI18n)}
+                      checked={mapConfig[layer.key] === true}
+                    >
+                      {layer.layerConfig.name === 'Housing Justice Actions' ? (
+                        <Pane
+                          name={layer.key}
+                          style={{ zIndex: 200 + layer.layerConfig.zIndex * 2 }}
+                        >
+                          <MarkerClusterGroup>
+                            <GeoJSON
+                              data={layer.data}
+                              style={layer.layerConfig.style}
+                              pointToLayer={layer.layerConfig.pointToLayer}
+                              onEachFeature={(feature, mapLayer) => {
+                                mapLayer.on('click', () => {
+                                  dispatch({
+                                    type: 'ui:info-window:show',
+                                    payload: layer.layerConfig.props(
+                                      mapLayer.feature
+                                    ),
+                                  });
+                                });
+                              }}
+                            ></GeoJSON>
+                          </MarkerClusterGroup>
+                        </Pane>
+                      ) : (
+                        <Pane
+                          name={layer.key}
+                          style={{ zIndex: 200 + layer.layerConfig.zIndex * 2 }}
+                        >
+                          <GeoJSON
+                            data={layer.data}
+                            style={layer.layerConfig.style}
+                            onEachFeature={(feature, mapLayer) => {
+                              mapLayer.on('click', () => {
+                                dispatch({
+                                  type: 'ui:info-window:show',
+                                  payload: layer.layerConfig.props(
+                                    mapLayer.feature
+                                  ),
+                                });
+                              });
+                              layer.layerConfig.onEachFeature(
+                                feature,
+                                mapLayer
+                              );
+                            }}
+                            pointToLayer={layer.layerConfig.pointToLayer}
+                          ></GeoJSON>
+                        </Pane>
+                      )}
+                    </LayersControl.Overlay>
+                  );
+                })}
+              </LayersControl>
+            </div>
+          )}
+        </div>
+      </header>
+      {/*    <LayersControl collapsed={true} position="topright">
         {layers.map(layer => {
           return (
             <LayersControl.Overlay
@@ -102,7 +182,8 @@ function LeafletMap({ mapConfig }) {
             </LayersControl.Overlay>
           );
         })}
-      </LayersControl>
+      </LayersControl> 
+      */}
       <ZoomControl position="bottomright" />
       <SearchBar />
       {/* Popup for search results */}
