@@ -60,6 +60,16 @@ html
   }
 }
 
+@media screen and (max-width: 400px) {
+  .leaflet-control-layers {
+    top: calc(60px + 30vw) !important;
+  }
+  label {
+    font-size: 1.2vh !important;
+    text-transform: uppercase;
+  }
+}
+
 .leaflet-left {
   left: 2.5% !important;
   margin-left: unset !important;
