@@ -14,8 +14,6 @@
   // height: auto;
   //show on mobile
 
-
-
   @media (max-width: 640px) {
     display: block !important;
     width: calc(max(30vw, 180px)) !important;
@@ -57,7 +55,7 @@ html
     top: calc(60px + 30vw) !important;
   }
   label {
-    font-size: 1.2vh !important;
+    font-size: 2.2vh !important;
     text-transform: uppercase;
   }
 }

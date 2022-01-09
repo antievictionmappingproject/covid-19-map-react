@@ -56,7 +56,7 @@ function LeafletMap({ mapConfig }) {
         payload: null,
       });
     };
-  }, []);
+  }, [dispatch, loaded]);
 
   useEffect(() => {
     if (!interviews.length) {
@@ -71,7 +71,7 @@ function LeafletMap({ mapConfig }) {
         payload: interview,
       });
     }
-  }, [interviews, location]);
+  }, [dispatch, interviews, location]);
 
   // Make sure layers have resolved before rendering map
   if (!layers || !layers.length || layers.some(layer => layer === undefined))
@@ -85,7 +85,7 @@ function LeafletMap({ mapConfig }) {
             <LayersControl.Overlay
               key={layer.key}
               name={t(layer.layerConfig.nameI18n)}
-              checked={layer.key === 'states' ? mapConfig[layer.key] === true : false}
+              checked={mapConfig[layer.key] === true}
             >
               {layer.layerConfig.name === 'Housing Justice Actions' ? (
                 <Pane
