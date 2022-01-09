@@ -1,15 +1,14 @@
 @keyframes growDown {
-0% {
-  transform: scaleY(0);
+  0% {
+    transform: scaleY(0);
+  }
+  // 80% {
+  //   transform: scaleY(1.1);
+  // }
+  100% {
+    transform: scaleY(1);
+  }
 }
-// 80% {
-//   transform: scaleY(1.1);
-// }
-100% {
-  transform: scaleY(1);
-}
-}
-
 
 #navigation {
   width: 100%;
@@ -47,8 +46,6 @@
   display: inline-block;
 }
 
-
-
 #NavMenu {
   position: sticky;
   top: 0;
@@ -73,7 +70,6 @@
   flex-grow: 1.5;
   text-align: center;
   border-right: 2px solid white;
-
 }
 
 #NavMenu .section2 {
@@ -92,18 +88,18 @@
 }
 
 #NavMenu a {
-      padding: 2px;
-      transition: 0.25s;
-      color: white;
-      cursor: pointer !important;
+  padding: 2px;
+  transition: 0.25s;
+  color: white;
+  cursor: pointer !important;
 }
 
 #NavMenu a:hover {
-    cursor: pointer !important;
-    text-decoration: none;
-    transition: 0.25s;
-    color: white;
-    background-color: $rent-strike-color;
+  cursor: pointer !important;
+  text-decoration: none;
+  transition: 0.25s;
+  color: white;
+  background-color: $rent-strike-color;
 }
 
 #navHeader {
@@ -181,10 +177,8 @@
       text-decoration: none !important;
       transition: 0.5s !important;
     }
-
   }
 }
-
 
 #mapLinks:hover {
   transition: 0.5s;
@@ -251,7 +245,7 @@
   cursor: pointer !important;
 }
 
-.dropdown:hover  >  .dropbtn{
+.dropdown:hover > .dropbtn {
   background-color: #c92a1d !important;
   color: white;
 }
@@ -271,11 +265,10 @@
     font-size: 30px;
   }
 
-  #mapLinks a{
-      font-size: 1.8vw !important;
-    }
+  #mapLinks a {
+    font-size: 1.8vw !important;
   }
-
+}
 
 @media screen and (max-width: 890px) {
   #navHeader {
@@ -323,18 +316,18 @@
         transition: 0.5s !important;
       }
     }
-    }
+  }
 
-  #mapLinks a{
-      font-size: 2.7vw;
-      letter-spacing: 0.5px;
-      font-family: 'IBM Plex Mono', monospace;
-      line-height: 150% !important;
-      display: block;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.5%;
+  #mapLinks a {
+    font-size: 2.7vw;
+    letter-spacing: 0.5px;
+    font-family: 'IBM Plex Mono', monospace;
+    line-height: 150% !important;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5%;
   }
 
   br {
@@ -356,18 +349,18 @@
     posititon: sticky;
   }
 
-.ham-nav-container{
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-between;
-  width: 100vw;
-  border-top: 3px solid red;
-  border-bottom: 4px solid red;
-  border-left: 2px solid red;
-  border-right: 4px solid red;
-  background-color: white;
-}
+  .ham-nav-container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    border-top: 3px solid red;
+    border-bottom: 4px solid red;
+    border-left: 2px solid red;
+    border-right: 4px solid red;
+    background-color: white;
+  }
 
   #HamburgerWrapper {
     display: inline-block;
@@ -375,7 +368,7 @@
     margin-right: 1%;
     margin-top: 1%;
     border: none !important;
-    z-index:699;
+    z-index: 699;
     cursor: pointer !important;
   }
 
@@ -394,7 +387,6 @@
     transform-origin: top center;
     cursor: pointer !important;
   }
-
 
   #HamburgerMenu a {
     font-size: 2.5vw;
@@ -431,15 +423,15 @@
     border-left: 5em solid #ff0000;
   }
 
-  #HamburgerMenu .aboutlink:hover{
+  #HamburgerMenu .aboutlink:hover {
     border-left: 7.5em solid #ff0000;
   }
 
-  #HamburgerMenu .resourceslink:hover{
+  #HamburgerMenu .resourceslink:hover {
     border-left: 9em solid #ff0000;
   }
 
-  #HamburgerMenu .storieslink:hover{
+  #HamburgerMenu .storieslink:hover {
     border-left: 11.5em solid #ff0000;
   }
 
@@ -462,9 +454,7 @@
     padding-right: 2%;
     background-color: white;
     transition: 0.25s;
-
   }
-
 
   .dropbtn:hover {
     border-left: 13em solid #ff0000 !important;
@@ -475,7 +465,6 @@
     cursor: pointer !important;
   }
 
-
   .dropdown {
     position: relative;
     top: 0;
@@ -485,8 +474,6 @@
     width: 100vw !important;
     cursor: pointer !important;
   }
-
-
 
   /* Dropdown Content (Hidden by Default) */
   .dropdown-content {
@@ -499,7 +486,7 @@
     transform-origin: top center;
   }
 
-  .dropdown-content a{
+  .dropdown-content a {
     width: 100vw !important;
     color: $rent-strike-color !important;
     border-left: 4px solid red !important;
@@ -512,23 +499,21 @@
   }
 
   .dropdown-content a:hover {
-    background-color: red!important;
+    background-color: red !important;
     color: white !important;
-
   }
 
-  .dropdown:hover  >  .dropbtn{
+  .dropdown:hover > .dropbtn {
     border-left: 13em solid #ff0000;
     background-color: #f1f1f1 !important;
     border-bottom: 4px solid #ff0000;
     color: black;
   }
 
-
-.sub-nav {
-  position: relative;
-  cursor: pointer;
-}
+  .sub-nav {
+    position: relative;
+    cursor: pointer;
+  }
 
   .list {
     position: absolute;
@@ -545,24 +530,20 @@
     background-color: #f1f1f1;
   }
 
-
-
   @media screen and (max-width: 400px) {
-
     #mainHeader {
-      font-size: 3.15vw;
+      font-size: 2.75vw;
     }
 
-    #mapLinks a{
-        font-size: 2.6vw !important;
-        text-align: justify;
-        text-align-last: center;
-        text-justify: inter-character;
-        letter-spacing: 0.75px;
-        letter-spacing-last: 1px;
-        padding-left: 1%;
-        padding-right: 1%;
-      }
+    #mapLinks a {
+      font-size: 2.6vw !important;
+      text-align: justify;
+      text-align-last: center;
+      text-justify: inter-character;
+      letter-spacing: 0.75px;
+      letter-spacing-last: 1px;
+      padding-left: 1%;
+      padding-right: 1%;
     }
-
+  }
 }
