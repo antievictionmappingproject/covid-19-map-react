@@ -14,7 +14,7 @@ export default () => {
   const [searchResults, setSearchResults] = useState([]);
   const [searchTerm, setSearchTerm] = useState([]);
   // External state
-  const { layers } = useSelector(state => state.data);
+  const layers = useSelector(state => state.data.tenantProtectionsLayers);
   const dispatch = useDispatch();
   const map = useMap();
   const { t } = useTranslation();
@@ -26,6 +26,7 @@ export default () => {
   }, 600);
 
   const handleItemSelected = ({ name, point }) => {
+    console.log(layers);
     const citiesLayer = layers.find(({ key }) => key === 'cities');
     const countiesLayer = layers.find(({ key }) => key === 'counties');
     const statesLayer = layers.find(({ key }) => key === 'states');
