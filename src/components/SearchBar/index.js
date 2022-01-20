@@ -14,7 +14,7 @@ export default () => {
   const [searchResults, setSearchResults] = useState([]);
   const [searchTerm, setSearchTerm] = useState([]);
   // External state
-  const { layers } = useSelector(state => state.data);
+  const layers = useSelector(state => state.data.tenantProtectionsLayers);
   const dispatch = useDispatch();
   const map = useMap();
   const { t } = useTranslation();
