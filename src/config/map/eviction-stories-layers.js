@@ -54,7 +54,7 @@ function highlightFeature(e) {
 export const mapLayersConfig = {
   cities: {
     name: 'City Protections',
-    nameI18n: 'layer-select.cities',
+    nameI18n: 'layer-select-protections-stories.cities',
     type: 'point',
     query: `SELECT
       municipality, state, country, range, the_geom, eviction_status, link, resource
@@ -110,7 +110,7 @@ export const mapLayersConfig = {
   },
   counties: {
     name: 'County Protections',
-    nameI18n: 'layer-select.counties',
+    nameI18n: 'layer-select-protections-stories.counties',
     type: 'polygon',
     // type: 'imageOverlay',
     query: `
@@ -169,7 +169,7 @@ export const mapLayersConfig = {
   },
   states: {
     name: 'State/Province Protections',
-    nameI18n: 'layer-select.states',
+    nameI18n: 'layer-select-protections-stories.states',
     type: 'polygon',
     query: `
     SELECT

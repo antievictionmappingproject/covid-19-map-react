@@ -33,7 +33,7 @@ function highlightFeature(e) {
 export const mapLayersConfig = {
   cities: {
     name: 'City Protections',
-    nameI18n: 'layer-select.cities',
+    nameI18n: 'layer-select-protections-protections.cities',
     type: 'point',
     query: queries.citiesCartoQuery,
     zIndex: 4,
@@ -92,7 +92,7 @@ export const mapLayersConfig = {
   },
   counties: {
     name: 'County Protections',
-    nameI18n: 'layer-select.counties',
+    nameI18n: 'layer-select-protections-protections.counties',
     type: 'polygon',
     query: queries.countiesCartoQuery,
     zIndex: 3,
@@ -144,7 +144,7 @@ export const mapLayersConfig = {
   },
   states: {
     name: 'State/Province Protections',
-    nameI18n: 'layer-select.states',
+    nameI18n: 'layer-select-protections-protections.states',
     type: 'polygon',
     query: queries.statesCartoQuery,
     zIndex: 2,
@@ -194,7 +194,7 @@ export const mapLayersConfig = {
   },
   nations: {
     name: 'National Protections',
-    nameI18n: 'layer-select.nations',
+    nameI18n: 'layer-select-protections-protections.nations',
     type: 'polygon',
     query: queries.countriesCartoQuery,
     zIndex: 1,
@@ -233,7 +233,7 @@ export const mapLayersConfig = {
   },
   rentStrikes: {
     name: 'Housing Justice Actions',
-    nameI18n: 'layer-select.housingJusticeAction',
+    nameI18n: 'layer-select-protections-protections.housingJusticeAction',
     type: 'marker-cluster',
     query: queries.housingActionsCartoQuery,
     zIndex: 5,

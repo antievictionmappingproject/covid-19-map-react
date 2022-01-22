@@ -64,7 +64,7 @@
       "resources-label": "Informationen und Unterstützung:"
     }
   },
-  "layer-select": {
+  "layer-select-protections": {
     "cities": "kommunale Maßnahmen",
     "counties": "Maßnahmen des Landkreises",
     "states": "Maßnahmen auf Landesebene",

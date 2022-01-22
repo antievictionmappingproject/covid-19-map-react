@@ -74,10 +74,15 @@
       "resources-label": "Resources:"
     }
   },
-  "layer-select": {
+  "layer-select-protections-stories": {
     "cities": "City Evictions",
     "counties": "County Evictions",
-    "states": "State/Province Evictions",
+    "states": "State/Province Evictions"
+  },
+  "layer-select-protections-protections": {
+    "cities": "City Protections",
+    "counties": "County Protections",
+    "states": "State/Province Protections",
     "nations": "National Protections",
     "housingJusticeAction": "Housing Justice Actions"
   },

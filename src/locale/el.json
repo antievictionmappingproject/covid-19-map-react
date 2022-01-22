@@ -64,7 +64,7 @@
       "resources-label": "Πηγες"
     }
   },
-  "layer-select": {
+  "layer-select-protections": {
     "cities": "Προστασία σε επίπεδο Δήμου",
     "counties": "Προστασία σε επίπεδο χώρας",
     "states": "Προστασία σε επίπεδο περιφέρειας",

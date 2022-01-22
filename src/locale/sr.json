@@ -64,7 +64,7 @@
       "resources-label": "Resursi:"
     }
   },
-  "layer-select": {
+  "layer-select-protections": {
     "cities": "Mere zaštite na nivou grada",
     "counties": "Mere zaštite na nivou županije",
     "states": "Mere zašitet na nivou regiona",

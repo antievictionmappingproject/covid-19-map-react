@@ -64,7 +64,7 @@
       "resources-label": "Risorse di supporto:"
     }
   },
-  "layer-select": {
+  "layer-select-protections": {
     "cities": "Misure comunali",
     "counties": "Misure provinciali",
     "states": "Misure regionali",
