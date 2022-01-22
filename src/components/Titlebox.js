@@ -51,7 +51,7 @@ export default props => {
                 </svg>
               </div>
               <p className="legendlabel">
-                {t('layer-select.housingJusticeAction')}
+                {t('layer-select-protections-protections.housingJusticeAction')}
               </p>
             </div>
 
@@ -72,7 +72,7 @@ export default props => {
                   {t('titlebox.legislation-form-intl')}
                 </a>
               </p>
-              
+
               {/* <!-- Resource --> */}
               <p>
                 <a
@@ -83,7 +83,7 @@ export default props => {
                   {t('titlebox.resources.right-to-the-city')}
                 </a>
               </p>
-            
+
               {/* <!-- Submission --> */}
               <p>
                 <a

@@ -64,7 +64,7 @@
       "resources-label": "Források:"
     }
   },
-  "layer-select": {
+  "layer-select-protections": {
     "cities": "Városi szintű védelmi szabályozás",
     "counties": "Megyei szintű védelmi szabályozás",
     "states": "Állami/ tartományi szintű védelmi szabályozás",

@@ -64,7 +64,7 @@
       "resources-label": "Resurse:"
     }
   },
-  "layer-select": {
+  "layer-select-protections": {
     "cities": "Protecții la nivel de oraș",
     "counties": "Protecții la nivel de județ",
     "states": "Protecții la nivel de stat/ provincie",

@@ -64,7 +64,7 @@
       "resources-label": "Zdroje:"
     }
   },
-  "layer-select": {
+  "layer-select-protections": {
     "cities": "Městské ochranné opatření",
     "counties": "Okresní ochranné opatření",
     "states": "Krajské ochranné opatření",

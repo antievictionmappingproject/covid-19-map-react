@@ -64,7 +64,7 @@
       "resources-label": "Recursos de apoio:"
     }
   },
-  "layer-select": {
+  "layer-select-protections": {
     "cities": "Proteção municipal",
     "counties": "Proteção regional",
     "states": "Proteção estadual",

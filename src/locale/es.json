@@ -64,7 +64,7 @@
       "resources-label": "Recursos:"
     }
   },
-  "layer-select": {
+  "layer-select-protections": {
     "cities": "Protecciones municipales",
     "counties": "Protecciones del condado",
     "states": "Protecciones del estado",
