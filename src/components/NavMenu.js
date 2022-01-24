@@ -38,7 +38,9 @@ const NavMenu = props => {
 
 </div>
 
+{/* hope.xyz link removed */}
 
+{/*
 <div class="section2">
 
 
@@ -59,6 +61,7 @@ const NavMenu = props => {
         More Tenant-Generated Stories
       </a>
 </div>
+*/}
 
 <div class="section3">
        <div class="dropdown" style={itemStyle}>
