@@ -68,7 +68,7 @@ export const mapLayersConfig = {
         municipality,
         state,
         country,
-        reviwed_date,
+        reviewed_date,
         ...rest
       } = feature.properties;
       return {
@@ -79,7 +79,7 @@ export const mapLayersConfig = {
         jurisdictionType: 'City',
         jurisdictionTypeI18n: 'city',
         popupName: municipality,
-        // reviewed_date: formatDate(reviewed_date),
+        reviewed_date: formatDate(reviewed_date),
         ...rest,
       };
     },
