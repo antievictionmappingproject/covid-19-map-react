@@ -47,6 +47,7 @@ export const mapLayersConfig = {
         end_date_rent_relief,
         end_date_court,
         end_date_earliest,
+				reviewed_date,
         ...rest
       } = feature.properties;
       return {
@@ -61,6 +62,7 @@ export const mapLayersConfig = {
         endDateRentRelief: formatDate(end_date_rent_relief),
         endDateCourt: formatDate(end_date_court),
         endDateEarliest: formatDate(end_date_earliest),
+        reviewed_date: formatDate(reviewed_date),
         ...rest,
       };
     },
@@ -105,6 +107,7 @@ export const mapLayersConfig = {
         end_date_rent_relief,
         end_date_court,
         end_date_earliest,
+				reviewed_date,
         ...rest
       } = feature.properties;
       return {
@@ -117,6 +120,7 @@ export const mapLayersConfig = {
         endDateRentRelief: formatDate(end_date_rent_relief),
         endDateCourt: formatDate(end_date_court),
         endDateEarliest: formatDate(end_date_earliest),
+        reviewed_date: reviewed_date,
         ...rest,
       };
     },
@@ -144,7 +148,7 @@ export const mapLayersConfig = {
   },
   states: {
     name: 'State/Province Protections',
-    nameI18n: 'layer-select-protections-protections.states',
+    nameI18n: 'layer-select-protections-protections.cities',
     type: 'polygon',
     query: queries.statesCartoQuery,
     zIndex: 2,
@@ -157,6 +161,7 @@ export const mapLayersConfig = {
         end_date_rent_relief,
         end_date_court,
         end_date_earliest,
+				reviewed_date,
         ...rest
       } = feature.properties;
       return {
@@ -168,6 +173,7 @@ export const mapLayersConfig = {
         endDateRentRelief: formatDate(end_date_rent_relief),
         endDateCourt: formatDate(end_date_court),
         endDateEarliest: formatDate(end_date_earliest),
+        reviewed_date: formatDate(reviewed_date),
         ...rest,
       };
     },
@@ -200,10 +206,11 @@ export const mapLayersConfig = {
     zIndex: 1,
     overlayOrder: 3,
     props(feature) {
-      const { name_en, end_date_earliest, ...rest } = feature.properties;
+      const { name_en, end_date_earliest, reviewed_date, ...rest } = feature.properties;
       return {
         endDateEarliest: formatDate(end_date_earliest),
-        jurisdictionName: name_en,
+        reviewed_date: formatDate(reviewed_date),
+				jurisdictionName: name_en,
         jurisdictionType: 'Country',
         jurisdictionTypeI18n: 'nation',
         popupName: name_en,

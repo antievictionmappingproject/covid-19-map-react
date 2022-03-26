@@ -57,7 +57,7 @@ export const mapLayersConfig = {
     nameI18n: 'layer-select-protections-stories.cities',
     type: 'point',
     query: `SELECT
-      municipality, state, country, range, the_geom, eviction_status, link, resource
+      municipality, state, country, range, the_geom, eviction_status, link, resource, reviewed_date
     FROM ${cartoSheetSyncTable}
     WHERE the_geom is not null and admin_scale = 'City' and eviction_status is not null and eviction_status <> ''
     ORDER BY range`,
@@ -68,6 +68,7 @@ export const mapLayersConfig = {
         municipality,
         state,
         country,
+        reviwed_date,
         ...rest
       } = feature.properties;
       return {
@@ -78,6 +79,7 @@ export const mapLayersConfig = {
         jurisdictionType: 'City',
         jurisdictionTypeI18n: 'city',
         popupName: municipality,
+        // reviewed_date: formatDate(reviewed_date),
         ...rest,
       };
     },
@@ -115,7 +117,7 @@ export const mapLayersConfig = {
     // type: 'imageOverlay',
     query: `
     SELECT
-      c.the_geom, c.county, c.state, m.eviction_status, m.link, m.resource
+      c.the_geom, c.county, c.state, m.eviction_status, m.link, m.resource, m.reviewed_date
     FROM ${cartoCountiesTable} c
     JOIN ${cartoSheetSyncTable} m
     ON ST_Intersects(c.the_geom, m.the_geom)
@@ -130,6 +132,7 @@ export const mapLayersConfig = {
       const {
         state,
         county,
+        reviewed_date,
         ...rest
       } = feature.properties;
       return {
@@ -138,6 +141,7 @@ export const mapLayersConfig = {
         jurisdictionType: 'County',
         jurisdictionTypeI18n: 'county',
         popupName: `${county}${state ? `, ${state}` : ''}`,
+        reviewed_date: formatDate(reviewed_date),
         ...rest,
       };
     },
@@ -174,7 +178,7 @@ export const mapLayersConfig = {
     query: `
     SELECT
       s.the_geom, s.name, s.admin, s.sr_adm0_a3,
-      m.eviction_status, m.link, m.resource
+      m.eviction_status, m.link, m.resource, m.reviewed_date
     FROM ${cartoStatesTable} s
     INNER JOIN ${cartoSheetSyncTable} m
       ON s.name = m.state
@@ -188,6 +192,7 @@ export const mapLayersConfig = {
       const {
         name,
         admin,
+        reviewed_date,
         ...rest
       } = feature.properties;
       return {
@@ -195,6 +200,7 @@ export const mapLayersConfig = {
         jurisdictionType: 'State/Province',
         jurisdictionTypeI18n: 'state-province',
         popupName: name,
+        reviewed_date: formatDate(reviewed_date),
         ...rest,
       };
     },
