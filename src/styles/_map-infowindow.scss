@@ -177,10 +177,6 @@
   transition: 1.5s;
 }
 
-.last-update{
-  line-height: 3em;
-  color: $link-visited;
-}
 
 .eviction-status{
   background-color: whitesmoke;
@@ -196,4 +192,17 @@ p{
   text-align: justify;
   letter-spacing: 0.25px;
   line-height: 1.4em;
+}
+
+.last-update {
+  margin-top: 2.2em !important;
+}
+
+.last-update p{
+  // line-height: 1em !important;
+  font-size: 0.9em !important;
+  color: $link-visited;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: 'IBM Plex Mono', monospace;
 }

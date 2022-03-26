@@ -28,6 +28,8 @@ export default props => {
     end,
     link,
     resource,
+		reviewed_date,
+    // reviewed_date,
     // Action props
     action,
     actionStart,
@@ -38,7 +40,9 @@ export default props => {
   } = infoWindowFeatureProps;
 
   console.log(`link is`, link)
-  console.log(`resource is`, resource)
+  // console.log(`reviewed data is`, reviewed_date)
+  console.log(`reviewed data is`, reviewed_date)
+	console.log(`resource is`, resource)
   console.log(`infoWindowFeatureProps is`, infoWindowFeatureProps)
 
   return (
@@ -220,16 +224,14 @@ export default props => {
                 </a>
             </div>
           )}
-        </>
-      )}
 
-
-
-      {/*TO DO: FIX DATE*/}
-      {/*TO DO: CHECK CARTO FOR DATE??*/}
-      <div class = "last-update">Last updated: April 20, 2021</div>
-
-
+				  {reviewed_date && (
+          <div class = "last-update">
+             <p><b>Last updated:</b> {reviewed_date}</p>
+          </div>
+          )}
+		  </>
+    )}
     </div>
 
   );
