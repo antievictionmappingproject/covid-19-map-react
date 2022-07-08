@@ -148,7 +148,7 @@ export const mapLayersConfig = {
   },
   states: {
     name: 'State/Province Protections',
-    nameI18n: 'layer-select-protections-protections.cities',
+    nameI18n: 'layer-select-protections-protections.states',
     type: 'polygon',
     query: queries.statesCartoQuery,
     zIndex: 2,
