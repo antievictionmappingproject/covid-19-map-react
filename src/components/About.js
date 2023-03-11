@@ -82,8 +82,7 @@ export default props => {
             Map and data by: Azad Amir Ghassemi, Ben Benjamin, Bora Erden, Brett
             Halperin, Chris Henrick, Chris Sinco, Erin McElroy, Isnardo
             Gandarilla, Jim Stewart, Lisa Jakubczyk, Luis Felipe R. Murillo,
-            River H, Sachi Arakawa, Samantha Hanae Noh, Tim Hitchins, and Tina
-            Zarbaliev.
+            River H, Sachi Arakawa, Samantha Hanae Noh, and Tim Hitchins.
           </p>
           <p>
             Translation support: Angie, Daniel Mitchen, İrem Yılmaz, Jihed
