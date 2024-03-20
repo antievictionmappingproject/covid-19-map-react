@@ -78,78 +78,75 @@ function LeafletMap({ mapConfig }) {
         return < > < />;
 
     return ( <
-            >
-            <
-            LayersControl collapsed = { false }
-            position = "topleft" > {
-                layers.map(layer => {
-                    return ( <
-                        LayersControl.Overlay key = { layer.key }
-                        name = { t(layer.layerConfig.nameI18n) }
-                        checked = { mapConfig[layer.key] === true } > {
-                            layer.layerConfig.name === 'Housing Justice Actions' ? ( <
-                                Pane name = { layer.key }
-                                style = {
-                                    { zIndex: 200 + layer.layerConfig.zIndex * 2 }
-                                } >
-                                <
-                                MarkerClusterGroup >
-                                <
-                                GeoJSON data = { layer.data }
-                                style = { layer.layerConfig.style }
-                                pointToLayer = { layer.layerConfig.pointToLayer }
-                                onEachFeature = {
-                                    (feature, mapLayer) => {
-                                        mapLayer.on('click', () => {
-                                            dispatch({
-                                                type: 'ui:eviction-stories-interview:selected',
-                                                payload: null,
-                                            });
-                                            dispatch({
-                                                type: 'ui:info-window:show',
-                                                payload: layer.layerConfig.props(mapLayer.feature),
-                                            });
+        >
+        <
+        LayersControl collapsed = { false }
+        position = "topleft" > {
+            layers.map(layer => {
+                return ( <
+                    LayersControl.Overlay key = { layer.key }
+                    name = { t(layer.layerConfig.nameI18n) }
+                    checked = { mapConfig[layer.key] === true } >
+                    {
+                        layer.layerConfig.name === 'Housing Justice Actions' ? ( <
+                            Pane name = { layer.key }
+                            style = {
+                                { zIndex: 200 + layer.layerConfig.zIndex * 2 } } >
+                            <
+                            MarkerClusterGroup >
+                            <
+                            GeoJSON data = { layer.data }
+                            style = { layer.layerConfig.style }
+                            pointToLayer = { layer.layerConfig.pointToLayer }
+                            onEachFeature = {
+                                (feature, mapLayer) => {
+                                    mapLayer.on('click', () => {
+                                        dispatch({
+                                            type: 'ui:eviction-stories-interview:selected',
+                                            payload: null,
                                         });
-                                    }
-                                } >
-                                <
-                                /GeoJSON> < /
-                                MarkerClusterGroup > <
-                                /Pane>
-                            ) : ( <
-                                Pane name = { layer.key }
-                                style = {
-                                    { zIndex: 200 + layer.layerConfig.zIndex * 2 }
-                                } >
-                                <
-                                GeoJSON data = { layer.data }
-                                style = { layer.layerConfig.style }
-                                onEachFeature = {
-                                    (feature, mapLayer) => {
-                                        mapLayer.on('click', () => {
-                                            dispatch({
-                                                type: 'ui:eviction-stories-interview:selected',
-                                                payload: null,
-                                            });
-                                            dispatch({
-                                                type: 'ui:info-window:show',
-                                                payload: layer.layerConfig.props(mapLayer.feature),
-                                            });
+                                        dispatch({
+                                            type: 'ui:info-window:show',
+                                            payload: layer.layerConfig.props(mapLayer.feature),
                                         });
-                                        layer.layerConfig.onEachFeature(feature, mapLayer);
-                                    }
+                                    });
                                 }
-                                pointToLayer = { layer.layerConfig.pointToLayer } >
-                                <
-                                /GeoJSON> < /
-                                Pane >
-                            )
-                        } <
-                        /LayersControl.Overlay>
-                    );
-                })
-            } <
-            /LayersControl> {
+                            } >
+                            < /GeoJSON> <
+                            /MarkerClusterGroup> <
+                            /Pane>
+                        ) : ( <
+                            Pane name = { layer.key }
+                            style = {
+                                { zIndex: 200 + layer.layerConfig.zIndex * 2 } } >
+                            <
+                            GeoJSON data = { layer.data }
+                            style = { layer.layerConfig.style }
+                            onEachFeature = {
+                                (feature, mapLayer) => {
+                                    mapLayer.on('click', () => {
+                                        dispatch({
+                                            type: 'ui:eviction-stories-interview:selected',
+                                            payload: null,
+                                        });
+                                        dispatch({
+                                            type: 'ui:info-window:show',
+                                            payload: layer.layerConfig.props(mapLayer.feature),
+                                        });
+                                    });
+                                    layer.layerConfig.onEachFeature(feature, mapLayer);
+                                }
+                            }
+                            pointToLayer = { layer.layerConfig.pointToLayer } >
+                            < /GeoJSON> <
+                            /Pane>
+                        )
+                    } <
+                    /LayersControl.Overlay>
+                );
+            })
+        } <
+        /LayersControl> {
             interviews.map(interview => {
                 return ( <
                     Marker key = { interview.id }
@@ -174,8 +171,7 @@ function LeafletMap({ mapConfig }) {
                             },
                         }
                     } >
-                    <
-                    /Marker>
+                    < /Marker>
                 );
             })
         } <
@@ -187,14 +183,14 @@ function LeafletMap({ mapConfig }) {
         <
         SearchBar / >
         <
-        /Route> < /
-        Switch > { /* Popup for search results */ } {
+        /Route> <
+        /Switch> { /* Popup for search results */ } {
             searchPopup && ( <
                 Popup position = { searchPopup.coords } > { searchPopup.content } < /Popup>
             )
         } <
         />
-);
+    );
 }
 
 export default () => {
@@ -204,19 +200,19 @@ export default () => {
     return ( <
         MapContainer zoomControl = { false }
         center = {
-            [mapConfig.lat, mapConfig.lng]
-        }
+            [mapConfig.lat, mapConfig.lng] }
         maxBounds = { mapConfig.bounds }
         minZoom = { 3 }
         tap = { false } // https://github.com/domoritz/leaflet-locatecontrol/issues/280
         zoom = { mapConfig.z }
-        id = "map_eviction_stories" > { /* <MapEvents /> */ } <
+        id = "map_eviction_stories" >
+        { /* <MapEvents /> */ } <
         TileLayer attribution = "<a href='https://www.antievictionmap.com/' target='_blank'>Anti-Eviction Mapping Project</a>"
         url = "https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png" /
         >
         <
         LeafletMap mapConfig = { mapConfig }
-        /> < /
-        MapContainer >
+        /> <
+        /MapContainer>
     );
 };
