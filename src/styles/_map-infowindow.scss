@@ -17,6 +17,7 @@
   background: white;
   font-family: "Noto Sans", sans-serif;
   border: 1px solid $rent-strike-color;
+  
 }
 
 @media (max-width: 900px) {
@@ -44,6 +45,7 @@
   font-size: 1.4rem;
   overflow-wrap: break-word;
   overflow-x: hidden;
+  border-bottom: 1px solid black;
 }
 
 .aemp-infowindow p.infowindow-title {
