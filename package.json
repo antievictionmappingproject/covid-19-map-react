@@ -15,8 +15,6 @@
     "leaflet": "^1.7.1",
     "leaflet.markercluster": "^1.4.1",
     "lodash.debounce": "^4.0.8",
-    "node-fetch": "^2.6.1",
-    "node-sass": "^4.14.1",
     "p5": "^1.3.1",
     "query-string": "^6.13.8",
     "react": "^16.13.1",
@@ -28,10 +26,11 @@
     "react-rangeslider": "^2.2.0",
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
+    "react-scripts": "5.0.1",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "sass": "^1.77.6",
     "whatwg-fetch": "^3.4.1"
   },
   "scripts": {
@@ -49,6 +48,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "netlify-cli": "^4.3.0"
   }
 }

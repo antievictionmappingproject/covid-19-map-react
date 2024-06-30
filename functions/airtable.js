@@ -1,5 +1,4 @@
 // WIP :|
-const fetch = require("node-fetch");
 
 exports.handler = function (event, context, callback) {
 	const AIRTABLE_API_KEY = process.env.AIRTABLE_API_KEY;
