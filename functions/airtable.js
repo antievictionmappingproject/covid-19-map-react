@@ -1,11 +1,13 @@
 // WIP :|
 
 exports.handler = function (event, context, callback) {
-    const AIRTABLE_API_KEY = process.env.AIRTABLE_API_KEY;
+    // Airtable has transitioned from API keys to access tokens, 
+    // see here: https://airtable.com/developers/web/api/authentication
+    const AIRTABLE_ACCESS_TOKEN = process.env.AIRTABLE_ACCESS_TOKEN;
     const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID;
     const Airtable = require("airtable");
     Airtable.configure({
-        apiKey: AIRTABLE_API_KEY,
+        apiKey: AIRTABLE_ACCESS_TOKEN,
         endpointUrl: "https://api.airtable.com",
     });
     const base = Airtable.base(AIRTABLE_BASE_ID);
