@@ -19,16 +19,16 @@ const NavMenu = props => {
   return (
     <div id={props.hamburger ? 'HamburgerMenu' : 'NavMenu'} style={itemStyle}>
 
-<div class="section1">
-    <a href="https://antievictionmap.com/" style={itemStyle} class="aemplink">
+<div className="section1">
+    <a href="https://antievictionmap.com/" style={itemStyle} className="aemplink">
       AEMP
     </a>
 
-    <a href="https://covid19.antievictionmap.com/" style={itemStyle} class="mapslink">
+    <a href="https://covid19.antievictionmap.com/" style={itemStyle} className="mapslink">
       Covid-19 Maps
     </a>
 
-    <a style={itemStyle} class="aboutlink"
+    <a style={itemStyle} className="aboutlink"
       onClick={() => {
         dispatch({ type: 'ui:about:show' });
       }}
@@ -41,12 +41,12 @@ const NavMenu = props => {
 {/* hope.xyz link removed */}
 
 {/*
-<div class="section2">
+<div className="section2">
 
 
 
 
-      <a style={itemStyle} class="resourceslink"
+      <a style={itemStyle} className="resourceslink"
         onClick={() => {
           dispatch({ type: 'ui:resources:show' });
         }}
@@ -56,19 +56,19 @@ const NavMenu = props => {
 
       <a
         href="https://hope.xyz/tenantexperienceoralhistoryproject"
-        style={itemStyle} class="storieslink"
+        style={itemStyle} className="storieslink"
       >
         More Tenant-Generated Stories
       </a>
 </div>
 */}
 
-<div class="section3">
-       <div class="dropdown" style={itemStyle}>
+<div className="section3">
+       <div className="dropdown" style={itemStyle}>
 
-        <button class="dropbtn">Add Your Data to Our Maps ▼ </button>
+        <button className="dropbtn">Add Your Data to Our Maps ▼ </button>
 
-        <div class="dropdown-content">
+        <div className="dropdown-content">
         <a href="https://airtable.com/shrRqqyDtUYdaQwt5">
           Legislation Information Update Form (English)
         </a>

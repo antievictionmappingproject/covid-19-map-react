@@ -39,8 +39,8 @@ export default (state = initialState, action) => {
 };
 
 export async function fetchAirtableData(dispatch, getState) {
-  const response = await fetch(`/.netlify/functions/airtable`);
-  const data = await response.json();
-  const records = data.records;
-  dispatch({ type: 'data:eviction-stories:interviews', payload: records });
+//  const response = await fetch(`/.netlify/functions/airtable`);
+//  const data = await response.json();
+//  const records = data.records;
+//  dispatch({ type: 'data:eviction-stories:interviews', payload: records });
 }

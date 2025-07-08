@@ -49,6 +49,7 @@
   ],
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "ajv": "^8.17.1",
     "netlify-cli": "^4.3.0"
   }
 }
