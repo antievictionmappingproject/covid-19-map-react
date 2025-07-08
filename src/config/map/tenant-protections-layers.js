@@ -238,8 +238,6 @@ export const mapLayersConfig = {
       layer.bindPopup(feature.properties.name_en);
     },
   },
-// ERROR: This is resulting in an Invalid hook call. Not sure what hook is being called by this
-/*
   rentStrikes: {
     name: 'Housing Justice Actions',
     nameI18n: 'layer-select-protections-protections.housingJusticeAction',
@@ -259,7 +257,7 @@ export const mapLayersConfig = {
         action: true,
       };
     },
-  }, */
+  },
 };
 
 window.mapLayersConfig = mapLayersConfig;

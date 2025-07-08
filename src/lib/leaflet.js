@@ -7,7 +7,8 @@ const L = Object.assign(
 );
 
 export const rentStrikeIcon = new L.Icon({
-  iconUrl: './assets/mapIcons/rent-strike.svg',
+  iconUrl: require('../assets/mapIcons/rent-strike.svg').default,
+  shadowUrl: require('../assets/mapIcons/rent-strike.svg').default,
   iconSize: [40, 40],
   iconAnchor: [20, 20],
   className: 'icon-rent-strike',
