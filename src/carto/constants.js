@@ -1,6 +1,6 @@
 // CARTO Credentials: Workspace > Developers > Credentials
 export const cartoApiBaseUrl = 'https://gcp-us-east1.api.carto.com';
-//export const cartoApiAccessToken = 'CHANGEME';
+export const cartoApiAccessToken = process.env.REACT_APP_CARTO_API;
 
 // CARTO API V3 variables : https://api-docs.carto.com/
 export const cartoConnection = 'carto_dw';
@@ -31,4 +31,3 @@ export const cartoHousingActionsTableV2 = 'public.emergency_housing_actions';
 export const cartoCountiesTableV2 = 'public.us_county_boundaries';
 export const cartoStatesTableV2 = 'public.states_and_provinces_global';
 export const cartoNationsTableV2 = 'public.countries';
-
