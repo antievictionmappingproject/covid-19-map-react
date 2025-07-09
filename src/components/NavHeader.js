@@ -8,7 +8,7 @@ const NavHeader = () => {
   return (
     <div id="navHeader">
 
-    <div class="ham-nav-container">
+    <div className="ham-nav-container">
 
       <div id="mainHeader">
         <a href="https://covid19.antievictionmap.com/">

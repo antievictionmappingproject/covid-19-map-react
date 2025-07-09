@@ -57,10 +57,10 @@ export const mapLayersConfig = {
     nameI18n: 'layer-select-protections-stories.cities',
     type: 'point',
     query: `SELECT
-      municipality, state, country, range, the_geom, eviction_status, link, resource, reviewed_date
-    FROM ${cartoSheetSyncTable}
-    WHERE the_geom is not null and admin_scale = 'City' and eviction_status is not null and eviction_status <> ''
-    ORDER BY range`,
+      municipality, state, country, c.range, geom, eviction_status, link, resource, reviewed_date
+    FROM ${cartoSheetSyncTable} c
+    WHERE geom is not null and admin_scale = 'City' and eviction_status is not null and eviction_status <> ''
+    ORDER BY c.range`,
     zIndex: 4,
     overlayOrder: 0,
     props(feature) {
@@ -117,11 +117,11 @@ export const mapLayersConfig = {
     // type: 'imageOverlay',
     query: `
     SELECT
-      c.the_geom, c.county, c.state, m.eviction_status, m.link, m.resource, m.reviewed_date
+      c.geom, c.name, c.state_name, m.eviction_status, m.link, m.resource, m.reviewed_date
     FROM ${cartoCountiesTable} c
     JOIN ${cartoSheetSyncTable} m
-    ON ST_Intersects(c.the_geom, m.the_geom)
-    WHERE m.the_geom IS NOT NULL
+    ON ST_Intersects(c.geom, m.geom)
+    WHERE m.geom IS NOT NULL
       AND m.admin_scale = 'County'
       OR m.admin_scale = 'City and County'
       AND m.eviction_status is not null AND m.eviction_status <> ''
@@ -177,7 +177,7 @@ export const mapLayersConfig = {
     type: 'polygon',
     query: `
     SELECT
-      s.the_geom, s.name, s.admin, s.sr_adm0_a3,
+      s.geom, s.name, s.admin, s.sr_adm0_a3,
       m.eviction_status, m.link, m.resource, m.reviewed_date
     FROM ${cartoStatesTable} s
     INNER JOIN ${cartoSheetSyncTable} m
